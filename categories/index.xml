@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Categories on 아이단은 어디갔을까</title>
+    <link>https://aidanbae.github.io/categories/</link>
+    <description>Recent content in Categories on 아이단은 어디갔을까</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Sat, 30 Nov 2019 19:01:14 +0900</lastBuildDate>
+    
+	<atom:link href="https://aidanbae.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>DevOps</title>
+      <link>https://aidanbae.github.io/categories/devops/</link>
+      <pubDate>Sat, 30 Nov 2019 19:01:14 +0900</pubDate>
+      
+      <guid>https://aidanbae.github.io/categories/devops/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Server</title>
+      <link>https://aidanbae.github.io/categories/server/</link>
+      <pubDate>Sat, 30 Nov 2019 19:01:14 +0900</pubDate>
+      
+      <guid>https://aidanbae.github.io/categories/server/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Book</title>
+      <link>https://aidanbae.github.io/categories/book/</link>
+      <pubDate>Thu, 10 Oct 2019 13:01:14 +0900</pubDate>
+      
+      <guid>https://aidanbae.github.io/categories/book/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>SmallTalk</title>
+      <link>https://aidanbae.github.io/categories/smalltalk/</link>
+      <pubDate>Sun, 29 Sep 2019 13:01:14 +0100</pubDate>
+      
+      <guid>https://aidanbae.github.io/categories/smalltalk/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Wisdom</title>
+      <link>https://aidanbae.github.io/categories/wisdom/</link>
+      <pubDate>Mon, 23 Sep 2019 13:01:14 +0100</pubDate>
+      
+      <guid>https://aidanbae.github.io/categories/wisdom/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Code</title>
+      <link>https://aidanbae.github.io/categories/code/</link>
+      <pubDate>Wed, 14 Aug 2019 19:01:14 +0900</pubDate>
+      
+      <guid>https://aidanbae.github.io/categories/code/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Linux</title>
+      <link>https://aidanbae.github.io/categories/linux/</link>
+      <pubDate>Tue, 07 May 2019 09:31:27 +0900</pubDate>
+      
+      <guid>https://aidanbae.github.io/categories/linux/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Docker</title>
+      <link>https://aidanbae.github.io/categories/docker/</link>
+      <pubDate>Tue, 30 Apr 2019 12:31:27 +0100</pubDate>
+      
+      <guid>https://aidanbae.github.io/categories/docker/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Golang</title>
+      <link>https://aidanbae.github.io/categories/golang/</link>
+      <pubDate>Mon, 15 Apr 2019 09:31:27 +0900</pubDate>
+      
+      <guid>https://aidanbae.github.io/categories/golang/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Algorithm</title>
+      <link>https://aidanbae.github.io/categories/algorithm/</link>
+      <pubDate>Tue, 09 Apr 2019 09:31:27 +0100</pubDate>
+      
+      <guid>https://aidanbae.github.io/categories/algorithm/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Movie</title>
+      <link>https://aidanbae.github.io/categories/movie/</link>
+      <pubDate>Wed, 23 Jan 2019 13:01:14 +0100</pubDate>
+      
+      <guid>https://aidanbae.github.io/categories/movie/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Shell</title>
+      <link>https://aidanbae.github.io/categories/shell/</link>
+      <pubDate>Mon, 19 Nov 2018 09:31:27 +0900</pubDate>
+      
+      <guid>https://aidanbae.github.io/categories/shell/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Javascript</title>
+      <link>https://aidanbae.github.io/categories/javascript/</link>
+      <pubDate>Thu, 20 Sep 2018 09:31:27 +0100</pubDate>
+      
+      <guid>https://aidanbae.github.io/categories/javascript/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Music</title>
+      <link>https://aidanbae.github.io/categories/music/</link>
+      <pubDate>Tue, 11 Sep 2018 16:23:40 +0100</pubDate>
+      
+      <guid>https://aidanbae.github.io/categories/music/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Blog</title>
+      <link>https://aidanbae.github.io/categories/blog/</link>
+      <pubDate>Mon, 23 Apr 2018 09:31:27 +0100</pubDate>
+      
+      <guid>https://aidanbae.github.io/categories/blog/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Hugo</title>
+      <link>https://aidanbae.github.io/categories/hugo/</link>
+      <pubDate>Mon, 23 Apr 2018 09:31:27 +0100</pubDate>
+      
+      <guid>https://aidanbae.github.io/categories/hugo/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Python</title>
+      <link>https://aidanbae.github.io/categories/python/</link>
+      <pubDate>Wed, 24 Jan 2018 09:31:27 +0100</pubDate>
+      
+      <guid>https://aidanbae.github.io/categories/python/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

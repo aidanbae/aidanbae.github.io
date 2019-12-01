@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>server on 아이단은 어디갔을까</title>
+    <link>https://aidanbae.github.io/tags/server/</link>
+    <description>Recent content in server on 아이단은 어디갔을까</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Mon, 30 Jul 2018 09:31:27 +0100</lastBuildDate>
+    
+	<atom:link href="https://aidanbae.github.io/tags/server/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Golang과 websocket을 활용한 서버 프로그래밍 (장애 없는 서버 런칭 도전기)</title>
+      <link>https://aidanbae.github.io/gallery/golang-meetup/</link>
+      <pubDate>Mon, 30 Jul 2018 09:31:27 +0100</pubDate>
+      
+      <guid>https://aidanbae.github.io/gallery/golang-meetup/</guid>
+      <description>Intro 2018, 7월 25일 제1회 golang meetup이 열렸다.
+그간 golang korea 커뮤니티에서 눈팅으로 이득을 취한 나&amp;hellip; 장애없이 런칭한 Golang 스낵게임서버를 개발할 때에도 수많은 golang 블로그에서 도움을 받았기때문에 이번 meetup에서 그분들을 만나뵙고 이야기를 나눌 수 있으면 좋겠다 생각해서 참가를 신청했다. 발표자가 없어 존폐위기까지 거론하셔서 발표를 하는 방향으로 결정
+작은 토즈방에서 20명정도 모여서 소근소근 토론하는 자리가 될줄 알았는데 160명이나!!
+개발인생 첫 발표인데 많은 사람이 와주셔서 감사한 마음으로 준비했다.
+GopherCon Talks Golang Korea에서 주최하는 밋업, 세미나 및 컨퍼런스의 발표 자료들을 모아두는 저장소이다.</description>
+    </item>
+    
+  </channel>
+</rss>

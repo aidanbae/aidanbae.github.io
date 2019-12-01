@@ -1,0 +1,471 @@
+<!doctype html>
+<html class="no-js" lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="author" content="Aidan.bae">
+        <meta name="description" content="아이단의 블로그">
+        <meta name="keywords" content="golang,aidan,kakaogames,kakao,gocd,gocd-agent,infra,javascript,python">
+        <meta name="generator" content="Hugo 0.60.0" />
+        <title> Golang Design Pattern - Pipeline | 아이단은 어디갔을까</title>
+        <meta name="description" content="Golang Design Pattern - Pipeline - 아이단의 블로그">
+        <meta itemprop="name" content="Golang Design Pattern - Pipeline">
+        <meta itemprop="description" content="Golang Design Pattern - Pipeline - 아이단의 블로그">
+        <meta property="og:title" content="Golang Design Pattern - Pipeline">
+        <meta property="og:description" content="Golang Design Pattern - Pipeline - 아이단의 블로그">
+        <meta property="og:image" content="https://www.gravatar.com/avatar/d41d8cd98f00b204e9800998ecf8427e?size=200">
+        <meta property="og:url" content="https://aidanbae.github.io/code/golang-design/pipeline/">
+        <meta property="og:site_name" content="아이단은 어디갔을까">
+        <meta property="og:type" content="article">
+        <link rel="icon" type="image/png" href="https://aidanbae.github.io/favicon-32x32.png" sizes="32x32">
+        <link rel="icon" type="image/png" href="https://aidanbae.github.io/favicon-16x16.png" sizes="16x16">
+
+	
+	  <link href="https://aidanbae.github.io/code/golang-design/pipeline/" rel="alternate" type="application/rss+xml" title="아이단은 어디갔을까" />
+	  <link href="https://aidanbae.github.io/code/golang-design/pipeline/" rel="feed" type="application/rss+xml" title="아이단은 어디갔을까" />
+	
+
+        
+        
+        
+        
+        <link rel="stylesheet" href="https://aidanbae.github.io/sass/combined.min.e5af985042854cb05807bed3365180e76bf9b8e0f41a2c81f098583599a6fb05.css">
+
+        
+
+        
+            
+        
+    </head>
+    <body class="bilberry-hugo-theme">
+        
+<nav>
+
+    <div class="container">
+        <ul class="topnav">
+            
+                
+                    <li><a href="https://aidanbae.github.io/page/about-aidan/">Aidan</a></li>
+                
+            
+        </ul>
+
+        
+    </div>
+</nav>
+
+
+        <header>
+    <div class="container">
+        <div class="logo">
+            <a href="https://aidanbae.github.io/" class="logo">
+                
+                    <img src="https://aidanbae.github.io/do.png" alt="">
+                
+
+                <span class="overlay"><i class="fa fa-home"></i></span>
+            </a>
+        </div>
+        <div class="titles">
+            <h3 class="title"><a href="https://aidanbae.github.io/">아이단은 어디갔을까</a></h3>
+            
+                <span class="subtitle">순간 순간이 소중한 목적지</span>
+            
+        </div>
+
+    
+
+        
+        <div class="toggler">
+        
+            <i class="fa fa-bars" aria-hidden="true"></i>
+        </div>
+    </div>
+</header>
+
+
+        <div class="main container">
+            
+     
+    <div class="article-wrapper u-cf single">
+        
+            <a class="bubble" href="https://aidanbae.github.io/code/golang-design/pipeline/">
+    <i class="fa fa-fw fa-code"></i>
+</a>
+
+<article class="default article">
+    
+    <div class="featured-image">
+        <a href="https://aidanbae.github.io/code/golang-design/pipeline/">
+            
+                <img src="https://aidanbae.github.io/code/golang-design/pipeline/featuredImage_hu3f0644b3f4d2d48a456860248386ca92_16464_700x350_fill_q95_box_smart1.jpg" alt="">
+            
+        </a>
+    </div>
+
+
+    <div class="content">
+    <h3><a href="https://aidanbae.github.io/code/golang-design/pipeline/">Golang Design Pattern - Pipeline</a></h3>
+    <div class="meta">
+        
+            
+                <span class="date moment">2018-08-12</span>
+            
+        
+
+        
+
+        
+            <span class="categories">
+                
+                    <a href="https://aidanbae.github.io/categories/code">Code</a>
+                
+                    <a href="https://aidanbae.github.io/categories/golang">Golang</a>
+                
+            </span>
+        
+
+        
+            <span class="author"><a href="https://aidanbae.github.io/author/aidan.bae">Aidan.bae</a></span>
+        
+    </div>
+
+    
+        <p>저번 시간에 채널 중심의 생각전환으로 하나의 작업 파이프를 만드는 방법을 배웠습니다.<br>
+이번엔 여러가지 작업 파이프들을 이어서 하나의 작업 파이프라인을 구축해봅시다.<br>
+혹시 이전 채널 중심 프로그래밍이라는 포스트를 놓치셨다면 보고오시길 추천드립니다.</p>
+<h4 id="why">Why</h4>
+<p>작업 파이프라인을 구축해서 고루틴과 채널 활용을 극대화합니다.</p>
+<h2 id="sccodegolangdesignpipelinescreenshotpng"><img src="https://aidanbae.github.io/code/golang-design/pipeline/screenshot.png" alt="sc"></h2>
+<h4 id="what">What</h4>
+<p>어떤 작업 파이프라인을 구성해볼까요?<br>
+이해하기 쉬운 설명을 위해 쉬운 작업들 위주로 예제를 구성해보았습니다.</p>
+<blockquote>
+<ul>
+<li>0에서 99까지 랜덤한 수를 특정 횟수만큼 만들어내는 task</li>
+</ul>
+</blockquote>
+<ul>
+<li>해당 랜덤한 수를 출력하는 task</li>
+<li>숫자들을 제곱하는 task</li>
+<li>마지막으로 그 제곱된 수들을 모두 더하는 task</li>
+</ul>
+<p>총 4개의 작업이 있습니다. 1번부터 3번까지 파이프라인을 구축해보겠습니다.
+4번 작업은 메인 프로세스에서 진행할 것이어서 파이프라인을 굳이 만들지 않았습니다.</p>
+<hr>
+<h4 id="make-pipe-function">Make Pipe Function</h4>
+<p>해야될 작업들을 분명하게 쪼갰으니 이제 코딩을 시작해야겠죠.
+우선 0에서 99까지 랜덤한 수를 특정 횐수만큼 만들어내는 파이프 함수를 구축해봅시다:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-golang" data-lang="golang"><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">factoryRand</span>(<span style="color:#a6e22e">count</span> <span style="color:#66d9ef">int</span>) (<span style="color:#a6e22e">out</span> <span style="color:#66d9ef">chan</span> <span style="color:#66d9ef">int</span>) {
+	<span style="color:#a6e22e">out</span> = make(<span style="color:#66d9ef">chan</span> <span style="color:#66d9ef">int</span>)
+	<span style="color:#66d9ef">go</span> <span style="color:#66d9ef">func</span>() {
+		<span style="color:#66d9ef">for</span> <span style="color:#a6e22e">i</span> <span style="color:#f92672">:=</span> <span style="color:#ae81ff">0</span>; <span style="color:#a6e22e">i</span> &lt; <span style="color:#a6e22e">count</span>; <span style="color:#a6e22e">i</span> <span style="color:#f92672">++</span> {
+			<span style="color:#a6e22e">out</span> <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">rand</span>.<span style="color:#a6e22e">Intn</span>(<span style="color:#ae81ff">100</span>)
+		}
+		close(<span style="color:#a6e22e">out</span>)
+	}()
+	<span style="color:#66d9ef">return</span> <span style="color:#a6e22e">out</span>
+}
+</code></pre></div><ul>
+<li>인자로 특정 횟수값을 받고 결과로 int형 채널을 반환합니다.</li>
+<li>rand는 내장 라이브러리인 <a href="https://golang.org/pkg/math/rand/">math/rand</a>를 사용했습니다.</li>
+<li>rand.Intn(n)은 <strong>0 &lt;= n &lt; 100</strong> 사이의 interger형 난수를 반환합니다.</li>
+</ul>
+<p>이제 해당 수를 출력하는 파이프함수를 만들어보죠:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-golang" data-lang="golang"><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">printNumber</span>(<span style="color:#a6e22e">in</span> <span style="color:#f92672">&lt;-</span><span style="color:#66d9ef">chan</span> <span style="color:#66d9ef">int</span>) <span style="color:#f92672">&lt;-</span><span style="color:#66d9ef">chan</span> <span style="color:#66d9ef">int</span> {
+	<span style="color:#a6e22e">out</span> <span style="color:#f92672">:=</span> make(<span style="color:#66d9ef">chan</span> <span style="color:#66d9ef">int</span>)
+	<span style="color:#66d9ef">go</span> <span style="color:#66d9ef">func</span>() {
+		<span style="color:#66d9ef">for</span> <span style="color:#a6e22e">n</span> <span style="color:#f92672">:=</span> <span style="color:#66d9ef">range</span> <span style="color:#a6e22e">in</span> {
+			<span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#e6db74">&#34;print: &#34;</span>, <span style="color:#a6e22e">n</span>)
+			<span style="color:#a6e22e">out</span> <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">n</span>
+		}
+		close(<span style="color:#a6e22e">out</span>)
+	}()
+	<span style="color:#66d9ef">return</span> <span style="color:#a6e22e">out</span>
+}
+</code></pre></div><ul>
+<li><code>&lt;-chan</code>은 받기 전용 채널을 의미합니다.(일종의 제약을 걸어두는 역할입니다.) 만약 해당 채널에 값을 보내는 행위를 한다면 컴파일 에러가 발생합니다.</li>
+<li>인자값으로 받은 채널을 range문을 통해 뽑아내면서 받은 값들을 <code>fmt.Println</code>로 찍어냅니다.</li>
+</ul>
+<p>제곱하는 함수입니다:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-golang" data-lang="golang"><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">squareNumber</span>(<span style="color:#a6e22e">in</span> <span style="color:#f92672">&lt;-</span><span style="color:#66d9ef">chan</span> <span style="color:#66d9ef">int</span>) <span style="color:#f92672">&lt;-</span><span style="color:#66d9ef">chan</span> <span style="color:#66d9ef">int</span> {
+	<span style="color:#a6e22e">out</span> <span style="color:#f92672">:=</span> make(<span style="color:#66d9ef">chan</span> <span style="color:#66d9ef">int</span>)
+	<span style="color:#66d9ef">go</span> <span style="color:#66d9ef">func</span>() {
+		<span style="color:#66d9ef">for</span> <span style="color:#a6e22e">n</span> <span style="color:#f92672">:=</span> <span style="color:#66d9ef">range</span> <span style="color:#a6e22e">in</span> {
+			<span style="color:#a6e22e">out</span> <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">n</span> <span style="color:#f92672">*</span> <span style="color:#a6e22e">n</span>
+		}
+		close(<span style="color:#a6e22e">out</span>)
+	}()
+	<span style="color:#66d9ef">return</span> <span style="color:#a6e22e">out</span>
+}
+</code></pre></div><ul>
+<li>제곱된 결과값을 out 결과채널로 전송하고 자신의 역할을 마칩니다.</li>
+</ul>
+<p>최종적으로 메인 프로세스에서 해당 값들을 더합니다.
+메인 프로세스에서는 성능 측정까지 하기위해 작업시간을 구하는 로직도 추가했습니다.
+파이프 함수들에서 나오는 채널들을 이어봅니다.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-golang" data-lang="golang"><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">main</span>() {
+	<span style="color:#75715e">// 작업시작시간 기록
+</span><span style="color:#75715e"></span>	<span style="color:#a6e22e">start</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">time</span>.<span style="color:#a6e22e">Now</span>()
+
+	<span style="color:#a6e22e">c0</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">factoryRand</span>(<span style="color:#ae81ff">100000</span>)
+	<span style="color:#a6e22e">c1</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">printNumber</span>(<span style="color:#a6e22e">c0</span>)
+	<span style="color:#a6e22e">c2</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">squareNumber</span>(<span style="color:#a6e22e">c1</span>)
+
+	<span style="color:#75715e">// 최종적으로 더하는 작업을 메인 프로세스에서 진행합니다
+</span><span style="color:#75715e"></span>	<span style="color:#a6e22e">sum</span> <span style="color:#f92672">:=</span> <span style="color:#ae81ff">0</span>
+	<span style="color:#66d9ef">for</span> <span style="color:#a6e22e">n</span> <span style="color:#f92672">:=</span> <span style="color:#66d9ef">range</span> <span style="color:#a6e22e">c2</span> {
+		<span style="color:#a6e22e">sum</span> <span style="color:#f92672">+=</span> <span style="color:#a6e22e">n</span>
+	}
+	<span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Printf</span>(<span style="color:#e6db74">&#34;Total Sum of Squares: %d\n&#34;</span>, <span style="color:#a6e22e">sum</span>)
+
+	<span style="color:#75715e">// 작업 종료 후 시간기록
+</span><span style="color:#75715e"></span>	<span style="color:#a6e22e">elapsed</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">time</span>.<span style="color:#a6e22e">Since</span>(<span style="color:#a6e22e">start</span>)
+	<span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#e6db74">&#34;작업소요시간: &#34;</span>, <span style="color:#a6e22e">elapsed</span>)
+}
+</code></pre></div><ul>
+<li>factoryRand의 인자값으로 10만을 줍니다. factoryRand는 10만 개의 랜덤 숫자를 만들어냅니다.</li>
+<li>factoryRand에서 추출된 out채널 c0을 printNumber에 인자로 전달합니다.</li>
+<li>printNumber에서 추출된 out채널 c1을 squareNumber에 인자로 전달합니다.</li>
+<li>최종적으로 전달된 c2라는 채널에서 데이터를 뽑아내 더하는 작업을 진행합니다.</li>
+</ul>
+<p>결과:</p>
+<p><img src="https://aidanbae.github.io/code/golang-design/pipeline/screenshot2.png" alt="result"></p>
+<p>10만개의 랜덤한 숫자 생성, 프린트, 제곱, 더하기 이 4가지 작업을 하는데 223ms!
+좋다. 제곱해서 모두 더한값은 3억이 조금 넘게 나왔네요.</p>
+<p>이제 마지막으로 리팩토링해보겠습니다.<br>
+모든 함수들이 채널을 결과값으로 반환하기 때문에!
+요렇게 할당없이 바로바로 전달할 수 있습니다:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-golang" data-lang="golang"><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">main</span>() {
+	<span style="color:#75715e">// 작업시작시간 기록
+</span><span style="color:#75715e"></span>	<span style="color:#a6e22e">start</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">time</span>.<span style="color:#a6e22e">Now</span>()
+
+	<span style="color:#a6e22e">sum</span> <span style="color:#f92672">:=</span> <span style="color:#ae81ff">0</span>
+	<span style="color:#66d9ef">for</span> <span style="color:#a6e22e">n</span> <span style="color:#f92672">:=</span> <span style="color:#66d9ef">range</span> <span style="color:#a6e22e">squareNumber</span>(<span style="color:#a6e22e">printNumber</span>(<span style="color:#a6e22e">factoryRand</span>(<span style="color:#ae81ff">100000</span>))) {
+		<span style="color:#a6e22e">sum</span> <span style="color:#f92672">+=</span> <span style="color:#a6e22e">n</span>
+	}
+	<span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Printf</span>(<span style="color:#e6db74">&#34;Total Sum of Squares: %d\n&#34;</span>, <span style="color:#a6e22e">sum</span>)
+
+	<span style="color:#75715e">// 작업 종료 후 시간기록
+</span><span style="color:#75715e"></span>	<span style="color:#a6e22e">elapsed</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">time</span>.<span style="color:#a6e22e">Since</span>(<span style="color:#a6e22e">start</span>)
+	<span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#e6db74">&#34;작업소요시간: &#34;</span>, <span style="color:#a6e22e">elapsed</span>)
+}
+</code></pre></div><hr>
+<h4 id="summary">Summary</h4>
+<p>만들고 싶은게 있어요?</p>
+<pre><code>우선 작업(Task)를 나누세요.  
+goroutine에게 작업을 시키고 결과를 채널로 공유하세요  
+</code></pre>
+<h4 id="postscript">PostScript</h4>
+<p>따라오시느라 수고하셨습니다.<br>
+나름 이해하기 쉽게 설명한다고 구성했는데 어떻게 느껴졌을지 모르겠네요.<br>
+다음 시간에는 이 파이프라인에 fan-in fan-out패턴을 적용해보겠습니다.</p>
+
+    
+</div>
+
+    
+<div class="footer">
+
+
+    
+        <div class="tags">
+            <i class="fa fa-tags"></i>
+            <div class="links">
+                
+                    <a href="https://aidanbae.github.io/tags/golang">golang</a>
+                
+                    <a href="https://aidanbae.github.io/tags/design-pattern">design pattern</a>
+                
+            </div>
+        </div>
+    
+
+    
+</div>
+
+</article>
+
+        
+    </div>
+
+    
+        <div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "aidanbae" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+    
+
+     
+
+        </div>
+
+        
+<footer>
+    <div class="container">
+
+        
+        <div class="recent-posts">
+            <strong>Latest posts</strong>
+                <ul>
+                
+                    <li>
+                        <a href="https://aidanbae.github.io/code/devops/k8s/istio-mixer-debug/">istio debug를 위한 controlZ 활용</a>
+                    </li>
+                
+                    <li>
+                        <a href="https://aidanbae.github.io/article/book/time/">시간은 흐르지 않는다.</a>
+                    </li>
+                
+                    <li>
+                        <a href="https://aidanbae.github.io/article/gori/">생각의 선순환고리</a>
+                    </li>
+                
+                    <li>
+                        <a href="https://aidanbae.github.io/video/shining/">밀고 나가면 어느순간 반드시 빛이 난다.</a>
+                    </li>
+                
+                    <li>
+                        <a href="https://aidanbae.github.io/quote/donki/">꿈</a>
+                    </li>
+                
+                    <li>
+                        <a href="https://aidanbae.github.io/article/book/siliteamman/">실리콘밸리의 팀장들 - 지독한 솔직함</a>
+                    </li>
+                
+                </ul>
+        </div>
+        
+
+        
+        <div class="categories">
+            <a href="https://aidanbae.github.io/categories/"><strong>Categories</strong></a>
+                <ul>
+                
+                    <li>
+                        <a href="https://aidanbae.github.io/categories/code">Code (19)</a>
+                    </li>
+                
+                    <li>
+                        <a href="https://aidanbae.github.io/categories/golang">Golang (16)</a>
+                    </li>
+                
+                    <li>
+                        <a href="https://aidanbae.github.io/categories/wisdom">Wisdom (13)</a>
+                    </li>
+                
+                    <li>
+                        <a href="https://aidanbae.github.io/categories/book">Book (12)</a>
+                    </li>
+                
+                    <li>
+                        <a href="https://aidanbae.github.io/categories/smalltalk">Smalltalk (12)</a>
+                    </li>
+                
+                    <li>
+                        <a href="https://aidanbae.github.io/categories/server">Server (11)</a>
+                    </li>
+                
+                    <li>
+                        <a href="https://aidanbae.github.io/categories/devops">Devops (10)</a>
+                    </li>
+                
+            </ul>
+        </div>
+        
+
+        <div class="right">
+            
+            <div class="external-profiles">
+                <strong>Social media</strong>
+
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                    <a href="https://github.com/aidanbae" target="_blank"><i class="fa fa-github"></i></a>
+                
+                
+            </div>
+            
+
+            
+        </div>
+    </div>
+</footer>
+
+
+<div class="credits">
+    <div class="container">
+        <div class="copyright">
+            <a href="https://github.com/Lednerb" target="_blank">
+                &copy;
+                
+                    2017
+                
+                by Lednerb
+            </a>
+	    
+        </div>
+        <div class="author">
+            <a href="https://github.com/Lednerb/bilberry-hugo-theme" target="_blank">Bilberry Hugo Theme</a>
+        </div>
+    </div>
+</div>
+
+
+        
+
+        
+
+        
+        
+        <script type="text/javascript" src="https://aidanbae.github.io/js/externalDependencies.39c47e10e241eae2947b3fe21809c572.js" integrity="md5-OcR&#43;EOJB6uKUez/iGAnFcg=="></script>
+
+        
+        
+        <script type="text/javascript" src="https://aidanbae.github.io/js/theme.ff50ae6dc1bfc220b23bf69dbb41b54e.js" integrity="md5-/1CubcG/wiCyO/adu0G1Tg=="></script>
+
+        <script>
+            $(".moment").each(function() {
+                $(this).text(
+                    moment( $(this).text() )
+                        .locale( "en" )
+                        .format('LL')
+                );
+            });
+
+            $(".footnote-return sup").html("");
+        </script>
+
+        
+            
+        
+
+        
+
+
+    </body>
+</html>

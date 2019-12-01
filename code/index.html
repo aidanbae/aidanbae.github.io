@@ -1,0 +1,886 @@
+<!doctype html>
+<html class="no-js" lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="author" content="Aidan.bae">
+        <meta name="description" content="아이단의 블로그">
+        <meta name="keywords" content="golang,aidan,kakaogames,kakao,gocd,gocd-agent,infra,javascript,python">
+        <meta name="generator" content="Hugo 0.60.0" />
+        <title> Codes | 아이단은 어디갔을까</title>
+        <meta name="description" content="Codes - 아이단의 블로그">
+        <meta itemprop="name" content="Codes">
+        <meta itemprop="description" content="Codes - 아이단의 블로그">
+        <meta property="og:title" content="Codes">
+        <meta property="og:description" content="Codes - 아이단의 블로그">
+        <meta property="og:image" content="https://www.gravatar.com/avatar/d41d8cd98f00b204e9800998ecf8427e?size=200">
+        <meta property="og:url" content="https://aidanbae.github.io/code/">
+        <meta property="og:site_name" content="아이단은 어디갔을까"><meta property="og:type" content="website">
+        <link rel="icon" type="image/png" href="https://aidanbae.github.io/favicon-32x32.png" sizes="32x32">
+        <link rel="icon" type="image/png" href="https://aidanbae.github.io/favicon-16x16.png" sizes="16x16">
+
+	
+	  <link href="https://aidanbae.github.io/code/" rel="alternate" type="application/rss+xml" title="아이단은 어디갔을까" />
+	  <link href="https://aidanbae.github.io/code/" rel="feed" type="application/rss+xml" title="아이단은 어디갔을까" />
+	
+
+        
+        
+        
+        
+        <link rel="stylesheet" href="https://aidanbae.github.io/sass/combined.min.e5af985042854cb05807bed3365180e76bf9b8e0f41a2c81f098583599a6fb05.css">
+
+        
+
+        
+            
+        
+    </head>
+    <body class="bilberry-hugo-theme">
+        
+<nav>
+
+    <div class="container">
+        <ul class="topnav">
+            
+                
+                    <li><a href="https://aidanbae.github.io/page/about-aidan/">Aidan</a></li>
+                
+            
+        </ul>
+
+        
+    </div>
+</nav>
+
+
+        <header>
+    <div class="container">
+        <div class="logo">
+            <a href="https://aidanbae.github.io/" class="logo">
+                
+                    <img src="https://aidanbae.github.io/do.png" alt="">
+                
+
+                <span class="overlay"><i class="fa fa-home"></i></span>
+            </a>
+        </div>
+        <div class="titles">
+            <h3 class="title"><a href="https://aidanbae.github.io/">아이단은 어디갔을까</a></h3>
+            
+                <span class="subtitle">순간 순간이 소중한 목적지</span>
+            
+        </div>
+
+    
+
+        
+        <div class="toggler">
+        
+            <i class="fa fa-bars" aria-hidden="true"></i>
+        </div>
+    </div>
+</header>
+
+
+        <div class="main container">
+            
+    
+    
+        <div class="article-wrapper u-cf">
+            
+                <a class="bubble" href="https://aidanbae.github.io/code/devops/k8s/istio-mixer-debug/">
+    <i class="fa fa-fw fa-code"></i>
+</a>
+
+<article class="default article">
+    
+
+    <div class="content">
+    <h3><a href="https://aidanbae.github.io/code/devops/k8s/istio-mixer-debug/">istio debug를 위한 controlZ 활용</a></h3>
+    <div class="meta">
+        
+            
+                <span class="date moment">2019-11-30</span>
+            
+        
+
+        
+
+        
+            <span class="categories">
+                
+                    <a href="https://aidanbae.github.io/categories/server">Server</a>
+                
+                    <a href="https://aidanbae.github.io/categories/devops">DevOps</a>
+                
+            </span>
+        
+
+        
+            <span class="author"><a href="https://aidanbae.github.io/author/aidan.bae">Aidan.bae</a></span>
+        
+    </div>
+
+    
+        <p>istio의 mixer는 서비스에 대한 원격 분석등의 수집을 도와주는 유연한 모델이다.
+서비스 옆에 붙어 있는 istio-proxy들의 수집되는 정보들을 mixer를 통해
+파이프라이닝 할 수 있다.</p>
+<p><img src="mixertp.png" alt="mixer"></p>
+<p>그림처럼 adapter api를 사용하기 때문에 다양한 어댑터를 사용해 확장성과 유연성을 다 갖춘 모델이다.</p>
+<p>istio 믹서에 문제가 생긴다면 서비스에 대한 수집 정보들에 영향이 생길 수 있다.
+그러므로 특정 서비스에 라우팅이 안되고 모니터링상 이슈가 없었다면 로그나 수집 데이터를 생성, 운반하는 믹서에 이슈가 있는지 확인해보아야한다.</p>
+<p>istio는 쿠버네티스 대시보드처럼 손쉽게 istio의 현재 상태와 스코프 기능을 제공하는
+controlZ라는 서비스를 제공하고있다.</p>
+<p><img src="controlz.png" alt="contorlz"></p>
+<pre><code>$ kubectl -n istio-system port-forward --address 0.0.0.0 $(kubectl -n istio-system get pod -l istio=mixer,istio-mixer-type=telemetry -o jsonpath='{.items[0].metadata.name}') 9876:9876
+</code></pre><p>믹서 내부에 9876포트로 controlZ라는 웹서비스를 제공하고있다.</p>
+<p>가장 유용하게 사용하는 logging scopes이다.
+<img src="logging.png" alt="logg"></p>
+<p>이제 믹서 컨테이너에 접근해서 매니징 툴의 옵션에 따라 믹서의 로깅이 어떻게 변하는지 확인해보자.
+믹서 로그 follow 명령어:</p>
+<pre><code>kubectl -n istio-system logs -f  -l app=telemetry -c mixer
+</code></pre><pre><code>[root@pransible ~]# kubectl -n istio-system logs -f  -l app=telemetry -c mixer                                     2019-11-23T18:18:12.657025Z     warn    Neither --kubeconfig nor --master was specified.  Using the inClusterConfig.  This might not work.
+2019-11-23T18:18:12.657986Z     info    Setting up event handlers
+2019-11-23T18:18:12.658108Z     info    Starting Secrets controller
+2019-11-23T18:18:12.658147Z     info    Waiting for informer caches to sync
+2019-11-23T18:18:12.658523Z     info    adapters        serving prometheus metrics on 42422     {&quot;adapter&quot;: &quot;prometheus.istio-system&quot;}
+2019-11-23T18:18:12.660656Z     info    Cleaning up handler table, with config ID:0
+2019-11-23T18:18:12.660970Z     info    Starting monitor server...
+Istio Mixer: 1.4.0-c4def934e4f8d1feb42725da41ee0078cde8397f-Clean
+Starting gRPC server on port 9091
+2019-11-23T18:18:12.665030Z     info    ControlZ available at 127.0.0.1:9876
+</code></pre><p>고요하다.</p>
+<p><img src="scopeon.png" alt="sco"></p>
+<p>attribute의 output log level을 debug로 낮춘다.</p>
+<pre><code>2019-11-24T06:34:36.403365Z     debug   attributes      Returning bag with attributes:
+connection.mtls               : false
+context.protocol              : http
+context.proxy_error_code      : -
+context.proxy_version         : 1.4.0
+context.reporter.kind         : inbound
+context.reporter.uid          : kubernetes://voyager-message-agent-live-79ff5b5498-4jfht.live
+destination.ip                : [0 0 0 0 0 0 0 0 0 0 255 255 10 233 74 246]
+destination.namespace         : live
+destination.port              : 10810
+destination.service.host      : voyager-message-agent-live.live.svc.cluster.local
+destination.service.name      : voyager-message-agent-live
+destination.service.namespace : live
+destination.service.uid       : istio://live/services/voyager-message-agent-live
+destination.uid               : kubernetes://voyager-message-agent-live-79ff5b5498-4jfht.live
+origin.ip                     : [172 16 60 51]
+request.headers               : stringmap[:authority:10.233.74.246:10810 :method:GET :path:/health accept-encoding:gzip user-agent:kube-probe/1.14 x-b3-sampled:0 x-b3-spanid:2426b947e3649f03 x-b3-traceid:03e874e74590cfd22426b947e3649f03 x-forwarded-proto:http x-request-id:fe707112-f1ad-4758-9167-935993ec821f]
+request.host                  : 10.233.74.246:10810
+request.method                : GET
+request.path                  : /health
+request.scheme                : http
+request.size                  : 0
+request.time                  : 2019-11-24 06:34:35.40168 +0000 UTC
+request.total_size            : 164
+request.url_path              : /health
+request.useragent             : kube-probe/1.14
+response.code                 : 200
+response.duration             : 702.709µs
+response.headers              : stringmap[:status:200 connection:close content-length:0 date:Sun, 24 Nov 2019 06:34:35 GMT server:istio-envoy x-envoy-decorator-operation:voyager-message-agent-live.live.svc.cluster.local:80/* x-envoy-upstream-healthchecked-cluster:voyager-message-agent.live x-envoy-upstream-service-time:0]
+response.size                 : 0
+response.time                 : 2019-11-24 06:34:35.402313 +0000 UTC
+response.total_size           : 265
+
+
+2019-11-24T06:34:36.421913Z     debug   attributes      Returning bag with attributes:
+connection.mtls               : false
+context.protocol              : http
+context.proxy_error_code      : -
+context.proxy_version         : 1.4.0
+context.reporter.kind         : outbound
+context.reporter.uid          : kubernetes://istio-ingressgateway-74747c4b5b-9xh9d.istio-system
+destination.ip                : [10 233 70 250]
+destination.port              : 8200
+destination.service.host      : apm-server.infra.svc.cluster.local
+destination.service.name      : apm-server
+destination.service.namespace : infra
+destination.service.uid       : istio://infra/services/apm-server
+destination.uid               : kubernetes://apm-server-77769c7774-fk84t.infra
+origin.ip                     : [172 16 60 55]
+request.headers               : stringmap[:authority:apm-server.live.tossinvest.bz :method:POST :path:/intake/v2/events accept:text/html, image/gif, image/jpeg, *; q=.2, */*; q=.2 cache-control:no-cache content-encoding:deflate content-type:application/x-ndjson pragma:no-cache user-agent:elasticapm-java/1.11.0 x-b3-parentspanid:8e8b487a024c77a3 x-b3-sampled:0 x-b3-spanid:eaec8cf992cc2f27 x-b3-traceid:187803d56ecc87e08e8b487a024c77a3 x-envoy-decorator-operation:apm-server.infra.svc.cluster.local:8200/* x-envoy-external-address:172.16.60.55 x-forwarded-for:172.16.60.45   ,172.16.60.55 x-forwarded-proto:http x-request-id:6dbf98a6-ae72-4b3b-bf70-1b4006c21e55]
+request.host                  : apm-server.live.tossinvest.bz
+request.method                : POST
+request.path                  : /intake/v2/events
+request.scheme                : http
+request.size                  : 701
+request.time                  : 2019-11-24 06:34:25.413794 +0000 UTC
+request.total_size            : 1435
+request.url_path              : /intake/v2/events
+request.useragent             : elasticapm-java/1.11.0
+response.code                 : 202
+response.duration             : 10.008387838s
+response.headers              : stringmap[:status:202 content-length:0 date:Sun, 24 Nov 2019 06:34:34 GMT server:istio-envoy x-envoy-upstream-service-time:0]
+response.size                 : 0
+response.time                 : 2019-11-24 06:34:35.422055 +0000 UTC
+response.total_size           : 105
+source.namespace              : istio-system
+source.uid                    : kubernetes://istio-ingressgateway-74747c4b5b-9xh9d.istio-system
+
+</code></pre><p>순식간에 수많은 proxy들로 부터 생성되는 attribute들의 정보가 쏟아진다.
+이뿐만 아니라 adater log level을 컨트롤하면 mixer에 내가 세팅한 어댑터가 잘 등록되어
+메세지가 전달되는지 확인할 수 있다.
+handler와 instance, rule등에 문제가 없다면 attribute와 adapter스코프를 조정해보면서
+문제 해결의 단서를 찾아나가시면 좋다. 꿀팁! 행복한 디버깅 고고</p>
+
+    
+</div>
+
+    
+<div class="footer">
+
+
+    
+        <div class="tags">
+            <i class="fa fa-tags"></i>
+            <div class="links">
+                
+                    <a href="https://aidanbae.github.io/tags/istio">istio</a>
+                
+                    <a href="https://aidanbae.github.io/tags/mixer">mixer</a>
+                
+                    <a href="https://aidanbae.github.io/tags/debug">debug</a>
+                
+            </div>
+        </div>
+    
+
+    
+</div>
+
+</article>
+
+            
+        </div>
+    
+        <div class="article-wrapper u-cf">
+            
+                <a class="bubble" href="https://aidanbae.github.io/code/core/shm/">
+    <i class="fa fa-fw fa-code"></i>
+</a>
+
+<article class="default article">
+    
+
+    <div class="content">
+    <h3><a href="https://aidanbae.github.io/code/core/shm/">공유 메모리를 활용한 프로세스간 통신 with C</a></h3>
+    <div class="meta">
+        
+            
+                <span class="date moment">2019-08-14</span>
+            
+        
+
+        
+
+        
+            <span class="categories">
+                
+                    <a href="https://aidanbae.github.io/categories/code">Code</a>
+                
+                    <a href="https://aidanbae.github.io/categories/devops">DevOps</a>
+                
+            </span>
+        
+
+        
+            <span class="author"><a href="https://aidanbae.github.io/author/aidan.bae">Aidan.bae</a></span>
+        
+    </div>
+
+    
+        어쩌다보니 c 프로그래밍을 깊게 해야될 일이 생겼습니다. 대학교때 너무 재미없어서 이쪽은 절대 안한다고 했었는데&hellip; 컴퓨터를 알아갈수록 로우한 프로그래밍 지식이 필요해지는 순간들이 자주 찾아오네요.
+쓰레드간 통신이 아닌 멀티 프로세스 프로그래밍에서 프로세스간 통신을 위해 OS단에서 제공하는 ipc라는 녀석이 있습니다. 리눅스에서 제공하는 ipc(inter process communication)는 아래 3가지입니다.
+ 공유 메모리 (Shared Memory) 세마포어 (Semaphore) 메세지 큐 (Message Queue)  그 중 첫번째 공유메모리는 아직도 자주 활용되는 녀석입니다.
+공유메모리는 단어 뜻에서 알 수 있듯이 하나의 프로세스에서가 아니라 여러 프로세스가 함께 사용하는 메모리를 말합니다.
+
+        
+            <a href="https://aidanbae.github.io/code/core/shm/" class="more">Continue reading</a>
+        
+    
+</div>
+
+    
+<div class="footer">
+
+
+    
+        <div class="tags">
+            <i class="fa fa-tags"></i>
+            <div class="links">
+                
+                    <a href="https://aidanbae.github.io/tags/%EA%B3%B5%EC%9C%A0%EB%A9%94%EB%AA%A8%EB%A6%AC">공유메모리</a>
+                
+                    <a href="https://aidanbae.github.io/tags/%EC%BD%94%EC%96%B4">코어</a>
+                
+            </div>
+        </div>
+    
+
+    
+</div>
+
+</article>
+
+            
+        </div>
+    
+        <div class="article-wrapper u-cf">
+            
+                <a class="bubble" href="https://aidanbae.github.io/code/devops/k8s/start/">
+    <i class="fa fa-fw fa-code"></i>
+</a>
+
+<article class="default article">
+    
+    <div class="featured-image">
+        <a href="https://aidanbae.github.io/code/devops/k8s/start/">
+            
+                <img src="https://aidanbae.github.io/code/devops/k8s/start/featuredImage_hu222c3484683c8a665ece41b182bde73a_374246_700x350_fill_q95_box_smart1_2.png" alt="">
+            
+        </a>
+    </div>
+
+
+    <div class="content">
+    <h3><a href="https://aidanbae.github.io/code/devops/k8s/start/">쿠버네티스 느낌가져가기 1 - minikube</a></h3>
+    <div class="meta">
+        
+            
+                <span class="date moment">2019-05-01</span>
+            
+        
+
+        
+
+        
+            <span class="categories">
+                
+                    <a href="https://aidanbae.github.io/categories/devops">DevOps</a>
+                
+            </span>
+        
+
+        
+            <span class="author"><a href="https://aidanbae.github.io/author/aidan.bae">Aidan.bae</a></span>
+        
+    </div>
+
+    
+        쿠버네티스 개발환경을 구성하는 동기 퇴사 직전에 최대 관심사는 kubernetes였다. 카카오가 더이상 자회사에게 DKOS(메소스 마라톤) 서비스를 제공하지 않음에 따라 DKOS에 있는 개발환경을 어디론가 옮겨야하는 이슈에 직면했다. 인프라팀장님한테 물리서버 혹은 VM을 받아서 개발환경을 구축할 수 있다는 소식에 설레는 마음으로 쿠버네티스 책을 구매하고 이것저것 공부했지만 이것저것 딜레이가 되면서 퇴사때까지 해보지못한게 작은 한이 되었다. 메소스마라톤 환경을 직접 구성해보지 않았기 때문에 적당히 문제 없을 수준으로 공부하고 사용했었다. 그래서 부사수가 왔음에도 정확한 설명을 하지 못해 스스로에 대해 부족함과 아쉬움을 느꼈다.
+
+        
+            <a href="https://aidanbae.github.io/code/devops/k8s/start/" class="more">Continue reading</a>
+        
+    
+</div>
+
+    
+<div class="footer">
+
+
+    
+        <div class="tags">
+            <i class="fa fa-tags"></i>
+            <div class="links">
+                
+                    <a href="https://aidanbae.github.io/tags/%ED%81%AC%ED%9D%A0">크흠</a>
+                
+            </div>
+        </div>
+    
+
+    
+</div>
+
+</article>
+
+            
+        </div>
+    
+        <div class="article-wrapper u-cf">
+            
+                <a class="bubble" href="https://aidanbae.github.io/code/docker/docker-netstat/">
+    <i class="fa fa-fw fa-code"></i>
+</a>
+
+<article class="default article">
+    
+    <div class="featured-image">
+        <a href="https://aidanbae.github.io/code/docker/docker-netstat/">
+            
+                <img src="https://aidanbae.github.io/code/docker/docker-netstat/featuredImage_hu8fbdd1b26661cf794b0f17932fa1ae38_170191_700x350_fill_q95_box_smart1_2.png" alt="">
+            
+        </a>
+    </div>
+
+
+    <div class="content">
+    <h3><a href="https://aidanbae.github.io/code/docker/docker-netstat/">Docker Container 내부 소켓 상태 확인 - nsenter와 netstat</a></h3>
+    <div class="meta">
+        
+            
+                <span class="date moment">2019-04-30</span>
+            
+        
+
+        
+
+        
+            <span class="categories">
+                
+                    <a href="https://aidanbae.github.io/categories/server">Server</a>
+                
+                    <a href="https://aidanbae.github.io/categories/docker">Docker</a>
+                
+                    <a href="https://aidanbae.github.io/categories/devops">DevOps</a>
+                
+            </span>
+        
+
+        
+            <span class="author"><a href="https://aidanbae.github.io/author/aidan.bae">Aidan.bae</a></span>
+        
+    </div>
+
+    
+        도커로 서비스 개발을 하다보면 상태 확인을 위해 호스트 머신이 아닌 컨테이너에 접근해야하는 경우가 생긴다. 호스트 머신 한 대에 여러 docker 서비스가 떠있을 수 있기 때문이다. (내가 이용 중인 AWS(ECS)도 내가 띄운 서비스 이외에 로그수집기, executor등의 또다른 docker 컨테이너가 떠있다.) 그러므로 호스트 머신에서 netstat 명령어는 모든 도커 서비스의 소켓정보들을 보여주기때문에 특정 서비스에 대한 스코프기능이 지원되지 않는다.
+도커를 조금 이용해본 개발자라면 쉽게 docker exec 명령어로 해당 컨테이너에 접근해 내부에서 소켓상태를 살펴보려할 것이다.
+
+        
+            <a href="https://aidanbae.github.io/code/docker/docker-netstat/" class="more">Continue reading</a>
+        
+    
+</div>
+
+    
+<div class="footer">
+
+
+    
+        <div class="tags">
+            <i class="fa fa-tags"></i>
+            <div class="links">
+                
+                    <a href="https://aidanbae.github.io/tags/docker">docker</a>
+                
+                    <a href="https://aidanbae.github.io/tags/netstat">netstat</a>
+                
+                    <a href="https://aidanbae.github.io/tags/docker-container">docker container</a>
+                
+                    <a href="https://aidanbae.github.io/tags/nsenter">nsenter</a>
+                
+            </div>
+        </div>
+    
+
+    
+</div>
+
+</article>
+
+            
+        </div>
+    
+        <div class="article-wrapper u-cf">
+            
+                <a class="bubble" href="https://aidanbae.github.io/code/devops/computer/cpucache/">
+    <i class="fa fa-fw fa-code"></i>
+</a>
+
+<article class="default article">
+    
+    <div class="featured-image">
+        <a href="https://aidanbae.github.io/code/devops/computer/cpucache/">
+            
+                <img src="https://aidanbae.github.io/code/devops/computer/cpucache/featuredImage_hu040e699061db3073052773bfe1b14c9d_33766_700x350_fill_q95_box_smart1.jpg" alt="">
+            
+        </a>
+    </div>
+
+
+    <div class="content">
+    <h3><a href="https://aidanbae.github.io/code/devops/computer/cpucache/">CPU 캐시 이해하기</a></h3>
+    <div class="meta">
+        
+            
+                <span class="date moment">2019-04-22</span>
+            
+        
+
+        
+
+        
+            <span class="categories">
+                
+                    <a href="https://aidanbae.github.io/categories/server">Server</a>
+                
+                    <a href="https://aidanbae.github.io/categories/devops">DevOps</a>
+                
+            </span>
+        
+
+        
+            <span class="author"><a href="https://aidanbae.github.io/author/aidan.bae">Aidan.bae</a></span>
+        
+    </div>
+
+    
+        CPU 캐시란? 컴퓨터 시스템의 성능을 향상 시키기 위해 주로 CPU칩 안에 포함되는 빠르고 작은 매우 비싼 메모리입니다. 프로그램에서 직접적으로 읽거나 쓸 수 없고 하드웨어의 메모리 관리 시스템이 내부적으로 제어합니다. 대부분의 프로그램은 한번 사용할 데이터를 다시 사용할 가능성이 높고, 그 주변의 데이터도 곧 사용할 가능성이 높은 데이터 지역성을 가지고 있다. 데이터 지역성을 활용하여 메인 메모리에 있는 데이터를 캐시 메모리에 불러와 두고, cpu가 필요한 데이터를 캐시에서 먼저 찾도록 하면 향상시킬수 있다.
+여기서 포인트는 데이터의 지역성을 활용한다!
+
+        
+            <a href="https://aidanbae.github.io/code/devops/computer/cpucache/" class="more">Continue reading</a>
+        
+    
+</div>
+
+    
+<div class="footer">
+
+
+    
+        <div class="tags">
+            <i class="fa fa-tags"></i>
+            <div class="links">
+                
+                    <a href="https://aidanbae.github.io/tags/cpu-cache">cpu cache</a>
+                
+                    <a href="https://aidanbae.github.io/tags/cpu-%EC%BA%90%EC%8B%9C">cpu 캐시</a>
+                
+                    <a href="https://aidanbae.github.io/tags/%EC%BA%90%EC%8B%9C%EB%9D%BC%EC%9D%B8">캐시라인</a>
+                
+            </div>
+        </div>
+    
+
+    
+</div>
+
+</article>
+
+            
+        </div>
+    
+        <div class="article-wrapper u-cf">
+            
+                <a class="bubble" href="https://aidanbae.github.io/code/devops/computer/tcmalloc/">
+    <i class="fa fa-fw fa-code"></i>
+</a>
+
+<article class="default article">
+    
+
+    <div class="content">
+    <h3><a href="https://aidanbae.github.io/code/devops/computer/tcmalloc/">tcmalloc</a></h3>
+    <div class="meta">
+        
+            
+                <span class="date moment">2019-04-16</span>
+            
+        
+
+        
+
+        
+            <span class="categories">
+                
+                    <a href="https://aidanbae.github.io/categories/server">Server</a>
+                
+            </span>
+        
+
+        
+            <span class="author"><a href="https://aidanbae.github.io/author/aidan.bae">Aidan.bae</a></span>
+        
+    </div>
+
+    
+        go tune memory 발표자료를 보면서 구경한 파생 지식 tcmalloc
+구글 공식 문서 http://goog-perftools.sourceforge.net/doc/tcmalloc.html
+구글에서 만든 TCMalloc
+보통 멀티 스레드 환경의 서버를 만들다보면 메모리 풀을 사용하게 된다.
+메모리 풀의 이점:
+ 빠른메모리할당 메모리 단편화 감소  하나의 거대한 메모리 풀을 사용하면 단순하게 malloc을 호출해서 메모리를 할당하는 것 보다 속도가 빠르다. 메모리 풀에 따라 다르겠지만 일반적으로 볼ㄸ ㅐ 처음 프로그래밍이 실행될 때 필요한 메모리를 통째로 잡아놓고 메모리가 필요한 경우에는 잡아놓은메모리 안에서 잘라서 주기 때문입니다.
+
+        
+            <a href="https://aidanbae.github.io/code/devops/computer/tcmalloc/" class="more">Continue reading</a>
+        
+    
+</div>
+
+    
+<div class="footer">
+
+
+    
+        <div class="tags">
+            <i class="fa fa-tags"></i>
+            <div class="links">
+                
+                    <a href="https://aidanbae.github.io/tags/tcmalloc">tcmalloc</a>
+                
+                    <a href="https://aidanbae.github.io/tags/malloc">malloc</a>
+                
+                    <a href="https://aidanbae.github.io/tags/computer-science">computer science</a>
+                
+            </div>
+        </div>
+    
+
+    
+</div>
+
+</article>
+
+            
+        </div>
+    
+        <div class="article-wrapper u-cf">
+            
+                <a class="bubble" href="https://aidanbae.github.io/code/golang/googlecodejam2019/">
+    <i class="fa fa-fw fa-code"></i>
+</a>
+
+<article class="default article">
+    
+
+    <div class="content">
+    <h3><a href="https://aidanbae.github.io/code/golang/googlecodejam2019/">구글 코드잼 2019 QR 도전!</a></h3>
+    <div class="meta">
+        
+            
+                <span class="date moment">2019-04-09</span>
+            
+        
+
+        
+
+        
+            <span class="categories">
+                
+                    <a href="https://aidanbae.github.io/categories/algorithm">Algorithm</a>
+                
+                    <a href="https://aidanbae.github.io/categories/golang">Golang</a>
+                
+                    <a href="https://aidanbae.github.io/categories/smalltalk">Smalltalk</a>
+                
+            </span>
+        
+
+        
+            <span class="author"><a href="https://aidanbae.github.io/author/aidan.bae">Aidan.bae</a></span>
+        
+    </div>
+
+    
+        20대의 마지막으로 기본기를 탄탄히하자는 생각으로 알고리즘 공부를 진행해 왔다. 목표가 있으면 동기부여에 좋기때문에 구글코드잼을 도전해보았다.
+올해 4월 7일에 진행된 Qualification Round는 다음 라운드로 통과할 수 있는 자격을 주는 테스트이다. 문제는 어렵지 않다. bfs, dfs, dp 등 문제만 읽어도 케이스가 좀 나뉘는 한국의 정형화된 코딩테스트에 비해 창의력이 필요한 문제가 좀더 많았다. 문제 하나당 3개의 테스트 케이스가 존재한다. normal case는 보통 자료의 크기가 적어 정확성 테스트가 진행돠며 통과할경우 6point를 얻게된다. hard case는 좀더 데이터 input의 크기가 크며 효율성을 증명하는 테스트이다 통과할경우 10point를 얻게된다.
+
+        
+            <a href="https://aidanbae.github.io/code/golang/googlecodejam2019/" class="more">Continue reading</a>
+        
+    
+</div>
+
+    
+<div class="footer">
+
+
+    
+        <div class="tags">
+            <i class="fa fa-tags"></i>
+            <div class="links">
+                
+                    <a href="https://aidanbae.github.io/tags/golang">golang</a>
+                
+                    <a href="https://aidanbae.github.io/tags/google-codejam">google codejam</a>
+                
+                    <a href="https://aidanbae.github.io/tags/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98">알고리즘</a>
+                
+                    <a href="https://aidanbae.github.io/tags/%EA%B5%AC%EA%B8%80%EC%BD%94%EB%93%9C%EC%9E%BC">구글코드잼</a>
+                
+            </div>
+        </div>
+    
+
+    
+</div>
+
+</article>
+
+            
+        </div>
+    
+
+    
+    <div class="paginator">
+        
+            <a href="https://aidanbae.github.io/code/page/2/" class="older"><i class="fa fa-angle-double-left"></i> Older posts</a>
+        
+
+        
+    </div>
+
+
+
+        </div>
+
+        
+<footer>
+    <div class="container">
+
+        
+        <div class="recent-posts">
+            <strong>Latest posts</strong>
+                <ul>
+                
+                    <li>
+                        <a href="https://aidanbae.github.io/code/devops/k8s/istio-mixer-debug/">istio debug를 위한 controlZ 활용</a>
+                    </li>
+                
+                    <li>
+                        <a href="https://aidanbae.github.io/article/book/time/">시간은 흐르지 않는다.</a>
+                    </li>
+                
+                    <li>
+                        <a href="https://aidanbae.github.io/article/gori/">생각의 선순환고리</a>
+                    </li>
+                
+                    <li>
+                        <a href="https://aidanbae.github.io/video/shining/">밀고 나가면 어느순간 반드시 빛이 난다.</a>
+                    </li>
+                
+                    <li>
+                        <a href="https://aidanbae.github.io/quote/donki/">꿈</a>
+                    </li>
+                
+                    <li>
+                        <a href="https://aidanbae.github.io/article/book/siliteamman/">실리콘밸리의 팀장들 - 지독한 솔직함</a>
+                    </li>
+                
+                </ul>
+        </div>
+        
+
+        
+        <div class="categories">
+            <a href="https://aidanbae.github.io/categories/"><strong>Categories</strong></a>
+                <ul>
+                
+                    <li>
+                        <a href="https://aidanbae.github.io/categories/code">Code (19)</a>
+                    </li>
+                
+                    <li>
+                        <a href="https://aidanbae.github.io/categories/golang">Golang (16)</a>
+                    </li>
+                
+                    <li>
+                        <a href="https://aidanbae.github.io/categories/wisdom">Wisdom (13)</a>
+                    </li>
+                
+                    <li>
+                        <a href="https://aidanbae.github.io/categories/book">Book (12)</a>
+                    </li>
+                
+                    <li>
+                        <a href="https://aidanbae.github.io/categories/smalltalk">Smalltalk (12)</a>
+                    </li>
+                
+                    <li>
+                        <a href="https://aidanbae.github.io/categories/server">Server (11)</a>
+                    </li>
+                
+                    <li>
+                        <a href="https://aidanbae.github.io/categories/devops">Devops (10)</a>
+                    </li>
+                
+            </ul>
+        </div>
+        
+
+        <div class="right">
+            
+            <div class="external-profiles">
+                <strong>Social media</strong>
+
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                    <a href="https://github.com/aidanbae" target="_blank"><i class="fa fa-github"></i></a>
+                
+                
+            </div>
+            
+
+            
+        </div>
+    </div>
+</footer>
+
+
+<div class="credits">
+    <div class="container">
+        <div class="copyright">
+            <a href="https://github.com/Lednerb" target="_blank">
+                &copy;
+                
+                    2017
+                
+                by Lednerb
+            </a>
+	    -
+		<a href="https://aidanbae.github.io/code/index.xml">RSS</a>
+        </div>
+        <div class="author">
+            <a href="https://github.com/Lednerb/bilberry-hugo-theme" target="_blank">Bilberry Hugo Theme</a>
+        </div>
+    </div>
+</div>
+
+
+        
+
+        
+
+        
+        
+        <script type="text/javascript" src="https://aidanbae.github.io/js/externalDependencies.39c47e10e241eae2947b3fe21809c572.js" integrity="md5-OcR&#43;EOJB6uKUez/iGAnFcg=="></script>
+
+        
+        
+        <script type="text/javascript" src="https://aidanbae.github.io/js/theme.ff50ae6dc1bfc220b23bf69dbb41b54e.js" integrity="md5-/1CubcG/wiCyO/adu0G1Tg=="></script>
+
+        <script>
+            $(".moment").each(function() {
+                $(this).text(
+                    moment( $(this).text() )
+                        .locale( "en" )
+                        .format('LL')
+                );
+            });
+
+            $(".footnote-return sup").html("");
+        </script>
+
+        
+            
+        
+
+        
+
+
+    </body>
+</html>

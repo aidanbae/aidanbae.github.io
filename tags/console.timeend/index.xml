@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>console.timeEnd on 아이단은 어디갔을까</title>
+    <link>https://aidanbae.github.io/tags/console.timeend/</link>
+    <description>Recent content in console.timeEnd on 아이단은 어디갔을까</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Wed, 24 Jan 2018 09:31:27 +0100</lastBuildDate>
+    
+	<atom:link href="https://aidanbae.github.io/tags/console.timeend/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Javascript Console 활용</title>
+      <link>https://aidanbae.github.io/code/javascript/console/</link>
+      <pubDate>Wed, 24 Jan 2018 09:31:27 +0100</pubDate>
+      
+      <guid>https://aidanbae.github.io/code/javascript/console/</guid>
+      <description>Intro 자바스크립트를 쓰면서 웹어플리케이션을 만들다보면 Debug를 위해 console객체를 자주 사용하게됩니다. 간혹 잘못 사용해서 잘못된 정보를 본다면&amp;hellip; 삽질의 시작이죠
+Why Console 객체의 주의해야할 점과 좋은 활용법을 터득해 즐거운 디버깅을 해봅시다.
+ console.log 자바스크립트 개발자라면 너무 친숙한녀석이죠.
+console.log(obj1 [, obj2, ..., objN]); console.log(msg [, subst1, ..., substN]);  보시는 것처럼 객체와 메세지 등 다양한 인자값을 출력하는데 사용합니다.
+주의할점은 객체를 로깅할때입니다. 우선 string 변수를 로깅해봅시다.
+var sangik = &amp;#34;상익아 뭐하니&amp;#34; console.log(sangik); // 상익아 뭐하니 sangik = &amp;#34;what are you doing?</description>
+    </item>
+    
+  </channel>
+</rss>

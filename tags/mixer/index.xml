@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>mixer on 아이단은 어디갔을까</title>
+    <link>https://aidanbae.github.io/tags/mixer/</link>
+    <description>Recent content in mixer on 아이단은 어디갔을까</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Sat, 30 Nov 2019 19:01:14 +0900</lastBuildDate>
+    
+	<atom:link href="https://aidanbae.github.io/tags/mixer/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>istio debug를 위한 controlZ 활용</title>
+      <link>https://aidanbae.github.io/code/devops/k8s/istio-mixer-debug/</link>
+      <pubDate>Sat, 30 Nov 2019 19:01:14 +0900</pubDate>
+      
+      <guid>https://aidanbae.github.io/code/devops/k8s/istio-mixer-debug/</guid>
+      <description>istio의 mixer는 서비스에 대한 원격 분석등의 수집을 도와주는 유연한 모델이다. 서비스 옆에 붙어 있는 istio-proxy들의 수집되는 정보들을 mixer를 통해 파이프라이닝 할 수 있다.
+그림처럼 adapter api를 사용하기 때문에 다양한 어댑터를 사용해 확장성과 유연성을 다 갖춘 모델이다.
+istio 믹서에 문제가 생긴다면 서비스에 대한 수집 정보들에 영향이 생길 수 있다. 그러므로 특정 서비스에 라우팅이 안되고 모니터링상 이슈가 없었다면 로그나 수집 데이터를 생성, 운반하는 믹서에 이슈가 있는지 확인해보아야한다.
+istio는 쿠버네티스 대시보드처럼 손쉽게 istio의 현재 상태와 스코프 기능을 제공하는 controlZ라는 서비스를 제공하고있다.</description>
+    </item>
+    
+  </channel>
+</rss>

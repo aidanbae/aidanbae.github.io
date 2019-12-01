@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>sort on 아이단은 어디갔을까</title>
+    <link>https://aidanbae.github.io/tags/sort/</link>
+    <description>Recent content in sort on 아이단은 어디갔을까</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Tue, 14 Aug 2018 09:31:27 +0100</lastBuildDate>
+    
+	<atom:link href="https://aidanbae.github.io/tags/sort/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Golang Sort 정렬</title>
+      <link>https://aidanbae.github.io/code/golang/sort/</link>
+      <pubDate>Tue, 14 Aug 2018 09:31:27 +0100</pubDate>
+      
+      <guid>https://aidanbae.github.io/code/golang/sort/</guid>
+      <description>golang에서는 정렬 (sort) 라이브러리를 제공하고 있습니다.
+다음은 내장 함수들을 활용한 예제코드입니다:
+func main() { str := []string{&amp;#34;c&amp;#34;, &amp;#34;a&amp;#34;, &amp;#34;b&amp;#34;} sort.Strings(str) fmt.Println(&amp;#34;Strings: &amp;#34;, str) ints := []int{70, 2, 4} sort.Ints(ints) fmt.Println(&amp;#34;Ints: &amp;#34;, ints) s := sort.IntsAreSorted(ints) fmt.Println(&amp;#34;Sorted: &amp;#34;, s) } 결과:
+Strings: [a b c] Ints: [2 4 70] Sorted: true Process finished with exit code 0 sort.Sort() 정렬을 꼭 이런식으로 하고싶은게 아닐 수 있습니다. 커스터마이징을 할 수 있도록 sort는 Sort라는 메소드를 가지고있습니다.</description>
+    </item>
+    
+  </channel>
+</rss>

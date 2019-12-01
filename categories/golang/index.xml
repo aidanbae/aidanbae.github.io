@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Golang on 아이단은 어디갔을까</title>
+    <link>https://aidanbae.github.io/categories/golang/</link>
+    <description>Recent content in Golang on 아이단은 어디갔을까</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Mon, 15 Apr 2019 09:31:27 +0900</lastBuildDate>
+    
+	<atom:link href="https://aidanbae.github.io/categories/golang/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>[dotGo 2019] golang gc 튜닝</title>
+      <link>https://aidanbae.github.io/video/gogc/</link>
+      <pubDate>Mon, 15 Apr 2019 09:31:27 +0900</pubDate>
+      
+      <guid>https://aidanbae.github.io/video/gogc/</guid>
+      <description>페이스북을 기술정보를 얻는 용도로 사용하는데 평소 추종하던 홍혜종님이 공유해준 발표자료이다.
+go tune your memory라는 이름으로 dotgo 2019에서 진행된 발표 (Go 1.12 기준으로 설명)
+gc언어를 사용한다면, garbage collector가 호출되는 것에 대해 알 필요가있다. 왜냐하면 gc가 호출되는 순간, 해당 프로그램은 잠깐동안의 lack상태가 되기 때문이다. 찰나의 순간이지만 게임처럼 퍼포먼스가 중요한 클라이언트, 서버는 gc호출을 튜닝해야한다. 개발자는 그러므로 gc의 잦은 호출을 막을 수 있도록 크게 두가지 행위를 할 수 있다.
+첫번째는 garbage 자체가 생기지 않도록 하는 것.</description>
+    </item>
+    
+    <item>
+      <title>구글 코드잼 2019 QR 도전!</title>
+      <link>https://aidanbae.github.io/code/golang/googlecodejam2019/</link>
+      <pubDate>Tue, 09 Apr 2019 09:31:27 +0100</pubDate>
+      
+      <guid>https://aidanbae.github.io/code/golang/googlecodejam2019/</guid>
+      <description>20대의 마지막으로 기본기를 탄탄히하자는 생각으로 알고리즘 공부를 진행해 왔다. 목표가 있으면 동기부여에 좋기때문에 구글코드잼을 도전해보았다.
+올해 4월 7일에 진행된 Qualification Round는 다음 라운드로 통과할 수 있는 자격을 주는 테스트이다. 문제는 어렵지 않다. bfs, dfs, dp 등 문제만 읽어도 케이스가 좀 나뉘는 한국의 정형화된 코딩테스트에 비해 창의력이 필요한 문제가 좀더 많았다. 문제 하나당 3개의 테스트 케이스가 존재한다. normal case는 보통 자료의 크기가 적어 정확성 테스트가 진행돠며 통과할경우 6point를 얻게된다. hard case는 좀더 데이터 input의 크기가 크며 효율성을 증명하는 테스트이다 통과할경우 10point를 얻게된다.</description>
+    </item>
+    
+    <item>
+      <title>Golang Fan-Out Fan-In 디자인</title>
+      <link>https://aidanbae.github.io/code/golang-design/fan/</link>
+      <pubDate>Wed, 16 Jan 2019 09:31:27 +0900</pubDate>
+      
+      <guid>https://aidanbae.github.io/code/golang-design/fan/</guid>
+      <description>회사일을 바쁘다보니 이것저것 신경쓸게 많아 정리해야지정리해야지 하고 너무 늦게 글을 쓰는 감이 없지 않네요. 이어서 해보도록 하겠습니다. 이전 시간에 Pipeline 패턴을 알아봤는데 이를 좀더 활용해 Fan out Fan in 패턴을 알아보고자합니다.
+golang 멀티플렉싱 디자인패턴 중 하나인 Fan out Fan In은 큰 건물의 회전문을 생각하면서 이해하면 편합니다.
+prerequisites  chan에 대한 이해를 토대로 pipe함수를 작성할 수 있다. Pipeline 디자인패턴을 숙지했다.   Basic Fan의 사전적 의미는 선풍기, 환풍기, 회전문 같은 것입니다. 회전문처럼 생각했습니다.</description>
+    </item>
+    
+    <item>
+      <title>Go Modules 시작하기</title>
+      <link>https://aidanbae.github.io/code/golang/modules/</link>
+      <pubDate>Thu, 20 Dec 2018 09:31:27 +0900</pubDate>
+      
+      <guid>https://aidanbae.github.io/code/golang/modules/</guid>
+      <description>Go modules 시작하기 golang version 1.11버전부터 획기적인 변화가 생겼습니다. 버전관리 프로젝트(vgo)를 Russ Cox의 메인오더로 go modules가 추가되었습니다.
+go modules는 vgo, dep, glide등으로 파생되었던 버전관리의 표준을 이야기하며 gopath의 종말을 외쳤습니다. 즉, 패키지간 종속성 관리를 golang team이 표준화하여 관리하는 정책입니다.
+개발환경
+ IDE : intellij IDEA version: golang 1.11.4 os : darwin(mac os)  Golang으로된 프로젝트를 동시에 여러개 진행(페이스북 웹훅 클러스터)하면서 불편했던 것 중 하나가 GOPATH설정 바꾸기였다. 내가 사용하던 intellij IDEA는 GOPATH를 기준으로 인덱싱을 했었기때문에 작업 프로젝트가 설정에 추가된 GOPATH가 아니라면 다시 GOPATH를 수정하고 프로젝트를 켜야했다.</description>
+    </item>
+    
+    <item>
+      <title>golang과 자료구조 힙(heap)</title>
+      <link>https://aidanbae.github.io/code/golang/heap/</link>
+      <pubDate>Sat, 17 Nov 2018 09:31:27 +0900</pubDate>
+      
+      <guid>https://aidanbae.github.io/code/golang/heap/</guid>
+      <description>마크다운문서가 테마때문에 잘 적용되지 않아 수정할 예정입니다. 다음번 업데이트에 테마를 고칠예정이니 불편해도 양해부탁드려요
+자료구조 힙 그래프의 트리 구조중 하나로 &amp;lsquo;우선순위 큐(priority queue)&amp;lsquo;를 구현할 때 사용됩니다. 우선순위 큐는 데이터 구조의 하나로서 데이터를 자유롭게 추가할 수 있습니다. 반면 데이터를 추출할 때는 최솟값부터 순서대로 선택됩니다. 추가는 자유롭게하고 추출할 때는 작은 값부터 꺼내는 것이 우선순위 큐입니다.
+특징   힙을 표현하는 트리 구조에서는 각 정점을 &amp;lsquo;노드&#39;라고 부릅니다.
+  자식 노드의 숫자는 반드시 부모의 숫자보다 커야한다는 규칙이 있습니다.</description>
+    </item>
+    
+    <item>
+      <title>Golang - EmptyStruct 빈구조체</title>
+      <link>https://aidanbae.github.io/code/golang/emptystruct/</link>
+      <pubDate>Thu, 18 Oct 2018 11:31:27 +0100</pubDate>
+      
+      <guid>https://aidanbae.github.io/code/golang/emptystruct/</guid>
+      <description>done &amp;lt;- struct{}{} 고랭관련 깃을 돌아다니면서 훌륭한 레파지토리(Docker, Gin..)들을 내부를 구경하다보면
+위처럼 빈 구조체를 채널에 던지는 경우를 종종 볼 수 있다.
+struct{}{}
+the empty struct
+나는 이게 {}{} 이 리터럴 모양이 뭔가 지저분해보여서
+간단한 종료 시그널을 보내는 채널은 대부분 bool, int 채널을 사용했었다.
+bool 값보내는 거 보다 값이 적은가?..
+나는 구조체라고 생각해서 더 크다고만 생각했는데
+찾아보니 놀랍게도 struct{}{}는 사이즈가 0이다(기본기가 부족한 나만 놀란거일수도 있다;)
+사이즈를 확인할 수 있는 내장 메소드가 있을까 찾아보니</description>
+    </item>
+    
+    <item>
+      <title>Golang Slice 슬라이스 응용</title>
+      <link>https://aidanbae.github.io/code/golang/slice/</link>
+      <pubDate>Sun, 14 Oct 2018 09:31:27 +0100</pubDate>
+      
+      <guid>https://aidanbae.github.io/code/golang/slice/</guid>
+      <description>이거보면된다.
+https://github.com/golang/go/wiki/SliceTricks</description>
+    </item>
+    
+    <item>
+      <title>Golang 결제검증서버 구현 - Validator 디자인</title>
+      <link>https://aidanbae.github.io/code/golang/validator/</link>
+      <pubDate>Fri, 07 Sep 2018 09:31:27 +0100</pubDate>
+      
+      <guid>https://aidanbae.github.io/code/golang/validator/</guid>
+      <description>Intro 결제 와 관련된 정보는 고객 입장에서도 회사 입장에서도 매우 중요한 정보이다.
+타사(구글, 페이스북, 샘성)의 결제모듈을 활용한다면 그 절차 사이사이의 검증과 기록은 결제검증서버가 해야할 필수적인 부분- 이번에 페이스북으로 글로벌 게임서버 런칭을 진행하면서 페이스북 결제를 활용해 돈방석에 앉아보기로 팀방향이 결정되었고(제발~)
+우리 서버팀은 그 돈방석의 영수증 역할을 할 결제검증서버를 구현하게되었다.
+이전에 불확실성을 줄이기위해 방명록을 간단하게 만들어보면서 orm프레임워크, mariadb 등을 확인했었고 그 연장선에서 이번 검증서버 프로젝트는 xorm과 web framework는 gin을 활용하기로 했다.
+ Point 결제 쪽에 자신감이 넘치는 팀장님이 명확한 로직을 제시해주었기때문에 코딩은 어렵지 않았다.</description>
+    </item>
+    
+    <item>
+      <title>Golang 동시성을 활용한 알고리즘 문제풀이 - 1</title>
+      <link>https://aidanbae.github.io/code/golang/googlecodejam2016/</link>
+      <pubDate>Mon, 20 Aug 2018 09:31:27 +0100</pubDate>
+      
+      <guid>https://aidanbae.github.io/code/golang/googlecodejam2016/</guid>
+      <description>파이프라인 패턴을 활용해서 알고리즘을 풀어보기로 했다.
+알고리즘 문제: Google Code Jam 2016 qualification round A
+궁금했던 점 동시성 프로그래밍으로 기존 알고리즘 모범답안보다 얼마나 퍼포먼스를 낼 수 있을까
+많은 프로그래밍대회가 싱글쓰레드기반으로 동작해 정답이 순차적으로 나와야한다. 하지만 멀티쓰레드 프로그래밍은 Case #1번이 아니라 Case #5번이 먼저 풀릴 수 있다.
+ (사실 구글 코드잼의 가장 큰 난적은 문제가 영어라는 점이다)
+문제요약 Bleatrix Trotter 이라는 여자분은 불면증에 걸린거 같다.
+이 여자분은 잠에 골아떨어지기위해 특별한 전략이 있다.</description>
+    </item>
+    
+    <item>
+      <title>Golang Sort 정렬</title>
+      <link>https://aidanbae.github.io/code/golang/sort/</link>
+      <pubDate>Tue, 14 Aug 2018 09:31:27 +0100</pubDate>
+      
+      <guid>https://aidanbae.github.io/code/golang/sort/</guid>
+      <description>golang에서는 정렬 (sort) 라이브러리를 제공하고 있습니다.
+다음은 내장 함수들을 활용한 예제코드입니다:
+func main() { str := []string{&amp;#34;c&amp;#34;, &amp;#34;a&amp;#34;, &amp;#34;b&amp;#34;} sort.Strings(str) fmt.Println(&amp;#34;Strings: &amp;#34;, str) ints := []int{70, 2, 4} sort.Ints(ints) fmt.Println(&amp;#34;Ints: &amp;#34;, ints) s := sort.IntsAreSorted(ints) fmt.Println(&amp;#34;Sorted: &amp;#34;, s) } 결과:
+Strings: [a b c] Ints: [2 4 70] Sorted: true Process finished with exit code 0 sort.Sort() 정렬을 꼭 이런식으로 하고싶은게 아닐 수 있습니다. 커스터마이징을 할 수 있도록 sort는 Sort라는 메소드를 가지고있습니다.</description>
+    </item>
+    
+    <item>
+      <title>Golang Design Pattern - Pipeline</title>
+      <link>https://aidanbae.github.io/code/golang-design/pipeline/</link>
+      <pubDate>Sun, 12 Aug 2018 09:31:27 +0100</pubDate>
+      
+      <guid>https://aidanbae.github.io/code/golang-design/pipeline/</guid>
+      <description>저번 시간에 채널 중심의 생각전환으로 하나의 작업 파이프를 만드는 방법을 배웠습니다.
+이번엔 여러가지 작업 파이프들을 이어서 하나의 작업 파이프라인을 구축해봅시다.
+혹시 이전 채널 중심 프로그래밍이라는 포스트를 놓치셨다면 보고오시길 추천드립니다.
+Why 작업 파이프라인을 구축해서 고루틴과 채널 활용을 극대화합니다.
+ What 어떤 작업 파이프라인을 구성해볼까요?
+이해하기 쉬운 설명을 위해 쉬운 작업들 위주로 예제를 구성해보았습니다.
+  0에서 99까지 랜덤한 수를 특정 횟수만큼 만들어내는 task    해당 랜덤한 수를 출력하는 task 숫자들을 제곱하는 task 마지막으로 그 제곱된 수들을 모두 더하는 task  총 4개의 작업이 있습니다.</description>
+    </item>
+    
+    <item>
+      <title>Golang 채널 중심 프로그래밍</title>
+      <link>https://aidanbae.github.io/code/golang/fib/</link>
+      <pubDate>Sat, 11 Aug 2018 09:31:27 +0100</pubDate>
+      
+      <guid>https://aidanbae.github.io/code/golang/fib/</guid>
+      <description>&amp;ldquo;사실 모든 학문은 연결되어있다. 사회학도 역사도 프로그래밍도&amp;rdquo;
+Intro 사회학에서 산업혁명 하면 떠오르는 키워드는 Division of labour이다. 즉, 한국어로 분업이다. 일을 처리하는데 분업에 따른 전문성 증가, 기계와 같은 파이프라인 등은 우리 사회에 큰 영향을 미쳤다. 이전에 없던 엄청난 생산량(공장 시스템)에 사회는 급성장한다.
+빠른 성장만큼 노동문제와 같은 각종 사회문제가 터져나왔고 그런 생산량이 전투력에 악용되어 제2차 세계대전에서는 수많은 인류의 죽음을 우린 목격해야했다.
+프로그래밍에서도 cpu가 늘고 분업과 관련된 동시성 프로그래밍들이 발전하면서 lock기법이 발전했고 race condition, deadlock등 다양한 문제들이 속출했다.</description>
+    </item>
+    
+    <item>
+      <title>Golang과 websocket을 활용한 서버 프로그래밍 (장애 없는 서버 런칭 도전기)</title>
+      <link>https://aidanbae.github.io/gallery/golang-meetup/</link>
+      <pubDate>Mon, 30 Jul 2018 09:31:27 +0100</pubDate>
+      
+      <guid>https://aidanbae.github.io/gallery/golang-meetup/</guid>
+      <description>Intro 2018, 7월 25일 제1회 golang meetup이 열렸다.
+그간 golang korea 커뮤니티에서 눈팅으로 이득을 취한 나&amp;hellip; 장애없이 런칭한 Golang 스낵게임서버를 개발할 때에도 수많은 golang 블로그에서 도움을 받았기때문에 이번 meetup에서 그분들을 만나뵙고 이야기를 나눌 수 있으면 좋겠다 생각해서 참가를 신청했다. 발표자가 없어 존폐위기까지 거론하셔서 발표를 하는 방향으로 결정
+작은 토즈방에서 20명정도 모여서 소근소근 토론하는 자리가 될줄 알았는데 160명이나!!
+개발인생 첫 발표인데 많은 사람이 와주셔서 감사한 마음으로 준비했다.
+GopherCon Talks Golang Korea에서 주최하는 밋업, 세미나 및 컨퍼런스의 발표 자료들을 모아두는 저장소이다.</description>
+    </item>
+    
+    <item>
+      <title>Golang Benchmark Test 사용하기</title>
+      <link>https://aidanbae.github.io/code/golang/benchmark/</link>
+      <pubDate>Sun, 13 May 2018 09:31:27 +0100</pubDate>
+      
+      <guid>https://aidanbae.github.io/code/golang/benchmark/</guid>
+      <description>Intro 코딩을 하다보면 내가 짠 함수의 성능이 좋은지 안좋은지 궁금할때가 많다. Golang에서는 testing 라이브러리를 기본적으로 제공하면서 유닛테스트를 지원하면서도 성능을 측정할 수 있는 벤치마크 테스트도 제공한다. 게임 쪽을 개발하다보면 최적화의 과정이 필요하기 때문에 benchmark test는 유용하게 사용된다.
+ Why golang benchmark test 사용법을 익혀 자신 스스로와 팀원들을 설득할 수 있다.
+ Usage 간단하게 두 수를 더하는 함수를 짜고 성능을 측정해보겠다.
+package main import ( &amp;#34;testing&amp;#34; ) func Sum(a, b int) int { return a + b } func BenchmarkSum (b *testing.</description>
+    </item>
+    
+    <item>
+      <title>Golang Design Pattern - Bridge</title>
+      <link>https://aidanbae.github.io/code/golang-design/bridge/</link>
+      <pubDate>Fri, 03 Nov 2017 09:31:27 +0100</pubDate>
+      
+      <guid>https://aidanbae.github.io/code/golang-design/bridge/</guid>
+      <description>브릿지 패턴 Bridge Pattern은 두 구현체 간의 강한 결합을 제거하기 위해서 사용하는 패턴입니다.
+두 클래스 모두 추상화된 상위 클래스 또는 인터페이스를 가지게 되고, 의존성은 상위 클래스만 가지게됩니다.
+제가 공부하고 있는 Golang Design패턴책은 프린트 예제가 있었는데 이해가 더 어렵다고 생각해 좋은 예제를 찾다가
+게임개발에 맞는 예제 블로그를 찾았습니다.(아쉽게도 자바) http://effectiveprogramming.tistory.com/entry/Bridge-%ED%8C%A8%ED%84%B4
+여기있는 무기 핸들러와 무기 간의 브릿지 패턴을 예로 Golang에 적용해서 이해해보았습니다.
+위 다이어그램은 Weapon과 WeaponHandler라는 상위 인터페이스를 보여줍니다. 의존관계는 이 인터페이스들 간에만 존재합니다.</description>
+    </item>
+    
+    <item>
+      <title>Golang Design Pattern - Command</title>
+      <link>https://aidanbae.github.io/code/golang-design/command/</link>
+      <pubDate>Wed, 01 Nov 2017 09:31:27 +0100</pubDate>
+      
+      <guid>https://aidanbae.github.io/code/golang-design/command/</guid>
+      <description>그림판이나 Photoshop을 사용해본 경험이 있다면!
+Ctrl+z키라는 마법의 주문 으로 우리는 우리가 했던 액션들을 취소해본 경험 유! 요구사항에 대한 캡슐화와
+요구사항을 큐에 저장하거나 기록,취소 할수 있다는 장점!
+  명령패턴 게임프로그래밍을 접하면서 첫 디자인패턴을 공부했을때 만난 패턴 그땐 왜이렇게 어렵게 느껴졌었는지..
+ 유저의 요청사항(명령) 캡슐화! 요청사항과 큐를 이용해서 작업내역을 관리!  그냥 가볍게 위 두가지만 생각하면 편하다. 우선 Command Interface를 구현해보자. 스터디한 책에는 ConsoleCommand와 Excute만 있지만 그대로하면 재미없다. 실수가 많은 나는 Ctrl+z의 광팬, 도전해보자.</description>
+    </item>
+    
+  </channel>
+</rss>

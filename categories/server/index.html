@@ -1,0 +1,829 @@
+<!doctype html>
+<html class="no-js" lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="author" content="Aidan.bae">
+        <meta name="description" content="아이단의 블로그">
+        <meta name="keywords" content="golang,aidan,kakaogames,kakao,gocd,gocd-agent,infra,javascript,python">
+        <meta name="generator" content="Hugo 0.60.0" />
+        <title> Server | 아이단은 어디갔을까</title>
+        <meta name="description" content="Server - 아이단의 블로그">
+        <meta itemprop="name" content="Server">
+        <meta itemprop="description" content="Server - 아이단의 블로그">
+        <meta property="og:title" content="Server">
+        <meta property="og:description" content="Server - 아이단의 블로그">
+        <meta property="og:image" content="https://www.gravatar.com/avatar/d41d8cd98f00b204e9800998ecf8427e?size=200">
+        <meta property="og:url" content="https://aidanbae.github.io/categories/server/">
+        <meta property="og:site_name" content="아이단은 어디갔을까"><meta property="og:type" content="website">
+        <link rel="icon" type="image/png" href="https://aidanbae.github.io/favicon-32x32.png" sizes="32x32">
+        <link rel="icon" type="image/png" href="https://aidanbae.github.io/favicon-16x16.png" sizes="16x16">
+
+	
+	  <link href="https://aidanbae.github.io/categories/server/" rel="alternate" type="application/rss+xml" title="아이단은 어디갔을까" />
+	  <link href="https://aidanbae.github.io/categories/server/" rel="feed" type="application/rss+xml" title="아이단은 어디갔을까" />
+	
+
+        
+        
+        
+        
+        <link rel="stylesheet" href="https://aidanbae.github.io/sass/combined.min.e5af985042854cb05807bed3365180e76bf9b8e0f41a2c81f098583599a6fb05.css">
+
+        
+
+        
+            
+        
+    </head>
+    <body class="bilberry-hugo-theme">
+        
+<nav>
+
+    <div class="container">
+        <ul class="topnav">
+            
+                
+                    <li><a href="https://aidanbae.github.io/page/about-aidan/">Aidan</a></li>
+                
+            
+        </ul>
+
+        
+    </div>
+</nav>
+
+
+        <header>
+    <div class="container">
+        <div class="logo">
+            <a href="https://aidanbae.github.io/" class="logo">
+                
+                    <img src="https://aidanbae.github.io/do.png" alt="">
+                
+
+                <span class="overlay"><i class="fa fa-home"></i></span>
+            </a>
+        </div>
+        <div class="titles">
+            <h3 class="title"><a href="https://aidanbae.github.io/">아이단은 어디갔을까</a></h3>
+            
+                <span class="subtitle">순간 순간이 소중한 목적지</span>
+            
+        </div>
+
+    
+
+        
+        <div class="toggler">
+        
+            <i class="fa fa-bars" aria-hidden="true"></i>
+        </div>
+    </div>
+</header>
+
+
+        <div class="main container">
+            
+    
+    
+        <div class="article-wrapper u-cf">
+            
+                <a class="bubble" href="https://aidanbae.github.io/code/devops/k8s/istio-mixer-debug/">
+    <i class="fa fa-fw fa-code"></i>
+</a>
+
+<article class="default article">
+    
+
+    <div class="content">
+    <h3><a href="https://aidanbae.github.io/code/devops/k8s/istio-mixer-debug/">istio debug를 위한 controlZ 활용</a></h3>
+    <div class="meta">
+        
+            
+                <span class="date moment">2019-11-30</span>
+            
+        
+
+        
+
+        
+            <span class="categories">
+                
+                    <a href="https://aidanbae.github.io/categories/server">Server</a>
+                
+                    <a href="https://aidanbae.github.io/categories/devops">DevOps</a>
+                
+            </span>
+        
+
+        
+            <span class="author"><a href="https://aidanbae.github.io/author/aidan.bae">Aidan.bae</a></span>
+        
+    </div>
+
+    
+        istio의 mixer는 서비스에 대한 원격 분석등의 수집을 도와주는 유연한 모델이다. 서비스 옆에 붙어 있는 istio-proxy들의 수집되는 정보들을 mixer를 통해 파이프라이닝 할 수 있다.
+그림처럼 adapter api를 사용하기 때문에 다양한 어댑터를 사용해 확장성과 유연성을 다 갖춘 모델이다.
+istio 믹서에 문제가 생긴다면 서비스에 대한 수집 정보들에 영향이 생길 수 있다. 그러므로 특정 서비스에 라우팅이 안되고 모니터링상 이슈가 없었다면 로그나 수집 데이터를 생성, 운반하는 믹서에 이슈가 있는지 확인해보아야한다.
+istio는 쿠버네티스 대시보드처럼 손쉽게 istio의 현재 상태와 스코프 기능을 제공하는 controlZ라는 서비스를 제공하고있다.
+
+        
+            <a href="https://aidanbae.github.io/code/devops/k8s/istio-mixer-debug/" class="more">Continue reading</a>
+        
+    
+</div>
+
+    
+<div class="footer">
+
+
+    
+        <div class="tags">
+            <i class="fa fa-tags"></i>
+            <div class="links">
+                
+                    <a href="https://aidanbae.github.io/tags/istio">istio</a>
+                
+                    <a href="https://aidanbae.github.io/tags/mixer">mixer</a>
+                
+                    <a href="https://aidanbae.github.io/tags/debug">debug</a>
+                
+            </div>
+        </div>
+    
+
+    
+</div>
+
+</article>
+
+            
+        </div>
+    
+        <div class="article-wrapper u-cf">
+            
+                
+<a class="bubble" href="https://aidanbae.github.io/video/study/msa/">
+    <i class="fa fa-fw fa-video-camera"></i>
+</a>
+
+<article class="video">
+    
+
+
+    
+        <div class="responsive-video youtube">
+            <iframe src="https://www.youtube-nocookie.com/embed/xdqOxF2JqwU?rel=0" frameborder="0" allowfullscreen></iframe>
+        </div>
+    
+    
+
+    <div class="content">
+    <h3><a href="https://aidanbae.github.io/video/study/msa/">MSA &amp; kubernetes</a></h3>
+    <div class="meta">
+        
+            
+                <span class="date moment">2019-05-19</span>
+            
+        
+
+        
+
+        
+            <span class="categories">
+                
+                    <a href="https://aidanbae.github.io/categories/devops">DevOps</a>
+                
+                    <a href="https://aidanbae.github.io/categories/server">Server</a>
+                
+            </span>
+        
+
+        
+            <span class="author"><a href="https://aidanbae.github.io/author/aidan.bae">Aidan.bae</a></span>
+        
+    </div>
+
+    
+        2016년 12월 발표자료이긴한데
+MSA에 대한 이해가 한번에 되는 발표영상이다.
+요즘 MSA에 대해 물어보는 동생들이 있어서 바로 추천해주는 영상!
+인상적이었던 부분 인상적이었던 부분은 MSA와 팀모델에 대해 설명하는 부분이다.
+ 컨웨이의 법칙
+“소프트웨어의 구조는 그 소프트웨어를 만드는 팀의 구조와 일치한다.”
+ &lsquo;팀의 구조??&rsquo; 조대협님 왈: 개발 설계 백날 잘해봐야 소용없음 제대로된 팀 구조를 만드는 것이 설계 그다음은 알아서 됨
+정말 크게 와닿는다. 게임즈에서는 서버팀이 혼자였기때문에 설계를 모노리틱하게 설계한 것도 있음.
+하지만 서버팀이 인원이 늘었을 때도 모노리틱한 구조로 1인1프로젝트가 굉장히 불편했던 것은 맞다.
+
+        
+            <a href="https://aidanbae.github.io/video/study/msa/" class="more">Continue reading</a>
+        
+    
+</div>
+
+    
+<div class="footer">
+
+
+    
+        <div class="tags">
+            <i class="fa fa-tags"></i>
+            <div class="links">
+                
+                    <a href="https://aidanbae.github.io/tags/kubernetes">Kubernetes</a>
+                
+                    <a href="https://aidanbae.github.io/tags/docker">docker</a>
+                
+                    <a href="https://aidanbae.github.io/tags/msa">MSA</a>
+                
+            </div>
+        </div>
+    
+
+    
+</div>
+
+</article>
+
+            
+        </div>
+    
+        <div class="article-wrapper u-cf">
+            
+                <a class="bubble" href="https://aidanbae.github.io/code/docker/docker-netstat/">
+    <i class="fa fa-fw fa-code"></i>
+</a>
+
+<article class="default article">
+    
+    <div class="featured-image">
+        <a href="https://aidanbae.github.io/code/docker/docker-netstat/">
+            
+                <img src="https://aidanbae.github.io/code/docker/docker-netstat/featuredImage_hu8fbdd1b26661cf794b0f17932fa1ae38_170191_700x350_fill_q95_box_smart1_2.png" alt="">
+            
+        </a>
+    </div>
+
+
+    <div class="content">
+    <h3><a href="https://aidanbae.github.io/code/docker/docker-netstat/">Docker Container 내부 소켓 상태 확인 - nsenter와 netstat</a></h3>
+    <div class="meta">
+        
+            
+                <span class="date moment">2019-04-30</span>
+            
+        
+
+        
+
+        
+            <span class="categories">
+                
+                    <a href="https://aidanbae.github.io/categories/server">Server</a>
+                
+                    <a href="https://aidanbae.github.io/categories/docker">Docker</a>
+                
+                    <a href="https://aidanbae.github.io/categories/devops">DevOps</a>
+                
+            </span>
+        
+
+        
+            <span class="author"><a href="https://aidanbae.github.io/author/aidan.bae">Aidan.bae</a></span>
+        
+    </div>
+
+    
+        도커로 서비스 개발을 하다보면 상태 확인을 위해 호스트 머신이 아닌 컨테이너에 접근해야하는 경우가 생긴다. 호스트 머신 한 대에 여러 docker 서비스가 떠있을 수 있기 때문이다. (내가 이용 중인 AWS(ECS)도 내가 띄운 서비스 이외에 로그수집기, executor등의 또다른 docker 컨테이너가 떠있다.) 그러므로 호스트 머신에서 netstat 명령어는 모든 도커 서비스의 소켓정보들을 보여주기때문에 특정 서비스에 대한 스코프기능이 지원되지 않는다.
+도커를 조금 이용해본 개발자라면 쉽게 docker exec 명령어로 해당 컨테이너에 접근해 내부에서 소켓상태를 살펴보려할 것이다.
+
+        
+            <a href="https://aidanbae.github.io/code/docker/docker-netstat/" class="more">Continue reading</a>
+        
+    
+</div>
+
+    
+<div class="footer">
+
+
+    
+        <div class="tags">
+            <i class="fa fa-tags"></i>
+            <div class="links">
+                
+                    <a href="https://aidanbae.github.io/tags/docker">docker</a>
+                
+                    <a href="https://aidanbae.github.io/tags/netstat">netstat</a>
+                
+                    <a href="https://aidanbae.github.io/tags/docker-container">docker container</a>
+                
+                    <a href="https://aidanbae.github.io/tags/nsenter">nsenter</a>
+                
+            </div>
+        </div>
+    
+
+    
+</div>
+
+</article>
+
+            
+        </div>
+    
+        <div class="article-wrapper u-cf">
+            
+                <a class="bubble" href="https://aidanbae.github.io/code/devops/computer/cpucache/">
+    <i class="fa fa-fw fa-code"></i>
+</a>
+
+<article class="default article">
+    
+    <div class="featured-image">
+        <a href="https://aidanbae.github.io/code/devops/computer/cpucache/">
+            
+                <img src="https://aidanbae.github.io/code/devops/computer/cpucache/featuredImage_hu040e699061db3073052773bfe1b14c9d_33766_700x350_fill_q95_box_smart1.jpg" alt="">
+            
+        </a>
+    </div>
+
+
+    <div class="content">
+    <h3><a href="https://aidanbae.github.io/code/devops/computer/cpucache/">CPU 캐시 이해하기</a></h3>
+    <div class="meta">
+        
+            
+                <span class="date moment">2019-04-22</span>
+            
+        
+
+        
+
+        
+            <span class="categories">
+                
+                    <a href="https://aidanbae.github.io/categories/server">Server</a>
+                
+                    <a href="https://aidanbae.github.io/categories/devops">DevOps</a>
+                
+            </span>
+        
+
+        
+            <span class="author"><a href="https://aidanbae.github.io/author/aidan.bae">Aidan.bae</a></span>
+        
+    </div>
+
+    
+        CPU 캐시란? 컴퓨터 시스템의 성능을 향상 시키기 위해 주로 CPU칩 안에 포함되는 빠르고 작은 매우 비싼 메모리입니다. 프로그램에서 직접적으로 읽거나 쓸 수 없고 하드웨어의 메모리 관리 시스템이 내부적으로 제어합니다. 대부분의 프로그램은 한번 사용할 데이터를 다시 사용할 가능성이 높고, 그 주변의 데이터도 곧 사용할 가능성이 높은 데이터 지역성을 가지고 있다. 데이터 지역성을 활용하여 메인 메모리에 있는 데이터를 캐시 메모리에 불러와 두고, cpu가 필요한 데이터를 캐시에서 먼저 찾도록 하면 향상시킬수 있다.
+여기서 포인트는 데이터의 지역성을 활용한다!
+
+        
+            <a href="https://aidanbae.github.io/code/devops/computer/cpucache/" class="more">Continue reading</a>
+        
+    
+</div>
+
+    
+<div class="footer">
+
+
+    
+        <div class="tags">
+            <i class="fa fa-tags"></i>
+            <div class="links">
+                
+                    <a href="https://aidanbae.github.io/tags/cpu-cache">cpu cache</a>
+                
+                    <a href="https://aidanbae.github.io/tags/cpu-%EC%BA%90%EC%8B%9C">cpu 캐시</a>
+                
+                    <a href="https://aidanbae.github.io/tags/%EC%BA%90%EC%8B%9C%EB%9D%BC%EC%9D%B8">캐시라인</a>
+                
+            </div>
+        </div>
+    
+
+    
+</div>
+
+</article>
+
+            
+        </div>
+    
+        <div class="article-wrapper u-cf">
+            
+                <a class="bubble" href="https://aidanbae.github.io/code/devops/computer/tcmalloc/">
+    <i class="fa fa-fw fa-code"></i>
+</a>
+
+<article class="default article">
+    
+
+    <div class="content">
+    <h3><a href="https://aidanbae.github.io/code/devops/computer/tcmalloc/">tcmalloc</a></h3>
+    <div class="meta">
+        
+            
+                <span class="date moment">2019-04-16</span>
+            
+        
+
+        
+
+        
+            <span class="categories">
+                
+                    <a href="https://aidanbae.github.io/categories/server">Server</a>
+                
+            </span>
+        
+
+        
+            <span class="author"><a href="https://aidanbae.github.io/author/aidan.bae">Aidan.bae</a></span>
+        
+    </div>
+
+    
+        go tune memory 발표자료를 보면서 구경한 파생 지식 tcmalloc
+구글 공식 문서 http://goog-perftools.sourceforge.net/doc/tcmalloc.html
+구글에서 만든 TCMalloc
+보통 멀티 스레드 환경의 서버를 만들다보면 메모리 풀을 사용하게 된다.
+메모리 풀의 이점:
+ 빠른메모리할당 메모리 단편화 감소  하나의 거대한 메모리 풀을 사용하면 단순하게 malloc을 호출해서 메모리를 할당하는 것 보다 속도가 빠르다. 메모리 풀에 따라 다르겠지만 일반적으로 볼ㄸ ㅐ 처음 프로그래밍이 실행될 때 필요한 메모리를 통째로 잡아놓고 메모리가 필요한 경우에는 잡아놓은메모리 안에서 잘라서 주기 때문입니다.
+
+        
+            <a href="https://aidanbae.github.io/code/devops/computer/tcmalloc/" class="more">Continue reading</a>
+        
+    
+</div>
+
+    
+<div class="footer">
+
+
+    
+        <div class="tags">
+            <i class="fa fa-tags"></i>
+            <div class="links">
+                
+                    <a href="https://aidanbae.github.io/tags/tcmalloc">tcmalloc</a>
+                
+                    <a href="https://aidanbae.github.io/tags/malloc">malloc</a>
+                
+                    <a href="https://aidanbae.github.io/tags/computer-science">computer science</a>
+                
+            </div>
+        </div>
+    
+
+    
+</div>
+
+</article>
+
+            
+        </div>
+    
+        <div class="article-wrapper u-cf">
+            
+                <a class="bubble" href="https://aidanbae.github.io/code/golang/validator/">
+    <i class="fa fa-fw fa-code"></i>
+</a>
+
+<article class="default article">
+    
+    <div class="featured-image">
+        <a href="https://aidanbae.github.io/code/golang/validator/">
+            
+                <img src="https://aidanbae.github.io/code/golang/validator/featuredImage_hucf0550b6c4a4c11007738374e0fb9e2f_153219_700x350_fill_q95_box_smart1.jpg" alt="">
+            
+        </a>
+    </div>
+
+
+    <div class="content">
+    <h3><a href="https://aidanbae.github.io/code/golang/validator/">Golang 결제검증서버 구현 - Validator 디자인</a></h3>
+    <div class="meta">
+        
+            
+                <span class="date moment">2018-09-07</span>
+            
+        
+
+        
+
+        
+            <span class="categories">
+                
+                    <a href="https://aidanbae.github.io/categories/code">Code</a>
+                
+                    <a href="https://aidanbae.github.io/categories/golang">Golang</a>
+                
+                    <a href="https://aidanbae.github.io/categories/server">Server</a>
+                
+            </span>
+        
+
+        
+            <span class="author"><a href="https://aidanbae.github.io/author/aidan.bae">Aidan.bae</a></span>
+        
+    </div>
+
+    
+        Intro 결제 와 관련된 정보는 고객 입장에서도 회사 입장에서도 매우 중요한 정보이다.
+타사(구글, 페이스북, 샘성)의 결제모듈을 활용한다면 그 절차 사이사이의 검증과 기록은 결제검증서버가 해야할 필수적인 부분- 이번에 페이스북으로 글로벌 게임서버 런칭을 진행하면서 페이스북 결제를 활용해 돈방석에 앉아보기로 팀방향이 결정되었고(제발~)
+우리 서버팀은 그 돈방석의 영수증 역할을 할 결제검증서버를 구현하게되었다.
+이전에 불확실성을 줄이기위해 방명록을 간단하게 만들어보면서 orm프레임워크, mariadb 등을 확인했었고 그 연장선에서 이번 검증서버 프로젝트는 xorm과 web framework는 gin을 활용하기로 했다.
+ Point 결제 쪽에 자신감이 넘치는 팀장님이 명확한 로직을 제시해주었기때문에 코딩은 어렵지 않았다.
+
+        
+            <a href="https://aidanbae.github.io/code/golang/validator/" class="more">Continue reading</a>
+        
+    
+</div>
+
+    
+<div class="footer">
+
+
+    
+        <div class="tags">
+            <i class="fa fa-tags"></i>
+            <div class="links">
+                
+                    <a href="https://aidanbae.github.io/tags/golang">golang</a>
+                
+                    <a href="https://aidanbae.github.io/tags/interface">interface</a>
+                
+                    <a href="https://aidanbae.github.io/tags/validate">validate</a>
+                
+            </div>
+        </div>
+    
+
+    
+</div>
+
+</article>
+
+            
+        </div>
+    
+        <div class="article-wrapper u-cf">
+            
+                <a class="bubble" href="https://aidanbae.github.io/code/docker/dinddood/">
+    <i class="fa fa-fw fa-code"></i>
+</a>
+
+<article class="default article">
+    
+    <div class="featured-image">
+        <a href="https://aidanbae.github.io/code/docker/dinddood/">
+            
+                <img src="https://aidanbae.github.io/code/docker/dinddood/featuredImage_hu8fbdd1b26661cf794b0f17932fa1ae38_170191_700x350_fill_q95_box_smart1_2.png" alt="">
+            
+        </a>
+    </div>
+
+
+    <div class="content">
+    <h3><a href="https://aidanbae.github.io/code/docker/dinddood/">DinD(docker in docker)와 DooD(docker out of docker)</a></h3>
+    <div class="meta">
+        
+            
+                <span class="date moment">2018-09-03</span>
+            
+        
+
+        
+
+        
+            <span class="categories">
+                
+                    <a href="https://aidanbae.github.io/categories/server">Server</a>
+                
+                    <a href="https://aidanbae.github.io/categories/docker">Docker</a>
+                
+                    <a href="https://aidanbae.github.io/categories/devops">DevOps</a>
+                
+            </span>
+        
+
+        
+            <span class="author"><a href="https://aidanbae.github.io/author/aidan.bae">Aidan.bae</a></span>
+        
+    </div>
+
+    
+        Docker의 Client-Server아키텍쳐 단순히 도커를 이용해 이미지를 만들고 띄우는 개발자라면 docker client와 docker daemon이 분리되어 있는 것을 인지하지 못할 수 있다. 반면 CI(Continuous Integration/ 지속적 통합)툴을 사용하며 agent를 세팅하는 DevOps쪽 개발자라면 docker관련 task를 수행하면서 이 사실을 쉽게 접하게된다.
+그림처럼 docker시스템 유닛은 크게 3개로 분리되며, Client, Host(Daemon), Registry가 그것이다. 자세한 내용은 이전 포스트 Docker client와 Docker server를 참고.
+대부분의 현대 CI 도구들(travis, circle, gocd, jenkins)등이 agent를 통해 docker관련 Task를 수행을 하기 때문에 docker daemon은 호스트머신에서 동작하면서 컨테이너로 동작하는 agent들이 docker-client역할을 하는 경우가 많다.
+
+        
+            <a href="https://aidanbae.github.io/code/docker/dinddood/" class="more">Continue reading</a>
+        
+    
+</div>
+
+    
+<div class="footer">
+
+
+    
+        <div class="tags">
+            <i class="fa fa-tags"></i>
+            <div class="links">
+                
+                    <a href="https://aidanbae.github.io/tags/docker">docker</a>
+                
+                    <a href="https://aidanbae.github.io/tags/infra">infra</a>
+                
+                    <a href="https://aidanbae.github.io/tags/gocd">gocd</a>
+                
+                    <a href="https://aidanbae.github.io/tags/docker-client">docker-client</a>
+                
+                    <a href="https://aidanbae.github.io/tags/aws-cli">aws-cli</a>
+                
+            </div>
+        </div>
+    
+
+    
+</div>
+
+</article>
+
+            
+        </div>
+    
+
+    
+    <div class="paginator">
+        
+            <a href="https://aidanbae.github.io/categories/server/page/2/" class="older"><i class="fa fa-angle-double-left"></i> Older posts</a>
+        
+
+        
+    </div>
+
+
+
+        </div>
+
+        
+<footer>
+    <div class="container">
+
+        
+        <div class="recent-posts">
+            <strong>Latest posts</strong>
+                <ul>
+                
+                    <li>
+                        <a href="https://aidanbae.github.io/code/devops/k8s/istio-mixer-debug/">istio debug를 위한 controlZ 활용</a>
+                    </li>
+                
+                    <li>
+                        <a href="https://aidanbae.github.io/article/book/time/">시간은 흐르지 않는다.</a>
+                    </li>
+                
+                    <li>
+                        <a href="https://aidanbae.github.io/article/gori/">생각의 선순환고리</a>
+                    </li>
+                
+                    <li>
+                        <a href="https://aidanbae.github.io/video/shining/">밀고 나가면 어느순간 반드시 빛이 난다.</a>
+                    </li>
+                
+                    <li>
+                        <a href="https://aidanbae.github.io/quote/donki/">꿈</a>
+                    </li>
+                
+                    <li>
+                        <a href="https://aidanbae.github.io/article/book/siliteamman/">실리콘밸리의 팀장들 - 지독한 솔직함</a>
+                    </li>
+                
+                </ul>
+        </div>
+        
+
+        
+        <div class="categories">
+            <a href="https://aidanbae.github.io/categories/"><strong>Categories</strong></a>
+                <ul>
+                
+                    <li>
+                        <a href="https://aidanbae.github.io/categories/code">Code (19)</a>
+                    </li>
+                
+                    <li>
+                        <a href="https://aidanbae.github.io/categories/golang">Golang (16)</a>
+                    </li>
+                
+                    <li>
+                        <a href="https://aidanbae.github.io/categories/wisdom">Wisdom (13)</a>
+                    </li>
+                
+                    <li>
+                        <a href="https://aidanbae.github.io/categories/book">Book (12)</a>
+                    </li>
+                
+                    <li>
+                        <a href="https://aidanbae.github.io/categories/smalltalk">Smalltalk (12)</a>
+                    </li>
+                
+                    <li>
+                        <a href="https://aidanbae.github.io/categories/server">Server (11)</a>
+                    </li>
+                
+                    <li>
+                        <a href="https://aidanbae.github.io/categories/devops">Devops (10)</a>
+                    </li>
+                
+            </ul>
+        </div>
+        
+
+        <div class="right">
+            
+            <div class="external-profiles">
+                <strong>Social media</strong>
+
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                    <a href="https://github.com/aidanbae" target="_blank"><i class="fa fa-github"></i></a>
+                
+                
+            </div>
+            
+
+            
+        </div>
+    </div>
+</footer>
+
+
+<div class="credits">
+    <div class="container">
+        <div class="copyright">
+            <a href="https://github.com/Lednerb" target="_blank">
+                &copy;
+                
+                    2017
+                
+                by Lednerb
+            </a>
+	    -
+		<a href="https://aidanbae.github.io/categories/server/index.xml">RSS</a>
+        </div>
+        <div class="author">
+            <a href="https://github.com/Lednerb/bilberry-hugo-theme" target="_blank">Bilberry Hugo Theme</a>
+        </div>
+    </div>
+</div>
+
+
+        
+
+        
+
+        
+        
+        <script type="text/javascript" src="https://aidanbae.github.io/js/externalDependencies.39c47e10e241eae2947b3fe21809c572.js" integrity="md5-OcR&#43;EOJB6uKUez/iGAnFcg=="></script>
+
+        
+        
+        <script type="text/javascript" src="https://aidanbae.github.io/js/theme.ff50ae6dc1bfc220b23bf69dbb41b54e.js" integrity="md5-/1CubcG/wiCyO/adu0G1Tg=="></script>
+
+        <script>
+            $(".moment").each(function() {
+                $(this).text(
+                    moment( $(this).text() )
+                        .locale( "en" )
+                        .format('LL')
+                );
+            });
+
+            $(".footnote-return sup").html("");
+        </script>
+
+        
+            
+        
+
+        
+
+
+    </body>
+</html>

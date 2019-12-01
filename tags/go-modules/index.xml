@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>go modules on 아이단은 어디갔을까</title>
+    <link>https://aidanbae.github.io/tags/go-modules/</link>
+    <description>Recent content in go modules on 아이단은 어디갔을까</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Thu, 20 Dec 2018 09:31:27 +0900</lastBuildDate>
+    
+	<atom:link href="https://aidanbae.github.io/tags/go-modules/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Go Modules 시작하기</title>
+      <link>https://aidanbae.github.io/code/golang/modules/</link>
+      <pubDate>Thu, 20 Dec 2018 09:31:27 +0900</pubDate>
+      
+      <guid>https://aidanbae.github.io/code/golang/modules/</guid>
+      <description>Go modules 시작하기 golang version 1.11버전부터 획기적인 변화가 생겼습니다. 버전관리 프로젝트(vgo)를 Russ Cox의 메인오더로 go modules가 추가되었습니다.
+go modules는 vgo, dep, glide등으로 파생되었던 버전관리의 표준을 이야기하며 gopath의 종말을 외쳤습니다. 즉, 패키지간 종속성 관리를 golang team이 표준화하여 관리하는 정책입니다.
+개발환경
+ IDE : intellij IDEA version: golang 1.11.4 os : darwin(mac os)  Golang으로된 프로젝트를 동시에 여러개 진행(페이스북 웹훅 클러스터)하면서 불편했던 것 중 하나가 GOPATH설정 바꾸기였다. 내가 사용하던 intellij IDEA는 GOPATH를 기준으로 인덱싱을 했었기때문에 작업 프로젝트가 설정에 추가된 GOPATH가 아니라면 다시 GOPATH를 수정하고 프로젝트를 켜야했다.</description>
+    </item>
+    
+  </channel>
+</rss>

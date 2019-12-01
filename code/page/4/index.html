@@ -1,0 +1,845 @@
+<!doctype html>
+<html class="no-js" lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="author" content="Aidan.bae">
+        <meta name="description" content="아이단의 블로그">
+        <meta name="keywords" content="golang,aidan,kakaogames,kakao,gocd,gocd-agent,infra,javascript,python">
+        <meta name="generator" content="Hugo 0.60.0" />
+        <title> Codes | 아이단은 어디갔을까</title>
+        <meta name="description" content="Codes - 아이단의 블로그">
+        <meta itemprop="name" content="Codes">
+        <meta itemprop="description" content="Codes - 아이단의 블로그">
+        <meta property="og:title" content="Codes">
+        <meta property="og:description" content="Codes - 아이단의 블로그">
+        <meta property="og:image" content="https://www.gravatar.com/avatar/d41d8cd98f00b204e9800998ecf8427e?size=200">
+        <meta property="og:url" content="https://aidanbae.github.io/code/">
+        <meta property="og:site_name" content="아이단은 어디갔을까"><meta property="og:type" content="website">
+        <link rel="icon" type="image/png" href="https://aidanbae.github.io/favicon-32x32.png" sizes="32x32">
+        <link rel="icon" type="image/png" href="https://aidanbae.github.io/favicon-16x16.png" sizes="16x16">
+
+	
+	  <link href="https://aidanbae.github.io/code/" rel="alternate" type="application/rss+xml" title="아이단은 어디갔을까" />
+	  <link href="https://aidanbae.github.io/code/" rel="feed" type="application/rss+xml" title="아이단은 어디갔을까" />
+	
+
+        
+        
+        
+        
+        <link rel="stylesheet" href="https://aidanbae.github.io/sass/combined.min.e5af985042854cb05807bed3365180e76bf9b8e0f41a2c81f098583599a6fb05.css">
+
+        
+
+        
+            
+        
+    </head>
+    <body class="bilberry-hugo-theme">
+        
+<nav>
+
+    <div class="container">
+        <ul class="topnav">
+            
+                
+                    <li><a href="https://aidanbae.github.io/page/about-aidan/">Aidan</a></li>
+                
+            
+        </ul>
+
+        
+    </div>
+</nav>
+
+
+        <header>
+    <div class="container">
+        <div class="logo">
+            <a href="https://aidanbae.github.io/" class="logo">
+                
+                    <img src="https://aidanbae.github.io/do.png" alt="">
+                
+
+                <span class="overlay"><i class="fa fa-home"></i></span>
+            </a>
+        </div>
+        <div class="titles">
+            <h3 class="title"><a href="https://aidanbae.github.io/">아이단은 어디갔을까</a></h3>
+            
+                <span class="subtitle">순간 순간이 소중한 목적지</span>
+            
+        </div>
+
+    
+
+        
+        <div class="toggler">
+        
+            <i class="fa fa-bars" aria-hidden="true"></i>
+        </div>
+    </div>
+</header>
+
+
+        <div class="main container">
+            
+    
+    
+        <div class="article-wrapper u-cf">
+            
+                <a class="bubble" href="https://aidanbae.github.io/code/docker/docker-overview/">
+    <i class="fa fa-fw fa-code"></i>
+</a>
+
+<article class="default article">
+    
+    <div class="featured-image">
+        <a href="https://aidanbae.github.io/code/docker/docker-overview/">
+            
+                <img src="https://aidanbae.github.io/code/docker/docker-overview/featuredImage_hu8fbdd1b26661cf794b0f17932fa1ae38_170191_700x350_fill_q95_box_smart1_2.png" alt="">
+            
+        </a>
+    </div>
+
+
+    <div class="content">
+    <h3><a href="https://aidanbae.github.io/code/docker/docker-overview/">Docker client와 Docker server</a></h3>
+    <div class="meta">
+        
+            
+                <span class="date moment">2018-08-09</span>
+            
+        
+
+        
+
+        
+            <span class="categories">
+                
+                    <a href="https://aidanbae.github.io/categories/server">Server</a>
+                
+                    <a href="https://aidanbae.github.io/categories/docker">Docker</a>
+                
+            </span>
+        
+
+        
+            <span class="author"><a href="https://aidanbae.github.io/author/aidan.bae">Aidan.bae</a></span>
+        
+    </div>
+
+    
+        Why GoCD에서 AWS ECR로 이미지 빌드, 푸시 pipeline을 구축하면서
+Docker의 구조에 대해서 좀더 자세히 알게된 점을 정리한다.
+아키텍쳐를 이해함으로서 도커 통신과 관련된 이슈를 좀더 정확하게 해결할 수 있다.
+ Docker 공식문서는 자주보았는데 Docker Overview는 그냥 슭 훑고 지나갔었다. 한국어로 치면 개요(?) 정도 이겠다. 그 곳에 있는 핵심내용을 정리해본다.
+Basic 로컬에서 Docker를 사용할때 우리는 아주 손쉽게 docker ps, docker images 등의 명령어를 쳤기때문에 Docker 엔진의 작동방식을 잘 모르고 지나가는 경우가 많다. 간단하게 살펴보자.
+
+        
+            <a href="https://aidanbae.github.io/code/docker/docker-overview/" class="more">Continue reading</a>
+        
+    
+</div>
+
+    
+<div class="footer">
+
+
+    
+        <div class="tags">
+            <i class="fa fa-tags"></i>
+            <div class="links">
+                
+                    <a href="https://aidanbae.github.io/tags/docker">docker</a>
+                
+                    <a href="https://aidanbae.github.io/tags/infra">infra</a>
+                
+                    <a href="https://aidanbae.github.io/tags/gocd">gocd</a>
+                
+                    <a href="https://aidanbae.github.io/tags/docker-client">docker client</a>
+                
+                    <a href="https://aidanbae.github.io/tags/docker-daemon">docker daemon</a>
+                
+            </div>
+        </div>
+    
+
+    
+</div>
+
+</article>
+
+            
+        </div>
+    
+        <div class="article-wrapper u-cf">
+            
+                <a class="bubble" href="https://aidanbae.github.io/code/golang/benchmark/">
+    <i class="fa fa-fw fa-code"></i>
+</a>
+
+<article class="default article">
+    
+
+    <div class="content">
+    <h3><a href="https://aidanbae.github.io/code/golang/benchmark/">Golang Benchmark Test 사용하기</a></h3>
+    <div class="meta">
+        
+            
+                <span class="date moment">2018-05-13</span>
+            
+        
+
+        
+
+        
+            <span class="categories">
+                
+                    <a href="https://aidanbae.github.io/categories/golang">Golang</a>
+                
+            </span>
+        
+
+        
+            <span class="author"><a href="https://aidanbae.github.io/author/aidan.bae">Aidan.bae</a></span>
+        
+    </div>
+
+    
+        Intro 코딩을 하다보면 내가 짠 함수의 성능이 좋은지 안좋은지 궁금할때가 많다. Golang에서는 testing 라이브러리를 기본적으로 제공하면서 유닛테스트를 지원하면서도 성능을 측정할 수 있는 벤치마크 테스트도 제공한다. 게임 쪽을 개발하다보면 최적화의 과정이 필요하기 때문에 benchmark test는 유용하게 사용된다.
+ Why golang benchmark test 사용법을 익혀 자신 스스로와 팀원들을 설득할 수 있다.
+ Usage 간단하게 두 수를 더하는 함수를 짜고 성능을 측정해보겠다.
+package main import ( &#34;testing&#34; ) func Sum(a, b int) int { return a + b } func BenchmarkSum (b *testing.
+
+        
+            <a href="https://aidanbae.github.io/code/golang/benchmark/" class="more">Continue reading</a>
+        
+    
+</div>
+
+    
+<div class="footer">
+
+
+    
+        <div class="tags">
+            <i class="fa fa-tags"></i>
+            <div class="links">
+                
+                    <a href="https://aidanbae.github.io/tags/benchmark-test">benchmark test</a>
+                
+                    <a href="https://aidanbae.github.io/tags/golang">golang</a>
+                
+            </div>
+        </div>
+    
+
+    
+</div>
+
+</article>
+
+            
+        </div>
+    
+        <div class="article-wrapper u-cf">
+            
+                <a class="bubble" href="https://aidanbae.github.io/code/hugo/deploytutorial/">
+    <i class="fa fa-fw fa-code"></i>
+</a>
+
+<article class="default article">
+    
+    <div class="featured-image">
+        <a href="https://aidanbae.github.io/code/hugo/deploytutorial/">
+            
+                <img src="https://aidanbae.github.io/code/hugo/deploytutorial/featuredImage_hub7486b26dfca88361a6bf2714b2448bd_64446_700x350_fill_q95_box_smart1_2.png" alt="">
+            
+        </a>
+    </div>
+
+
+    <div class="content">
+    <h3><a href="https://aidanbae.github.io/code/hugo/deploytutorial/">Hugo로 github page에 블로그 배포하기</a></h3>
+    <div class="meta">
+        
+            
+                <span class="date moment">2018-04-23</span>
+            
+        
+
+        
+
+        
+            <span class="categories">
+                
+                    <a href="https://aidanbae.github.io/categories/blog">Blog</a>
+                
+                    <a href="https://aidanbae.github.io/categories/hugo">Hugo</a>
+                
+            </span>
+        
+
+        
+            <span class="author"><a href="https://aidanbae.github.io/author/aidan.bae">Aidan.bae</a></span>
+        
+    </div>
+
+    
+        Why? Hugo 공식사이트를 보다보면 뭔가 친절한듯 하지만 영어다.
+테마 설정때문에 에러를 겪으시는 분들이 많아
+쉽게 디렉팅해서 여러분들의 시간을 아껴주고싶다.
+hugo 설치하기 Install hugo
+hugo quickstart QuickStart 이거 따라하시면된다.
+여기 Step3를 보면 git clone 대신 git submodule을 사용중이다. 님은 둘중 하나를 선택할 수 있는데 submodule을 쓰는 편이 암에서 해방되는 길이긴하다. 하지만 나처럼 이미 clone을 선택해서 테마를 받았다면 themes 디렉토리를 .gitignore에 추가해야한다.
+echo &#39;themes/&#39; &gt;&gt; .gitignore config.toml파일을 수정하자 config.toml 파일에서 baseURL을 수정하자:
+
+        
+            <a href="https://aidanbae.github.io/code/hugo/deploytutorial/" class="more">Continue reading</a>
+        
+    
+</div>
+
+    
+<div class="footer">
+
+
+    
+        <div class="tags">
+            <i class="fa fa-tags"></i>
+            <div class="links">
+                
+                    <a href="https://aidanbae.github.io/tags/hugo">hugo</a>
+                
+                    <a href="https://aidanbae.github.io/tags/github">github</a>
+                
+                    <a href="https://aidanbae.github.io/tags/deploy">deploy</a>
+                
+                    <a href="https://aidanbae.github.io/tags/tutorial">tutorial</a>
+                
+            </div>
+        </div>
+    
+
+    
+</div>
+
+</article>
+
+            
+        </div>
+    
+        <div class="article-wrapper u-cf">
+            
+                <a class="bubble" href="https://aidanbae.github.io/code/devops/mesosmarathon/marathon2/">
+    <i class="fa fa-fw fa-code"></i>
+</a>
+
+<article class="default article">
+    
+    <div class="featured-image">
+        <a href="https://aidanbae.github.io/code/devops/mesosmarathon/marathon2/">
+            
+                <img src="https://aidanbae.github.io/code/devops/mesosmarathon/marathon2/featuredImage_hu01e5dfb2581f88dff7c5d1dbf32521d2_31285_700x350_fill_q95_box_smart1.jpg" alt="">
+            
+        </a>
+    </div>
+
+
+    <div class="content">
+    <h3><a href="https://aidanbae.github.io/code/devops/mesosmarathon/marathon2/">메소스 마라톤(Mesos Marathon) 어플리케이션 사용하기 - 2</a></h3>
+    <div class="meta">
+        
+            
+                <span class="date moment">2018-02-15</span>
+            
+        
+
+        
+
+        
+            <span class="categories">
+                
+                    <a href="https://aidanbae.github.io/categories/server">Server</a>
+                
+                    <a href="https://aidanbae.github.io/categories/devops">DevOps</a>
+                
+            </span>
+        
+
+        
+            <span class="author"><a href="https://aidanbae.github.io/author/aidan.bae">Aidan.bae</a></span>
+        
+    </div>
+
+    
+        Marathon Application Deployment 마라톤에서 어플리케이션 또는 그룹의 정의가 변경 될 때마다 배포가 수행됩니다. 배포는 다음 작업을 수행 할 수 있는 일련의 작업입니다.
+ 하나 이상의 어플리케이션을 시작 또는 중지 하나 이상의 어플리케이션을 업그레이드 하나 이상의 어플리케이션을 스케일조정  배포에는 시간이 걸리고 즉시 사용할 수 없습니다.
+성공적으로 마칠 때까지 마라톤에서 배포가 활성된 것으로 간주.
+ 종속성 종속성이 없는 어플리케이션은 제한없이 순서에 상관없이 배포할 수 있습니다. 하지만 있는 경우에는 필요한 순서로 배치 작업이 수행됩니다.
+
+        
+            <a href="https://aidanbae.github.io/code/devops/mesosmarathon/marathon2/" class="more">Continue reading</a>
+        
+    
+</div>
+
+    
+<div class="footer">
+
+
+    
+        <div class="tags">
+            <i class="fa fa-tags"></i>
+            <div class="links">
+                
+                    <a href="https://aidanbae.github.io/tags/mesos-marathon">mesos marathon</a>
+                
+                    <a href="https://aidanbae.github.io/tags/mesos">mesos</a>
+                
+                    <a href="https://aidanbae.github.io/tags/dcos">dcos</a>
+                
+                    <a href="https://aidanbae.github.io/tags/devops">devops</a>
+                
+                    <a href="https://aidanbae.github.io/tags/marathon">marathon</a>
+                
+            </div>
+        </div>
+    
+
+    
+</div>
+
+</article>
+
+            
+        </div>
+    
+        <div class="article-wrapper u-cf">
+            
+                <a class="bubble" href="https://aidanbae.github.io/code/devops/mesosmarathon/marathon1/">
+    <i class="fa fa-fw fa-code"></i>
+</a>
+
+<article class="default article">
+    
+    <div class="featured-image">
+        <a href="https://aidanbae.github.io/code/devops/mesosmarathon/marathon1/">
+            
+                <img src="https://aidanbae.github.io/code/devops/mesosmarathon/marathon1/featuredImage_hu01e5dfb2581f88dff7c5d1dbf32521d2_31285_700x350_fill_q95_box_smart1.jpg" alt="">
+            
+        </a>
+    </div>
+
+
+    <div class="content">
+    <h3><a href="https://aidanbae.github.io/code/devops/mesosmarathon/marathon1/">메소스 마라톤(Mesos Marathon) 어플리케이션 사용하기 - 1</a></h3>
+    <div class="meta">
+        
+            
+                <span class="date moment">2018-02-11</span>
+            
+        
+
+        
+
+        
+            <span class="categories">
+                
+                    <a href="https://aidanbae.github.io/categories/server">Server</a>
+                
+                    <a href="https://aidanbae.github.io/categories/devops">DevOps</a>
+                
+            </span>
+        
+
+        
+            <span class="author"><a href="https://aidanbae.github.io/author/aidan.bae">Aidan.bae</a></span>
+        
+    </div>
+
+    
+        Mesos Marathon - Application Basic 어플리케이션은 마라톤의 필수 기능입니다. 각 어플리케이션은 일반적으로 여러 호스트에서 실행되는 많은 인스턴스가있는 long-running service를 나타냅니다. 어플리케이션 인스턴스를 Task라고 부릅니다. Application Definition은 작업을 유지하고 시작하는데 필요한 모든것을 설명하는 녀석입니다.
+주의사항 &gt; Marathon은 어플리케이션 이름에 점(.)을 허용하지만 점으로 표시된 이름은 적절한 서비스 검색 동작을 방해 할 수 있습니다. 서비스 검색 매커니즘을 사용하려는 경우, 응용프로그램 이름에 점을 넣으면 안됩니다.
+정식 사이트에서는 Hello Marathon을 띄워보는 인라인쉘 스크립트를 소개하는데요.
+같이 한번 도전해보겠습니다.
+
+        
+            <a href="https://aidanbae.github.io/code/devops/mesosmarathon/marathon1/" class="more">Continue reading</a>
+        
+    
+</div>
+
+    
+<div class="footer">
+
+
+    
+        <div class="tags">
+            <i class="fa fa-tags"></i>
+            <div class="links">
+                
+                    <a href="https://aidanbae.github.io/tags/mesos-marathon">mesos marathon</a>
+                
+                    <a href="https://aidanbae.github.io/tags/mesos">mesos</a>
+                
+                    <a href="https://aidanbae.github.io/tags/dcos">dcos</a>
+                
+                    <a href="https://aidanbae.github.io/tags/devops">devops</a>
+                
+                    <a href="https://aidanbae.github.io/tags/marathon">marathon</a>
+                
+            </div>
+        </div>
+    
+
+    
+</div>
+
+</article>
+
+            
+        </div>
+    
+        <div class="article-wrapper u-cf">
+            
+                <a class="bubble" href="https://aidanbae.github.io/code/javascript/console/">
+    <i class="fa fa-fw fa-code"></i>
+</a>
+
+<article class="default article">
+    
+    <div class="featured-image">
+        <a href="https://aidanbae.github.io/code/javascript/console/">
+            
+                <img src="https://aidanbae.github.io/code/javascript/console/featuredImage_hu145402ae12c7c122e75bcd53a1bc82b7_18004_700x350_fill_q95_box_smart1.jpg" alt="">
+            
+        </a>
+    </div>
+
+
+    <div class="content">
+    <h3><a href="https://aidanbae.github.io/code/javascript/console/">Javascript Console 활용</a></h3>
+    <div class="meta">
+        
+            
+                <span class="date moment">2018-01-24</span>
+            
+        
+
+        
+
+        
+            <span class="categories">
+                
+                    <a href="https://aidanbae.github.io/categories/code">Code</a>
+                
+                    <a href="https://aidanbae.github.io/categories/javascript">Javascript</a>
+                
+            </span>
+        
+
+        
+            <span class="author"><a href="https://aidanbae.github.io/author/aidan.bae">Aidan.bae</a></span>
+        
+    </div>
+
+    
+        Intro 자바스크립트를 쓰면서 웹어플리케이션을 만들다보면 Debug를 위해 console객체를 자주 사용하게됩니다. 간혹 잘못 사용해서 잘못된 정보를 본다면&hellip; 삽질의 시작이죠
+Why Console 객체의 주의해야할 점과 좋은 활용법을 터득해 즐거운 디버깅을 해봅시다.
+ console.log 자바스크립트 개발자라면 너무 친숙한녀석이죠.
+console.log(obj1 [, obj2, ..., objN]); console.log(msg [, subst1, ..., substN]);  보시는 것처럼 객체와 메세지 등 다양한 인자값을 출력하는데 사용합니다.
+주의할점은 객체를 로깅할때입니다. 우선 string 변수를 로깅해봅시다.
+var sangik = &#34;상익아 뭐하니&#34; console.log(sangik); // 상익아 뭐하니 sangik = &#34;what are you doing?
+
+        
+            <a href="https://aidanbae.github.io/code/javascript/console/" class="more">Continue reading</a>
+        
+    
+</div>
+
+    
+<div class="footer">
+
+
+    
+        <div class="tags">
+            <i class="fa fa-tags"></i>
+            <div class="links">
+                
+                    <a href="https://aidanbae.github.io/tags/javascript">javascript</a>
+                
+                    <a href="https://aidanbae.github.io/tags/console.log">console.log</a>
+                
+                    <a href="https://aidanbae.github.io/tags/console.time">console.time</a>
+                
+                    <a href="https://aidanbae.github.io/tags/console.timeend">console.timeEnd</a>
+                
+                    <a href="https://aidanbae.github.io/tags/console">console</a>
+                
+            </div>
+        </div>
+    
+
+    
+</div>
+
+</article>
+
+            
+        </div>
+    
+        <div class="article-wrapper u-cf">
+            
+                <a class="bubble" href="https://aidanbae.github.io/code/python/pythonspecialmethod/">
+    <i class="fa fa-fw fa-code"></i>
+</a>
+
+<article class="default article">
+    
+    <div class="featured-image">
+        <a href="https://aidanbae.github.io/code/python/pythonspecialmethod/">
+            
+                <img src="https://aidanbae.github.io/code/python/pythonspecialmethod/featuredImage_hu071c6006b6148c050030e26fb108bd62_83564_700x350_fill_q95_box_smart1_2.png" alt="">
+            
+        </a>
+    </div>
+
+
+    <div class="content">
+    <h3><a href="https://aidanbae.github.io/code/python/pythonspecialmethod/">Python 연산자 오버로딩을 활용하기</a></h3>
+    <div class="meta">
+        
+            
+                <span class="date moment">2018-01-24</span>
+            
+        
+
+        
+
+        
+            <span class="categories">
+                
+                    <a href="https://aidanbae.github.io/categories/code">Code</a>
+                
+                    <a href="https://aidanbae.github.io/categories/python">Python</a>
+                
+            </span>
+        
+
+        
+            <span class="author"><a href="https://aidanbae.github.io/author/aidan.bae">Aidan.bae</a></span>
+        
+    </div>
+
+    
+        Intro Top of Tower GameServer(이하 tot)를 Python + Django 스택으로 구현하면서
+가을과 겨울 사이에 Mason과 같이 공부한 Fluent Python을 프로젝트에 녹여볼려고 했다.
+파이썬을 파볼 생각이라면 강력 추천
+Mason과 Fluent Python(전문가를 위한 파이썬) 스터디를 진행하면서 Chapter13에서 연산자 오버로딩을 만났다. 사실 우리는 연산자를 숫자연산에만 사용하는 경향이 있다. 연산자는 논리표현 중 하나고 우리는 논리 표현으로서 더 새롭게 정의할 수 있다. 행렬의 곱이 숫자의 곱과 방식이 조금 다르듯, 게임 캐릭터에 써보는게 좋겠다는 이야기가 나왔다.
+
+        
+            <a href="https://aidanbae.github.io/code/python/pythonspecialmethod/" class="more">Continue reading</a>
+        
+    
+</div>
+
+    
+<div class="footer">
+
+
+    
+        <div class="tags">
+            <i class="fa fa-tags"></i>
+            <div class="links">
+                
+                    <a href="https://aidanbae.github.io/tags/python">Python</a>
+                
+                    <a href="https://aidanbae.github.io/tags/%EC%97%B0%EC%82%B0%EC%9E%90-%EC%98%A4%EB%B2%84%EB%A1%9C%EB%94%A9">연산자 오버로딩</a>
+                
+                    <a href="https://aidanbae.github.io/tags/%ED%8A%B9%EB%B3%84%EB%A9%94%EC%84%9C%EB%93%9C">특별메서드</a>
+                
+            </div>
+        </div>
+    
+
+    
+</div>
+
+</article>
+
+            
+        </div>
+    
+
+    
+    <div class="paginator">
+        
+            <a href="https://aidanbae.github.io/code/page/5/" class="older"><i class="fa fa-angle-double-left"></i> Older posts</a>
+        
+
+        
+            <a href="https://aidanbae.github.io/code/page/3/" class="newer">Newer posts <i class="fa fa-angle-double-right"></i></a>
+        
+    </div>
+
+
+
+        </div>
+
+        
+<footer>
+    <div class="container">
+
+        
+        <div class="recent-posts">
+            <strong>Latest posts</strong>
+                <ul>
+                
+                    <li>
+                        <a href="https://aidanbae.github.io/code/devops/k8s/istio-mixer-debug/">istio debug를 위한 controlZ 활용</a>
+                    </li>
+                
+                    <li>
+                        <a href="https://aidanbae.github.io/article/book/time/">시간은 흐르지 않는다.</a>
+                    </li>
+                
+                    <li>
+                        <a href="https://aidanbae.github.io/article/gori/">생각의 선순환고리</a>
+                    </li>
+                
+                    <li>
+                        <a href="https://aidanbae.github.io/video/shining/">밀고 나가면 어느순간 반드시 빛이 난다.</a>
+                    </li>
+                
+                    <li>
+                        <a href="https://aidanbae.github.io/quote/donki/">꿈</a>
+                    </li>
+                
+                    <li>
+                        <a href="https://aidanbae.github.io/article/book/siliteamman/">실리콘밸리의 팀장들 - 지독한 솔직함</a>
+                    </li>
+                
+                </ul>
+        </div>
+        
+
+        
+        <div class="categories">
+            <a href="https://aidanbae.github.io/categories/"><strong>Categories</strong></a>
+                <ul>
+                
+                    <li>
+                        <a href="https://aidanbae.github.io/categories/code">Code (19)</a>
+                    </li>
+                
+                    <li>
+                        <a href="https://aidanbae.github.io/categories/golang">Golang (16)</a>
+                    </li>
+                
+                    <li>
+                        <a href="https://aidanbae.github.io/categories/wisdom">Wisdom (13)</a>
+                    </li>
+                
+                    <li>
+                        <a href="https://aidanbae.github.io/categories/book">Book (12)</a>
+                    </li>
+                
+                    <li>
+                        <a href="https://aidanbae.github.io/categories/smalltalk">Smalltalk (12)</a>
+                    </li>
+                
+                    <li>
+                        <a href="https://aidanbae.github.io/categories/server">Server (11)</a>
+                    </li>
+                
+                    <li>
+                        <a href="https://aidanbae.github.io/categories/devops">Devops (10)</a>
+                    </li>
+                
+            </ul>
+        </div>
+        
+
+        <div class="right">
+            
+            <div class="external-profiles">
+                <strong>Social media</strong>
+
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                    <a href="https://github.com/aidanbae" target="_blank"><i class="fa fa-github"></i></a>
+                
+                
+            </div>
+            
+
+            
+        </div>
+    </div>
+</footer>
+
+
+<div class="credits">
+    <div class="container">
+        <div class="copyright">
+            <a href="https://github.com/Lednerb" target="_blank">
+                &copy;
+                
+                    2017
+                
+                by Lednerb
+            </a>
+	    -
+		<a href="https://aidanbae.github.io/code/index.xml">RSS</a>
+        </div>
+        <div class="author">
+            <a href="https://github.com/Lednerb/bilberry-hugo-theme" target="_blank">Bilberry Hugo Theme</a>
+        </div>
+    </div>
+</div>
+
+
+        
+
+        
+
+        
+        
+        <script type="text/javascript" src="https://aidanbae.github.io/js/externalDependencies.39c47e10e241eae2947b3fe21809c572.js" integrity="md5-OcR&#43;EOJB6uKUez/iGAnFcg=="></script>
+
+        
+        
+        <script type="text/javascript" src="https://aidanbae.github.io/js/theme.ff50ae6dc1bfc220b23bf69dbb41b54e.js" integrity="md5-/1CubcG/wiCyO/adu0G1Tg=="></script>
+
+        <script>
+            $(".moment").each(function() {
+                $(this).text(
+                    moment( $(this).text() )
+                        .locale( "en" )
+                        .format('LL')
+                );
+            });
+
+            $(".footnote-return sup").html("");
+        </script>
+
+        
+            
+        
+
+        
+
+
+    </body>
+</html>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>you on 아이단은 어디갔을까</title>
+    <link>https://aidanbae.github.io/tags/you/</link>
+    <description>Recent content in you on 아이단은 어디갔을까</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Sun, 29 Sep 2019 13:01:14 +0100</lastBuildDate>
+    
+	<atom:link href="https://aidanbae.github.io/tags/you/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>생각의 선순환고리</title>
+      <link>https://aidanbae.github.io/article/gori/</link>
+      <pubDate>Sun, 29 Sep 2019 13:01:14 +0100</pubDate>
+      
+      <guid>https://aidanbae.github.io/article/gori/</guid>
+      <description>생각 - 행동/실천 - output - 피드백 - 생각
+책을 많이 읽어 좋은 인사이트를 얻는 것보다 중요한 것은
+생각을 내 삶에 끌여들어와 행동/실천으로 이어가고
+유의미한 결과물을 빠르게 가져오는 것이다.
+(자신이 생각하기에 빠른 정도면 된다.)
+그리고 그 아웃풋을 토대로 느낀점, 배운점을 정리해
+다시 새롭게 생각하고 꿈꾼다.
+당신은 그 와중에 성장한다는 느낌을 계속 받아야한다.
+만약 output에 대해 피드백 없이 또 같은 생각을 한다면 manufacturing이다.
+creating이 되기 위해선 피드백을 통한 생각의 수정이 필요하다.</description>
+    </item>
+    
+  </channel>
+</rss>

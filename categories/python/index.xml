@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Python on 아이단은 어디갔을까</title>
+    <link>https://aidanbae.github.io/categories/python/</link>
+    <description>Recent content in Python on 아이단은 어디갔을까</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Wed, 24 Jan 2018 09:31:27 +0100</lastBuildDate>
+    
+	<atom:link href="https://aidanbae.github.io/categories/python/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Python 연산자 오버로딩을 활용하기</title>
+      <link>https://aidanbae.github.io/code/python/pythonspecialmethod/</link>
+      <pubDate>Wed, 24 Jan 2018 09:31:27 +0100</pubDate>
+      
+      <guid>https://aidanbae.github.io/code/python/pythonspecialmethod/</guid>
+      <description>Intro Top of Tower GameServer(이하 tot)를 Python + Django 스택으로 구현하면서
+가을과 겨울 사이에 Mason과 같이 공부한 Fluent Python을 프로젝트에 녹여볼려고 했다.
+파이썬을 파볼 생각이라면 강력 추천
+Mason과 Fluent Python(전문가를 위한 파이썬) 스터디를 진행하면서 Chapter13에서 연산자 오버로딩을 만났다. 사실 우리는 연산자를 숫자연산에만 사용하는 경향이 있다. 연산자는 논리표현 중 하나고 우리는 논리 표현으로서 더 새롭게 정의할 수 있다. 행렬의 곱이 숫자의 곱과 방식이 조금 다르듯, 게임 캐릭터에 써보는게 좋겠다는 이야기가 나왔다.</description>
+    </item>
+    
+  </channel>
+</rss>

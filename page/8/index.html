@@ -1,0 +1,879 @@
+<!doctype html>
+<html class="no-js" lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="author" content="Aidan.bae">
+        <meta name="description" content="아이단의 블로그">
+        <meta name="keywords" content="golang,aidan,kakaogames,kakao,gocd,gocd-agent,infra,javascript,python">
+        <meta name="generator" content="Hugo 0.60.0" />
+        <title> 순간 순간이 소중한 목적지 | 아이단은 어디갔을까</title>
+        <meta name="description" content="아이단의 블로그">
+        <meta itemprop="name" content="순간 순간이 소중한 목적지">
+        <meta itemprop="description" content="아이단의 블로그">
+        <meta property="og:title" content="순간 순간이 소중한 목적지">
+        <meta property="og:description" content="아이단의 블로그">
+        <meta property="og:image" content="https://www.gravatar.com/avatar/d41d8cd98f00b204e9800998ecf8427e?size=200">
+        <meta property="og:url" content="https://aidanbae.github.io/">
+        <meta property="og:site_name" content="아이단은 어디갔을까"><meta property="og:type" content="website">
+        <link rel="icon" type="image/png" href="https://aidanbae.github.io/favicon-32x32.png" sizes="32x32">
+        <link rel="icon" type="image/png" href="https://aidanbae.github.io/favicon-16x16.png" sizes="16x16">
+
+	
+	  <link href="https://aidanbae.github.io/" rel="alternate" type="application/rss+xml" title="아이단은 어디갔을까" />
+	  <link href="https://aidanbae.github.io/" rel="feed" type="application/rss+xml" title="아이단은 어디갔을까" />
+	
+
+        
+        
+        
+        
+        <link rel="stylesheet" href="https://aidanbae.github.io/sass/combined.min.e5af985042854cb05807bed3365180e76bf9b8e0f41a2c81f098583599a6fb05.css">
+
+        
+
+        
+            
+        
+    </head>
+    <body class="bilberry-hugo-theme">
+        
+<nav>
+
+    <div class="container">
+        <ul class="topnav">
+            
+                
+                    <li><a href="https://aidanbae.github.io/page/about-aidan/">Aidan</a></li>
+                
+            
+        </ul>
+
+        
+    </div>
+</nav>
+
+
+        <header>
+    <div class="container">
+        <div class="logo">
+            <a href="https://aidanbae.github.io/" class="logo">
+                
+                    <img src="https://aidanbae.github.io/do.png" alt="">
+                
+
+                <span class="overlay"><i class="fa fa-home"></i></span>
+            </a>
+        </div>
+        <div class="titles">
+            <h3 class="title"><a href="https://aidanbae.github.io/">아이단은 어디갔을까</a></h3>
+            
+                <span class="subtitle">순간 순간이 소중한 목적지</span>
+            
+        </div>
+
+    
+
+        
+        <div class="toggler">
+        
+            <i class="fa fa-bars" aria-hidden="true"></i>
+        </div>
+    </div>
+</header>
+
+
+        <div class="main container">
+            
+
+
+
+    
+
+    
+        
+    <div class="article-wrapper u-cf">
+        
+            <a class="bubble" href="https://aidanbae.github.io/code/docker/docker-debug/">
+    <i class="fa fa-fw fa-code"></i>
+</a>
+
+<article class="default article">
+    
+    <div class="featured-image">
+        <a href="https://aidanbae.github.io/code/docker/docker-debug/">
+            
+                <img src="https://aidanbae.github.io/code/docker/docker-debug/featuredImage_hu8fbdd1b26661cf794b0f17932fa1ae38_170191_700x350_fill_q95_box_smart1_2.png" alt="">
+            
+        </a>
+    </div>
+
+
+    <div class="content">
+    <h3><a href="https://aidanbae.github.io/code/docker/docker-debug/">Docker Debug 모드</a></h3>
+    <div class="meta">
+        
+            
+                <span class="date moment">2018-08-09</span>
+            
+        
+
+        
+
+        
+            <span class="categories">
+                
+                    <a href="https://aidanbae.github.io/categories/server">Server</a>
+                
+                    <a href="https://aidanbae.github.io/categories/docker">Docker</a>
+                
+            </span>
+        
+
+        
+            <span class="author"><a href="https://aidanbae.github.io/author/aidan.bae">Aidan.bae</a></span>
+        
+    </div>
+
+    
+        Why Docker의 디버그모드를 활용해서 트러블슈팅을 빠르게 진행할 수 있다.
+ Docker Debug Mode를 켜보자. 1. 데몬이 사용할 Configuration파일을 편집해야한다.
+/etc/docker에 위치한 daemon.json파일 없다면 직접 만들어봅시다.
+ /etc/docker/daemon.json on Linux C:\ProgramData\docker\config\daemon.json on Window  2. 아래 컨텐츠를 추가합니다
+{ &#34;debug&#34;: true } ps. 만약 파일이 이미 존재했다면 debug 프로퍼티를 추가하고 true값을 적어줍니다.
+3. HUP signal을 데몬에게 보내서 configuration을 다시 reload하도록 합니다.
+리눅스에서는 다음 명령어를 사용합니다:
+$ sudo kill -SIGHUP $(pidof dockerd)  윈도우에서는 도커를 재시작하세요.
+
+        
+            <a href="https://aidanbae.github.io/code/docker/docker-debug/" class="more">Continue reading</a>
+        
+    
+</div>
+
+    
+<div class="footer">
+
+
+    
+        <div class="tags">
+            <i class="fa fa-tags"></i>
+            <div class="links">
+                
+                    <a href="https://aidanbae.github.io/tags/docker">docker</a>
+                
+                    <a href="https://aidanbae.github.io/tags/infra">infra</a>
+                
+                    <a href="https://aidanbae.github.io/tags/gocd">gocd</a>
+                
+                    <a href="https://aidanbae.github.io/tags/docker-client">docker client</a>
+                
+                    <a href="https://aidanbae.github.io/tags/docker-daemon">docker daemon</a>
+                
+            </div>
+        </div>
+    
+
+    
+</div>
+
+</article>
+
+        
+    </div>
+
+    
+        
+    <div class="article-wrapper u-cf">
+        
+            <a class="bubble" href="https://aidanbae.github.io/code/docker/docker-overview/">
+    <i class="fa fa-fw fa-code"></i>
+</a>
+
+<article class="default article">
+    
+    <div class="featured-image">
+        <a href="https://aidanbae.github.io/code/docker/docker-overview/">
+            
+                <img src="https://aidanbae.github.io/code/docker/docker-overview/featuredImage_hu8fbdd1b26661cf794b0f17932fa1ae38_170191_700x350_fill_q95_box_smart1_2.png" alt="">
+            
+        </a>
+    </div>
+
+
+    <div class="content">
+    <h3><a href="https://aidanbae.github.io/code/docker/docker-overview/">Docker client와 Docker server</a></h3>
+    <div class="meta">
+        
+            
+                <span class="date moment">2018-08-09</span>
+            
+        
+
+        
+
+        
+            <span class="categories">
+                
+                    <a href="https://aidanbae.github.io/categories/server">Server</a>
+                
+                    <a href="https://aidanbae.github.io/categories/docker">Docker</a>
+                
+            </span>
+        
+
+        
+            <span class="author"><a href="https://aidanbae.github.io/author/aidan.bae">Aidan.bae</a></span>
+        
+    </div>
+
+    
+        Why GoCD에서 AWS ECR로 이미지 빌드, 푸시 pipeline을 구축하면서
+Docker의 구조에 대해서 좀더 자세히 알게된 점을 정리한다.
+아키텍쳐를 이해함으로서 도커 통신과 관련된 이슈를 좀더 정확하게 해결할 수 있다.
+ Docker 공식문서는 자주보았는데 Docker Overview는 그냥 슭 훑고 지나갔었다. 한국어로 치면 개요(?) 정도 이겠다. 그 곳에 있는 핵심내용을 정리해본다.
+Basic 로컬에서 Docker를 사용할때 우리는 아주 손쉽게 docker ps, docker images 등의 명령어를 쳤기때문에 Docker 엔진의 작동방식을 잘 모르고 지나가는 경우가 많다. 간단하게 살펴보자.
+
+        
+            <a href="https://aidanbae.github.io/code/docker/docker-overview/" class="more">Continue reading</a>
+        
+    
+</div>
+
+    
+<div class="footer">
+
+
+    
+        <div class="tags">
+            <i class="fa fa-tags"></i>
+            <div class="links">
+                
+                    <a href="https://aidanbae.github.io/tags/docker">docker</a>
+                
+                    <a href="https://aidanbae.github.io/tags/infra">infra</a>
+                
+                    <a href="https://aidanbae.github.io/tags/gocd">gocd</a>
+                
+                    <a href="https://aidanbae.github.io/tags/docker-client">docker client</a>
+                
+                    <a href="https://aidanbae.github.io/tags/docker-daemon">docker daemon</a>
+                
+            </div>
+        </div>
+    
+
+    
+</div>
+
+</article>
+
+        
+    </div>
+
+    
+        
+    <div class="article-wrapper u-cf">
+        
+            <a class="bubble" href="https://aidanbae.github.io/gallery/golang-meetup/">
+    <i class="fa fa-fw fa-camera"></i>
+</a>
+
+<article class="gallery">
+    
+        <div class="flexslider">
+            <ul class="slides">
+            
+                
+                    <li><img src="https://aidanbae.github.io/gallery/golang-meetup/golang1_hu5dbff29eb65f162988209ff0ddfcd24c_175078_700x350_fill_q95_box_smart1_2.png" /></li>
+                
+                    <li><img src="https://aidanbae.github.io/gallery/golang-meetup/golang2_huef90e67150ac2a0dd27f431981a7221e_254047_700x350_fill_q95_box_smart1.jpeg" /></li>
+                
+                    <li><img src="https://aidanbae.github.io/gallery/golang-meetup/screenshot_huf54c9ea91a2ac86a8c0f8737281ecbf6_706899_700x350_fill_q95_box_smart1_2.png" /></li>
+                
+            
+            </ul>
+        </div>
+    
+
+    <div class="content">
+    <h3><a href="https://aidanbae.github.io/gallery/golang-meetup/">Golang과 websocket을 활용한 서버 프로그래밍 (장애 없는 서버 런칭 도전기)</a></h3>
+    <div class="meta">
+        
+            
+                <span class="date moment">2018-07-30</span>
+            
+        
+
+        
+
+        
+            <span class="categories">
+                
+                    <a href="https://aidanbae.github.io/categories/code">Code</a>
+                
+                    <a href="https://aidanbae.github.io/categories/golang">Golang</a>
+                
+            </span>
+        
+
+        
+            <span class="author"><a href="https://aidanbae.github.io/author/aidan.bae">Aidan.bae</a></span>
+        
+    </div>
+
+    
+        Intro 2018, 7월 25일 제1회 golang meetup이 열렸다.
+그간 golang korea 커뮤니티에서 눈팅으로 이득을 취한 나&hellip; 장애없이 런칭한 Golang 스낵게임서버를 개발할 때에도 수많은 golang 블로그에서 도움을 받았기때문에 이번 meetup에서 그분들을 만나뵙고 이야기를 나눌 수 있으면 좋겠다 생각해서 참가를 신청했다. 발표자가 없어 존폐위기까지 거론하셔서 발표를 하는 방향으로 결정
+작은 토즈방에서 20명정도 모여서 소근소근 토론하는 자리가 될줄 알았는데 160명이나!!
+개발인생 첫 발표인데 많은 사람이 와주셔서 감사한 마음으로 준비했다.
+GopherCon Talks Golang Korea에서 주최하는 밋업, 세미나 및 컨퍼런스의 발표 자료들을 모아두는 저장소이다.
+
+        
+            <a href="https://aidanbae.github.io/gallery/golang-meetup/" class="more">Continue reading</a>
+        
+    
+</div>
+
+    
+<div class="footer">
+
+
+    
+        <div class="tags">
+            <i class="fa fa-tags"></i>
+            <div class="links">
+                
+                    <a href="https://aidanbae.github.io/tags/golang">golang</a>
+                
+                    <a href="https://aidanbae.github.io/tags/websocket">websocket</a>
+                
+                    <a href="https://aidanbae.github.io/tags/server">server</a>
+                
+            </div>
+        </div>
+    
+
+    
+</div>
+
+</article>
+
+        
+    </div>
+
+    
+        
+    <div class="article-wrapper u-cf">
+        
+            <a class="bubble" href="https://aidanbae.github.io/article/meeting/">
+    <i class="fa fa-fw fa-pencil"></i>
+</a>
+
+<article class="default article">
+    
+    <div class="featured-image">
+        <a href="https://aidanbae.github.io/article/meeting/">
+            
+                <img src="https://aidanbae.github.io/article/meeting/featuredImage_hu5205686e58ca329cdf52cdb715df5f11_24934_700x350_fill_q95_box_smart1.jpg" alt="">
+            
+        </a>
+    </div>
+
+
+    <div class="content">
+    <h3><a href="https://aidanbae.github.io/article/meeting/">논쟁은 필요할까</a></h3>
+    <div class="meta">
+        
+            
+                <span class="date moment">2018-07-29</span>
+            
+        
+
+        
+
+        
+            <span class="categories">
+                
+                    <a href="https://aidanbae.github.io/categories/wisdom">Wisdom</a>
+                
+            </span>
+        
+
+        
+            <span class="author"><a href="https://aidanbae.github.io/author/aidan.bae">Aidan.bae</a></span>
+        
+    </div>
+
+    
+        논쟁은 필요하다?
+나도 상대방을 설득시키고 관철시키는 것이 한 때 목표였던 적이 있다. 20대 자유를 만끽하고자 할 때 아버지와의 논쟁이 그랬고 내가 들어간 사회학과만큼 상대방의 논리적인 허점을 이용해 토론 점수를 얻어내는 학과도 많지않았다. 이기고 나서 남는 것은 학점이라는 점수, 내 탑을 공고히 쌓아 상대를 관철시키고 얻은 자신감, 아버지에게 내 뜻은 관철시켰지만 우리는 서로 다름을 인정하며 멀어졌다. 사실 논쟁을 이기고 남는 것은 많지 않았다.
+일을 하다보면 동료간 또는 부서간 서로 다른 의견 충돌로 자주 논쟁이 난다.
+
+        
+            <a href="https://aidanbae.github.io/article/meeting/" class="more">Continue reading</a>
+        
+    
+</div>
+
+    
+<div class="footer">
+
+
+    
+        <div class="tags">
+            <i class="fa fa-tags"></i>
+            <div class="links">
+                
+                    <a href="https://aidanbae.github.io/tags/%EB%85%BC%EC%9F%81">논쟁</a>
+                
+                    <a href="https://aidanbae.github.io/tags/%EB%85%BC%EC%9D%98">논의</a>
+                
+            </div>
+        </div>
+    
+
+    
+</div>
+
+</article>
+
+        
+    </div>
+
+    
+        
+    <div class="article-wrapper u-cf">
+        
+            <a class="bubble" href="https://aidanbae.github.io/audio/hope/">
+    <i class="fa fa-fw fa-music"></i>
+</a>
+
+<article class="audio">
+    
+
+
+    
+    
+        <div class="responsive-audio soundcloud">
+            <iframe width="100%" height="166" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=https%3a%2f%2fsoundcloud.com%2forrrrrro%2fhope-feat-vankushuma&amp;color=%23ff5500&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false&amp;show_teaser=true"></iframe>
+        </div>
+    
+    
+    
+
+    <div class="content">
+    <h3><a href="https://aidanbae.github.io/audio/hope/">Hope(feat.vankushuma) - OrO</a></h3>
+    <div class="meta">
+        
+            
+                <span class="date moment">2018-07-15</span>
+            
+        
+
+        
+
+        
+            <span class="categories">
+                
+                    <a href="https://aidanbae.github.io/categories/music">Music</a>
+                
+            </span>
+        
+
+        
+            <span class="author"><a href="https://aidanbae.github.io/author/aidan.bae">Aidan.bae</a></span>
+        
+    </div>
+
+    
+        Inside 가사는 따로 제공되지 않네요.
+PostScript 코딩할 때 랜덤리스트로 듣게되었는데 그땐 왜 그랬는지 악기소리도 잘들린다고 생각해서
+주말에 카피해봐야지 하고 찜해뒀다.
+0:15초쯤 천천히 백그라운드에서 볼륨업되는 사운드가 있다.
+래퍼의 훅 목소리다. 최고의 악기는 목소리라는 말은 definitely agree
+로직 덕분에 대충 어디쯤 음이겠구나 하지만 절대음감이 전혀 없는지라 두세번 듣고 찍는데도 잘안된다. 매일 작업하다보면 귀도 트인다는데 꾸준히 하질 않으니 이번생은 글러먹었다. 망할&hellip;
+비트가 생각보다 어렵기도 했고
+랩퍼목소리를 빼니 내 카피는 너무 허하다.
+혹시나해서 녹음해보고 들어봤는데 눈 두번정도 깜빡이고 침착하게 헤드셋을 내려놨다.
+
+        
+            <a href="https://aidanbae.github.io/audio/hope/" class="more">Continue reading</a>
+        
+    
+</div>
+
+    
+<div class="footer">
+
+
+    
+        <div class="tags">
+            <i class="fa fa-tags"></i>
+            <div class="links">
+                
+                    <a href="https://aidanbae.github.io/tags/oro">OrO</a>
+                
+                    <a href="https://aidanbae.github.io/tags/hope">hope</a>
+                
+                    <a href="https://aidanbae.github.io/tags/vankushuma">vankushuma</a>
+                
+                    <a href="https://aidanbae.github.io/tags/soundcloud">soundcloud</a>
+                
+            </div>
+        </div>
+    
+
+    
+</div>
+
+</article>
+
+        
+    </div>
+
+    
+        
+    <div class="article-wrapper u-cf">
+        
+            
+<a class="bubble" href="https://aidanbae.github.io/video/sayyes/">
+    <i class="fa fa-fw fa-video-camera"></i>
+</a>
+
+<article class="video">
+    
+
+
+    
+        <div class="responsive-video youtube">
+            <iframe src="https://www.youtube-nocookie.com/embed/HCdt5rLpoT0?rel=0" frameborder="0" allowfullscreen></iframe>
+        </div>
+    
+    
+
+    <div class="content">
+    <h3><a href="https://aidanbae.github.io/video/sayyes/">Say Yes - 정준일 (세로라이브)</a></h3>
+    <div class="meta">
+        
+            
+                <span class="date moment">2018-06-20</span>
+            
+        
+
+        
+
+        
+            <span class="categories">
+                
+                    <a href="https://aidanbae.github.io/categories/music">Music</a>
+                
+            </span>
+        
+
+        
+    </div>
+
+    
+        정준일에게 이런모습이&hellip; 올해 잠깐 스쳐지나간 인연이 추천해줬던 노래
+호소력이 짙은 그의 보이스에 심쿵한다&hellip; 내용은 조금 우울하다. 넌 피할 수 있어로 개사해주고싶다.ㅎㅎ
+가사 다 말하려해도 다하지 못한 건
+할 말이 없어서 그런게 아니야
+다 볼 수 있지만 두 눈을 감은 건
+용기가 없어서 그런게 아니야
+시간이 멈춰도 불행이라는 건
+마치 소년의 성장과도 같아서
+아무리 주먹을 세게 휘둘러 봐도
+네게 다가올 불행을 넌 피할 수 없어.
+Yes I know know know know&hellip;
+
+        
+            <a href="https://aidanbae.github.io/video/sayyes/" class="more">Continue reading</a>
+        
+    
+</div>
+
+    
+<div class="footer">
+
+
+    
+        <div class="tags">
+            <i class="fa fa-tags"></i>
+            <div class="links">
+                
+                    <a href="https://aidanbae.github.io/tags/%EC%A0%95%EC%A4%80%EC%9D%BC">정준일</a>
+                
+                    <a href="https://aidanbae.github.io/tags/yes-i-know">yes i know</a>
+                
+                    <a href="https://aidanbae.github.io/tags/%EC%9A%B4%EB%AA%85%EB%A1%A0%E3%85%82%EC%9E%90">운명론ㅂ자</a>
+                
+            </div>
+        </div>
+    
+
+    
+</div>
+
+</article>
+
+        
+    </div>
+
+    
+        
+    <div class="article-wrapper u-cf">
+        
+            
+<a class="bubble" href="https://aidanbae.github.io/video/2byul/">
+    <i class="fa fa-fw fa-video-camera"></i>
+</a>
+
+<article class="video">
+    
+
+
+    
+        <div class="responsive-video youtube">
+            <iframe src="https://www.youtube-nocookie.com/embed/kOCkne-Bku4?rel=0" frameborder="0" allowfullscreen></iframe>
+        </div>
+    
+    
+
+    <div class="content">
+    <h3><a href="https://aidanbae.github.io/video/2byul/">이별 때문에 힘든 사람들에게</a></h3>
+    <div class="meta">
+        
+            
+                <span class="date moment">2018-06-11</span>
+            
+        
+
+        
+
+        
+            <span class="categories">
+                
+                    <a href="https://aidanbae.github.io/categories/wisdom">Wisdom</a>
+                
+            </span>
+        
+
+        
+            <span class="author"><a href="https://aidanbae.github.io/author/aidan.bae">Aidan.bae</a></span>
+        
+    </div>
+
+    
+        사랑이라는 가치는 수많은 예술작품들에서 등장하는 중요한 가치이다.
+우리가 즐겨듣는 멜론차트의 상단에 탑텐에도 거의 대부분이 사랑이다.
+그러나 아이러니하게도 교육시스템상 학창 시절에 배우기 힘든 주제이다.
+어쩌면 20대 청춘들은 관계형성에 대해 미숙한 것이 당연하고
+상처를 주고 받으며 아픈 사랑을 겪게 된다.
+나 역시 사랑에 대해 뒤돌아보면 지우고 싶은 길이 많았고,
+아직도 잘 모르지만 가장 나를 성장시킨 가치임이 분명해
+잘 모른다는 이유만으로 글을 쓰는 것을 피하고 싶지만은 않았다.
+그리고 내가 힘들 때 이런 글을 보았다면 하는 아쉬운 마음도 있고
+
+        
+            <a href="https://aidanbae.github.io/video/2byul/" class="more">Continue reading</a>
+        
+    
+</div>
+
+    
+<div class="footer">
+
+
+    
+        <div class="tags">
+            <i class="fa fa-tags"></i>
+            <div class="links">
+                
+                    <a href="https://aidanbae.github.io/tags/%EC%82%AC%EB%9E%91">사랑</a>
+                
+                    <a href="https://aidanbae.github.io/tags/%EC%B2%AD%EC%B6%98">청춘</a>
+                
+            </div>
+        </div>
+    
+
+    
+</div>
+
+</article>
+
+        
+    </div>
+
+    
+
+    
+    <div class="paginator">
+        
+            <a href="https://aidanbae.github.io/page/9/" class="older"><i class="fa fa-angle-double-left"></i> Older posts</a>
+        
+
+        
+            <a href="https://aidanbae.github.io/page/7/" class="newer">Newer posts <i class="fa fa-angle-double-right"></i></a>
+        
+    </div>
+
+
+
+        </div>
+
+        
+<footer>
+    <div class="container">
+
+        
+        <div class="recent-posts">
+            <strong>Latest posts</strong>
+                <ul>
+                
+                    <li>
+                        <a href="https://aidanbae.github.io/code/devops/k8s/istio-mixer-debug/">istio debug를 위한 controlZ 활용</a>
+                    </li>
+                
+                    <li>
+                        <a href="https://aidanbae.github.io/article/book/time/">시간은 흐르지 않는다.</a>
+                    </li>
+                
+                    <li>
+                        <a href="https://aidanbae.github.io/article/gori/">생각의 선순환고리</a>
+                    </li>
+                
+                    <li>
+                        <a href="https://aidanbae.github.io/video/shining/">밀고 나가면 어느순간 반드시 빛이 난다.</a>
+                    </li>
+                
+                    <li>
+                        <a href="https://aidanbae.github.io/quote/donki/">꿈</a>
+                    </li>
+                
+                    <li>
+                        <a href="https://aidanbae.github.io/article/book/siliteamman/">실리콘밸리의 팀장들 - 지독한 솔직함</a>
+                    </li>
+                
+                </ul>
+        </div>
+        
+
+        
+        <div class="categories">
+            <a href="https://aidanbae.github.io/categories/"><strong>Categories</strong></a>
+                <ul>
+                
+                    <li>
+                        <a href="https://aidanbae.github.io/categories/code">Code (19)</a>
+                    </li>
+                
+                    <li>
+                        <a href="https://aidanbae.github.io/categories/golang">Golang (16)</a>
+                    </li>
+                
+                    <li>
+                        <a href="https://aidanbae.github.io/categories/wisdom">Wisdom (13)</a>
+                    </li>
+                
+                    <li>
+                        <a href="https://aidanbae.github.io/categories/book">Book (12)</a>
+                    </li>
+                
+                    <li>
+                        <a href="https://aidanbae.github.io/categories/smalltalk">Smalltalk (12)</a>
+                    </li>
+                
+                    <li>
+                        <a href="https://aidanbae.github.io/categories/server">Server (11)</a>
+                    </li>
+                
+                    <li>
+                        <a href="https://aidanbae.github.io/categories/devops">Devops (10)</a>
+                    </li>
+                
+            </ul>
+        </div>
+        
+
+        <div class="right">
+            
+            <div class="external-profiles">
+                <strong>Social media</strong>
+
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                    <a href="https://github.com/aidanbae" target="_blank"><i class="fa fa-github"></i></a>
+                
+                
+            </div>
+            
+
+            
+        </div>
+    </div>
+</footer>
+
+
+<div class="credits">
+    <div class="container">
+        <div class="copyright">
+            <a href="https://github.com/Lednerb" target="_blank">
+                &copy;
+                
+                    2017
+                
+                by Lednerb
+            </a>
+	    -
+		<a href="https://aidanbae.github.io/index.xml">RSS</a>
+        </div>
+        <div class="author">
+            <a href="https://github.com/Lednerb/bilberry-hugo-theme" target="_blank">Bilberry Hugo Theme</a>
+        </div>
+    </div>
+</div>
+
+
+        
+
+        
+
+        
+        
+        <script type="text/javascript" src="https://aidanbae.github.io/js/externalDependencies.39c47e10e241eae2947b3fe21809c572.js" integrity="md5-OcR&#43;EOJB6uKUez/iGAnFcg=="></script>
+
+        
+        
+        <script type="text/javascript" src="https://aidanbae.github.io/js/theme.ff50ae6dc1bfc220b23bf69dbb41b54e.js" integrity="md5-/1CubcG/wiCyO/adu0G1Tg=="></script>
+
+        <script>
+            $(".moment").each(function() {
+                $(this).text(
+                    moment( $(this).text() )
+                        .locale( "en" )
+                        .format('LL')
+                );
+            });
+
+            $(".footnote-return sup").html("");
+        </script>
+
+        
+            
+        
+
+        
+
+
+    </body>
+</html>

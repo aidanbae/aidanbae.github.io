@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>slice on 아이단은 어디갔을까</title>
+    <link>https://aidanbae.github.io/tags/slice/</link>
+    <description>Recent content in slice on 아이단은 어디갔을까</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Sun, 14 Oct 2018 09:31:27 +0100</lastBuildDate>
+    
+	<atom:link href="https://aidanbae.github.io/tags/slice/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Golang Slice 슬라이스 응용</title>
+      <link>https://aidanbae.github.io/code/golang/slice/</link>
+      <pubDate>Sun, 14 Oct 2018 09:31:27 +0100</pubDate>
+      
+      <guid>https://aidanbae.github.io/code/golang/slice/</guid>
+      <description>이거보면된다.
+https://github.com/golang/go/wiki/SliceTricks</description>
+    </item>
+    
+  </channel>
+</rss>

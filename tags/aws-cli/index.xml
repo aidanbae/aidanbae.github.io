@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>aws-cli on 아이단은 어디갔을까</title>
+    <link>https://aidanbae.github.io/tags/aws-cli/</link>
+    <description>Recent content in aws-cli on 아이단은 어디갔을까</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Mon, 03 Sep 2018 12:31:27 +0100</lastBuildDate>
+    
+	<atom:link href="https://aidanbae.github.io/tags/aws-cli/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>DinD(docker in docker)와 DooD(docker out of docker)</title>
+      <link>https://aidanbae.github.io/code/docker/dinddood/</link>
+      <pubDate>Mon, 03 Sep 2018 12:31:27 +0100</pubDate>
+      
+      <guid>https://aidanbae.github.io/code/docker/dinddood/</guid>
+      <description>Docker의 Client-Server아키텍쳐 단순히 도커를 이용해 이미지를 만들고 띄우는 개발자라면 docker client와 docker daemon이 분리되어 있는 것을 인지하지 못할 수 있다. 반면 CI(Continuous Integration/ 지속적 통합)툴을 사용하며 agent를 세팅하는 DevOps쪽 개발자라면 docker관련 task를 수행하면서 이 사실을 쉽게 접하게된다.
+그림처럼 docker시스템 유닛은 크게 3개로 분리되며, Client, Host(Daemon), Registry가 그것이다. 자세한 내용은 이전 포스트 Docker client와 Docker server를 참고.
+대부분의 현대 CI 도구들(travis, circle, gocd, jenkins)등이 agent를 통해 docker관련 Task를 수행을 하기 때문에 docker daemon은 호스트머신에서 동작하면서 컨테이너로 동작하는 agent들이 docker-client역할을 하는 경우가 많다.</description>
+    </item>
+    
+  </channel>
+</rss>

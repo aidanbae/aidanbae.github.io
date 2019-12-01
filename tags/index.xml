@@ -1,0 +1,1229 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tags on 아이단은 어디갔을까</title>
+    <link>https://aidanbae.github.io/tags/</link>
+    <description>Recent content in Tags on 아이단은 어디갔을까</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Sat, 30 Nov 2019 19:01:14 +0900</lastBuildDate>
+    
+	<atom:link href="https://aidanbae.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>debug</title>
+      <link>https://aidanbae.github.io/tags/debug/</link>
+      <pubDate>Sat, 30 Nov 2019 19:01:14 +0900</pubDate>
+      
+      <guid>https://aidanbae.github.io/tags/debug/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>istio</title>
+      <link>https://aidanbae.github.io/tags/istio/</link>
+      <pubDate>Sat, 30 Nov 2019 19:01:14 +0900</pubDate>
+      
+      <guid>https://aidanbae.github.io/tags/istio/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>mixer</title>
+      <link>https://aidanbae.github.io/tags/mixer/</link>
+      <pubDate>Sat, 30 Nov 2019 19:01:14 +0900</pubDate>
+      
+      <guid>https://aidanbae.github.io/tags/mixer/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>크흠</title>
+      <link>https://aidanbae.github.io/tags/%ED%81%AC%ED%9D%A0/</link>
+      <pubDate>Thu, 10 Oct 2019 13:01:14 +0900</pubDate>
+      
+      <guid>https://aidanbae.github.io/tags/%ED%81%AC%ED%9D%A0/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>you</title>
+      <link>https://aidanbae.github.io/tags/you/</link>
+      <pubDate>Sun, 29 Sep 2019 13:01:14 +0100</pubDate>
+      
+      <guid>https://aidanbae.github.io/tags/you/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>글쓰기</title>
+      <link>https://aidanbae.github.io/tags/%EA%B8%80%EC%93%B0%EA%B8%B0/</link>
+      <pubDate>Thu, 26 Sep 2019 16:23:40 +0900</pubDate>
+      
+      <guid>https://aidanbae.github.io/tags/%EA%B8%80%EC%93%B0%EA%B8%B0/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>체인지 그라운드</title>
+      <link>https://aidanbae.github.io/tags/%EC%B2%B4%EC%9D%B8%EC%A7%80-%EA%B7%B8%EB%9D%BC%EC%9A%B4%EB%93%9C/</link>
+      <pubDate>Thu, 26 Sep 2019 16:23:40 +0900</pubDate>
+      
+      <guid>https://aidanbae.github.io/tags/%EC%B2%B4%EC%9D%B8%EC%A7%80-%EA%B7%B8%EB%9D%BC%EC%9A%B4%EB%93%9C/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>청춘</title>
+      <link>https://aidanbae.github.io/tags/%EC%B2%AD%EC%B6%98/</link>
+      <pubDate>Mon, 23 Sep 2019 13:01:14 +0100</pubDate>
+      
+      <guid>https://aidanbae.github.io/tags/%EC%B2%AD%EC%B6%98/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>공유메모리</title>
+      <link>https://aidanbae.github.io/tags/%EA%B3%B5%EC%9C%A0%EB%A9%94%EB%AA%A8%EB%A6%AC/</link>
+      <pubDate>Wed, 14 Aug 2019 19:01:14 +0900</pubDate>
+      
+      <guid>https://aidanbae.github.io/tags/%EA%B3%B5%EC%9C%A0%EB%A9%94%EB%AA%A8%EB%A6%AC/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>코어</title>
+      <link>https://aidanbae.github.io/tags/%EC%BD%94%EC%96%B4/</link>
+      <pubDate>Wed, 14 Aug 2019 19:01:14 +0900</pubDate>
+      
+      <guid>https://aidanbae.github.io/tags/%EC%BD%94%EC%96%B4/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>docker</title>
+      <link>https://aidanbae.github.io/tags/docker/</link>
+      <pubDate>Sun, 19 May 2019 09:31:27 +0900</pubDate>
+      
+      <guid>https://aidanbae.github.io/tags/docker/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Kubernetes</title>
+      <link>https://aidanbae.github.io/tags/kubernetes/</link>
+      <pubDate>Sun, 19 May 2019 09:31:27 +0900</pubDate>
+      
+      <guid>https://aidanbae.github.io/tags/kubernetes/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>MSA</title>
+      <link>https://aidanbae.github.io/tags/msa/</link>
+      <pubDate>Sun, 19 May 2019 09:31:27 +0900</pubDate>
+      
+      <guid>https://aidanbae.github.io/tags/msa/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>linux</title>
+      <link>https://aidanbae.github.io/tags/linux/</link>
+      <pubDate>Tue, 07 May 2019 09:31:27 +0900</pubDate>
+      
+      <guid>https://aidanbae.github.io/tags/linux/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>redirection</title>
+      <link>https://aidanbae.github.io/tags/redirection/</link>
+      <pubDate>Tue, 07 May 2019 09:31:27 +0900</pubDate>
+      
+      <guid>https://aidanbae.github.io/tags/redirection/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>permission</title>
+      <link>https://aidanbae.github.io/tags/permission/</link>
+      <pubDate>Mon, 06 May 2019 09:31:27 +0900</pubDate>
+      
+      <guid>https://aidanbae.github.io/tags/permission/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>docker container</title>
+      <link>https://aidanbae.github.io/tags/docker-container/</link>
+      <pubDate>Tue, 30 Apr 2019 12:31:27 +0100</pubDate>
+      
+      <guid>https://aidanbae.github.io/tags/docker-container/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>netstat</title>
+      <link>https://aidanbae.github.io/tags/netstat/</link>
+      <pubDate>Tue, 30 Apr 2019 12:31:27 +0100</pubDate>
+      
+      <guid>https://aidanbae.github.io/tags/netstat/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>nsenter</title>
+      <link>https://aidanbae.github.io/tags/nsenter/</link>
+      <pubDate>Tue, 30 Apr 2019 12:31:27 +0100</pubDate>
+      
+      <guid>https://aidanbae.github.io/tags/nsenter/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>퇴사</title>
+      <link>https://aidanbae.github.io/tags/%ED%87%B4%EC%82%AC/</link>
+      <pubDate>Mon, 29 Apr 2019 16:23:40 +0100</pubDate>
+      
+      <guid>https://aidanbae.github.io/tags/%ED%87%B4%EC%82%AC/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>cpu cache</title>
+      <link>https://aidanbae.github.io/tags/cpu-cache/</link>
+      <pubDate>Mon, 22 Apr 2019 09:31:27 +0900</pubDate>
+      
+      <guid>https://aidanbae.github.io/tags/cpu-cache/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>cpu 캐시</title>
+      <link>https://aidanbae.github.io/tags/cpu-%EC%BA%90%EC%8B%9C/</link>
+      <pubDate>Mon, 22 Apr 2019 09:31:27 +0900</pubDate>
+      
+      <guid>https://aidanbae.github.io/tags/cpu-%EC%BA%90%EC%8B%9C/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>캐시라인</title>
+      <link>https://aidanbae.github.io/tags/%EC%BA%90%EC%8B%9C%EB%9D%BC%EC%9D%B8/</link>
+      <pubDate>Mon, 22 Apr 2019 09:31:27 +0900</pubDate>
+      
+      <guid>https://aidanbae.github.io/tags/%EC%BA%90%EC%8B%9C%EB%9D%BC%EC%9D%B8/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>devops</title>
+      <link>https://aidanbae.github.io/tags/devops/</link>
+      <pubDate>Sat, 20 Apr 2019 13:01:14 +0900</pubDate>
+      
+      <guid>https://aidanbae.github.io/tags/devops/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>리눅스</title>
+      <link>https://aidanbae.github.io/tags/%EB%A6%AC%EB%88%85%EC%8A%A4/</link>
+      <pubDate>Sat, 20 Apr 2019 13:01:14 +0900</pubDate>
+      
+      <guid>https://aidanbae.github.io/tags/%EB%A6%AC%EB%88%85%EC%8A%A4/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>커널</title>
+      <link>https://aidanbae.github.io/tags/%EC%BB%A4%EB%84%90/</link>
+      <pubDate>Sat, 20 Apr 2019 13:01:14 +0900</pubDate>
+      
+      <guid>https://aidanbae.github.io/tags/%EC%BB%A4%EB%84%90/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>computer science</title>
+      <link>https://aidanbae.github.io/tags/computer-science/</link>
+      <pubDate>Tue, 16 Apr 2019 09:31:27 +0900</pubDate>
+      
+      <guid>https://aidanbae.github.io/tags/computer-science/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>malloc</title>
+      <link>https://aidanbae.github.io/tags/malloc/</link>
+      <pubDate>Tue, 16 Apr 2019 09:31:27 +0900</pubDate>
+      
+      <guid>https://aidanbae.github.io/tags/malloc/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>tcmalloc</title>
+      <link>https://aidanbae.github.io/tags/tcmalloc/</link>
+      <pubDate>Tue, 16 Apr 2019 09:31:27 +0900</pubDate>
+      
+      <guid>https://aidanbae.github.io/tags/tcmalloc/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>garbage collector</title>
+      <link>https://aidanbae.github.io/tags/garbage-collector/</link>
+      <pubDate>Mon, 15 Apr 2019 09:31:27 +0900</pubDate>
+      
+      <guid>https://aidanbae.github.io/tags/garbage-collector/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>gogc</title>
+      <link>https://aidanbae.github.io/tags/gogc/</link>
+      <pubDate>Mon, 15 Apr 2019 09:31:27 +0900</pubDate>
+      
+      <guid>https://aidanbae.github.io/tags/gogc/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>golang</title>
+      <link>https://aidanbae.github.io/tags/golang/</link>
+      <pubDate>Mon, 15 Apr 2019 09:31:27 +0900</pubDate>
+      
+      <guid>https://aidanbae.github.io/tags/golang/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>google codejam</title>
+      <link>https://aidanbae.github.io/tags/google-codejam/</link>
+      <pubDate>Tue, 09 Apr 2019 09:31:27 +0100</pubDate>
+      
+      <guid>https://aidanbae.github.io/tags/google-codejam/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>구글코드잼</title>
+      <link>https://aidanbae.github.io/tags/%EA%B5%AC%EA%B8%80%EC%BD%94%EB%93%9C%EC%9E%BC/</link>
+      <pubDate>Tue, 09 Apr 2019 09:31:27 +0100</pubDate>
+      
+      <guid>https://aidanbae.github.io/tags/%EA%B5%AC%EA%B8%80%EC%BD%94%EB%93%9C%EC%9E%BC/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>알고리즘</title>
+      <link>https://aidanbae.github.io/tags/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98/</link>
+      <pubDate>Tue, 09 Apr 2019 09:31:27 +0100</pubDate>
+      
+      <guid>https://aidanbae.github.io/tags/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>굿</title>
+      <link>https://aidanbae.github.io/tags/%EA%B5%BF/</link>
+      <pubDate>Wed, 23 Jan 2019 13:01:14 +0100</pubDate>
+      
+      <guid>https://aidanbae.github.io/tags/%EA%B5%BF/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>그린북</title>
+      <link>https://aidanbae.github.io/tags/%EA%B7%B8%EB%A6%B0%EB%B6%81/</link>
+      <pubDate>Wed, 23 Jan 2019 13:01:14 +0100</pubDate>
+      
+      <guid>https://aidanbae.github.io/tags/%EA%B7%B8%EB%A6%B0%EB%B6%81/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>design pattern</title>
+      <link>https://aidanbae.github.io/tags/design-pattern/</link>
+      <pubDate>Wed, 16 Jan 2019 09:31:27 +0900</pubDate>
+      
+      <guid>https://aidanbae.github.io/tags/design-pattern/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>fan in</title>
+      <link>https://aidanbae.github.io/tags/fan-in/</link>
+      <pubDate>Wed, 16 Jan 2019 09:31:27 +0900</pubDate>
+      
+      <guid>https://aidanbae.github.io/tags/fan-in/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>fan out</title>
+      <link>https://aidanbae.github.io/tags/fan-out/</link>
+      <pubDate>Wed, 16 Jan 2019 09:31:27 +0900</pubDate>
+      
+      <guid>https://aidanbae.github.io/tags/fan-out/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>고영성</title>
+      <link>https://aidanbae.github.io/tags/%EA%B3%A0%EC%98%81%EC%84%B1/</link>
+      <pubDate>Tue, 25 Dec 2018 16:23:40 +0900</pubDate>
+      
+      <guid>https://aidanbae.github.io/tags/%EA%B3%A0%EC%98%81%EC%84%B1/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>유시민</title>
+      <link>https://aidanbae.github.io/tags/%EC%9C%A0%EC%8B%9C%EB%AF%BC/</link>
+      <pubDate>Tue, 25 Dec 2018 16:23:40 +0900</pubDate>
+      
+      <guid>https://aidanbae.github.io/tags/%EC%9C%A0%EC%8B%9C%EB%AF%BC/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>항소이유서</title>
+      <link>https://aidanbae.github.io/tags/%ED%95%AD%EC%86%8C%EC%9D%B4%EC%9C%A0%EC%84%9C/</link>
+      <pubDate>Tue, 25 Dec 2018 16:23:40 +0900</pubDate>
+      
+      <guid>https://aidanbae.github.io/tags/%ED%95%AD%EC%86%8C%EC%9D%B4%EC%9C%A0%EC%84%9C/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>더 푸른 풀</title>
+      <link>https://aidanbae.github.io/tags/%EB%8D%94-%ED%91%B8%EB%A5%B8-%ED%92%80/</link>
+      <pubDate>Sat, 22 Dec 2018 13:01:14 +0900</pubDate>
+      
+      <guid>https://aidanbae.github.io/tags/%EB%8D%94-%ED%91%B8%EB%A5%B8-%ED%92%80/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>시로 납치하다</title>
+      <link>https://aidanbae.github.io/tags/%EC%8B%9C%EB%A1%9C-%EB%82%A9%EC%B9%98%ED%95%98%EB%8B%A4/</link>
+      <pubDate>Sat, 22 Dec 2018 13:01:14 +0900</pubDate>
+      
+      <guid>https://aidanbae.github.io/tags/%EC%8B%9C%EB%A1%9C-%EB%82%A9%EC%B9%98%ED%95%98%EB%8B%A4/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>에린 핸슨</title>
+      <link>https://aidanbae.github.io/tags/%EC%97%90%EB%A6%B0-%ED%95%B8%EC%8A%A8/</link>
+      <pubDate>Sat, 22 Dec 2018 13:01:14 +0900</pubDate>
+      
+      <guid>https://aidanbae.github.io/tags/%EC%97%90%EB%A6%B0-%ED%95%B8%EC%8A%A8/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>go module</title>
+      <link>https://aidanbae.github.io/tags/go-module/</link>
+      <pubDate>Thu, 20 Dec 2018 09:31:27 +0900</pubDate>
+      
+      <guid>https://aidanbae.github.io/tags/go-module/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>go modules</title>
+      <link>https://aidanbae.github.io/tags/go-modules/</link>
+      <pubDate>Thu, 20 Dec 2018 09:31:27 +0900</pubDate>
+      
+      <guid>https://aidanbae.github.io/tags/go-modules/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>알고리즘 도감</title>
+      <link>https://aidanbae.github.io/tags/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98-%EB%8F%84%EA%B0%90/</link>
+      <pubDate>Fri, 30 Nov 2018 09:31:27 +0900</pubDate>
+      
+      <guid>https://aidanbae.github.io/tags/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98-%EB%8F%84%EA%B0%90/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>배려</title>
+      <link>https://aidanbae.github.io/tags/%EB%B0%B0%EB%A0%A4/</link>
+      <pubDate>Thu, 22 Nov 2018 13:01:14 +0900</pubDate>
+      
+      <guid>https://aidanbae.github.io/tags/%EB%B0%B0%EB%A0%A4/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>서비스</title>
+      <link>https://aidanbae.github.io/tags/%EC%84%9C%EB%B9%84%EC%8A%A4/</link>
+      <pubDate>Thu, 22 Nov 2018 13:01:14 +0900</pubDate>
+      
+      <guid>https://aidanbae.github.io/tags/%EC%84%9C%EB%B9%84%EC%8A%A4/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>agent</title>
+      <link>https://aidanbae.github.io/tags/agent/</link>
+      <pubDate>Mon, 19 Nov 2018 09:31:27 +0900</pubDate>
+      
+      <guid>https://aidanbae.github.io/tags/agent/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>ngrinder</title>
+      <link>https://aidanbae.github.io/tags/ngrinder/</link>
+      <pubDate>Mon, 19 Nov 2018 09:31:27 +0900</pubDate>
+      
+      <guid>https://aidanbae.github.io/tags/ngrinder/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>ngrinder agent</title>
+      <link>https://aidanbae.github.io/tags/ngrinder-agent/</link>
+      <pubDate>Mon, 19 Nov 2018 09:31:27 +0900</pubDate>
+      
+      <guid>https://aidanbae.github.io/tags/ngrinder-agent/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>ngrinder controller</title>
+      <link>https://aidanbae.github.io/tags/ngrinder-controller/</link>
+      <pubDate>Mon, 19 Nov 2018 09:31:27 +0900</pubDate>
+      
+      <guid>https://aidanbae.github.io/tags/ngrinder-controller/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>heap</title>
+      <link>https://aidanbae.github.io/tags/heap/</link>
+      <pubDate>Sat, 17 Nov 2018 09:31:27 +0900</pubDate>
+      
+      <guid>https://aidanbae.github.io/tags/heap/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>우선순위 큐</title>
+      <link>https://aidanbae.github.io/tags/%EC%9A%B0%EC%84%A0%EC%88%9C%EC%9C%84-%ED%81%90/</link>
+      <pubDate>Sat, 17 Nov 2018 09:31:27 +0900</pubDate>
+      
+      <guid>https://aidanbae.github.io/tags/%EC%9A%B0%EC%84%A0%EC%88%9C%EC%9C%84-%ED%81%90/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>우분투</title>
+      <link>https://aidanbae.github.io/tags/%EC%9A%B0%EB%B6%84%ED%88%AC/</link>
+      <pubDate>Mon, 05 Nov 2018 13:01:14 +0100</pubDate>
+      
+      <guid>https://aidanbae.github.io/tags/%EC%9A%B0%EB%B6%84%ED%88%AC/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>empty struct</title>
+      <link>https://aidanbae.github.io/tags/empty-struct/</link>
+      <pubDate>Thu, 18 Oct 2018 11:31:27 +0100</pubDate>
+      
+      <guid>https://aidanbae.github.io/tags/empty-struct/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>struct{}{}</title>
+      <link>https://aidanbae.github.io/tags/struct/</link>
+      <pubDate>Thu, 18 Oct 2018 11:31:27 +0100</pubDate>
+      
+      <guid>https://aidanbae.github.io/tags/struct/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>array</title>
+      <link>https://aidanbae.github.io/tags/array/</link>
+      <pubDate>Sun, 14 Oct 2018 09:31:27 +0100</pubDate>
+      
+      <guid>https://aidanbae.github.io/tags/array/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>slice</title>
+      <link>https://aidanbae.github.io/tags/slice/</link>
+      <pubDate>Sun, 14 Oct 2018 09:31:27 +0100</pubDate>
+      
+      <guid>https://aidanbae.github.io/tags/slice/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>어른</title>
+      <link>https://aidanbae.github.io/tags/%EC%96%B4%EB%A5%B8/</link>
+      <pubDate>Mon, 01 Oct 2018 13:01:14 +0100</pubDate>
+      
+      <guid>https://aidanbae.github.io/tags/%EC%96%B4%EB%A5%B8/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>algorithm</title>
+      <link>https://aidanbae.github.io/tags/algorithm/</link>
+      <pubDate>Thu, 20 Sep 2018 09:31:27 +0100</pubDate>
+      
+      <guid>https://aidanbae.github.io/tags/algorithm/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>big o</title>
+      <link>https://aidanbae.github.io/tags/big-o/</link>
+      <pubDate>Thu, 20 Sep 2018 09:31:27 +0100</pubDate>
+      
+      <guid>https://aidanbae.github.io/tags/big-o/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>javascript</title>
+      <link>https://aidanbae.github.io/tags/javascript/</link>
+      <pubDate>Thu, 20 Sep 2018 09:31:27 +0100</pubDate>
+      
+      <guid>https://aidanbae.github.io/tags/javascript/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>빅오표기법</title>
+      <link>https://aidanbae.github.io/tags/%EB%B9%85%EC%98%A4%ED%91%9C%EA%B8%B0%EB%B2%95/</link>
+      <pubDate>Thu, 20 Sep 2018 09:31:27 +0100</pubDate>
+      
+      <guid>https://aidanbae.github.io/tags/%EB%B9%85%EC%98%A4%ED%91%9C%EA%B8%B0%EB%B2%95/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>자바스크립트</title>
+      <link>https://aidanbae.github.io/tags/%EC%9E%90%EB%B0%94%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8/</link>
+      <pubDate>Thu, 20 Sep 2018 09:31:27 +0100</pubDate>
+      
+      <guid>https://aidanbae.github.io/tags/%EC%9E%90%EB%B0%94%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>day 1</title>
+      <link>https://aidanbae.github.io/tags/day-1/</link>
+      <pubDate>Tue, 11 Sep 2018 16:23:40 +0100</pubDate>
+      
+      <guid>https://aidanbae.github.io/tags/day-1/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Honne</title>
+      <link>https://aidanbae.github.io/tags/honne/</link>
+      <pubDate>Tue, 11 Sep 2018 16:23:40 +0100</pubDate>
+      
+      <guid>https://aidanbae.github.io/tags/honne/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>interface</title>
+      <link>https://aidanbae.github.io/tags/interface/</link>
+      <pubDate>Fri, 07 Sep 2018 09:31:27 +0100</pubDate>
+      
+      <guid>https://aidanbae.github.io/tags/interface/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>validate</title>
+      <link>https://aidanbae.github.io/tags/validate/</link>
+      <pubDate>Fri, 07 Sep 2018 09:31:27 +0100</pubDate>
+      
+      <guid>https://aidanbae.github.io/tags/validate/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>aws-cli</title>
+      <link>https://aidanbae.github.io/tags/aws-cli/</link>
+      <pubDate>Mon, 03 Sep 2018 12:31:27 +0100</pubDate>
+      
+      <guid>https://aidanbae.github.io/tags/aws-cli/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>docker-client</title>
+      <link>https://aidanbae.github.io/tags/docker-client/</link>
+      <pubDate>Mon, 03 Sep 2018 12:31:27 +0100</pubDate>
+      
+      <guid>https://aidanbae.github.io/tags/docker-client/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>gocd</title>
+      <link>https://aidanbae.github.io/tags/gocd/</link>
+      <pubDate>Mon, 03 Sep 2018 12:31:27 +0100</pubDate>
+      
+      <guid>https://aidanbae.github.io/tags/gocd/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>infra</title>
+      <link>https://aidanbae.github.io/tags/infra/</link>
+      <pubDate>Mon, 03 Sep 2018 12:31:27 +0100</pubDate>
+      
+      <guid>https://aidanbae.github.io/tags/infra/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>sort</title>
+      <link>https://aidanbae.github.io/tags/sort/</link>
+      <pubDate>Tue, 14 Aug 2018 09:31:27 +0100</pubDate>
+      
+      <guid>https://aidanbae.github.io/tags/sort/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>정렬</title>
+      <link>https://aidanbae.github.io/tags/%EC%A0%95%EB%A0%AC/</link>
+      <pubDate>Tue, 14 Aug 2018 09:31:27 +0100</pubDate>
+      
+      <guid>https://aidanbae.github.io/tags/%EC%A0%95%EB%A0%AC/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>docker daemon</title>
+      <link>https://aidanbae.github.io/tags/docker-daemon/</link>
+      <pubDate>Thu, 09 Aug 2018 12:31:27 +0100</pubDate>
+      
+      <guid>https://aidanbae.github.io/tags/docker-daemon/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>server</title>
+      <link>https://aidanbae.github.io/tags/server/</link>
+      <pubDate>Mon, 30 Jul 2018 09:31:27 +0100</pubDate>
+      
+      <guid>https://aidanbae.github.io/tags/server/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>websocket</title>
+      <link>https://aidanbae.github.io/tags/websocket/</link>
+      <pubDate>Mon, 30 Jul 2018 09:31:27 +0100</pubDate>
+      
+      <guid>https://aidanbae.github.io/tags/websocket/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>논의</title>
+      <link>https://aidanbae.github.io/tags/%EB%85%BC%EC%9D%98/</link>
+      <pubDate>Sun, 29 Jul 2018 09:31:27 +0100</pubDate>
+      
+      <guid>https://aidanbae.github.io/tags/%EB%85%BC%EC%9D%98/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>논쟁</title>
+      <link>https://aidanbae.github.io/tags/%EB%85%BC%EC%9F%81/</link>
+      <pubDate>Sun, 29 Jul 2018 09:31:27 +0100</pubDate>
+      
+      <guid>https://aidanbae.github.io/tags/%EB%85%BC%EC%9F%81/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>hope</title>
+      <link>https://aidanbae.github.io/tags/hope/</link>
+      <pubDate>Sun, 15 Jul 2018 16:12:47 +0100</pubDate>
+      
+      <guid>https://aidanbae.github.io/tags/hope/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>OrO</title>
+      <link>https://aidanbae.github.io/tags/oro/</link>
+      <pubDate>Sun, 15 Jul 2018 16:12:47 +0100</pubDate>
+      
+      <guid>https://aidanbae.github.io/tags/oro/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>soundcloud</title>
+      <link>https://aidanbae.github.io/tags/soundcloud/</link>
+      <pubDate>Sun, 15 Jul 2018 16:12:47 +0100</pubDate>
+      
+      <guid>https://aidanbae.github.io/tags/soundcloud/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>vankushuma</title>
+      <link>https://aidanbae.github.io/tags/vankushuma/</link>
+      <pubDate>Sun, 15 Jul 2018 16:12:47 +0100</pubDate>
+      
+      <guid>https://aidanbae.github.io/tags/vankushuma/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>yes i know</title>
+      <link>https://aidanbae.github.io/tags/yes-i-know/</link>
+      <pubDate>Wed, 20 Jun 2018 16:23:40 +0100</pubDate>
+      
+      <guid>https://aidanbae.github.io/tags/yes-i-know/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>운명론ㅂ자</title>
+      <link>https://aidanbae.github.io/tags/%EC%9A%B4%EB%AA%85%EB%A1%A0%E3%85%82%EC%9E%90/</link>
+      <pubDate>Wed, 20 Jun 2018 16:23:40 +0100</pubDate>
+      
+      <guid>https://aidanbae.github.io/tags/%EC%9A%B4%EB%AA%85%EB%A1%A0%E3%85%82%EC%9E%90/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>정준일</title>
+      <link>https://aidanbae.github.io/tags/%EC%A0%95%EC%A4%80%EC%9D%BC/</link>
+      <pubDate>Wed, 20 Jun 2018 16:23:40 +0100</pubDate>
+      
+      <guid>https://aidanbae.github.io/tags/%EC%A0%95%EC%A4%80%EC%9D%BC/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>사랑</title>
+      <link>https://aidanbae.github.io/tags/%EC%82%AC%EB%9E%91/</link>
+      <pubDate>Mon, 11 Jun 2018 09:31:27 +0100</pubDate>
+      
+      <guid>https://aidanbae.github.io/tags/%EC%82%AC%EB%9E%91/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>감정제어</title>
+      <link>https://aidanbae.github.io/tags/%EA%B0%90%EC%A0%95%EC%A0%9C%EC%96%B4/</link>
+      <pubDate>Sun, 20 May 2018 09:31:27 +0100</pubDate>
+      
+      <guid>https://aidanbae.github.io/tags/%EA%B0%90%EC%A0%95%EC%A0%9C%EC%96%B4/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>흔들림</title>
+      <link>https://aidanbae.github.io/tags/%ED%9D%94%EB%93%A4%EB%A6%BC/</link>
+      <pubDate>Sun, 20 May 2018 09:31:27 +0100</pubDate>
+      
+      <guid>https://aidanbae.github.io/tags/%ED%9D%94%EB%93%A4%EB%A6%BC/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>benchmark test</title>
+      <link>https://aidanbae.github.io/tags/benchmark-test/</link>
+      <pubDate>Sun, 13 May 2018 09:31:27 +0100</pubDate>
+      
+      <guid>https://aidanbae.github.io/tags/benchmark-test/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>deploy</title>
+      <link>https://aidanbae.github.io/tags/deploy/</link>
+      <pubDate>Mon, 23 Apr 2018 09:31:27 +0100</pubDate>
+      
+      <guid>https://aidanbae.github.io/tags/deploy/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>github</title>
+      <link>https://aidanbae.github.io/tags/github/</link>
+      <pubDate>Mon, 23 Apr 2018 09:31:27 +0100</pubDate>
+      
+      <guid>https://aidanbae.github.io/tags/github/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>hugo</title>
+      <link>https://aidanbae.github.io/tags/hugo/</link>
+      <pubDate>Mon, 23 Apr 2018 09:31:27 +0100</pubDate>
+      
+      <guid>https://aidanbae.github.io/tags/hugo/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>tutorial</title>
+      <link>https://aidanbae.github.io/tags/tutorial/</link>
+      <pubDate>Mon, 23 Apr 2018 09:31:27 +0100</pubDate>
+      
+      <guid>https://aidanbae.github.io/tags/tutorial/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>gravity</title>
+      <link>https://aidanbae.github.io/tags/gravity/</link>
+      <pubDate>Thu, 05 Apr 2018 16:12:47 +0100</pubDate>
+      
+      <guid>https://aidanbae.github.io/tags/gravity/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>pac odd</title>
+      <link>https://aidanbae.github.io/tags/pac-odd/</link>
+      <pubDate>Thu, 05 Apr 2018 16:12:47 +0100</pubDate>
+      
+      <guid>https://aidanbae.github.io/tags/pac-odd/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>who$</title>
+      <link>https://aidanbae.github.io/tags/who/</link>
+      <pubDate>Thu, 05 Apr 2018 16:12:47 +0100</pubDate>
+      
+      <guid>https://aidanbae.github.io/tags/who/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>ATOMIC</title>
+      <link>https://aidanbae.github.io/tags/atomic/</link>
+      <pubDate>Thu, 22 Mar 2018 16:12:47 +0100</pubDate>
+      
+      <guid>https://aidanbae.github.io/tags/atomic/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Fever</title>
+      <link>https://aidanbae.github.io/tags/fever/</link>
+      <pubDate>Thu, 22 Mar 2018 16:12:47 +0100</pubDate>
+      
+      <guid>https://aidanbae.github.io/tags/fever/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>문제해결</title>
+      <link>https://aidanbae.github.io/tags/%EB%AC%B8%EC%A0%9C%ED%95%B4%EA%B2%B0/</link>
+      <pubDate>Sun, 18 Mar 2018 09:31:27 +0100</pubDate>
+      
+      <guid>https://aidanbae.github.io/tags/%EB%AC%B8%EC%A0%9C%ED%95%B4%EA%B2%B0/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>인간관계</title>
+      <link>https://aidanbae.github.io/tags/%EC%9D%B8%EA%B0%84%EA%B4%80%EA%B3%84/</link>
+      <pubDate>Sun, 18 Mar 2018 09:31:27 +0100</pubDate>
+      
+      <guid>https://aidanbae.github.io/tags/%EC%9D%B8%EA%B0%84%EA%B4%80%EA%B3%84/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Lana del rey</title>
+      <link>https://aidanbae.github.io/tags/lana-del-rey/</link>
+      <pubDate>Wed, 14 Mar 2018 16:23:40 +0100</pubDate>
+      
+      <guid>https://aidanbae.github.io/tags/lana-del-rey/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>young and beautiful</title>
+      <link>https://aidanbae.github.io/tags/young-and-beautiful/</link>
+      <pubDate>Wed, 14 Mar 2018 16:23:40 +0100</pubDate>
+      
+      <guid>https://aidanbae.github.io/tags/young-and-beautiful/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>위대한 개츠비</title>
+      <link>https://aidanbae.github.io/tags/%EC%9C%84%EB%8C%80%ED%95%9C-%EA%B0%9C%EC%B8%A0%EB%B9%84/</link>
+      <pubDate>Wed, 14 Mar 2018 16:23:40 +0100</pubDate>
+      
+      <guid>https://aidanbae.github.io/tags/%EC%9C%84%EB%8C%80%ED%95%9C-%EA%B0%9C%EC%B8%A0%EB%B9%84/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>한숨</title>
+      <link>https://aidanbae.github.io/tags/%ED%95%9C%EC%88%A8/</link>
+      <pubDate>Thu, 01 Mar 2018 16:23:40 +0100</pubDate>
+      
+      <guid>https://aidanbae.github.io/tags/%ED%95%9C%EC%88%A8/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>dcos</title>
+      <link>https://aidanbae.github.io/tags/dcos/</link>
+      <pubDate>Thu, 15 Feb 2018 09:31:27 +0100</pubDate>
+      
+      <guid>https://aidanbae.github.io/tags/dcos/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>marathon</title>
+      <link>https://aidanbae.github.io/tags/marathon/</link>
+      <pubDate>Thu, 15 Feb 2018 09:31:27 +0100</pubDate>
+      
+      <guid>https://aidanbae.github.io/tags/marathon/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>mesos</title>
+      <link>https://aidanbae.github.io/tags/mesos/</link>
+      <pubDate>Thu, 15 Feb 2018 09:31:27 +0100</pubDate>
+      
+      <guid>https://aidanbae.github.io/tags/mesos/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>mesos marathon</title>
+      <link>https://aidanbae.github.io/tags/mesos-marathon/</link>
+      <pubDate>Thu, 15 Feb 2018 09:31:27 +0100</pubDate>
+      
+      <guid>https://aidanbae.github.io/tags/mesos-marathon/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>조언</title>
+      <link>https://aidanbae.github.io/tags/%EC%A1%B0%EC%96%B8/</link>
+      <pubDate>Tue, 30 Jan 2018 09:31:27 +0100</pubDate>
+      
+      <guid>https://aidanbae.github.io/tags/%EC%A1%B0%EC%96%B8/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>console</title>
+      <link>https://aidanbae.github.io/tags/console/</link>
+      <pubDate>Wed, 24 Jan 2018 09:31:27 +0100</pubDate>
+      
+      <guid>https://aidanbae.github.io/tags/console/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>console.log</title>
+      <link>https://aidanbae.github.io/tags/console.log/</link>
+      <pubDate>Wed, 24 Jan 2018 09:31:27 +0100</pubDate>
+      
+      <guid>https://aidanbae.github.io/tags/console.log/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>console.time</title>
+      <link>https://aidanbae.github.io/tags/console.time/</link>
+      <pubDate>Wed, 24 Jan 2018 09:31:27 +0100</pubDate>
+      
+      <guid>https://aidanbae.github.io/tags/console.time/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>console.timeEnd</title>
+      <link>https://aidanbae.github.io/tags/console.timeend/</link>
+      <pubDate>Wed, 24 Jan 2018 09:31:27 +0100</pubDate>
+      
+      <guid>https://aidanbae.github.io/tags/console.timeend/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Python</title>
+      <link>https://aidanbae.github.io/tags/python/</link>
+      <pubDate>Wed, 24 Jan 2018 09:31:27 +0100</pubDate>
+      
+      <guid>https://aidanbae.github.io/tags/python/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>연산자 오버로딩</title>
+      <link>https://aidanbae.github.io/tags/%EC%97%B0%EC%82%B0%EC%9E%90-%EC%98%A4%EB%B2%84%EB%A1%9C%EB%94%A9/</link>
+      <pubDate>Wed, 24 Jan 2018 09:31:27 +0100</pubDate>
+      
+      <guid>https://aidanbae.github.io/tags/%EC%97%B0%EC%82%B0%EC%9E%90-%EC%98%A4%EB%B2%84%EB%A1%9C%EB%94%A9/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>특별메서드</title>
+      <link>https://aidanbae.github.io/tags/%ED%8A%B9%EB%B3%84%EB%A9%94%EC%84%9C%EB%93%9C/</link>
+      <pubDate>Wed, 24 Jan 2018 09:31:27 +0100</pubDate>
+      
+      <guid>https://aidanbae.github.io/tags/%ED%8A%B9%EB%B3%84%EB%A9%94%EC%84%9C%EB%93%9C/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>류시화</title>
+      <link>https://aidanbae.github.io/tags/%EB%A5%98%EC%8B%9C%ED%99%94/</link>
+      <pubDate>Fri, 15 Dec 2017 09:31:27 +0100</pubDate>
+      
+      <guid>https://aidanbae.github.io/tags/%EB%A5%98%EC%8B%9C%ED%99%94/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>물병</title>
+      <link>https://aidanbae.github.io/tags/%EB%AC%BC%EB%B3%91/</link>
+      <pubDate>Fri, 15 Dec 2017 09:31:27 +0100</pubDate>
+      
+      <guid>https://aidanbae.github.io/tags/%EB%AC%BC%EB%B3%91/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>just jerk</title>
+      <link>https://aidanbae.github.io/tags/just-jerk/</link>
+      <pubDate>Sat, 02 Dec 2017 16:23:40 +0100</pubDate>
+      
+      <guid>https://aidanbae.github.io/tags/just-jerk/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>비익련리</title>
+      <link>https://aidanbae.github.io/tags/%EB%B9%84%EC%9D%B5%EB%A0%A8%EB%A6%AC/</link>
+      <pubDate>Sat, 02 Dec 2017 16:23:40 +0100</pubDate>
+      
+      <guid>https://aidanbae.github.io/tags/%EB%B9%84%EC%9D%B5%EB%A0%A8%EB%A6%AC/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>bash</title>
+      <link>https://aidanbae.github.io/tags/bash/</link>
+      <pubDate>Mon, 11 Sep 2017 09:31:27 +0100</pubDate>
+      
+      <guid>https://aidanbae.github.io/tags/bash/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>shell script</title>
+      <link>https://aidanbae.github.io/tags/shell-script/</link>
+      <pubDate>Mon, 11 Sep 2017 09:31:27 +0100</pubDate>
+      
+      <guid>https://aidanbae.github.io/tags/shell-script/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>쉘</title>
+      <link>https://aidanbae.github.io/tags/%EC%89%98/</link>
+      <pubDate>Mon, 11 Sep 2017 09:31:27 +0100</pubDate>
+      
+      <guid>https://aidanbae.github.io/tags/%EC%89%98/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>쉘 스크립트</title>
+      <link>https://aidanbae.github.io/tags/%EC%89%98-%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8/</link>
+      <pubDate>Mon, 11 Sep 2017 09:31:27 +0100</pubDate>
+      
+      <guid>https://aidanbae.github.io/tags/%EC%89%98-%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>find</title>
+      <link>https://aidanbae.github.io/tags/find/</link>
+      <pubDate>Wed, 12 Jul 2017 09:31:27 +0100</pubDate>
+      
+      <guid>https://aidanbae.github.io/tags/find/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>findIndex</title>
+      <link>https://aidanbae.github.io/tags/findindex/</link>
+      <pubDate>Wed, 12 Jul 2017 09:31:27 +0100</pubDate>
+      
+      <guid>https://aidanbae.github.io/tags/findindex/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>reduce</title>
+      <link>https://aidanbae.github.io/tags/reduce/</link>
+      <pubDate>Wed, 12 Jul 2017 09:31:27 +0100</pubDate>
+      
+      <guid>https://aidanbae.github.io/tags/reduce/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>filter</title>
+      <link>https://aidanbae.github.io/tags/filter/</link>
+      <pubDate>Tue, 11 Jul 2017 09:31:27 +0100</pubDate>
+      
+      <guid>https://aidanbae.github.io/tags/filter/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>forEach</title>
+      <link>https://aidanbae.github.io/tags/foreach/</link>
+      <pubDate>Tue, 11 Jul 2017 09:31:27 +0100</pubDate>
+      
+      <guid>https://aidanbae.github.io/tags/foreach/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>map</title>
+      <link>https://aidanbae.github.io/tags/map/</link>
+      <pubDate>Tue, 11 Jul 2017 09:31:27 +0100</pubDate>
+      
+      <guid>https://aidanbae.github.io/tags/map/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

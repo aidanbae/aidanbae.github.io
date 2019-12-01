@@ -1,0 +1,390 @@
+<!doctype html>
+<html class="no-js" lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="author" content="Aidan.bae">
+        <meta name="description" content="아이단의 블로그">
+        <meta name="keywords" content="golang,aidan,kakaogames,kakao,gocd,gocd-agent,infra,javascript,python">
+        <meta name="generator" content="Hugo 0.60.0" />
+        <title> empty struct | 아이단은 어디갔을까</title>
+        <meta name="description" content="empty struct - 아이단의 블로그">
+        <meta itemprop="name" content="empty struct">
+        <meta itemprop="description" content="empty struct - 아이단의 블로그">
+        <meta property="og:title" content="empty struct">
+        <meta property="og:description" content="empty struct - 아이단의 블로그">
+        <meta property="og:image" content="https://www.gravatar.com/avatar/d41d8cd98f00b204e9800998ecf8427e?size=200">
+        <meta property="og:url" content="https://aidanbae.github.io/tags/empty-struct/">
+        <meta property="og:site_name" content="아이단은 어디갔을까"><meta property="og:type" content="website">
+        <link rel="icon" type="image/png" href="https://aidanbae.github.io/favicon-32x32.png" sizes="32x32">
+        <link rel="icon" type="image/png" href="https://aidanbae.github.io/favicon-16x16.png" sizes="16x16">
+
+	
+	  <link href="https://aidanbae.github.io/tags/empty-struct/" rel="alternate" type="application/rss+xml" title="아이단은 어디갔을까" />
+	  <link href="https://aidanbae.github.io/tags/empty-struct/" rel="feed" type="application/rss+xml" title="아이단은 어디갔을까" />
+	
+
+        
+        
+        
+        
+        <link rel="stylesheet" href="https://aidanbae.github.io/sass/combined.min.e5af985042854cb05807bed3365180e76bf9b8e0f41a2c81f098583599a6fb05.css">
+
+        
+
+        
+            
+        
+    </head>
+    <body class="bilberry-hugo-theme">
+        
+<nav>
+
+    <div class="container">
+        <ul class="topnav">
+            
+                
+                    <li><a href="https://aidanbae.github.io/page/about-aidan/">Aidan</a></li>
+                
+            
+        </ul>
+
+        
+    </div>
+</nav>
+
+
+        <header>
+    <div class="container">
+        <div class="logo">
+            <a href="https://aidanbae.github.io/" class="logo">
+                
+                    <img src="https://aidanbae.github.io/do.png" alt="">
+                
+
+                <span class="overlay"><i class="fa fa-home"></i></span>
+            </a>
+        </div>
+        <div class="titles">
+            <h3 class="title"><a href="https://aidanbae.github.io/">아이단은 어디갔을까</a></h3>
+            
+                <span class="subtitle">순간 순간이 소중한 목적지</span>
+            
+        </div>
+
+    
+
+        
+        <div class="toggler">
+        
+            <i class="fa fa-bars" aria-hidden="true"></i>
+        </div>
+    </div>
+</header>
+
+
+        <div class="main container">
+            
+    
+    
+        <div class="article-wrapper u-cf">
+            
+                <a class="bubble" href="https://aidanbae.github.io/code/golang/emptystruct/">
+    <i class="fa fa-fw fa-code"></i>
+</a>
+
+<article class="default article">
+    
+
+    <div class="content">
+    <h3><a href="https://aidanbae.github.io/code/golang/emptystruct/">Golang - EmptyStruct 빈구조체</a></h3>
+    <div class="meta">
+        
+            
+                <span class="date moment">2018-10-18</span>
+            
+        
+
+        
+
+        
+            <span class="categories">
+                
+                    <a href="https://aidanbae.github.io/categories/code">Code</a>
+                
+                    <a href="https://aidanbae.github.io/categories/golang">Golang</a>
+                
+            </span>
+        
+
+        
+            <span class="author"><a href="https://aidanbae.github.io/author/aidan.bae">Aidan.bae</a></span>
+        
+    </div>
+
+    
+        <pre><code>done &lt;- struct{}{}
+</code></pre><p>고랭관련 깃을 돌아다니면서 훌륭한 레파지토리(Docker, Gin..)들을 내부를 구경하다보면<br>
+위처럼 빈 구조체를 채널에 던지는 경우를 종종 볼 수 있다.</p>
+<p><code>struct{}{}</code></p>
+<p>the empty struct</p>
+<p>나는 이게 {}{} 이 리터럴 모양이 뭔가 지저분해보여서<br>
+간단한 종료 시그널을 보내는 채널은 대부분 bool, int 채널을 사용했었다.</p>
+<p>bool 값보내는 거 보다 값이 적은가?..<br>
+나는 구조체라고 생각해서 더 크다고만 생각했는데<br>
+찾아보니 놀랍게도 struct{}{}는 사이즈가 <code>0</code>이다(기본기가 부족한 나만 놀란거일수도 있다;)</p>
+<p>사이즈를 확인할 수 있는 내장 메소드가 있을까 찾아보니<br>
+unsafe.Sizeof 메소드는 해당 변수의 크기값을 반환한다.<br>
+예를들어 스트링변수라면 golang 1.10버전 기준으로 16을 반환한다.</p>
+<pre><code>stringVariable := &quot;하하하&quot;
+fmt.Println(unsafe.Sizeof(stringVariable)) // 16
+</code></pre><p>그렇다면 빈 구조체와 부울변수를 찍어보자:</p>
+<pre><code>emptyStruct := struct{}{}
+fmt.Println(&amp;emptyStruct)   // &amp;{}
+fmt.Println(unsafe.Sizeof(emptyStruct)) // 0
+
+boolVariable := true
+fmt.Println(&amp;boolVariable)  // 0xc42001a088
+fmt.Println(unsafe.Sizeof(boolVariable)) // 1
+</code></pre><p>빈 구조체는 주소값조차 없으며 사이즈는 0이다.<br>
+값 할당 자체가 일어나지 않는 변수라는 것을 알 수 있다.</p>
+<p>할당하고 안하고의 퍼포먼스 차이를 한번 알아보자</p>
+<pre><code>func GetBool() bool {
+	return true
+}
+
+func GetEmptyStruct() struct{} {
+	return struct{}{}
+}
+
+func BenchmarkGetBool (b *testing.B) {
+	for i:= 0; i&lt; b.N; i++ {
+		GetBool()
+	}
+}
+
+func BenchmarkGetStruct (b *testing.B) {
+	for i := 0; i &lt; b.N; i++ {
+		GetEmptyStruct()
+	}
+}
+</code></pre><p>GetBool은 true라는 값을 반환하는 함수이고<br>
+GetEmptyStruct는 struct{}{}를 반환하는 함수이다.</p>
+<pre><code>KAKAOui-MacBook-Pro-5:benc2 aidan$ go test -bench=. -v
+goos: darwin
+goarch: amd64
+BenchmarkGetBool-8     	2000000000	         0.63 ns/op
+BenchmarkGetStruct-8   	2000000000	         0.31 ns/op
+</code></pre><p>두배의 차이가 있다.</p>
+<hr>
+<h4 id="heading">마무리</h4>
+<p>엄청 작은 차이이지만
+단순히 시그널 용이라면 빈 구조체를 활용하는게 좋다.</p>
+<hr>
+<h5 id="heading1">참고</h5>
+<p>stackoverflow에 나 같은 물음을 한 사람은 역시 존재했다.<br>
+EmptyStruct에 대해서는 꽤나 깊은 이야기들이 존재하고있었다.<br>
+<a href="https://stackoverflow.com/questions/20793568/golang-anonymous-struct-and-empty-struct">https://stackoverflow.com/questions/20793568/golang-anonymous-struct-and-empty-struct</a>
+<a href="https://dave.cheney.net/2014/03/25/the-empty-struct">https://dave.cheney.net/2014/03/25/the-empty-struct</a></p>
+<p>코딩에서 어떤 프로그래머를 리스펙하는건 꽤나 중요한 일이다.<br>
+Dave Cheney는 내가 덕질하는 Gopher중 한명인데,<br>
+그의 블로그를 살펴보면 고랭의 로우레벨까지 깊은 이해를 엿볼 수 있다.<br>
+(context의 오용과 관련한 포스트 추천!)<br>
+Golang 디자인을 총괄하고있는 Russ cox도 해당 글에 직접 댓글을 달아주었다.</p>
+
+    
+</div>
+
+    
+<div class="footer">
+
+
+    
+        <div class="tags">
+            <i class="fa fa-tags"></i>
+            <div class="links">
+                
+                    <a href="https://aidanbae.github.io/tags/golang">golang</a>
+                
+                    <a href="https://aidanbae.github.io/tags/empty-struct">empty struct</a>
+                
+                    <a href="https://aidanbae.github.io/tags/struct">struct{}{}</a>
+                
+            </div>
+        </div>
+    
+
+    
+</div>
+
+</article>
+
+            
+        </div>
+    
+
+    
+    <div class="paginator">
+        
+
+        
+    </div>
+
+
+
+        </div>
+
+        
+<footer>
+    <div class="container">
+
+        
+        <div class="recent-posts">
+            <strong>Latest posts</strong>
+                <ul>
+                
+                    <li>
+                        <a href="https://aidanbae.github.io/code/devops/k8s/istio-mixer-debug/">istio debug를 위한 controlZ 활용</a>
+                    </li>
+                
+                    <li>
+                        <a href="https://aidanbae.github.io/article/book/time/">시간은 흐르지 않는다.</a>
+                    </li>
+                
+                    <li>
+                        <a href="https://aidanbae.github.io/article/gori/">생각의 선순환고리</a>
+                    </li>
+                
+                    <li>
+                        <a href="https://aidanbae.github.io/video/shining/">밀고 나가면 어느순간 반드시 빛이 난다.</a>
+                    </li>
+                
+                    <li>
+                        <a href="https://aidanbae.github.io/quote/donki/">꿈</a>
+                    </li>
+                
+                    <li>
+                        <a href="https://aidanbae.github.io/article/book/siliteamman/">실리콘밸리의 팀장들 - 지독한 솔직함</a>
+                    </li>
+                
+                </ul>
+        </div>
+        
+
+        
+        <div class="categories">
+            <a href="https://aidanbae.github.io/categories/"><strong>Categories</strong></a>
+                <ul>
+                
+                    <li>
+                        <a href="https://aidanbae.github.io/categories/code">Code (19)</a>
+                    </li>
+                
+                    <li>
+                        <a href="https://aidanbae.github.io/categories/golang">Golang (16)</a>
+                    </li>
+                
+                    <li>
+                        <a href="https://aidanbae.github.io/categories/wisdom">Wisdom (13)</a>
+                    </li>
+                
+                    <li>
+                        <a href="https://aidanbae.github.io/categories/book">Book (12)</a>
+                    </li>
+                
+                    <li>
+                        <a href="https://aidanbae.github.io/categories/smalltalk">Smalltalk (12)</a>
+                    </li>
+                
+                    <li>
+                        <a href="https://aidanbae.github.io/categories/server">Server (11)</a>
+                    </li>
+                
+                    <li>
+                        <a href="https://aidanbae.github.io/categories/devops">Devops (10)</a>
+                    </li>
+                
+            </ul>
+        </div>
+        
+
+        <div class="right">
+            
+            <div class="external-profiles">
+                <strong>Social media</strong>
+
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                    <a href="https://github.com/aidanbae" target="_blank"><i class="fa fa-github"></i></a>
+                
+                
+            </div>
+            
+
+            
+        </div>
+    </div>
+</footer>
+
+
+<div class="credits">
+    <div class="container">
+        <div class="copyright">
+            <a href="https://github.com/Lednerb" target="_blank">
+                &copy;
+                
+                    2017
+                
+                by Lednerb
+            </a>
+	    -
+		<a href="https://aidanbae.github.io/tags/empty-struct/index.xml">RSS</a>
+        </div>
+        <div class="author">
+            <a href="https://github.com/Lednerb/bilberry-hugo-theme" target="_blank">Bilberry Hugo Theme</a>
+        </div>
+    </div>
+</div>
+
+
+        
+
+        
+
+        
+        
+        <script type="text/javascript" src="https://aidanbae.github.io/js/externalDependencies.39c47e10e241eae2947b3fe21809c572.js" integrity="md5-OcR&#43;EOJB6uKUez/iGAnFcg=="></script>
+
+        
+        
+        <script type="text/javascript" src="https://aidanbae.github.io/js/theme.ff50ae6dc1bfc220b23bf69dbb41b54e.js" integrity="md5-/1CubcG/wiCyO/adu0G1Tg=="></script>
+
+        <script>
+            $(".moment").each(function() {
+                $(this).text(
+                    moment( $(this).text() )
+                        .locale( "en" )
+                        .format('LL')
+                );
+            });
+
+            $(".footnote-return sup").html("");
+        </script>
+
+        
+            
+        
+
+        
+
+
+    </body>
+</html>

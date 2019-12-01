@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Pages on 아이단은 어디갔을까</title>
+    <link>https://aidanbae.github.io/page/</link>
+    <description>Recent content in Pages on 아이단은 어디갔을까</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Wed, 28 Aug 2019 13:18:45 +0100</lastBuildDate>
+    
+	<atom:link href="https://aidanbae.github.io/page/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Aidan</title>
+      <link>https://aidanbae.github.io/page/about-aidan/</link>
+      <pubDate>Wed, 28 Aug 2019 13:18:45 +0100</pubDate>
+      
+      <guid>https://aidanbae.github.io/page/about-aidan/</guid>
+      <description>Aidan_배상익 sangik213@gmail.com
+ Toss, Securities Silo DevOps 엔지니어 근무중 kakaogames 퀸스튜디오 게임서버개발 근무했음 kakao 선행게임개발TF 서버개발 근무했음 HTML5 스낵게임 클라이언트 개발 근무했음 스타트업 놀담 안드로이드, 서버개발 근무했음 서울시립대학교 도시사회학과 졸업   Programming Language Golang, Python, Javascript
+ backend fw exp: django, gin, express frontend fw exp: vue, cocos2d, phaser, react  각 언어 설계철학을 이해하고 좋은 사용법을 고민합니다.
+생각의 중요성을 알기에 언어에 집착하진 않습니다.
+팀의 사정상 생산성을 고려하다보니 GC언어를 많이 공부했습니다.</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>ngrinder controller on 아이단은 어디갔을까</title>
+    <link>https://aidanbae.github.io/tags/ngrinder-controller/</link>
+    <description>Recent content in ngrinder controller on 아이단은 어디갔을까</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Mon, 19 Nov 2018 09:31:27 +0900</lastBuildDate>
+    
+	<atom:link href="https://aidanbae.github.io/tags/ngrinder-controller/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>nGrinder agent가 controller에 못붙는 현상</title>
+      <link>https://aidanbae.github.io/code/devops/ngrinder/agentcontroller/</link>
+      <pubDate>Mon, 19 Nov 2018 09:31:27 +0900</pubDate>
+      
+      <guid>https://aidanbae.github.io/code/devops/ngrinder/agentcontroller/</guid>
+      <description>마크다운문서가 테마때문에 잘 적용되지 않아 수정할 예정입니다. 다음번 업데이트에 테마를 고칠예정이니 불편해도 양해부탁드려요
+nGrinder agent가 controller에 못붙는 현상 환경 IDC에서 AWS로 옮겨오면서 테스트환경을 구축하기위해 n-grinder EC2 인스턴스 이미지를 떠 놨습니다.
+참고
+n-grinder는 마스터-슬레이브처럼 controller와 agent로 구성됩니다. controller는 하나의 머리 역할을 하는 곳으로 task와 스크립트 관리, 테스트 결과를 수집해 통계자료로 보여주며 웹 인터페이스를 제공한다. agent는 cotroller의 명령을 받아 수행합니다. agent는 유저가 요청한 task정보에 따라 부하를 발생시켜 프로세스와 쓰레드를 관리하고 대상 시스템의 CPU와 메모리를 모니터링합니다.</description>
+    </item>
+    
+  </channel>
+</rss>

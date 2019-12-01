@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>docker container on 아이단은 어디갔을까</title>
+    <link>https://aidanbae.github.io/tags/docker-container/</link>
+    <description>Recent content in docker container on 아이단은 어디갔을까</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Tue, 30 Apr 2019 12:31:27 +0100</lastBuildDate>
+    
+	<atom:link href="https://aidanbae.github.io/tags/docker-container/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Docker Container 내부 소켓 상태 확인 - nsenter와 netstat</title>
+      <link>https://aidanbae.github.io/code/docker/docker-netstat/</link>
+      <pubDate>Tue, 30 Apr 2019 12:31:27 +0100</pubDate>
+      
+      <guid>https://aidanbae.github.io/code/docker/docker-netstat/</guid>
+      <description>도커로 서비스 개발을 하다보면 상태 확인을 위해 호스트 머신이 아닌 컨테이너에 접근해야하는 경우가 생긴다. 호스트 머신 한 대에 여러 docker 서비스가 떠있을 수 있기 때문이다. (내가 이용 중인 AWS(ECS)도 내가 띄운 서비스 이외에 로그수집기, executor등의 또다른 docker 컨테이너가 떠있다.) 그러므로 호스트 머신에서 netstat 명령어는 모든 도커 서비스의 소켓정보들을 보여주기때문에 특정 서비스에 대한 스코프기능이 지원되지 않는다.
+도커를 조금 이용해본 개발자라면 쉽게 docker exec 명령어로 해당 컨테이너에 접근해 내부에서 소켓상태를 살펴보려할 것이다.</description>
+    </item>
+    
+  </channel>
+</rss>

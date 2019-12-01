@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>우분투 on 아이단은 어디갔을까</title>
+    <link>https://aidanbae.github.io/tags/%EC%9A%B0%EB%B6%84%ED%88%AC/</link>
+    <description>Recent content in 우분투 on 아이단은 어디갔을까</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Mon, 05 Nov 2018 13:01:14 +0100</lastBuildDate>
+    
+	<atom:link href="https://aidanbae.github.io/tags/%EC%9A%B0%EB%B6%84%ED%88%AC/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>우분투 ubuntu</title>
+      <link>https://aidanbae.github.io/article/ubuntu/</link>
+      <pubDate>Mon, 05 Nov 2018 13:01:14 +0100</pubDate>
+      
+      <guid>https://aidanbae.github.io/article/ubuntu/</guid>
+      <description>네이버에 우분투를 치면 우분투, 리눅스 서버와 관련된 내용들이 쭈르륵 나온다. 나는 개발자라서 unbuntu는 aws에서 서버를 띄우면서 사용하는 많은 운영체제(OS) 중 하나로 생각이 좁혀진다. 우연하게도 류시화의 책 &amp;lsquo;시로 납치하다&#39;를 읽던 중 우분투의 어원을 알게되었다.
+아프리카 원주민들의 생활을 연구하던 인류학자가 자신을 졸졸 따라다니는 부족의 아이들에게 한가지 놀이를 제안했다. 그는 사탕을 가득 담은 바구니를 멀리 떨어진 나무에 매달아 놓고, 자신이 출발 신호를 하면 맨 먼저 그곳까지 뛰어간 사람에게 사탕을 전부 주겠다고 약속했다. 그런데 신호를 하자 예상하지 못한 일이 일어났다.</description>
+    </item>
+    
+  </channel>
+</rss>

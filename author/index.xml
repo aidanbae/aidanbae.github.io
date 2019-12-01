@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Author on 아이단은 어디갔을까</title>
+    <link>https://aidanbae.github.io/author/</link>
+    <description>Recent content in Author on 아이단은 어디갔을까</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Sat, 30 Nov 2019 19:01:14 +0900</lastBuildDate>
+    
+	<atom:link href="https://aidanbae.github.io/author/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Aidan.bae</title>
+      <link>https://aidanbae.github.io/author/aidan.bae/</link>
+      <pubDate>Sat, 30 Nov 2019 19:01:14 +0900</pubDate>
+      
+      <guid>https://aidanbae.github.io/author/aidan.bae/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>돈키호테 맨오브라만차</title>
+      <link>https://aidanbae.github.io/author/%EB%8F%88%ED%82%A4%ED%98%B8%ED%85%8C-%EB%A7%A8%EC%98%A4%EB%B8%8C%EB%9D%BC%EB%A7%8C%EC%B0%A8/</link>
+      <pubDate>Mon, 23 Sep 2019 13:01:14 +0100</pubDate>
+      
+      <guid>https://aidanbae.github.io/author/%EB%8F%88%ED%82%A4%ED%98%B8%ED%85%8C-%EB%A7%A8%EC%98%A4%EB%B8%8C%EB%9D%BC%EB%A7%8C%EC%B0%A8/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>George Vaillant</title>
+      <link>https://aidanbae.github.io/author/george-vaillant/</link>
+      <pubDate>Mon, 01 Oct 2018 13:01:14 +0100</pubDate>
+      
+      <guid>https://aidanbae.github.io/author/george-vaillant/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

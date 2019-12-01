@@ -1,0 +1,828 @@
+<!doctype html>
+<html class="no-js" lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="author" content="Aidan.bae">
+        <meta name="description" content="아이단의 블로그">
+        <meta name="keywords" content="golang,aidan,kakaogames,kakao,gocd,gocd-agent,infra,javascript,python">
+        <meta name="generator" content="Hugo 0.60.0" />
+        <title> Aidan.bae | 아이단은 어디갔을까</title>
+        <meta name="description" content="Aidan.bae - 아이단의 블로그">
+        <meta itemprop="name" content="Aidan.bae">
+        <meta itemprop="description" content="Aidan.bae - 아이단의 블로그">
+        <meta property="og:title" content="Aidan.bae">
+        <meta property="og:description" content="Aidan.bae - 아이단의 블로그">
+        <meta property="og:image" content="https://www.gravatar.com/avatar/d41d8cd98f00b204e9800998ecf8427e?size=200">
+        <meta property="og:url" content="https://aidanbae.github.io/author/aidan.bae/">
+        <meta property="og:site_name" content="아이단은 어디갔을까"><meta property="og:type" content="website">
+        <link rel="icon" type="image/png" href="https://aidanbae.github.io/favicon-32x32.png" sizes="32x32">
+        <link rel="icon" type="image/png" href="https://aidanbae.github.io/favicon-16x16.png" sizes="16x16">
+
+	
+	  <link href="https://aidanbae.github.io/author/aidan.bae/" rel="alternate" type="application/rss+xml" title="아이단은 어디갔을까" />
+	  <link href="https://aidanbae.github.io/author/aidan.bae/" rel="feed" type="application/rss+xml" title="아이단은 어디갔을까" />
+	
+
+        
+        
+        
+        
+        <link rel="stylesheet" href="https://aidanbae.github.io/sass/combined.min.e5af985042854cb05807bed3365180e76bf9b8e0f41a2c81f098583599a6fb05.css">
+
+        
+
+        
+            
+        
+    </head>
+    <body class="bilberry-hugo-theme">
+        
+<nav>
+
+    <div class="container">
+        <ul class="topnav">
+            
+                
+                    <li><a href="https://aidanbae.github.io/page/about-aidan/">Aidan</a></li>
+                
+            
+        </ul>
+
+        
+    </div>
+</nav>
+
+
+        <header>
+    <div class="container">
+        <div class="logo">
+            <a href="https://aidanbae.github.io/" class="logo">
+                
+                    <img src="https://aidanbae.github.io/do.png" alt="">
+                
+
+                <span class="overlay"><i class="fa fa-home"></i></span>
+            </a>
+        </div>
+        <div class="titles">
+            <h3 class="title"><a href="https://aidanbae.github.io/">아이단은 어디갔을까</a></h3>
+            
+                <span class="subtitle">순간 순간이 소중한 목적지</span>
+            
+        </div>
+
+    
+
+        
+        <div class="toggler">
+        
+            <i class="fa fa-bars" aria-hidden="true"></i>
+        </div>
+    </div>
+</header>
+
+
+        <div class="main container">
+            
+    
+    
+        <div class="article-wrapper u-cf">
+            
+                <a class="bubble" href="https://aidanbae.github.io/code/golang/emptystruct/">
+    <i class="fa fa-fw fa-code"></i>
+</a>
+
+<article class="default article">
+    
+
+    <div class="content">
+    <h3><a href="https://aidanbae.github.io/code/golang/emptystruct/">Golang - EmptyStruct 빈구조체</a></h3>
+    <div class="meta">
+        
+            
+                <span class="date moment">2018-10-18</span>
+            
+        
+
+        
+
+        
+            <span class="categories">
+                
+                    <a href="https://aidanbae.github.io/categories/code">Code</a>
+                
+                    <a href="https://aidanbae.github.io/categories/golang">Golang</a>
+                
+            </span>
+        
+
+        
+            <span class="author"><a href="https://aidanbae.github.io/author/aidan.bae">Aidan.bae</a></span>
+        
+    </div>
+
+    
+        done &lt;- struct{}{} 고랭관련 깃을 돌아다니면서 훌륭한 레파지토리(Docker, Gin..)들을 내부를 구경하다보면
+위처럼 빈 구조체를 채널에 던지는 경우를 종종 볼 수 있다.
+struct{}{}
+the empty struct
+나는 이게 {}{} 이 리터럴 모양이 뭔가 지저분해보여서
+간단한 종료 시그널을 보내는 채널은 대부분 bool, int 채널을 사용했었다.
+bool 값보내는 거 보다 값이 적은가?..
+나는 구조체라고 생각해서 더 크다고만 생각했는데
+찾아보니 놀랍게도 struct{}{}는 사이즈가 0이다(기본기가 부족한 나만 놀란거일수도 있다;)
+사이즈를 확인할 수 있는 내장 메소드가 있을까 찾아보니
+
+        
+            <a href="https://aidanbae.github.io/code/golang/emptystruct/" class="more">Continue reading</a>
+        
+    
+</div>
+
+    
+<div class="footer">
+
+
+    
+        <div class="tags">
+            <i class="fa fa-tags"></i>
+            <div class="links">
+                
+                    <a href="https://aidanbae.github.io/tags/golang">golang</a>
+                
+                    <a href="https://aidanbae.github.io/tags/empty-struct">empty struct</a>
+                
+                    <a href="https://aidanbae.github.io/tags/struct">struct{}{}</a>
+                
+            </div>
+        </div>
+    
+
+    
+</div>
+
+</article>
+
+            
+        </div>
+    
+        <div class="article-wrapper u-cf">
+            
+                <a class="bubble" href="https://aidanbae.github.io/code/golang/slice/">
+    <i class="fa fa-fw fa-code"></i>
+</a>
+
+<article class="default article">
+    
+    <div class="featured-image">
+        <a href="https://aidanbae.github.io/code/golang/slice/">
+            
+                <img src="https://aidanbae.github.io/code/golang/slice/featuredImage_hu1d0737d8eb83298d2855453b736e7df6_112609_700x350_fill_q95_box_smart1.jpeg" alt="">
+            
+        </a>
+    </div>
+
+
+    <div class="content">
+    <h3><a href="https://aidanbae.github.io/code/golang/slice/">Golang Slice 슬라이스 응용</a></h3>
+    <div class="meta">
+        
+            
+                <span class="date moment">2018-10-14</span>
+            
+        
+
+        
+
+        
+            <span class="categories">
+                
+                    <a href="https://aidanbae.github.io/categories/code">Code</a>
+                
+                    <a href="https://aidanbae.github.io/categories/golang">Golang</a>
+                
+            </span>
+        
+
+        
+            <span class="author"><a href="https://aidanbae.github.io/author/aidan.bae">Aidan.bae</a></span>
+        
+    </div>
+
+    
+        이거보면된다.
+https://github.com/golang/go/wiki/SliceTricks
+
+        
+    
+</div>
+
+    
+<div class="footer">
+
+
+    
+        <div class="tags">
+            <i class="fa fa-tags"></i>
+            <div class="links">
+                
+                    <a href="https://aidanbae.github.io/tags/golang">golang</a>
+                
+                    <a href="https://aidanbae.github.io/tags/slice">slice</a>
+                
+                    <a href="https://aidanbae.github.io/tags/array">array</a>
+                
+            </div>
+        </div>
+    
+
+    
+</div>
+
+</article>
+
+            
+        </div>
+    
+        <div class="article-wrapper u-cf">
+            
+                <a class="bubble" href="https://aidanbae.github.io/article/miniproject/">
+    <i class="fa fa-fw fa-pencil"></i>
+</a>
+
+<article class="default article">
+    
+
+    <div class="content">
+    <h3><a href="https://aidanbae.github.io/article/miniproject/">부러운 인생</a></h3>
+    <div class="meta">
+        
+            
+                <span class="date moment">2018-09-30</span>
+            
+        
+
+        
+
+        
+            <span class="categories">
+                
+                    <a href="https://aidanbae.github.io/categories/smalltalk">SmallTalk</a>
+                
+            </span>
+        
+
+        
+            <span class="author"><a href="https://aidanbae.github.io/author/aidan.bae">Aidan.bae</a></span>
+        
+    </div>
+
+    
+        아두이노 미니프로젝트를 이번 설에 혼자 끝냈다.
+이전에는 함께 하는 것에 목말라있었다. 늘 함께 무언가를 하는데에 많이 익숙했다. 프로젝트도 그랬고 동아리활동도 학교 과제도 게임도 스터디도 무조건 함께하는 것에 익숙해있었다. 나 혼자만으로는 모르는게 많아 나약한 부분도 많았고 같이 할때 서로 도움도 받고 농담하며 웃을 수 있는 것에 즐거웠던것같다. 혼자 남아 무언가를 하는데에 익숙하지 않았었고 싫었었다. 함께하고 난뒤에 찾아오는 공허함이 두려웠던거 같기도하다.
+요즘은 나 혼자만으로 할 수 있는 것들이 늘어나면서 혼자 있어도 즐거운 일을 간단하게 설계할 수 있어 소소하게 행복하다.
+
+        
+            <a href="https://aidanbae.github.io/article/miniproject/" class="more">Continue reading</a>
+        
+    
+</div>
+
+    
+<div class="footer">
+
+
+    
+        <div class="tags">
+            <i class="fa fa-tags"></i>
+            <div class="links">
+                
+                    <a href="https://aidanbae.github.io/tags/%ED%81%AC%ED%9D%A0">크흠</a>
+                
+            </div>
+        </div>
+    
+
+    
+</div>
+
+</article>
+
+            
+        </div>
+    
+        <div class="article-wrapper u-cf">
+            
+                <a class="bubble" href="https://aidanbae.github.io/code/algorithm/bigo/">
+    <i class="fa fa-fw fa-code"></i>
+</a>
+
+<article class="default article">
+    
+    <div class="featured-image">
+        <a href="https://aidanbae.github.io/code/algorithm/bigo/">
+            
+                <img src="https://aidanbae.github.io/code/algorithm/bigo/featuredImage_hu7e7481e889db907ab440f1313a6eabb1_75709_700x350_fill_q95_box_smart1.jpg" alt="">
+            
+        </a>
+    </div>
+
+
+    <div class="content">
+    <h3><a href="https://aidanbae.github.io/code/algorithm/bigo/">빅오 표기법(Big O notation)과 자바스크립트</a></h3>
+    <div class="meta">
+        
+            
+                <span class="date moment">2018-09-20</span>
+            
+        
+
+        
+
+        
+            <span class="categories">
+                
+                    <a href="https://aidanbae.github.io/categories/javascript">Javascript</a>
+                
+                    <a href="https://aidanbae.github.io/categories/algorithm">Algorithm</a>
+                
+            </span>
+        
+
+        
+            <span class="author"><a href="https://aidanbae.github.io/author/aidan.bae">Aidan.bae</a></span>
+        
+    </div>
+
+    
+        오늘은 컴퓨터과학의 꽃, 알고리즘의 인트로에 늘 나오는 빅오표기법에 대해서 이야기해보고자한다! +_ +
+대학생 때, 삼성SCSS 덕분에 컴퓨터과학을 늦게 접하면서 시립대에서 김진석 교수님 알고리즘 수업을 야간에 들었었는데 컴퓨터과학 전공자와 비전공자를 나누는 기준이 알고리즘이며 알고리즘의 효율성을 판별하는 빅오표기법은 매우 중요해요라고 콕 찦어 말하신게 기억에 남는다.
+스타트업에 있을 때는 되게하는데 바빠 빅오표기법을 고민한 적이 없었고, 현업에 들어와서 게임프로그래밍을 하며 알고리즘의 효율성, 뎁스를 줄이기 위한 고민을 했을 뿐 정확하게 빅오표기법으로 얼마다하며 팀장님을 설득한 적이 없다.
+
+        
+            <a href="https://aidanbae.github.io/code/algorithm/bigo/" class="more">Continue reading</a>
+        
+    
+</div>
+
+    
+<div class="footer">
+
+
+    
+        <div class="tags">
+            <i class="fa fa-tags"></i>
+            <div class="links">
+                
+                    <a href="https://aidanbae.github.io/tags/javascript">javascript</a>
+                
+                    <a href="https://aidanbae.github.io/tags/algorithm">algorithm</a>
+                
+                    <a href="https://aidanbae.github.io/tags/big-o">big o</a>
+                
+                    <a href="https://aidanbae.github.io/tags/%EB%B9%85%EC%98%A4%ED%91%9C%EA%B8%B0%EB%B2%95">빅오표기법</a>
+                
+                    <a href="https://aidanbae.github.io/tags/%EC%9E%90%EB%B0%94%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8">자바스크립트</a>
+                
+            </div>
+        </div>
+    
+
+    
+</div>
+
+</article>
+
+            
+        </div>
+    
+        <div class="article-wrapper u-cf">
+            
+                <a class="bubble" href="https://aidanbae.github.io/code/golang/validator/">
+    <i class="fa fa-fw fa-code"></i>
+</a>
+
+<article class="default article">
+    
+    <div class="featured-image">
+        <a href="https://aidanbae.github.io/code/golang/validator/">
+            
+                <img src="https://aidanbae.github.io/code/golang/validator/featuredImage_hucf0550b6c4a4c11007738374e0fb9e2f_153219_700x350_fill_q95_box_smart1.jpg" alt="">
+            
+        </a>
+    </div>
+
+
+    <div class="content">
+    <h3><a href="https://aidanbae.github.io/code/golang/validator/">Golang 결제검증서버 구현 - Validator 디자인</a></h3>
+    <div class="meta">
+        
+            
+                <span class="date moment">2018-09-07</span>
+            
+        
+
+        
+
+        
+            <span class="categories">
+                
+                    <a href="https://aidanbae.github.io/categories/code">Code</a>
+                
+                    <a href="https://aidanbae.github.io/categories/golang">Golang</a>
+                
+                    <a href="https://aidanbae.github.io/categories/server">Server</a>
+                
+            </span>
+        
+
+        
+            <span class="author"><a href="https://aidanbae.github.io/author/aidan.bae">Aidan.bae</a></span>
+        
+    </div>
+
+    
+        Intro 결제 와 관련된 정보는 고객 입장에서도 회사 입장에서도 매우 중요한 정보이다.
+타사(구글, 페이스북, 샘성)의 결제모듈을 활용한다면 그 절차 사이사이의 검증과 기록은 결제검증서버가 해야할 필수적인 부분- 이번에 페이스북으로 글로벌 게임서버 런칭을 진행하면서 페이스북 결제를 활용해 돈방석에 앉아보기로 팀방향이 결정되었고(제발~)
+우리 서버팀은 그 돈방석의 영수증 역할을 할 결제검증서버를 구현하게되었다.
+이전에 불확실성을 줄이기위해 방명록을 간단하게 만들어보면서 orm프레임워크, mariadb 등을 확인했었고 그 연장선에서 이번 검증서버 프로젝트는 xorm과 web framework는 gin을 활용하기로 했다.
+ Point 결제 쪽에 자신감이 넘치는 팀장님이 명확한 로직을 제시해주었기때문에 코딩은 어렵지 않았다.
+
+        
+            <a href="https://aidanbae.github.io/code/golang/validator/" class="more">Continue reading</a>
+        
+    
+</div>
+
+    
+<div class="footer">
+
+
+    
+        <div class="tags">
+            <i class="fa fa-tags"></i>
+            <div class="links">
+                
+                    <a href="https://aidanbae.github.io/tags/golang">golang</a>
+                
+                    <a href="https://aidanbae.github.io/tags/interface">interface</a>
+                
+                    <a href="https://aidanbae.github.io/tags/validate">validate</a>
+                
+            </div>
+        </div>
+    
+
+    
+</div>
+
+</article>
+
+            
+        </div>
+    
+        <div class="article-wrapper u-cf">
+            
+                <a class="bubble" href="https://aidanbae.github.io/code/docker/dinddood/">
+    <i class="fa fa-fw fa-code"></i>
+</a>
+
+<article class="default article">
+    
+    <div class="featured-image">
+        <a href="https://aidanbae.github.io/code/docker/dinddood/">
+            
+                <img src="https://aidanbae.github.io/code/docker/dinddood/featuredImage_hu8fbdd1b26661cf794b0f17932fa1ae38_170191_700x350_fill_q95_box_smart1_2.png" alt="">
+            
+        </a>
+    </div>
+
+
+    <div class="content">
+    <h3><a href="https://aidanbae.github.io/code/docker/dinddood/">DinD(docker in docker)와 DooD(docker out of docker)</a></h3>
+    <div class="meta">
+        
+            
+                <span class="date moment">2018-09-03</span>
+            
+        
+
+        
+
+        
+            <span class="categories">
+                
+                    <a href="https://aidanbae.github.io/categories/server">Server</a>
+                
+                    <a href="https://aidanbae.github.io/categories/docker">Docker</a>
+                
+                    <a href="https://aidanbae.github.io/categories/devops">DevOps</a>
+                
+            </span>
+        
+
+        
+            <span class="author"><a href="https://aidanbae.github.io/author/aidan.bae">Aidan.bae</a></span>
+        
+    </div>
+
+    
+        Docker의 Client-Server아키텍쳐 단순히 도커를 이용해 이미지를 만들고 띄우는 개발자라면 docker client와 docker daemon이 분리되어 있는 것을 인지하지 못할 수 있다. 반면 CI(Continuous Integration/ 지속적 통합)툴을 사용하며 agent를 세팅하는 DevOps쪽 개발자라면 docker관련 task를 수행하면서 이 사실을 쉽게 접하게된다.
+그림처럼 docker시스템 유닛은 크게 3개로 분리되며, Client, Host(Daemon), Registry가 그것이다. 자세한 내용은 이전 포스트 Docker client와 Docker server를 참고.
+대부분의 현대 CI 도구들(travis, circle, gocd, jenkins)등이 agent를 통해 docker관련 Task를 수행을 하기 때문에 docker daemon은 호스트머신에서 동작하면서 컨테이너로 동작하는 agent들이 docker-client역할을 하는 경우가 많다.
+
+        
+            <a href="https://aidanbae.github.io/code/docker/dinddood/" class="more">Continue reading</a>
+        
+    
+</div>
+
+    
+<div class="footer">
+
+
+    
+        <div class="tags">
+            <i class="fa fa-tags"></i>
+            <div class="links">
+                
+                    <a href="https://aidanbae.github.io/tags/docker">docker</a>
+                
+                    <a href="https://aidanbae.github.io/tags/infra">infra</a>
+                
+                    <a href="https://aidanbae.github.io/tags/gocd">gocd</a>
+                
+                    <a href="https://aidanbae.github.io/tags/docker-client">docker-client</a>
+                
+                    <a href="https://aidanbae.github.io/tags/aws-cli">aws-cli</a>
+                
+            </div>
+        </div>
+    
+
+    
+</div>
+
+</article>
+
+            
+        </div>
+    
+        <div class="article-wrapper u-cf">
+            
+                <a class="bubble" href="https://aidanbae.github.io/code/golang/googlecodejam2016/">
+    <i class="fa fa-fw fa-code"></i>
+</a>
+
+<article class="default article">
+    
+    <div class="featured-image">
+        <a href="https://aidanbae.github.io/code/golang/googlecodejam2016/">
+            
+                <img src="https://aidanbae.github.io/code/golang/googlecodejam2016/featuredImage_hu96ea4d30f10f2eaf81c18a5c7c5b0085_88185_700x350_fill_q95_box_smart1.jpg" alt="">
+            
+        </a>
+    </div>
+
+
+    <div class="content">
+    <h3><a href="https://aidanbae.github.io/code/golang/googlecodejam2016/">Golang 동시성을 활용한 알고리즘 문제풀이 - 1</a></h3>
+    <div class="meta">
+        
+            
+                <span class="date moment">2018-08-20</span>
+            
+        
+
+        
+
+        
+            <span class="categories">
+                
+                    <a href="https://aidanbae.github.io/categories/algorithm">Algorithm</a>
+                
+                    <a href="https://aidanbae.github.io/categories/golang">Golang</a>
+                
+            </span>
+        
+
+        
+            <span class="author"><a href="https://aidanbae.github.io/author/aidan.bae">Aidan.bae</a></span>
+        
+    </div>
+
+    
+        파이프라인 패턴을 활용해서 알고리즘을 풀어보기로 했다.
+알고리즘 문제: Google Code Jam 2016 qualification round A
+궁금했던 점 동시성 프로그래밍으로 기존 알고리즘 모범답안보다 얼마나 퍼포먼스를 낼 수 있을까
+많은 프로그래밍대회가 싱글쓰레드기반으로 동작해 정답이 순차적으로 나와야한다. 하지만 멀티쓰레드 프로그래밍은 Case #1번이 아니라 Case #5번이 먼저 풀릴 수 있다.
+ (사실 구글 코드잼의 가장 큰 난적은 문제가 영어라는 점이다)
+문제요약 Bleatrix Trotter 이라는 여자분은 불면증에 걸린거 같다.
+이 여자분은 잠에 골아떨어지기위해 특별한 전략이 있다.
+
+        
+            <a href="https://aidanbae.github.io/code/golang/googlecodejam2016/" class="more">Continue reading</a>
+        
+    
+</div>
+
+    
+<div class="footer">
+
+
+    
+        <div class="tags">
+            <i class="fa fa-tags"></i>
+            <div class="links">
+                
+                    <a href="https://aidanbae.github.io/tags/golang">golang</a>
+                
+                    <a href="https://aidanbae.github.io/tags/algorithm">algorithm</a>
+                
+                    <a href="https://aidanbae.github.io/tags/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98">알고리즘</a>
+                
+                    <a href="https://aidanbae.github.io/tags/%EA%B5%AC%EA%B8%80%EC%BD%94%EB%93%9C%EC%9E%BC">구글코드잼</a>
+                
+            </div>
+        </div>
+    
+
+    
+</div>
+
+</article>
+
+            
+        </div>
+    
+
+    
+    <div class="paginator">
+        
+            <a href="https://aidanbae.github.io/author/aidan.bae/page/7/" class="older"><i class="fa fa-angle-double-left"></i> Older posts</a>
+        
+
+        
+            <a href="https://aidanbae.github.io/author/aidan.bae/page/5/" class="newer">Newer posts <i class="fa fa-angle-double-right"></i></a>
+        
+    </div>
+
+
+
+        </div>
+
+        
+<footer>
+    <div class="container">
+
+        
+        <div class="recent-posts">
+            <strong>Latest posts</strong>
+                <ul>
+                
+                    <li>
+                        <a href="https://aidanbae.github.io/code/devops/k8s/istio-mixer-debug/">istio debug를 위한 controlZ 활용</a>
+                    </li>
+                
+                    <li>
+                        <a href="https://aidanbae.github.io/article/book/time/">시간은 흐르지 않는다.</a>
+                    </li>
+                
+                    <li>
+                        <a href="https://aidanbae.github.io/article/gori/">생각의 선순환고리</a>
+                    </li>
+                
+                    <li>
+                        <a href="https://aidanbae.github.io/video/shining/">밀고 나가면 어느순간 반드시 빛이 난다.</a>
+                    </li>
+                
+                    <li>
+                        <a href="https://aidanbae.github.io/quote/donki/">꿈</a>
+                    </li>
+                
+                    <li>
+                        <a href="https://aidanbae.github.io/article/book/siliteamman/">실리콘밸리의 팀장들 - 지독한 솔직함</a>
+                    </li>
+                
+                </ul>
+        </div>
+        
+
+        
+        <div class="categories">
+            <a href="https://aidanbae.github.io/categories/"><strong>Categories</strong></a>
+                <ul>
+                
+                    <li>
+                        <a href="https://aidanbae.github.io/categories/code">Code (19)</a>
+                    </li>
+                
+                    <li>
+                        <a href="https://aidanbae.github.io/categories/golang">Golang (16)</a>
+                    </li>
+                
+                    <li>
+                        <a href="https://aidanbae.github.io/categories/wisdom">Wisdom (13)</a>
+                    </li>
+                
+                    <li>
+                        <a href="https://aidanbae.github.io/categories/book">Book (12)</a>
+                    </li>
+                
+                    <li>
+                        <a href="https://aidanbae.github.io/categories/smalltalk">Smalltalk (12)</a>
+                    </li>
+                
+                    <li>
+                        <a href="https://aidanbae.github.io/categories/server">Server (11)</a>
+                    </li>
+                
+                    <li>
+                        <a href="https://aidanbae.github.io/categories/devops">Devops (10)</a>
+                    </li>
+                
+            </ul>
+        </div>
+        
+
+        <div class="right">
+            
+            <div class="external-profiles">
+                <strong>Social media</strong>
+
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                    <a href="https://github.com/aidanbae" target="_blank"><i class="fa fa-github"></i></a>
+                
+                
+            </div>
+            
+
+            
+        </div>
+    </div>
+</footer>
+
+
+<div class="credits">
+    <div class="container">
+        <div class="copyright">
+            <a href="https://github.com/Lednerb" target="_blank">
+                &copy;
+                
+                    2017
+                
+                by Lednerb
+            </a>
+	    -
+		<a href="https://aidanbae.github.io/author/aidan.bae/index.xml">RSS</a>
+        </div>
+        <div class="author">
+            <a href="https://github.com/Lednerb/bilberry-hugo-theme" target="_blank">Bilberry Hugo Theme</a>
+        </div>
+    </div>
+</div>
+
+
+        
+
+        
+
+        
+        
+        <script type="text/javascript" src="https://aidanbae.github.io/js/externalDependencies.39c47e10e241eae2947b3fe21809c572.js" integrity="md5-OcR&#43;EOJB6uKUez/iGAnFcg=="></script>
+
+        
+        
+        <script type="text/javascript" src="https://aidanbae.github.io/js/theme.ff50ae6dc1bfc220b23bf69dbb41b54e.js" integrity="md5-/1CubcG/wiCyO/adu0G1Tg=="></script>
+
+        <script>
+            $(".moment").each(function() {
+                $(this).text(
+                    moment( $(this).text() )
+                        .locale( "en" )
+                        .format('LL')
+                );
+            });
+
+            $(".footnote-return sup").html("");
+        </script>
+
+        
+            
+        
+
+        
+
+
+    </body>
+</html>

@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>algorithm on 아이단은 어디갔을까</title>
+    <link>https://aidanbae.github.io/tags/algorithm/</link>
+    <description>Recent content in algorithm on 아이단은 어디갔을까</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Thu, 20 Sep 2018 09:31:27 +0100</lastBuildDate>
+    
+	<atom:link href="https://aidanbae.github.io/tags/algorithm/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>빅오 표기법(Big O notation)과 자바스크립트</title>
+      <link>https://aidanbae.github.io/code/algorithm/bigo/</link>
+      <pubDate>Thu, 20 Sep 2018 09:31:27 +0100</pubDate>
+      
+      <guid>https://aidanbae.github.io/code/algorithm/bigo/</guid>
+      <description>오늘은 컴퓨터과학의 꽃, 알고리즘의 인트로에 늘 나오는 빅오표기법에 대해서 이야기해보고자한다! +_ +
+대학생 때, 삼성SCSS 덕분에 컴퓨터과학을 늦게 접하면서 시립대에서 김진석 교수님 알고리즘 수업을 야간에 들었었는데 컴퓨터과학 전공자와 비전공자를 나누는 기준이 알고리즘이며 알고리즘의 효율성을 판별하는 빅오표기법은 매우 중요해요라고 콕 찦어 말하신게 기억에 남는다.
+스타트업에 있을 때는 되게하는데 바빠 빅오표기법을 고민한 적이 없었고, 현업에 들어와서 게임프로그래밍을 하며 알고리즘의 효율성, 뎁스를 줄이기 위한 고민을 했을 뿐 정확하게 빅오표기법으로 얼마다하며 팀장님을 설득한 적이 없다.</description>
+    </item>
+    
+    <item>
+      <title>Golang 동시성을 활용한 알고리즘 문제풀이 - 1</title>
+      <link>https://aidanbae.github.io/code/golang/googlecodejam2016/</link>
+      <pubDate>Mon, 20 Aug 2018 09:31:27 +0100</pubDate>
+      
+      <guid>https://aidanbae.github.io/code/golang/googlecodejam2016/</guid>
+      <description>파이프라인 패턴을 활용해서 알고리즘을 풀어보기로 했다.
+알고리즘 문제: Google Code Jam 2016 qualification round A
+궁금했던 점 동시성 프로그래밍으로 기존 알고리즘 모범답안보다 얼마나 퍼포먼스를 낼 수 있을까
+많은 프로그래밍대회가 싱글쓰레드기반으로 동작해 정답이 순차적으로 나와야한다. 하지만 멀티쓰레드 프로그래밍은 Case #1번이 아니라 Case #5번이 먼저 풀릴 수 있다.
+ (사실 구글 코드잼의 가장 큰 난적은 문제가 영어라는 점이다)
+문제요약 Bleatrix Trotter 이라는 여자분은 불면증에 걸린거 같다.
+이 여자분은 잠에 골아떨어지기위해 특별한 전략이 있다.</description>
+    </item>
+    
+    <item>
+      <title>Golang 채널 중심 프로그래밍</title>
+      <link>https://aidanbae.github.io/code/golang/fib/</link>
+      <pubDate>Sat, 11 Aug 2018 09:31:27 +0100</pubDate>
+      
+      <guid>https://aidanbae.github.io/code/golang/fib/</guid>
+      <description>&amp;ldquo;사실 모든 학문은 연결되어있다. 사회학도 역사도 프로그래밍도&amp;rdquo;
+Intro 사회학에서 산업혁명 하면 떠오르는 키워드는 Division of labour이다. 즉, 한국어로 분업이다. 일을 처리하는데 분업에 따른 전문성 증가, 기계와 같은 파이프라인 등은 우리 사회에 큰 영향을 미쳤다. 이전에 없던 엄청난 생산량(공장 시스템)에 사회는 급성장한다.
+빠른 성장만큼 노동문제와 같은 각종 사회문제가 터져나왔고 그런 생산량이 전투력에 악용되어 제2차 세계대전에서는 수많은 인류의 죽음을 우린 목격해야했다.
+프로그래밍에서도 cpu가 늘고 분업과 관련된 동시성 프로그래밍들이 발전하면서 lock기법이 발전했고 race condition, deadlock등 다양한 문제들이 속출했다.</description>
+    </item>
+    
+  </channel>
+</rss>

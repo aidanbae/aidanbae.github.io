@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>fan in on 아이단은 어디갔을까</title>
+    <link>https://aidanbae.github.io/tags/fan-in/</link>
+    <description>Recent content in fan in on 아이단은 어디갔을까</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Wed, 16 Jan 2019 09:31:27 +0900</lastBuildDate>
+    
+	<atom:link href="https://aidanbae.github.io/tags/fan-in/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Golang Fan-Out Fan-In 디자인</title>
+      <link>https://aidanbae.github.io/code/golang-design/fan/</link>
+      <pubDate>Wed, 16 Jan 2019 09:31:27 +0900</pubDate>
+      
+      <guid>https://aidanbae.github.io/code/golang-design/fan/</guid>
+      <description>회사일을 바쁘다보니 이것저것 신경쓸게 많아 정리해야지정리해야지 하고 너무 늦게 글을 쓰는 감이 없지 않네요. 이어서 해보도록 하겠습니다. 이전 시간에 Pipeline 패턴을 알아봤는데 이를 좀더 활용해 Fan out Fan in 패턴을 알아보고자합니다.
+golang 멀티플렉싱 디자인패턴 중 하나인 Fan out Fan In은 큰 건물의 회전문을 생각하면서 이해하면 편합니다.
+prerequisites  chan에 대한 이해를 토대로 pipe함수를 작성할 수 있다. Pipeline 디자인패턴을 숙지했다.   Basic Fan의 사전적 의미는 선풍기, 환풍기, 회전문 같은 것입니다. 회전문처럼 생각했습니다.</description>
+    </item>
+    
+  </channel>
+</rss>

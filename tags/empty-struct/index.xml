@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>empty struct on 아이단은 어디갔을까</title>
+    <link>https://aidanbae.github.io/tags/empty-struct/</link>
+    <description>Recent content in empty struct on 아이단은 어디갔을까</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Thu, 18 Oct 2018 11:31:27 +0100</lastBuildDate>
+    
+	<atom:link href="https://aidanbae.github.io/tags/empty-struct/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Golang - EmptyStruct 빈구조체</title>
+      <link>https://aidanbae.github.io/code/golang/emptystruct/</link>
+      <pubDate>Thu, 18 Oct 2018 11:31:27 +0100</pubDate>
+      
+      <guid>https://aidanbae.github.io/code/golang/emptystruct/</guid>
+      <description>done &amp;lt;- struct{}{} 고랭관련 깃을 돌아다니면서 훌륭한 레파지토리(Docker, Gin..)들을 내부를 구경하다보면
+위처럼 빈 구조체를 채널에 던지는 경우를 종종 볼 수 있다.
+struct{}{}
+the empty struct
+나는 이게 {}{} 이 리터럴 모양이 뭔가 지저분해보여서
+간단한 종료 시그널을 보내는 채널은 대부분 bool, int 채널을 사용했었다.
+bool 값보내는 거 보다 값이 적은가?..
+나는 구조체라고 생각해서 더 크다고만 생각했는데
+찾아보니 놀랍게도 struct{}{}는 사이즈가 0이다(기본기가 부족한 나만 놀란거일수도 있다;)
+사이즈를 확인할 수 있는 내장 메소드가 있을까 찾아보니</description>
+    </item>
+    
+  </channel>
+</rss>

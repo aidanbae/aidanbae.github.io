@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>hugo on 아이단은 어디갔을까</title>
+    <link>https://aidanbae.github.io/tags/hugo/</link>
+    <description>Recent content in hugo on 아이단은 어디갔을까</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Mon, 23 Apr 2018 09:31:27 +0100</lastBuildDate>
+    
+	<atom:link href="https://aidanbae.github.io/tags/hugo/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Hugo로 github page에 블로그 배포하기</title>
+      <link>https://aidanbae.github.io/code/hugo/deploytutorial/</link>
+      <pubDate>Mon, 23 Apr 2018 09:31:27 +0100</pubDate>
+      
+      <guid>https://aidanbae.github.io/code/hugo/deploytutorial/</guid>
+      <description>Why? Hugo 공식사이트를 보다보면 뭔가 친절한듯 하지만 영어다.
+테마 설정때문에 에러를 겪으시는 분들이 많아
+쉽게 디렉팅해서 여러분들의 시간을 아껴주고싶다.
+hugo 설치하기 Install hugo
+hugo quickstart QuickStart 이거 따라하시면된다.
+여기 Step3를 보면 git clone 대신 git submodule을 사용중이다. 님은 둘중 하나를 선택할 수 있는데 submodule을 쓰는 편이 암에서 해방되는 길이긴하다. 하지만 나처럼 이미 clone을 선택해서 테마를 받았다면 themes 디렉토리를 .gitignore에 추가해야한다.
+echo &amp;#39;themes/&amp;#39; &amp;gt;&amp;gt; .gitignore config.toml파일을 수정하자 config.toml 파일에서 baseURL을 수정하자:</description>
+    </item>
+    
+  </channel>
+</rss>

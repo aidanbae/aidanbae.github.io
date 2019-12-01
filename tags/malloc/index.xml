@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>malloc on 아이단은 어디갔을까</title>
+    <link>https://aidanbae.github.io/tags/malloc/</link>
+    <description>Recent content in malloc on 아이단은 어디갔을까</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Tue, 16 Apr 2019 09:31:27 +0900</lastBuildDate>
+    
+	<atom:link href="https://aidanbae.github.io/tags/malloc/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>tcmalloc</title>
+      <link>https://aidanbae.github.io/code/devops/computer/tcmalloc/</link>
+      <pubDate>Tue, 16 Apr 2019 09:31:27 +0900</pubDate>
+      
+      <guid>https://aidanbae.github.io/code/devops/computer/tcmalloc/</guid>
+      <description>go tune memory 발표자료를 보면서 구경한 파생 지식 tcmalloc
+구글 공식 문서 http://goog-perftools.sourceforge.net/doc/tcmalloc.html
+구글에서 만든 TCMalloc
+보통 멀티 스레드 환경의 서버를 만들다보면 메모리 풀을 사용하게 된다.
+메모리 풀의 이점:
+ 빠른메모리할당 메모리 단편화 감소  하나의 거대한 메모리 풀을 사용하면 단순하게 malloc을 호출해서 메모리를 할당하는 것 보다 속도가 빠르다. 메모리 풀에 따라 다르겠지만 일반적으로 볼ㄸ ㅐ 처음 프로그래밍이 실행될 때 필요한 메모리를 통째로 잡아놓고 메모리가 필요한 경우에는 잡아놓은메모리 안에서 잘라서 주기 때문입니다.</description>
+    </item>
+    
+  </channel>
+</rss>

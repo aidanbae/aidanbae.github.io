@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Kubernetes on 아이단은 어디갔을까</title>
+    <link>https://aidanbae.github.io/tags/kubernetes/</link>
+    <description>Recent content in Kubernetes on 아이단은 어디갔을까</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Sun, 19 May 2019 09:31:27 +0900</lastBuildDate>
+    
+	<atom:link href="https://aidanbae.github.io/tags/kubernetes/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>MSA &amp; kubernetes</title>
+      <link>https://aidanbae.github.io/video/study/msa/</link>
+      <pubDate>Sun, 19 May 2019 09:31:27 +0900</pubDate>
+      
+      <guid>https://aidanbae.github.io/video/study/msa/</guid>
+      <description>2016년 12월 발표자료이긴한데
+MSA에 대한 이해가 한번에 되는 발표영상이다.
+요즘 MSA에 대해 물어보는 동생들이 있어서 바로 추천해주는 영상!
+인상적이었던 부분 인상적이었던 부분은 MSA와 팀모델에 대해 설명하는 부분이다.
+ 컨웨이의 법칙
+“소프트웨어의 구조는 그 소프트웨어를 만드는 팀의 구조와 일치한다.”
+ &amp;lsquo;팀의 구조??&amp;rsquo; 조대협님 왈: 개발 설계 백날 잘해봐야 소용없음 제대로된 팀 구조를 만드는 것이 설계 그다음은 알아서 됨
+정말 크게 와닿는다. 게임즈에서는 서버팀이 혼자였기때문에 설계를 모노리틱하게 설계한 것도 있음.
+하지만 서버팀이 인원이 늘었을 때도 모노리틱한 구조로 1인1프로젝트가 굉장히 불편했던 것은 맞다.</description>
+    </item>
+    
+  </channel>
+</rss>

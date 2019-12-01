@@ -1,0 +1,509 @@
+<!doctype html>
+<html class="no-js" lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="author" content="Aidan.bae">
+        <meta name="description" content="아이단의 블로그">
+        <meta name="keywords" content="golang,aidan,kakaogames,kakao,gocd,gocd-agent,infra,javascript,python">
+        <meta name="generator" content="Hugo 0.60.0" />
+        <title> 쿠버네티스 느낌가져가기 1 - minikube | 아이단은 어디갔을까</title>
+        <meta name="description" content="쿠버네티스 느낌가져가기 1 - minikube - 아이단의 블로그">
+        <meta itemprop="name" content="쿠버네티스 느낌가져가기 1 - minikube">
+        <meta itemprop="description" content="쿠버네티스 느낌가져가기 1 - minikube - 아이단의 블로그">
+        <meta property="og:title" content="쿠버네티스 느낌가져가기 1 - minikube">
+        <meta property="og:description" content="쿠버네티스 느낌가져가기 1 - minikube - 아이단의 블로그">
+        <meta property="og:image" content="https://www.gravatar.com/avatar/d41d8cd98f00b204e9800998ecf8427e?size=200">
+        <meta property="og:url" content="https://aidanbae.github.io/code/devops/k8s/start/">
+        <meta property="og:site_name" content="아이단은 어디갔을까">
+        <meta property="og:type" content="article">
+        <link rel="icon" type="image/png" href="https://aidanbae.github.io/favicon-32x32.png" sizes="32x32">
+        <link rel="icon" type="image/png" href="https://aidanbae.github.io/favicon-16x16.png" sizes="16x16">
+
+	
+	  <link href="https://aidanbae.github.io/code/devops/k8s/start/" rel="alternate" type="application/rss+xml" title="아이단은 어디갔을까" />
+	  <link href="https://aidanbae.github.io/code/devops/k8s/start/" rel="feed" type="application/rss+xml" title="아이단은 어디갔을까" />
+	
+
+        
+        
+        
+        
+        <link rel="stylesheet" href="https://aidanbae.github.io/sass/combined.min.e5af985042854cb05807bed3365180e76bf9b8e0f41a2c81f098583599a6fb05.css">
+
+        
+
+        
+            
+        
+    </head>
+    <body class="bilberry-hugo-theme">
+        
+<nav>
+
+    <div class="container">
+        <ul class="topnav">
+            
+                
+                    <li><a href="https://aidanbae.github.io/page/about-aidan/">Aidan</a></li>
+                
+            
+        </ul>
+
+        
+    </div>
+</nav>
+
+
+        <header>
+    <div class="container">
+        <div class="logo">
+            <a href="https://aidanbae.github.io/" class="logo">
+                
+                    <img src="https://aidanbae.github.io/do.png" alt="">
+                
+
+                <span class="overlay"><i class="fa fa-home"></i></span>
+            </a>
+        </div>
+        <div class="titles">
+            <h3 class="title"><a href="https://aidanbae.github.io/">아이단은 어디갔을까</a></h3>
+            
+                <span class="subtitle">순간 순간이 소중한 목적지</span>
+            
+        </div>
+
+    
+
+        
+        <div class="toggler">
+        
+            <i class="fa fa-bars" aria-hidden="true"></i>
+        </div>
+    </div>
+</header>
+
+
+        <div class="main container">
+            
+     
+    <div class="article-wrapper u-cf single">
+        
+            <a class="bubble" href="https://aidanbae.github.io/code/devops/k8s/start/">
+    <i class="fa fa-fw fa-code"></i>
+</a>
+
+<article class="default article">
+    
+    <div class="featured-image">
+        <a href="https://aidanbae.github.io/code/devops/k8s/start/">
+            
+                <img src="https://aidanbae.github.io/code/devops/k8s/start/featuredImage_hu222c3484683c8a665ece41b182bde73a_374246_700x350_fill_q95_box_smart1_2.png" alt="">
+            
+        </a>
+    </div>
+
+
+    <div class="content">
+    <h3><a href="https://aidanbae.github.io/code/devops/k8s/start/">쿠버네티스 느낌가져가기 1 - minikube</a></h3>
+    <div class="meta">
+        
+            
+                <span class="date moment">2019-05-01</span>
+            
+        
+
+        
+
+        
+            <span class="categories">
+                
+                    <a href="https://aidanbae.github.io/categories/devops">DevOps</a>
+                
+            </span>
+        
+
+        
+            <span class="author"><a href="https://aidanbae.github.io/author/aidan.bae">Aidan.bae</a></span>
+        
+    </div>
+
+    
+        <h5 id="---">쿠버네티스 개발환경을 구성하는 동기</h5>
+<p>퇴사 직전에 최대 관심사는 <code>kubernetes</code>였다. 카카오가 더이상 자회사에게 DKOS(메소스 마라톤) 서비스를 제공하지 않음에 따라 DKOS에 있는 개발환경을 어디론가 옮겨야하는 이슈에 직면했다.
+인프라팀장님한테 물리서버 혹은 VM을 받아서 개발환경을 구축할 수 있다는 소식에 설레는 마음으로 쿠버네티스 책을 구매하고 이것저것 공부했지만 이것저것 딜레이가 되면서 퇴사때까지 해보지못한게 작은 한이 되었다. 메소스마라톤 환경을 직접 구성해보지 않았기 때문에 적당히 문제 없을 수준으로 공부하고 사용했었다. 그래서 부사수가 왔음에도 정확한 설명을 하지 못해 스스로에 대해 부족함과 아쉬움을 느꼈다. 이제 회사가 없으니 쿠버네티스 개발환경을 직접 내 노트북에 세팅하기로 마음먹었다. 그러면서 얻게되는 지식을 적어갈 예정이다.</p>
+<p>글쓰기가 주가되는 것이아니라 쿠버네티스 환경에 적응하는 것이기때문에 불친절할 예정 그래서 느낌가져가기</p>
+<!-- raw HTML omitted -->
+<p>&lt;쿠버네티스 느낌가져가기&gt; 는 내 개인적인 욕심에 의해 내 관심사위주로 기록한다.</p>
+<ul>
+<li>Golang 서비스 개발용 단일 쿠버네티스 Dev클러스터 구축</li>
+<li>서비스 디스커버리 공부용</li>
+<li>istio 서비스메쉬 적용</li>
+<li>부가지식 느낌가져가기</li>
+<li>쿠버네티스 쿡북 ; 클라우드 네이티브 애플리케이션 구축 공부</li>
+</ul>
+<!-- raw HTML omitted -->
+<h5 id="-">미니큐브 설치하기</h5>
+<p>개인 노트북에서 단일 노드 클러스터 환경을 구축하기<br>
+랩탑에서 실행할 수 있는 올인원 솔루션 미니큐브(?) 미니쿠베? 를 사용하기로한다.</p>
+<ul>
+<li>공식 홈페이지: <a href="https://kubernetes.io/ko/docs/setup/minikube/#%EB%84%A4%ED%8A%B8%EC%9B%8C%ED%82%B9">https://kubernetes.io/ko/docs/setup/minikube/#%EB%84%A4%ED%8A%B8%EC%9B%8C%ED%82%B9</a></li>
+<li><a href="https://medium.com/humanscape-tech/kubernetes-%EB%8F%84%EC%9E%85-%EC%A0%84-minikube-%EC%82%AC%EC%9A%A9%EA%B8%B0-2eb2b6d8e444">https://medium.com/humanscape-tech/kubernetes-%EB%8F%84%EC%9E%85-%EC%A0%84-minikube-%EC%82%AC%EC%9A%A9%EA%B8%B0-2eb2b6d8e444</a></li>
+</ul>
+<p>이해 쏙쏙 설명잘되어있다.</p>
+<p>재밋는건 minikube가 docker host(daemon)를 가지고 있기때문에 docker-env 세팅을 통해 docker 이미지를 빌드하고 쉽게 쿠버네티스에서 이용할 수 있다.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ eval <span style="color:#66d9ef">$(</span>minikube docker-env<span style="color:#66d9ef">)</span>
+//나중에 사용하지 않을 때는
+$ eval <span style="color:#66d9ef">$(</span>minikube docker-env -u<span style="color:#66d9ef">)</span>.
+</code></pre></div><p>무튼 이것저것 다하고 세팅하고 예쁜 대쉬보드에서 클러스터의 정보를 확인가능하다</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ minikube dashboard
+</code></pre></div><h5 id="-----">예제 블로그처럼 간단한 노드 서버를 띄워보자</h5>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#75715e">// server.js
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">http</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">require</span>(<span style="color:#e6db74">&#39;http&#39;</span>);
+<span style="color:#66d9ef">var</span> <span style="color:#a6e22e">handleRequest</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">function</span>(<span style="color:#a6e22e">request</span>, <span style="color:#a6e22e">response</span>) {
+  <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#39;Received request for URL: &#39;</span> <span style="color:#f92672">+</span> <span style="color:#a6e22e">request</span>.<span style="color:#a6e22e">url</span>);
+  <span style="color:#a6e22e">response</span>.<span style="color:#a6e22e">writeHead</span>(<span style="color:#ae81ff">200</span>);
+  <span style="color:#a6e22e">response</span>.<span style="color:#a6e22e">end</span>(<span style="color:#e6db74">&#39;Hello World!&#39;</span>);
+};
+<span style="color:#66d9ef">var</span> <span style="color:#a6e22e">www</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">http</span>.<span style="color:#a6e22e">createServer</span>(<span style="color:#a6e22e">handleRequest</span>);
+<span style="color:#a6e22e">www</span>.<span style="color:#a6e22e">listen</span>(<span style="color:#ae81ff">8080</span>);
+</code></pre></div><p>도커파일 작업:</p>
+<pre><code>// Dockerfile
+FROM node:6.9.2 // base layer
+EXPOSE 8080 // 컨테이너의 노출될 포트지정
+COPY server.js . // 해당파일 작업공간에 복사
+CMD node server.js // 실행
+</code></pre><p>빌드 작업:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">ui-MacBookPro:hello-node a.$ docker build -t hello-node:v1 .
+Sending build context to Docker daemon  3.072kB
+Step 1/4 : FROM node:6.9.2
+6.9.2: Pulling from library/node
+75a822cd7888: Pull complete 
+57de64c72267: Pull complete 
+4306be1e8943: Pull complete 
+871436ab7225: Pull complete 
+0110c26a367a: Pull complete 
+1f04fe713f1b: Pull complete 
+ac7c0b5fb553: Pull complete 
+Digest: sha256:2e95be60faf429d6c97d928c762cb36f1940f4456ce4bd33fbdc34de94a5e043
+Status: Downloaded newer image <span style="color:#66d9ef">for</span> node:6.9.2
+ ---&gt; faaadb4aaf9b
+Step 2/4 : EXPOSE <span style="color:#ae81ff">8080</span>
+ ---&gt; Running in 733cc93f6d94
+Removing intermediate container 733cc93f6d94
+ ---&gt; 32967d7bbf91
+Step 3/4 : COPY server.js .
+ ---&gt; 4f7c06453152
+Step 4/4 : CMD node server.js
+ ---&gt; Running in 8864e2f6e1f7
+Removing intermediate container 8864e2f6e1f7
+ ---&gt; 5985b8fa724c
+Successfully built 5985b8fa724c
+Successfully tagged hello-node:v1
+</code></pre></div><p>쿠버네티스야 이 이미지 실행시켜줘:</p>
+<pre><code>$ kubectl run hello-node --image=hello-node:v1 --port=8080 --image-pull-policy=Never
+</code></pre><p>홀랄라:</p>
+<pre><code>ui-MacBookPro:~ a.$ kubectl get pods
+NAME                          READY   STATUS    RESTARTS   AGE
+hello-node-55fbdc44b4-679fm   1/1     Running   0          2m44s
+</code></pre><p>접근할 수 있도록 expose 명령어를 통해 로드밸런서와 링크시킨다.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">ui-MacBookPro:~ a.$ kubectl expose deployment hello-node --type<span style="color:#f92672">=</span>LoadBalancer
+service/hello-node exposed
+</code></pre></div><p>미니큐브야 헬로노드 보여줘:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">ui-MacBookPro:~ a.$ minikube service hello-node
+🎉  Opening kubernetes service default/hello-node in default browser...
+</code></pre></div><p>주소는 192.168.64.2:30890</p>
+<p><img src="hello-node.png" alt="d"></p>
+<p>쿠버네티스야 서비스들좀 보여줘바:</p>
+<pre><code>ui-MacBookPro:~ a.$ kubectl get services
+NAME         TYPE           CLUSTER-IP      EXTERNAL-IP   PORT(S)          AGE
+hello-node   LoadBalancer   10.101.83.218   &lt;pending&gt;     8080:30890/TCP   19m
+kubernetes   ClusterIP      10.96.0.1       &lt;none&gt;        443/TCP          5d11h
+</code></pre><p>cluster-ip로 접근해보았는데 전혀안먹음, 클러스터 내부 ip임</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">ui-MacBookPro:~ a.$ kubectl cluster-info
+Kubernetes master is running at https://192.168.64.2:8443
+KubeDNS is running at https://192.168.64.2:8443/api/v1/namespaces/kube-system/services/kube-dns:dns/proxy
+
+To further debug and diagnose cluster problems, use <span style="color:#e6db74">&#39;kubectl cluster-info dump&#39;</span>.
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ minikube dashboard
+</code></pre></div><p><img src="screenshot.png" alt="sc"></p>
+<pre><code>ui-MacBookPro:~ a.$ kubectl describe deployment
+Name:                   hello-node
+Namespace:              default
+CreationTimestamp:      Sun, 05 May 2019 16:30:56 +0900
+Labels:                 run=hello-node
+Annotations:            deployment.kubernetes.io/revision: 1
+Selector:               run=hello-node
+Replicas:               1 desired | 1 updated | 1 total | 1 available | 0 unavailable
+StrategyType:           RollingUpdate
+MinReadySeconds:        0
+RollingUpdateStrategy:  25% max unavailable, 25% max surge
+Pod Template:
+  Labels:  run=hello-node
+  Containers:
+   hello-node:
+    Image:        hello-node:v1
+    Port:         8080/TCP
+    Host Port:    0/TCP
+    Environment:  &lt;none&gt;
+    Mounts:       &lt;none&gt;
+  Volumes:        &lt;none&gt;
+Conditions:
+  Type           Status  Reason
+  ----           ------  ------
+  Available      True    MinimumReplicasAvailable
+  Progressing    True    NewReplicaSetAvailable
+OldReplicaSets:  &lt;none&gt;
+NewReplicaSet:   hello-node-55fbdc44b4 (1/1 replicas created)
+Events:
+  Type    Reason             Age   From                   Message
+  ----    ------             ----  ----                   -------
+  Normal  ScalingReplicaSet  33m   deployment-controller  Scaled up replica set hello-node-55fbdc44b4 to 1
+</code></pre><p>로그 보여줘:</p>
+<pre><code>ui-MacBookPro:~ a.$ kubectl get pods
+NAME                          READY   STATUS    RESTARTS   AGE
+hello-node-55fbdc44b4-679fm   1/1     Running   0          2m44s
+
+ui-MacBookPro:~ a.$ kubectl logs hello-node-55fbdc44b4-679fm
+Received request for URL: /
+Received request for URL: /favicon.ico
+</code></pre><p>여기까지 확인하고 주요 용어 개념을 정리하고 가자.
+조대협님의 블로그를 보면 끝난다.
+<a href="http://bcho.tistory.com/1255">http://bcho.tistory.com/1255</a></p>
+<!-- raw HTML omitted -->
+<ul>
+<li>컨테이너를 담고 있는 그릇 (여러개 가능)</li>
+<li>같은 Pods 안에서의 여러 컨테이너가 같은 네트워크 네임스페이스와 ip를 가진다. localhost로 통신가능</li>
+<li>같은 Pods 안에서의 같은 볼륨 공유가능</li>
+</ul>
+<p><strong>ReplicaSet</strong> 
+Pod 갯수 관리</p>
+<p><strong>Deployment</strong> 
+pod 와 ReplicaSet을 통합해 배포할 수 있는 단위
+배포 히스토리를 버전별로 관리가능</p>
+<p><strong>Service</strong></p>
+<ul>
+<li>route to pod(using labels) - 내부 ip로 pod에 대한 Load balancing</li>
+<li>외부에서 접근하려면 아래 두타입 활용가능</li>
+<li>타입 : Load Balancer, NodePort(iptables)</li>
+</ul>
+<p><strong>ConfigMap and Secret</strong> 
+ConfigMap: 어플리케이션의 configuration or shell script
+Secret: 보안 벨류</p>
+<p>여기서 흥미롭게 본건 같은 Pods안에서 네트워크 공유</p>
+<pre><code class="language-cassandraql" data-lang="cassandraql">- pause 컨테이너가 하나 더생깁니다.
+- Pod 내부에서 컨테이너간 통신은 loaclhost &amp; port로 통신
+- Docker 네트워킹의 Mapped Container Mode
+- docker run -d --name pause pause_image
+- docker run -d --name web -net=container:pause web_image
+</code></pre><p>-net=container:pause
+이부분이 핵심
+docker network부분을 좀더 보면됩니다.</p>
+<p>그러하다. kube-DNS와 라우팅 방법은 좀더 천천히 살펴보기로한다.</p>
+
+    
+</div>
+
+    
+<div class="footer">
+
+
+    
+        <div class="tags">
+            <i class="fa fa-tags"></i>
+            <div class="links">
+                
+                    <a href="https://aidanbae.github.io/tags/%ED%81%AC%ED%9D%A0">크흠</a>
+                
+            </div>
+        </div>
+    
+
+    
+</div>
+
+</article>
+
+        
+    </div>
+
+    
+        <div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "aidanbae" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+    
+
+     
+
+        </div>
+
+        
+<footer>
+    <div class="container">
+
+        
+        <div class="recent-posts">
+            <strong>Latest posts</strong>
+                <ul>
+                
+                    <li>
+                        <a href="https://aidanbae.github.io/code/devops/k8s/istio-mixer-debug/">istio debug를 위한 controlZ 활용</a>
+                    </li>
+                
+                    <li>
+                        <a href="https://aidanbae.github.io/article/book/time/">시간은 흐르지 않는다.</a>
+                    </li>
+                
+                    <li>
+                        <a href="https://aidanbae.github.io/article/gori/">생각의 선순환고리</a>
+                    </li>
+                
+                    <li>
+                        <a href="https://aidanbae.github.io/video/shining/">밀고 나가면 어느순간 반드시 빛이 난다.</a>
+                    </li>
+                
+                    <li>
+                        <a href="https://aidanbae.github.io/quote/donki/">꿈</a>
+                    </li>
+                
+                    <li>
+                        <a href="https://aidanbae.github.io/article/book/siliteamman/">실리콘밸리의 팀장들 - 지독한 솔직함</a>
+                    </li>
+                
+                </ul>
+        </div>
+        
+
+        
+        <div class="categories">
+            <a href="https://aidanbae.github.io/categories/"><strong>Categories</strong></a>
+                <ul>
+                
+                    <li>
+                        <a href="https://aidanbae.github.io/categories/code">Code (19)</a>
+                    </li>
+                
+                    <li>
+                        <a href="https://aidanbae.github.io/categories/golang">Golang (16)</a>
+                    </li>
+                
+                    <li>
+                        <a href="https://aidanbae.github.io/categories/wisdom">Wisdom (13)</a>
+                    </li>
+                
+                    <li>
+                        <a href="https://aidanbae.github.io/categories/book">Book (12)</a>
+                    </li>
+                
+                    <li>
+                        <a href="https://aidanbae.github.io/categories/smalltalk">Smalltalk (12)</a>
+                    </li>
+                
+                    <li>
+                        <a href="https://aidanbae.github.io/categories/server">Server (11)</a>
+                    </li>
+                
+                    <li>
+                        <a href="https://aidanbae.github.io/categories/devops">Devops (10)</a>
+                    </li>
+                
+            </ul>
+        </div>
+        
+
+        <div class="right">
+            
+            <div class="external-profiles">
+                <strong>Social media</strong>
+
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                    <a href="https://github.com/aidanbae" target="_blank"><i class="fa fa-github"></i></a>
+                
+                
+            </div>
+            
+
+            
+        </div>
+    </div>
+</footer>
+
+
+<div class="credits">
+    <div class="container">
+        <div class="copyright">
+            <a href="https://github.com/Lednerb" target="_blank">
+                &copy;
+                
+                    2017
+                
+                by Lednerb
+            </a>
+	    
+        </div>
+        <div class="author">
+            <a href="https://github.com/Lednerb/bilberry-hugo-theme" target="_blank">Bilberry Hugo Theme</a>
+        </div>
+    </div>
+</div>
+
+
+        
+
+        
+
+        
+        
+        <script type="text/javascript" src="https://aidanbae.github.io/js/externalDependencies.39c47e10e241eae2947b3fe21809c572.js" integrity="md5-OcR&#43;EOJB6uKUez/iGAnFcg=="></script>
+
+        
+        
+        <script type="text/javascript" src="https://aidanbae.github.io/js/theme.ff50ae6dc1bfc220b23bf69dbb41b54e.js" integrity="md5-/1CubcG/wiCyO/adu0G1Tg=="></script>
+
+        <script>
+            $(".moment").each(function() {
+                $(this).text(
+                    moment( $(this).text() )
+                        .locale( "en" )
+                        .format('LL')
+                );
+            });
+
+            $(".footnote-return sup").html("");
+        </script>
+
+        
+            
+        
+
+        
+
+
+    </body>
+</html>

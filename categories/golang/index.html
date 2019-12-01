@@ -1,0 +1,819 @@
+<!doctype html>
+<html class="no-js" lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="author" content="Aidan.bae">
+        <meta name="description" content="아이단의 블로그">
+        <meta name="keywords" content="golang,aidan,kakaogames,kakao,gocd,gocd-agent,infra,javascript,python">
+        <meta name="generator" content="Hugo 0.60.0" />
+        <title> Golang | 아이단은 어디갔을까</title>
+        <meta name="description" content="Golang - 아이단의 블로그">
+        <meta itemprop="name" content="Golang">
+        <meta itemprop="description" content="Golang - 아이단의 블로그">
+        <meta property="og:title" content="Golang">
+        <meta property="og:description" content="Golang - 아이단의 블로그">
+        <meta property="og:image" content="https://www.gravatar.com/avatar/d41d8cd98f00b204e9800998ecf8427e?size=200">
+        <meta property="og:url" content="https://aidanbae.github.io/categories/golang/">
+        <meta property="og:site_name" content="아이단은 어디갔을까"><meta property="og:type" content="website">
+        <link rel="icon" type="image/png" href="https://aidanbae.github.io/favicon-32x32.png" sizes="32x32">
+        <link rel="icon" type="image/png" href="https://aidanbae.github.io/favicon-16x16.png" sizes="16x16">
+
+	
+	  <link href="https://aidanbae.github.io/categories/golang/" rel="alternate" type="application/rss+xml" title="아이단은 어디갔을까" />
+	  <link href="https://aidanbae.github.io/categories/golang/" rel="feed" type="application/rss+xml" title="아이단은 어디갔을까" />
+	
+
+        
+        
+        
+        
+        <link rel="stylesheet" href="https://aidanbae.github.io/sass/combined.min.e5af985042854cb05807bed3365180e76bf9b8e0f41a2c81f098583599a6fb05.css">
+
+        
+
+        
+            
+        
+    </head>
+    <body class="bilberry-hugo-theme">
+        
+<nav>
+
+    <div class="container">
+        <ul class="topnav">
+            
+                
+                    <li><a href="https://aidanbae.github.io/page/about-aidan/">Aidan</a></li>
+                
+            
+        </ul>
+
+        
+    </div>
+</nav>
+
+
+        <header>
+    <div class="container">
+        <div class="logo">
+            <a href="https://aidanbae.github.io/" class="logo">
+                
+                    <img src="https://aidanbae.github.io/do.png" alt="">
+                
+
+                <span class="overlay"><i class="fa fa-home"></i></span>
+            </a>
+        </div>
+        <div class="titles">
+            <h3 class="title"><a href="https://aidanbae.github.io/">아이단은 어디갔을까</a></h3>
+            
+                <span class="subtitle">순간 순간이 소중한 목적지</span>
+            
+        </div>
+
+    
+
+        
+        <div class="toggler">
+        
+            <i class="fa fa-bars" aria-hidden="true"></i>
+        </div>
+    </div>
+</header>
+
+
+        <div class="main container">
+            
+    
+    
+        <div class="article-wrapper u-cf">
+            
+                
+<a class="bubble" href="https://aidanbae.github.io/video/gogc/">
+    <i class="fa fa-fw fa-video-camera"></i>
+</a>
+
+<article class="video">
+    
+
+
+    
+        <div class="responsive-video youtube">
+            <iframe src="https://www.youtube-nocookie.com/embed/uyifh6F_7WM?rel=0" frameborder="0" allowfullscreen></iframe>
+        </div>
+    
+    
+
+    <div class="content">
+    <h3><a href="https://aidanbae.github.io/video/gogc/">[dotGo 2019] golang gc 튜닝</a></h3>
+    <div class="meta">
+        
+            
+                <span class="date moment">2019-04-15</span>
+            
+        
+
+        
+
+        
+            <span class="categories">
+                
+                    <a href="https://aidanbae.github.io/categories/code">Code</a>
+                
+                    <a href="https://aidanbae.github.io/categories/golang">Golang</a>
+                
+            </span>
+        
+
+        
+            <span class="author"><a href="https://aidanbae.github.io/author/aidan.bae">Aidan.bae</a></span>
+        
+    </div>
+
+    
+        페이스북을 기술정보를 얻는 용도로 사용하는데 평소 추종하던 홍혜종님이 공유해준 발표자료이다.
+go tune your memory라는 이름으로 dotgo 2019에서 진행된 발표 (Go 1.12 기준으로 설명)
+gc언어를 사용한다면, garbage collector가 호출되는 것에 대해 알 필요가있다. 왜냐하면 gc가 호출되는 순간, 해당 프로그램은 잠깐동안의 lack상태가 되기 때문이다. 찰나의 순간이지만 게임처럼 퍼포먼스가 중요한 클라이언트, 서버는 gc호출을 튜닝해야한다. 개발자는 그러므로 gc의 잦은 호출을 막을 수 있도록 크게 두가지 행위를 할 수 있다.
+첫번째는 garbage 자체가 생기지 않도록 하는 것.
+
+        
+            <a href="https://aidanbae.github.io/video/gogc/" class="more">Continue reading</a>
+        
+    
+</div>
+
+    
+<div class="footer">
+
+
+    
+        <div class="tags">
+            <i class="fa fa-tags"></i>
+            <div class="links">
+                
+                    <a href="https://aidanbae.github.io/tags/golang">golang</a>
+                
+                    <a href="https://aidanbae.github.io/tags/gogc">gogc</a>
+                
+                    <a href="https://aidanbae.github.io/tags/garbage-collector">garbage collector</a>
+                
+            </div>
+        </div>
+    
+
+    
+</div>
+
+</article>
+
+            
+        </div>
+    
+        <div class="article-wrapper u-cf">
+            
+                <a class="bubble" href="https://aidanbae.github.io/code/golang/googlecodejam2019/">
+    <i class="fa fa-fw fa-code"></i>
+</a>
+
+<article class="default article">
+    
+
+    <div class="content">
+    <h3><a href="https://aidanbae.github.io/code/golang/googlecodejam2019/">구글 코드잼 2019 QR 도전!</a></h3>
+    <div class="meta">
+        
+            
+                <span class="date moment">2019-04-09</span>
+            
+        
+
+        
+
+        
+            <span class="categories">
+                
+                    <a href="https://aidanbae.github.io/categories/algorithm">Algorithm</a>
+                
+                    <a href="https://aidanbae.github.io/categories/golang">Golang</a>
+                
+                    <a href="https://aidanbae.github.io/categories/smalltalk">Smalltalk</a>
+                
+            </span>
+        
+
+        
+            <span class="author"><a href="https://aidanbae.github.io/author/aidan.bae">Aidan.bae</a></span>
+        
+    </div>
+
+    
+        20대의 마지막으로 기본기를 탄탄히하자는 생각으로 알고리즘 공부를 진행해 왔다. 목표가 있으면 동기부여에 좋기때문에 구글코드잼을 도전해보았다.
+올해 4월 7일에 진행된 Qualification Round는 다음 라운드로 통과할 수 있는 자격을 주는 테스트이다. 문제는 어렵지 않다. bfs, dfs, dp 등 문제만 읽어도 케이스가 좀 나뉘는 한국의 정형화된 코딩테스트에 비해 창의력이 필요한 문제가 좀더 많았다. 문제 하나당 3개의 테스트 케이스가 존재한다. normal case는 보통 자료의 크기가 적어 정확성 테스트가 진행돠며 통과할경우 6point를 얻게된다. hard case는 좀더 데이터 input의 크기가 크며 효율성을 증명하는 테스트이다 통과할경우 10point를 얻게된다.
+
+        
+            <a href="https://aidanbae.github.io/code/golang/googlecodejam2019/" class="more">Continue reading</a>
+        
+    
+</div>
+
+    
+<div class="footer">
+
+
+    
+        <div class="tags">
+            <i class="fa fa-tags"></i>
+            <div class="links">
+                
+                    <a href="https://aidanbae.github.io/tags/golang">golang</a>
+                
+                    <a href="https://aidanbae.github.io/tags/google-codejam">google codejam</a>
+                
+                    <a href="https://aidanbae.github.io/tags/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98">알고리즘</a>
+                
+                    <a href="https://aidanbae.github.io/tags/%EA%B5%AC%EA%B8%80%EC%BD%94%EB%93%9C%EC%9E%BC">구글코드잼</a>
+                
+            </div>
+        </div>
+    
+
+    
+</div>
+
+</article>
+
+            
+        </div>
+    
+        <div class="article-wrapper u-cf">
+            
+                <a class="bubble" href="https://aidanbae.github.io/code/golang-design/fan/">
+    <i class="fa fa-fw fa-code"></i>
+</a>
+
+<article class="default article">
+    
+    <div class="featured-image">
+        <a href="https://aidanbae.github.io/code/golang-design/fan/">
+            
+                <img src="https://aidanbae.github.io/code/golang-design/fan/featuredImage_hu3f0644b3f4d2d48a456860248386ca92_16464_700x350_fill_q95_box_smart1.jpg" alt="">
+            
+        </a>
+    </div>
+
+
+    <div class="content">
+    <h3><a href="https://aidanbae.github.io/code/golang-design/fan/">Golang Fan-Out Fan-In 디자인</a></h3>
+    <div class="meta">
+        
+            
+                <span class="date moment">2019-01-16</span>
+            
+        
+
+        
+
+        
+            <span class="categories">
+                
+                    <a href="https://aidanbae.github.io/categories/code">Code</a>
+                
+                    <a href="https://aidanbae.github.io/categories/golang">Golang</a>
+                
+            </span>
+        
+
+        
+            <span class="author"><a href="https://aidanbae.github.io/author/aidan.bae">Aidan.bae</a></span>
+        
+    </div>
+
+    
+        회사일을 바쁘다보니 이것저것 신경쓸게 많아 정리해야지정리해야지 하고 너무 늦게 글을 쓰는 감이 없지 않네요. 이어서 해보도록 하겠습니다. 이전 시간에 Pipeline 패턴을 알아봤는데 이를 좀더 활용해 Fan out Fan in 패턴을 알아보고자합니다.
+golang 멀티플렉싱 디자인패턴 중 하나인 Fan out Fan In은 큰 건물의 회전문을 생각하면서 이해하면 편합니다.
+prerequisites  chan에 대한 이해를 토대로 pipe함수를 작성할 수 있다. Pipeline 디자인패턴을 숙지했다.   Basic Fan의 사전적 의미는 선풍기, 환풍기, 회전문 같은 것입니다. 회전문처럼 생각했습니다.
+
+        
+            <a href="https://aidanbae.github.io/code/golang-design/fan/" class="more">Continue reading</a>
+        
+    
+</div>
+
+    
+<div class="footer">
+
+
+    
+        <div class="tags">
+            <i class="fa fa-tags"></i>
+            <div class="links">
+                
+                    <a href="https://aidanbae.github.io/tags/golang">golang</a>
+                
+                    <a href="https://aidanbae.github.io/tags/design-pattern">design pattern</a>
+                
+                    <a href="https://aidanbae.github.io/tags/fan-in">fan in</a>
+                
+                    <a href="https://aidanbae.github.io/tags/fan-out">fan out</a>
+                
+            </div>
+        </div>
+    
+
+    
+</div>
+
+</article>
+
+            
+        </div>
+    
+        <div class="article-wrapper u-cf">
+            
+                <a class="bubble" href="https://aidanbae.github.io/code/golang/modules/">
+    <i class="fa fa-fw fa-code"></i>
+</a>
+
+<article class="default article">
+    
+    <div class="featured-image">
+        <a href="https://aidanbae.github.io/code/golang/modules/">
+            
+                <img src="https://aidanbae.github.io/code/golang/modules/featuredImage_hu7b3b7e63ba81478101aecfe2ea8430d9_36063_700x350_fill_q95_box_smart1_2.png" alt="">
+            
+        </a>
+    </div>
+
+
+    <div class="content">
+    <h3><a href="https://aidanbae.github.io/code/golang/modules/">Go Modules 시작하기</a></h3>
+    <div class="meta">
+        
+            
+                <span class="date moment">2018-12-20</span>
+            
+        
+
+        
+
+        
+            <span class="categories">
+                
+                    <a href="https://aidanbae.github.io/categories/golang">Golang</a>
+                
+            </span>
+        
+
+        
+            <span class="author"><a href="https://aidanbae.github.io/author/aidan.bae">Aidan.bae</a></span>
+        
+    </div>
+
+    
+        Go modules 시작하기 golang version 1.11버전부터 획기적인 변화가 생겼습니다. 버전관리 프로젝트(vgo)를 Russ Cox의 메인오더로 go modules가 추가되었습니다.
+go modules는 vgo, dep, glide등으로 파생되었던 버전관리의 표준을 이야기하며 gopath의 종말을 외쳤습니다. 즉, 패키지간 종속성 관리를 golang team이 표준화하여 관리하는 정책입니다.
+개발환경
+ IDE : intellij IDEA version: golang 1.11.4 os : darwin(mac os)  Golang으로된 프로젝트를 동시에 여러개 진행(페이스북 웹훅 클러스터)하면서 불편했던 것 중 하나가 GOPATH설정 바꾸기였다. 내가 사용하던 intellij IDEA는 GOPATH를 기준으로 인덱싱을 했었기때문에 작업 프로젝트가 설정에 추가된 GOPATH가 아니라면 다시 GOPATH를 수정하고 프로젝트를 켜야했다.
+
+        
+            <a href="https://aidanbae.github.io/code/golang/modules/" class="more">Continue reading</a>
+        
+    
+</div>
+
+    
+<div class="footer">
+
+
+    
+        <div class="tags">
+            <i class="fa fa-tags"></i>
+            <div class="links">
+                
+                    <a href="https://aidanbae.github.io/tags/golang">golang</a>
+                
+                    <a href="https://aidanbae.github.io/tags/go-module">go module</a>
+                
+                    <a href="https://aidanbae.github.io/tags/go-modules">go modules</a>
+                
+            </div>
+        </div>
+    
+
+    
+</div>
+
+</article>
+
+            
+        </div>
+    
+        <div class="article-wrapper u-cf">
+            
+                <a class="bubble" href="https://aidanbae.github.io/code/golang/heap/">
+    <i class="fa fa-fw fa-code"></i>
+</a>
+
+<article class="default article">
+    
+    <div class="featured-image">
+        <a href="https://aidanbae.github.io/code/golang/heap/">
+            
+                <img src="https://aidanbae.github.io/code/golang/heap/featuredImage_hu17f6dcab5c2e6202fc8bcbbceb52b0ae_75663_700x350_fill_q95_box_smart1.jpg" alt="">
+            
+        </a>
+    </div>
+
+
+    <div class="content">
+    <h3><a href="https://aidanbae.github.io/code/golang/heap/">golang과 자료구조 힙(heap)</a></h3>
+    <div class="meta">
+        
+            
+                <span class="date moment">2018-11-17</span>
+            
+        
+
+        
+
+        
+            <span class="categories">
+                
+                    <a href="https://aidanbae.github.io/categories/code">Code</a>
+                
+                    <a href="https://aidanbae.github.io/categories/golang">Golang</a>
+                
+            </span>
+        
+
+        
+            <span class="author"><a href="https://aidanbae.github.io/author/aidan.bae">Aidan.bae</a></span>
+        
+    </div>
+
+    
+        마크다운문서가 테마때문에 잘 적용되지 않아 수정할 예정입니다. 다음번 업데이트에 테마를 고칠예정이니 불편해도 양해부탁드려요
+자료구조 힙 그래프의 트리 구조중 하나로 &lsquo;우선순위 큐(priority queue)&lsquo;를 구현할 때 사용됩니다. 우선순위 큐는 데이터 구조의 하나로서 데이터를 자유롭게 추가할 수 있습니다. 반면 데이터를 추출할 때는 최솟값부터 순서대로 선택됩니다. 추가는 자유롭게하고 추출할 때는 작은 값부터 꺼내는 것이 우선순위 큐입니다.
+특징   힙을 표현하는 트리 구조에서는 각 정점을 &lsquo;노드'라고 부릅니다.
+  자식 노드의 숫자는 반드시 부모의 숫자보다 커야한다는 규칙이 있습니다.
+
+        
+            <a href="https://aidanbae.github.io/code/golang/heap/" class="more">Continue reading</a>
+        
+    
+</div>
+
+    
+<div class="footer">
+
+
+    
+        <div class="tags">
+            <i class="fa fa-tags"></i>
+            <div class="links">
+                
+                    <a href="https://aidanbae.github.io/tags/golang">golang</a>
+                
+                    <a href="https://aidanbae.github.io/tags/heap">heap</a>
+                
+                    <a href="https://aidanbae.github.io/tags/%EC%9A%B0%EC%84%A0%EC%88%9C%EC%9C%84-%ED%81%90">우선순위 큐</a>
+                
+            </div>
+        </div>
+    
+
+    
+</div>
+
+</article>
+
+            
+        </div>
+    
+        <div class="article-wrapper u-cf">
+            
+                <a class="bubble" href="https://aidanbae.github.io/code/golang/emptystruct/">
+    <i class="fa fa-fw fa-code"></i>
+</a>
+
+<article class="default article">
+    
+
+    <div class="content">
+    <h3><a href="https://aidanbae.github.io/code/golang/emptystruct/">Golang - EmptyStruct 빈구조체</a></h3>
+    <div class="meta">
+        
+            
+                <span class="date moment">2018-10-18</span>
+            
+        
+
+        
+
+        
+            <span class="categories">
+                
+                    <a href="https://aidanbae.github.io/categories/code">Code</a>
+                
+                    <a href="https://aidanbae.github.io/categories/golang">Golang</a>
+                
+            </span>
+        
+
+        
+            <span class="author"><a href="https://aidanbae.github.io/author/aidan.bae">Aidan.bae</a></span>
+        
+    </div>
+
+    
+        done &lt;- struct{}{} 고랭관련 깃을 돌아다니면서 훌륭한 레파지토리(Docker, Gin..)들을 내부를 구경하다보면
+위처럼 빈 구조체를 채널에 던지는 경우를 종종 볼 수 있다.
+struct{}{}
+the empty struct
+나는 이게 {}{} 이 리터럴 모양이 뭔가 지저분해보여서
+간단한 종료 시그널을 보내는 채널은 대부분 bool, int 채널을 사용했었다.
+bool 값보내는 거 보다 값이 적은가?..
+나는 구조체라고 생각해서 더 크다고만 생각했는데
+찾아보니 놀랍게도 struct{}{}는 사이즈가 0이다(기본기가 부족한 나만 놀란거일수도 있다;)
+사이즈를 확인할 수 있는 내장 메소드가 있을까 찾아보니
+
+        
+            <a href="https://aidanbae.github.io/code/golang/emptystruct/" class="more">Continue reading</a>
+        
+    
+</div>
+
+    
+<div class="footer">
+
+
+    
+        <div class="tags">
+            <i class="fa fa-tags"></i>
+            <div class="links">
+                
+                    <a href="https://aidanbae.github.io/tags/golang">golang</a>
+                
+                    <a href="https://aidanbae.github.io/tags/empty-struct">empty struct</a>
+                
+                    <a href="https://aidanbae.github.io/tags/struct">struct{}{}</a>
+                
+            </div>
+        </div>
+    
+
+    
+</div>
+
+</article>
+
+            
+        </div>
+    
+        <div class="article-wrapper u-cf">
+            
+                <a class="bubble" href="https://aidanbae.github.io/code/golang/slice/">
+    <i class="fa fa-fw fa-code"></i>
+</a>
+
+<article class="default article">
+    
+    <div class="featured-image">
+        <a href="https://aidanbae.github.io/code/golang/slice/">
+            
+                <img src="https://aidanbae.github.io/code/golang/slice/featuredImage_hu1d0737d8eb83298d2855453b736e7df6_112609_700x350_fill_q95_box_smart1.jpeg" alt="">
+            
+        </a>
+    </div>
+
+
+    <div class="content">
+    <h3><a href="https://aidanbae.github.io/code/golang/slice/">Golang Slice 슬라이스 응용</a></h3>
+    <div class="meta">
+        
+            
+                <span class="date moment">2018-10-14</span>
+            
+        
+
+        
+
+        
+            <span class="categories">
+                
+                    <a href="https://aidanbae.github.io/categories/code">Code</a>
+                
+                    <a href="https://aidanbae.github.io/categories/golang">Golang</a>
+                
+            </span>
+        
+
+        
+            <span class="author"><a href="https://aidanbae.github.io/author/aidan.bae">Aidan.bae</a></span>
+        
+    </div>
+
+    
+        이거보면된다.
+https://github.com/golang/go/wiki/SliceTricks
+
+        
+    
+</div>
+
+    
+<div class="footer">
+
+
+    
+        <div class="tags">
+            <i class="fa fa-tags"></i>
+            <div class="links">
+                
+                    <a href="https://aidanbae.github.io/tags/golang">golang</a>
+                
+                    <a href="https://aidanbae.github.io/tags/slice">slice</a>
+                
+                    <a href="https://aidanbae.github.io/tags/array">array</a>
+                
+            </div>
+        </div>
+    
+
+    
+</div>
+
+</article>
+
+            
+        </div>
+    
+
+    
+    <div class="paginator">
+        
+            <a href="https://aidanbae.github.io/categories/golang/page/2/" class="older"><i class="fa fa-angle-double-left"></i> Older posts</a>
+        
+
+        
+    </div>
+
+
+
+        </div>
+
+        
+<footer>
+    <div class="container">
+
+        
+        <div class="recent-posts">
+            <strong>Latest posts</strong>
+                <ul>
+                
+                    <li>
+                        <a href="https://aidanbae.github.io/code/devops/k8s/istio-mixer-debug/">istio debug를 위한 controlZ 활용</a>
+                    </li>
+                
+                    <li>
+                        <a href="https://aidanbae.github.io/article/book/time/">시간은 흐르지 않는다.</a>
+                    </li>
+                
+                    <li>
+                        <a href="https://aidanbae.github.io/article/gori/">생각의 선순환고리</a>
+                    </li>
+                
+                    <li>
+                        <a href="https://aidanbae.github.io/video/shining/">밀고 나가면 어느순간 반드시 빛이 난다.</a>
+                    </li>
+                
+                    <li>
+                        <a href="https://aidanbae.github.io/quote/donki/">꿈</a>
+                    </li>
+                
+                    <li>
+                        <a href="https://aidanbae.github.io/article/book/siliteamman/">실리콘밸리의 팀장들 - 지독한 솔직함</a>
+                    </li>
+                
+                </ul>
+        </div>
+        
+
+        
+        <div class="categories">
+            <a href="https://aidanbae.github.io/categories/"><strong>Categories</strong></a>
+                <ul>
+                
+                    <li>
+                        <a href="https://aidanbae.github.io/categories/code">Code (19)</a>
+                    </li>
+                
+                    <li>
+                        <a href="https://aidanbae.github.io/categories/golang">Golang (16)</a>
+                    </li>
+                
+                    <li>
+                        <a href="https://aidanbae.github.io/categories/wisdom">Wisdom (13)</a>
+                    </li>
+                
+                    <li>
+                        <a href="https://aidanbae.github.io/categories/book">Book (12)</a>
+                    </li>
+                
+                    <li>
+                        <a href="https://aidanbae.github.io/categories/smalltalk">Smalltalk (12)</a>
+                    </li>
+                
+                    <li>
+                        <a href="https://aidanbae.github.io/categories/server">Server (11)</a>
+                    </li>
+                
+                    <li>
+                        <a href="https://aidanbae.github.io/categories/devops">Devops (10)</a>
+                    </li>
+                
+            </ul>
+        </div>
+        
+
+        <div class="right">
+            
+            <div class="external-profiles">
+                <strong>Social media</strong>
+
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                    <a href="https://github.com/aidanbae" target="_blank"><i class="fa fa-github"></i></a>
+                
+                
+            </div>
+            
+
+            
+        </div>
+    </div>
+</footer>
+
+
+<div class="credits">
+    <div class="container">
+        <div class="copyright">
+            <a href="https://github.com/Lednerb" target="_blank">
+                &copy;
+                
+                    2017
+                
+                by Lednerb
+            </a>
+	    -
+		<a href="https://aidanbae.github.io/categories/golang/index.xml">RSS</a>
+        </div>
+        <div class="author">
+            <a href="https://github.com/Lednerb/bilberry-hugo-theme" target="_blank">Bilberry Hugo Theme</a>
+        </div>
+    </div>
+</div>
+
+
+        
+
+        
+
+        
+        
+        <script type="text/javascript" src="https://aidanbae.github.io/js/externalDependencies.39c47e10e241eae2947b3fe21809c572.js" integrity="md5-OcR&#43;EOJB6uKUez/iGAnFcg=="></script>
+
+        
+        
+        <script type="text/javascript" src="https://aidanbae.github.io/js/theme.ff50ae6dc1bfc220b23bf69dbb41b54e.js" integrity="md5-/1CubcG/wiCyO/adu0G1Tg=="></script>
+
+        <script>
+            $(".moment").each(function() {
+                $(this).text(
+                    moment( $(this).text() )
+                        .locale( "en" )
+                        .format('LL')
+                );
+            });
+
+            $(".footnote-return sup").html("");
+        </script>
+
+        
+            
+        
+
+        
+
+
+    </body>
+</html>
