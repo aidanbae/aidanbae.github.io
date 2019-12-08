@@ -223,7 +223,9 @@ x-forwarded-proto는 http로 들어왔다:</p>
 </code></pre><p>내부에 x-forwarded-proto가 없는경우 생성하는 방어로직이 여러 곳에 들어가있다.
 엔보이의 소스코드를 건드려서 새로 컴파일하지 않는이상 파드로 떨궈지는 x-forwarded-proto 헤더는 운명이다.</p>
 <p>그러므로 x-forwarded-proto를 삭제하려는 행위보다 윗단에서부터 잘 내려주도록 세팅해야한다.</p>
-<p>envoyfilter를 이용해 <code>use_remote_address</code>, <code>xff_num_trusted_hops</code>를 조작한다.
+<p>이를 프록시로 인지하도록하는 방법은 여러가지가 있는데
+istio의 pilot컨피그를 수정해도되고 <code>--set pilot.env.PILOT_SIDECAR_USE_REMOTE_ADDRESS</code> 
+envoyfilter를 이용해 <code>use_remote_address</code>, <code>xff_num_trusted_hops</code>를 조작할 수도 있다.
 이를 통해 이스티오는 자신보다 앞단에 프록시서버가 있다는 것을 인지할 수 있다.</p>
 <pre><code>apiVersion: networking.istio.io/v1alpha3
 kind: EnvoyFilter
