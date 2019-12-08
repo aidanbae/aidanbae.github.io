@@ -5,10 +5,37 @@
     <link>https://aidanbae.github.io/tags/</link>
     <description>Recent content in Tags on 아이단은 어디갔을까</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Sat, 30 Nov 2019 19:01:14 +0900</lastBuildDate>
+    <lastBuildDate>Thu, 05 Dec 2019 19:01:14 +0900</lastBuildDate>
     
 	<atom:link href="https://aidanbae.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>header</title>
+      <link>https://aidanbae.github.io/tags/header/</link>
+      <pubDate>Thu, 05 Dec 2019 19:01:14 +0900</pubDate>
+      
+      <guid>https://aidanbae.github.io/tags/header/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>istio</title>
+      <link>https://aidanbae.github.io/tags/istio/</link>
+      <pubDate>Thu, 05 Dec 2019 19:01:14 +0900</pubDate>
+      
+      <guid>https://aidanbae.github.io/tags/istio/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>x-forwarded</title>
+      <link>https://aidanbae.github.io/tags/x-forwarded/</link>
+      <pubDate>Thu, 05 Dec 2019 19:01:14 +0900</pubDate>
+      
+      <guid>https://aidanbae.github.io/tags/x-forwarded/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>debug</title>
@@ -16,15 +43,6 @@
       <pubDate>Sat, 30 Nov 2019 19:01:14 +0900</pubDate>
       
       <guid>https://aidanbae.github.io/tags/debug/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>istio</title>
-      <link>https://aidanbae.github.io/tags/istio/</link>
-      <pubDate>Sat, 30 Nov 2019 19:01:14 +0900</pubDate>
-      
-      <guid>https://aidanbae.github.io/tags/istio/</guid>
       <description></description>
     </item>
     

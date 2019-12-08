@@ -4,36 +4,66 @@
   
   <url>
     <loc>https://aidanbae.github.io/author/aidan.bae/</loc>
-    <lastmod>2019-11-30T19:01:14+09:00</lastmod>
+    <lastmod>2019-12-05T19:01:14+09:00</lastmod>
   </url>
   
   <url>
     <loc>https://aidanbae.github.io/author/</loc>
-    <lastmod>2019-11-30T19:01:14+09:00</lastmod>
+    <lastmod>2019-12-05T19:01:14+09:00</lastmod>
   </url>
   
   <url>
     <loc>https://aidanbae.github.io/categories/</loc>
-    <lastmod>2019-11-30T19:01:14+09:00</lastmod>
+    <lastmod>2019-12-05T19:01:14+09:00</lastmod>
   </url>
   
   <url>
     <loc>https://aidanbae.github.io/code/</loc>
-    <lastmod>2019-11-30T19:01:14+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://aidanbae.github.io/tags/debug/</loc>
-    <lastmod>2019-11-30T19:01:14+09:00</lastmod>
+    <lastmod>2019-12-05T19:01:14+09:00</lastmod>
   </url>
   
   <url>
     <loc>https://aidanbae.github.io/categories/devops/</loc>
-    <lastmod>2019-11-30T19:01:14+09:00</lastmod>
+    <lastmod>2019-12-05T19:01:14+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://aidanbae.github.io/code/devops/k8s/header/</loc>
+    <lastmod>2019-12-05T19:01:14+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://aidanbae.github.io/tags/header/</loc>
+    <lastmod>2019-12-05T19:01:14+09:00</lastmod>
   </url>
   
   <url>
     <loc>https://aidanbae.github.io/tags/istio/</loc>
+    <lastmod>2019-12-05T19:01:14+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://aidanbae.github.io/categories/server/</loc>
+    <lastmod>2019-12-05T19:01:14+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://aidanbae.github.io/tags/</loc>
+    <lastmod>2019-12-05T19:01:14+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://aidanbae.github.io/tags/x-forwarded/</loc>
+    <lastmod>2019-12-05T19:01:14+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://aidanbae.github.io/</loc>
+    <lastmod>2019-12-05T19:01:14+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://aidanbae.github.io/tags/debug/</loc>
     <lastmod>2019-11-30T19:01:14+09:00</lastmod>
   </url>
   
@@ -44,21 +74,6 @@
   
   <url>
     <loc>https://aidanbae.github.io/tags/mixer/</loc>
-    <lastmod>2019-11-30T19:01:14+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://aidanbae.github.io/categories/server/</loc>
-    <lastmod>2019-11-30T19:01:14+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://aidanbae.github.io/tags/</loc>
-    <lastmod>2019-11-30T19:01:14+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://aidanbae.github.io/</loc>
     <lastmod>2019-11-30T19:01:14+09:00</lastmod>
   </url>
   
@@ -1093,12 +1108,12 @@
   </url>
   
   <url>
-    <loc>https://aidanbae.github.io/tags/python/</loc>
+    <loc>https://aidanbae.github.io/categories/python/</loc>
     <lastmod>2018-01-24T09:31:27+01:00</lastmod>
   </url>
   
   <url>
-    <loc>https://aidanbae.github.io/categories/python/</loc>
+    <loc>https://aidanbae.github.io/tags/python/</loc>
     <lastmod>2018-01-24T09:31:27+01:00</lastmod>
   </url>
   

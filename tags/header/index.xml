@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>header on 아이단은 어디갔을까</title>
+    <link>https://aidanbae.github.io/tags/header/</link>
+    <description>Recent content in header on 아이단은 어디갔을까</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Thu, 05 Dec 2019 19:01:14 +0900</lastBuildDate>
+    
+	<atom:link href="https://aidanbae.github.io/tags/header/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>envoy와 x-forwarded-proto 헤더 이슈</title>
+      <link>https://aidanbae.github.io/code/devops/k8s/header/</link>
+      <pubDate>Thu, 05 Dec 2019 19:01:14 +0900</pubDate>
+      
+      <guid>https://aidanbae.github.io/code/devops/k8s/header/</guid>
+      <description>게임서버를 할땐 x-forwarded 헤더에 대해 깊게 다룰일이 없었는데 프론트단부터 거치는 프록시 서버들이 많은 시스템을 운영하다보니 접속 클라이언트의 정보가 담긴 x-forwarded 헤더를 공부할 기회가 생겼다.
+x-로 시작하는 헤더는 사용자가 임의로 정의한 헤더를 나타냅니다. 근데 nginx등 오픈소스들이 워낙 많이 쓰이다보니 사실상 표준이 된 케이스가 x-forwarded-* 시리즈임.
+x-forwarded-for, x-forwarded-proto, x-forwarded-host 위 삼총사는 de-facto standard 헤더로 사실상 표준이 되어버린 헤더임. 이 삼총사는 한세트 묶음으로 보통 전달되며 클라우드 업계에서도 표준으로 자리잡고있음. https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Forwarded
+예를들면 아래처럼 사용될 수 있습니다.</description>
+    </item>
+    
+  </channel>
+</rss>

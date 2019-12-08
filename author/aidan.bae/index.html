@@ -89,6 +89,206 @@
     
         <div class="article-wrapper u-cf">
             
+                <a class="bubble" href="https://aidanbae.github.io/code/devops/k8s/header/">
+    <i class="fa fa-fw fa-code"></i>
+</a>
+
+<article class="default article">
+    
+
+    <div class="content">
+    <h3><a href="https://aidanbae.github.io/code/devops/k8s/header/">envoy와 x-forwarded-proto 헤더 이슈</a></h3>
+    <div class="meta">
+        
+            
+                <span class="date moment">2019-12-05</span>
+            
+        
+
+        
+
+        
+            <span class="categories">
+                
+                    <a href="https://aidanbae.github.io/categories/server">Server</a>
+                
+                    <a href="https://aidanbae.github.io/categories/devops">DevOps</a>
+                
+            </span>
+        
+
+        
+            <span class="author"><a href="https://aidanbae.github.io/author/aidan.bae">Aidan.bae</a></span>
+        
+    </div>
+
+    
+        <p>게임서버를 할땐 x-forwarded 헤더에 대해 깊게 다룰일이 없었는데
+프론트단부터 거치는 프록시 서버들이 많은 시스템을 운영하다보니 접속 클라이언트의 정보가 담긴 x-forwarded 헤더를 공부할 기회가 생겼다.</p>
+<p><code>x-</code>로 시작하는 헤더는 사용자가 임의로 정의한 헤더를 나타냅니다. 근데 nginx등 오픈소스들이 워낙 많이 쓰이다보니 사실상 표준이 된 케이스가 <code>x-forwarded-*</code> 시리즈임.</p>
+<h3 id="xforwardedfor-xforwardedproto-xforwardedhost">x-forwarded-for, x-forwarded-proto, x-forwarded-host</h3>
+<p>위 삼총사는 de-facto standard 헤더로 사실상 표준이 되어버린 헤더임. 이 삼총사는 한세트 묶음으로 보통 전달되며 클라우드 업계에서도 표준으로 자리잡고있음.
+<a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Forwarded">https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Forwarded</a></p>
+<p>예를들면 아래처럼 사용될 수 있습니다.</p>
+<ul>
+<li>x-forwarded-for : {client-ip}, {proxy1_ip}, {proxy2_ip}</li>
+<li>x-forwarded-proto : http or https</li>
+<li>x-forwarded-host : toss.im</li>
+</ul>
+<p>최초의 접속된 클라이언트에 대한 정보를 나타냄.</p>
+<p>제가 운영하는 클러스터는 앞단의 프록시서버에서 https를 처리하기때문에 내부 클러스터안에서는 http로 통신하면서 퍼포먼스상의 실을 최소화하는 구조입니다.</p>
+<h3 id="heading">이슈</h3>
+<p>istio-proxy(envoy)에서 파드로 내려주는 헤더 중 x-forwarded-proto가 http로 되어 있어 스프링 부트에서 redirect를 수행하며 절대 경로로 해버려서 https 요청을 http로 변경시켜버림.</p>
+<h4 id="heading1">해결책</h4>
+<p>우선 <code>x-forwarded-proto</code>가 http로 들어오고 있었다.
+istio는 앞단의 프록시 서버가 있다는것을 알지못하기 때문에 이를 명시적으로 클러스터 운영자가 세팅해주어야한다.</p>
+<p><em>x-forwarded-for만 들어오게해주고 x-forwarded-proto를 없애버리기</em></p>
+<p>없애버리면 되겠네? 삼총사가 세트라는 사실을 잘 모르고 있었기 때문에 스프링에서 x-forwarded-proto가 없다면 상대경로로 작동한다는 사실때문에 없애보기로했다.
+(앞단 프록시 서버에서는 x-forwarded-for만 넘겨주고있었는데, x-forwarded-proto를 istio가 세팅해주는 듯했다.)</p>
+<p>istio의 리소스중 하나인 virtual service에서 request헤더와 response해더를 조작할 수 있는데 예를 들면 이런식이다.</p>
+<pre><code>apiVersion: networking.istio.io/v1alpha3
+kind: VirtualService
+metadata:
+  name: application-vs
+  namespace: default
+spec:
+  hosts:
+  - &quot;app.toss.im&quot;
+  gateways:
+  - gateway
+  http:
+  - route:
+    - destination:
+        host: application.namespace.svc.preprod.kubernetes
+        port:
+          number: 80
+    headers:
+      response:
+        remove:
+          - {header_name}
+</code></pre><p>detail은 isto 공식문서를 통해 확인가능하다.
+<a href="https://istio.io/docs/reference/config/networking/virtual-service/">https://istio.io/docs/reference/config/networking/virtual-service/</a></p>
+<p>하지만 x-forwarded-proto를 지우는 VirtualService 세팅을 했음에도
+x-forwarded-proto는 http로 들어왔다:</p>
+<pre><code>curl -X GET devops-test-server.alpha.test.bz -H x-forwarded-proto:https
+
+...map[Accept:[*/*] Content-Length:[0] User-Agent:[curl/7.29.0] X-B3-Parentspanid:[dd1c14896c025516] X-B3-Sampled:[0] X-B3-Spanid:[5f31320997d82578] X-B3-Traceid:[c7ff5be60bae87c8dd1c14896c025516] X-Envoy-External-Address:[~] X-Forwarded-For:[~] X-Forwarded-Proto:[http] X-Request-Id:[f9d6ec34-6aff-41ec-9b93-aa74e2ace010]]
+</code></pre><p>보안상 x-envoy-external-address와 x-forwarded-for의 ip주소를 지웠습니다 ㅎㅎ;</p>
+<p>안지워지기 때문에 envoy측에서 특수한 방어로직이 있거나 generate한다는 것을 짐작가능</p>
+<p>여기는 envoy의 http커넥션과 관련된 레파지토리 소스코드이다.
+<a href="https://github.com/envoyproxy/envoy/blob/master/source/common/http/conn_manager_utility.cc">https://github.com/envoyproxy/envoy/blob/master/source/common/http/conn_manager_utility.cc</a>
+관련 로직을 찾아보면 93번째줄!부터 쭉! (2019/12/3 기준, 소스코드는 변경될수 있으므로 직접들어가셔서 확인해야해요)</p>
+<pre><code>if (config.useRemoteAddress()) {
+    single_xff_address = request_headers.ForwardedFor() == nullptr;
+    // If there are any trusted proxies in front of this Envoy instance (as indicated by
+    // the xff_num_trusted_hops configuration option), get the trusted client address
+    // from the XFF before we append to XFF.
+    if (xff_num_trusted_hops &gt; 0) {
+      final_remote_address =
+          Utility::getLastAddressFromXFF(request_headers, xff_num_trusted_hops - 1).address_;
+    }
+    // If there aren't any trusted proxies in front of this Envoy instance, or there
+    // are but they didn't populate XFF properly, the trusted client address is the
+    // source address of the immediate downstream's connection to us.
+    if (final_remote_address == nullptr) {
+      final_remote_address = connection.remoteAddress();
+    }
+    if (!config.skipXffAppend()) {
+      if (Network::Utility::isLoopbackAddress(*connection.remoteAddress())) {
+        Utility::appendXff(request_headers, config.localAddress());
+      } else {
+        Utility::appendXff(request_headers, *connection.remoteAddress());
+      }
+    }
+    // If the prior hop is not a trusted proxy, overwrite any x-forwarded-proto value it set as
+    // untrusted. Alternately if no x-forwarded-proto header exists, add one.
+    if (xff_num_trusted_hops == 0 || request_headers.ForwardedProto() == nullptr) {
+      request_headers.setReferenceForwardedProto(
+          connection.ssl() ? Headers::get().SchemeValues.Https : Headers::get().SchemeValues.Http);
+    }
+  } else {
+    // If we are not using remote address, attempt to pull a valid IPv4 or IPv6 address out of XFF.
+    // If we find one, it will be used as the downstream address for logging. It may or may not be
+    // used for determining internal/external status (see below).
+    auto ret = Utility::getLastAddressFromXFF(request_headers, xff_num_trusted_hops);
+    final_remote_address = ret.address_;
+    single_xff_address = ret.single_address_;
+  }
+  // If the x-forwarded-proto header is not set, set it here, since Envoy uses it for determining
+  // scheme and communicating it upstream.
+  if (!request_headers.ForwardedProto()) {
+    request_headers.setReferenceForwardedProto(connection.ssl() ? Headers::get().SchemeValues.Https
+                                                                : Headers::get().SchemeValues.Http);
+  }
+</code></pre><p>내부에 x-forwarded-proto가 없는경우 생성하는 방어로직이 여러 곳에 들어가있다.
+엔보이의 소스코드를 건드려서 새로 컴파일하지 않는이상 파드로 떨궈지는 x-forwarded-proto 헤더는 운명이다.</p>
+<p>그러므로 x-forwarded-proto를 삭제하려는 행위보다 윗단에서부터 잘 내려주도록 세팅해야한다.</p>
+<p>envoyfilter를 이용해 <code>use_remote_address</code>, <code>xff_num_trusted_hops</code>를 조작한다.
+이를 통해 이스티오는 자신보다 앞단에 프록시서버가 있다는 것을 인지할 수 있다.</p>
+<pre><code>apiVersion: networking.istio.io/v1alpha3
+kind: EnvoyFilter
+metadata:
+  name: xff-trust-hops
+  namespace: istio-system
+spec:
+  workloadSelector:
+    labels:
+      istio: ingressgateway
+  configPatches:
+  - applyTo: NETWORK_FILTER
+    match:
+      context: ANY
+      listener:
+        filterChain:
+          filter:
+            name: &quot;envoy.http_connection_manager&quot;
+    patch:
+      operation: MERGE
+      value:
+        typed_config:
+          &quot;@type&quot;: &quot;type.googleapis.com/envoy.config.filter.network.http_connection_manager.v2.HttpConnectionManager&quot;
+          use_remote_address: true
+          xff_num_trusted_hops: 1
+</code></pre><p>엔보이필터를 활용하면 윗단에서 내려주는 x-forwarded-proto 헤더를 파드에게 전달할 수 있다.</p>
+<p>앞단 프록시 서버에서 x-forwarded-proto를 내려주는 세팅을 하면!</p>
+<pre><code>[root@pransible resources]# curl -X GET devops-test-server.alpha.test.bz -H x-forwarded-proto:https
+[GIN] 2019/12/03 - 11:29:27 | 200 |      47.873µs |    172.16.70.25 | GET      /
+
+map[Accept:[*/*] Content-Length:[0] User-Agent:[curl/7.29.0] X-B3-Parentspanid:[1ae62ab0db06b9d8] X-B3-Sampled:[0] X-B3-Spanid:[59241862fb823195] X-B3-Traceid:[f2d9ff306bb45b351ae62ab0db06b9d8] X-Envoy-External-Address:[~] X-Forwarded-For:[~] X-Forwarded-Proto:[https] X-Request-Id:[e7ccda65-e493-49a5-8b00-b8986d2c5f04]]
+</code></pre><p>잘들어온다!</p>
+
+    
+</div>
+
+    
+<div class="footer">
+
+
+    
+        <div class="tags">
+            <i class="fa fa-tags"></i>
+            <div class="links">
+                
+                    <a href="https://aidanbae.github.io/tags/istio">istio</a>
+                
+                    <a href="https://aidanbae.github.io/tags/x-forwarded">x-forwarded</a>
+                
+                    <a href="https://aidanbae.github.io/tags/header">header</a>
+                
+            </div>
+        </div>
+    
+
+    
+</div>
+
+</article>
+
+            
+        </div>
+    
+        <div class="article-wrapper u-cf">
+            
                 <a class="bubble" href="https://aidanbae.github.io/code/devops/k8s/istio-mixer-debug/">
     <i class="fa fa-fw fa-code"></i>
 </a>
@@ -123,110 +323,14 @@
     </div>
 
     
-        <p>istio의 mixer는 서비스에 대한 원격 분석등의 수집을 도와주는 유연한 모델이다.
-서비스 옆에 붙어 있는 istio-proxy들의 수집되는 정보들을 mixer를 통해
-파이프라이닝 할 수 있다.</p>
-<p><img src="mixertp.png" alt="mixer"></p>
-<p>그림처럼 adapter api를 사용하기 때문에 다양한 어댑터를 사용해 확장성과 유연성을 다 갖춘 모델이다.</p>
-<p>istio 믹서에 문제가 생긴다면 서비스에 대한 수집 정보들에 영향이 생길 수 있다.
-그러므로 특정 서비스에 라우팅이 안되고 모니터링상 이슈가 없었다면 로그나 수집 데이터를 생성, 운반하는 믹서에 이슈가 있는지 확인해보아야한다.</p>
-<p>istio는 쿠버네티스 대시보드처럼 손쉽게 istio의 현재 상태와 스코프 기능을 제공하는
-controlZ라는 서비스를 제공하고있다.</p>
-<p><img src="controlz.png" alt="contorlz"></p>
-<pre><code>$ kubectl -n istio-system port-forward --address 0.0.0.0 $(kubectl -n istio-system get pod -l istio=mixer,istio-mixer-type=telemetry -o jsonpath='{.items[0].metadata.name}') 9876:9876
-</code></pre><p>믹서 내부에 9876포트로 controlZ라는 웹서비스를 제공하고있다.</p>
-<p>가장 유용하게 사용하는 logging scopes이다.
-<img src="logging.png" alt="logg"></p>
-<p>이제 믹서 컨테이너에 접근해서 매니징 툴의 옵션에 따라 믹서의 로깅이 어떻게 변하는지 확인해보자.
-믹서 로그 follow 명령어:</p>
-<pre><code>kubectl -n istio-system logs -f  -l app=telemetry -c mixer
-</code></pre><pre><code>[root@pransible ~]# kubectl -n istio-system logs -f  -l app=telemetry -c mixer                                     2019-11-23T18:18:12.657025Z     warn    Neither --kubeconfig nor --master was specified.  Using the inClusterConfig.  This might not work.
-2019-11-23T18:18:12.657986Z     info    Setting up event handlers
-2019-11-23T18:18:12.658108Z     info    Starting Secrets controller
-2019-11-23T18:18:12.658147Z     info    Waiting for informer caches to sync
-2019-11-23T18:18:12.658523Z     info    adapters        serving prometheus metrics on 42422     {&quot;adapter&quot;: &quot;prometheus.istio-system&quot;}
-2019-11-23T18:18:12.660656Z     info    Cleaning up handler table, with config ID:0
-2019-11-23T18:18:12.660970Z     info    Starting monitor server...
-Istio Mixer: 1.4.0-c4def934e4f8d1feb42725da41ee0078cde8397f-Clean
-Starting gRPC server on port 9091
-2019-11-23T18:18:12.665030Z     info    ControlZ available at 127.0.0.1:9876
-</code></pre><p>고요하다.</p>
-<p><img src="scopeon.png" alt="sco"></p>
-<p>attribute의 output log level을 debug로 낮춘다.</p>
-<pre><code>2019-11-24T06:34:36.403365Z     debug   attributes      Returning bag with attributes:
-connection.mtls               : false
-context.protocol              : http
-context.proxy_error_code      : -
-context.proxy_version         : 1.4.0
-context.reporter.kind         : inbound
-context.reporter.uid          : kubernetes://voyager-message-agent-live-79ff5b5498-4jfht.live
-destination.ip                : [0 0 0 0 0 0 0 0 0 0 255 255 10 233 74 246]
-destination.namespace         : live
-destination.port              : 10810
-destination.service.host      : voyager-message-agent-live.live.svc.cluster.local
-destination.service.name      : voyager-message-agent-live
-destination.service.namespace : live
-destination.service.uid       : istio://live/services/voyager-message-agent-live
-destination.uid               : kubernetes://voyager-message-agent-live-79ff5b5498-4jfht.live
-origin.ip                     : [172 16 60 51]
-request.headers               : stringmap[:authority:10.233.74.246:10810 :method:GET :path:/health accept-encoding:gzip user-agent:kube-probe/1.14 x-b3-sampled:0 x-b3-spanid:2426b947e3649f03 x-b3-traceid:03e874e74590cfd22426b947e3649f03 x-forwarded-proto:http x-request-id:fe707112-f1ad-4758-9167-935993ec821f]
-request.host                  : 10.233.74.246:10810
-request.method                : GET
-request.path                  : /health
-request.scheme                : http
-request.size                  : 0
-request.time                  : 2019-11-24 06:34:35.40168 +0000 UTC
-request.total_size            : 164
-request.url_path              : /health
-request.useragent             : kube-probe/1.14
-response.code                 : 200
-response.duration             : 702.709µs
-response.headers              : stringmap[:status:200 connection:close content-length:0 date:Sun, 24 Nov 2019 06:34:35 GMT server:istio-envoy x-envoy-decorator-operation:voyager-message-agent-live.live.svc.cluster.local:80/* x-envoy-upstream-healthchecked-cluster:voyager-message-agent.live x-envoy-upstream-service-time:0]
-response.size                 : 0
-response.time                 : 2019-11-24 06:34:35.402313 +0000 UTC
-response.total_size           : 265
+        istio의 mixer는 서비스에 대한 원격 분석등의 수집을 도와주는 유연한 모델이다. 서비스 옆에 붙어 있는 istio-proxy들의 수집되는 정보들을 mixer를 통해 파이프라이닝 할 수 있다.
+그림처럼 adapter api를 사용하기 때문에 다양한 어댑터를 사용해 확장성과 유연성을 다 갖춘 모델이다.
+istio 믹서에 문제가 생긴다면 서비스에 대한 수집 정보들에 영향이 생길 수 있다. 그러므로 특정 서비스에 라우팅이 안되고 모니터링상 이슈가 없었다면 로그나 수집 데이터를 생성, 운반하는 믹서에 이슈가 있는지 확인해보아야한다.
+istio는 쿠버네티스 대시보드처럼 손쉽게 istio의 현재 상태와 스코프 기능을 제공하는 controlZ라는 서비스를 제공하고있다.
 
-
-2019-11-24T06:34:36.421913Z     debug   attributes      Returning bag with attributes:
-connection.mtls               : false
-context.protocol              : http
-context.proxy_error_code      : -
-context.proxy_version         : 1.4.0
-context.reporter.kind         : outbound
-context.reporter.uid          : kubernetes://istio-ingressgateway-74747c4b5b-9xh9d.istio-system
-destination.ip                : [10 233 70 250]
-destination.port              : 8200
-destination.service.host      : apm-server.infra.svc.cluster.local
-destination.service.name      : apm-server
-destination.service.namespace : infra
-destination.service.uid       : istio://infra/services/apm-server
-destination.uid               : kubernetes://apm-server-77769c7774-fk84t.infra
-origin.ip                     : [172 16 60 55]
-request.headers               : stringmap[:authority:apm-server.live.tossinvest.bz :method:POST :path:/intake/v2/events accept:text/html, image/gif, image/jpeg, *; q=.2, */*; q=.2 cache-control:no-cache content-encoding:deflate content-type:application/x-ndjson pragma:no-cache user-agent:elasticapm-java/1.11.0 x-b3-parentspanid:8e8b487a024c77a3 x-b3-sampled:0 x-b3-spanid:eaec8cf992cc2f27 x-b3-traceid:187803d56ecc87e08e8b487a024c77a3 x-envoy-decorator-operation:apm-server.infra.svc.cluster.local:8200/* x-envoy-external-address:172.16.60.55 x-forwarded-for:172.16.60.45   ,172.16.60.55 x-forwarded-proto:http x-request-id:6dbf98a6-ae72-4b3b-bf70-1b4006c21e55]
-request.host                  : apm-server.live.tossinvest.bz
-request.method                : POST
-request.path                  : /intake/v2/events
-request.scheme                : http
-request.size                  : 701
-request.time                  : 2019-11-24 06:34:25.413794 +0000 UTC
-request.total_size            : 1435
-request.url_path              : /intake/v2/events
-request.useragent             : elasticapm-java/1.11.0
-response.code                 : 202
-response.duration             : 10.008387838s
-response.headers              : stringmap[:status:202 content-length:0 date:Sun, 24 Nov 2019 06:34:34 GMT server:istio-envoy x-envoy-upstream-service-time:0]
-response.size                 : 0
-response.time                 : 2019-11-24 06:34:35.422055 +0000 UTC
-response.total_size           : 105
-source.namespace              : istio-system
-source.uid                    : kubernetes://istio-ingressgateway-74747c4b5b-9xh9d.istio-system
-
-</code></pre><p>순식간에 수많은 proxy들로 부터 생성되는 attribute들의 정보가 쏟아진다.
-이뿐만 아니라 adater log level을 컨트롤하면 mixer에 내가 세팅한 어댑터가 잘 등록되어
-메세지가 전달되는지 확인할 수 있다.
-handler와 instance, rule등에 문제가 없다면 attribute와 adapter스코프를 조정해보면서
-문제 해결의 단서를 찾아나가시면 좋다. 꿀팁! 행복한 디버깅 고고</p>
-
+        
+            <a href="https://aidanbae.github.io/code/devops/k8s/istio-mixer-debug/" class="more">Continue reading</a>
+        
     
 </div>
 
@@ -631,94 +735,6 @@ creating이 되기 위해선 피드백을 통한 생각의 수정이 필요하�
             
         </div>
     
-        <div class="article-wrapper u-cf">
-            
-                
-<a class="bubble" href="https://aidanbae.github.io/video/study/msa/">
-    <i class="fa fa-fw fa-video-camera"></i>
-</a>
-
-<article class="video">
-    
-
-
-    
-        <div class="responsive-video youtube">
-            <iframe src="https://www.youtube-nocookie.com/embed/xdqOxF2JqwU?rel=0" frameborder="0" allowfullscreen></iframe>
-        </div>
-    
-    
-
-    <div class="content">
-    <h3><a href="https://aidanbae.github.io/video/study/msa/">MSA &amp; kubernetes</a></h3>
-    <div class="meta">
-        
-            
-                <span class="date moment">2019-05-19</span>
-            
-        
-
-        
-
-        
-            <span class="categories">
-                
-                    <a href="https://aidanbae.github.io/categories/devops">DevOps</a>
-                
-                    <a href="https://aidanbae.github.io/categories/server">Server</a>
-                
-            </span>
-        
-
-        
-            <span class="author"><a href="https://aidanbae.github.io/author/aidan.bae">Aidan.bae</a></span>
-        
-    </div>
-
-    
-        2016년 12월 발표자료이긴한데
-MSA에 대한 이해가 한번에 되는 발표영상이다.
-요즘 MSA에 대해 물어보는 동생들이 있어서 바로 추천해주는 영상!
-인상적이었던 부분 인상적이었던 부분은 MSA와 팀모델에 대해 설명하는 부분이다.
- 컨웨이의 법칙
-“소프트웨어의 구조는 그 소프트웨어를 만드는 팀의 구조와 일치한다.”
- &lsquo;팀의 구조??&rsquo; 조대협님 왈: 개발 설계 백날 잘해봐야 소용없음 제대로된 팀 구조를 만드는 것이 설계 그다음은 알아서 됨
-정말 크게 와닿는다. 게임즈에서는 서버팀이 혼자였기때문에 설계를 모노리틱하게 설계한 것도 있음.
-하지만 서버팀이 인원이 늘었을 때도 모노리틱한 구조로 1인1프로젝트가 굉장히 불편했던 것은 맞다.
-
-        
-            <a href="https://aidanbae.github.io/video/study/msa/" class="more">Continue reading</a>
-        
-    
-</div>
-
-    
-<div class="footer">
-
-
-    
-        <div class="tags">
-            <i class="fa fa-tags"></i>
-            <div class="links">
-                
-                    <a href="https://aidanbae.github.io/tags/kubernetes">Kubernetes</a>
-                
-                    <a href="https://aidanbae.github.io/tags/docker">docker</a>
-                
-                    <a href="https://aidanbae.github.io/tags/msa">MSA</a>
-                
-            </div>
-        </div>
-    
-
-    
-</div>
-
-</article>
-
-            
-        </div>
-    
 
     
     <div class="paginator">
@@ -741,6 +757,10 @@ MSA에 대한 이해가 한번에 되는 발표영상이다.
         <div class="recent-posts">
             <strong>Latest posts</strong>
                 <ul>
+                
+                    <li>
+                        <a href="https://aidanbae.github.io/code/devops/k8s/header/">envoy와 x-forwarded-proto 헤더 이슈</a>
+                    </li>
                 
                     <li>
                         <a href="https://aidanbae.github.io/code/devops/k8s/istio-mixer-debug/">istio debug를 위한 controlZ 활용</a>
@@ -792,15 +812,15 @@ MSA에 대한 이해가 한번에 되는 발표영상이다.
                     </li>
                 
                     <li>
+                        <a href="https://aidanbae.github.io/categories/server">Server (12)</a>
+                    </li>
+                
+                    <li>
                         <a href="https://aidanbae.github.io/categories/smalltalk">Smalltalk (12)</a>
                     </li>
                 
                     <li>
-                        <a href="https://aidanbae.github.io/categories/server">Server (11)</a>
-                    </li>
-                
-                    <li>
-                        <a href="https://aidanbae.github.io/categories/devops">Devops (10)</a>
+                        <a href="https://aidanbae.github.io/categories/devops">Devops (11)</a>
                     </li>
                 
             </ul>
