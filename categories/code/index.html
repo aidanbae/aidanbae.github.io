@@ -123,14 +123,126 @@
     </div>
 
     
-        어쩌다보니 c 프로그래밍을 깊게 해야될 일이 생겼습니다. 대학교때 너무 재미없어서 이쪽은 절대 안한다고 했었는데&hellip; 컴퓨터를 알아갈수록 로우한 프로그래밍 지식이 필요해지는 순간들이 자주 찾아오네요.
-쓰레드간 통신이 아닌 멀티 프로세스 프로그래밍에서 프로세스간 통신을 위해 OS단에서 제공하는 ipc라는 녀석이 있습니다. 리눅스에서 제공하는 ipc(inter process communication)는 아래 3가지입니다.
- 공유 메모리 (Shared Memory) 세마포어 (Semaphore) 메세지 큐 (Message Queue)  그 중 첫번째 공유메모리는 아직도 자주 활용되는 녀석입니다.
-공유메모리는 단어 뜻에서 알 수 있듯이 하나의 프로세스에서가 아니라 여러 프로세스가 함께 사용하는 메모리를 말합니다.
+        <p>어쩌다보니 c 프로그래밍을 깊게 해야될 일이 생겼습니다.
+대학교때 너무 재미없어서 이쪽은 절대 안한다고 했었는데&hellip; 컴퓨터를 알아갈수록 로우한 프로그래밍 지식이 필요해지는 순간들이 자주 찾아오네요.</p>
+<p>쓰레드간 통신이 아닌 멀티 프로세스 프로그래밍에서 프로세스간 통신을 위해 OS단에서 제공하는 ipc라는 녀석이 있습니다.
+리눅스에서 제공하는 ipc(inter process communication)는 아래 3가지입니다.</p>
+<ul>
+<li>공유 메모리 (Shared Memory)</li>
+<li>세마포어 (Semaphore)</li>
+<li>메세지 큐 (Message Queue)</li>
+</ul>
+<p>그 중 첫번째 공유메모리는 아직도 자주 활용되는 녀석입니다.</p>
+<p>공유메모리는 단어 뜻에서 알 수 있듯이 하나의 프로세스에서가 아니라 여러 프로세스가 함께 사용하는 메모리를 말합니다.<br>
+이 공유메모리(Shared Memory)를 활용하면 프로세스끼리 통신을 할 수 있으며, 같은 데이터를 공유 할 수 있습니다.</p>
+<p>이렇게 같은 메모리 영역을 공유하기 위해서는 공유 메모리를 생성한 후에 프로세스의 자신의 영역에 첨부를 한 후에<br>
+마치 자신의 메모리를 사용하듯 사용하면 됩니다.</p>
+<p>자주 쓰이는 함수<br>
+shmget (shared memory get)<br>
+shmat (shared memory attach)<br>
+shmdt (shared memory detach)</p>
+<p>예제</p>
+<p>두개의 프로세스를 만들겠습니다. counter.c 라는 예제는 공유메모리에 1초마다 0부터 계속 증가하는 카운터 문자열을 공유메모리에 넣을 예정이구요.
+show_counter.c에서는 공유메모리를 화면에 출력하겠습니다.</p>
+<p>counter.c :</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c" data-lang="c"><span style="color:#75715e">#</span><span style="color:#75715e">include</span> <span style="color:#75715e">&lt;stdio.h&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e"></span><span style="color:#75715e">#</span><span style="color:#75715e">include</span> <span style="color:#75715e">&lt;unistd.h&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e"></span><span style="color:#75715e">#</span><span style="color:#75715e">include</span> <span style="color:#75715e">&lt;sys/ipc.h&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e"></span><span style="color:#75715e">#</span><span style="color:#75715e">include</span> <span style="color:#75715e">&lt;sys/shm.h&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e"></span>
+<span style="color:#75715e">#</span><span style="color:#75715e">define KEY_NUM     9527</span><span style="color:#75715e">
+</span><span style="color:#75715e"></span><span style="color:#75715e">#</span><span style="color:#75715e">define MEM_SIZE    1024</span><span style="color:#75715e">
+</span><span style="color:#75715e"></span>
+<span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>(<span style="color:#66d9ef">void</span>) {
 
-        
-            <a href="https://aidanbae.github.io/code/core/shm/" class="more">Continue reading</a>
-        
+    <span style="color:#66d9ef">int</span> shm_id;
+    <span style="color:#66d9ef">void</span> <span style="color:#f92672">*</span>shm_addr;
+    <span style="color:#66d9ef">int</span> count;
+
+     <span style="color:#66d9ef">if</span> ( <span style="color:#f92672">-</span><span style="color:#ae81ff">1</span> <span style="color:#f92672">=</span><span style="color:#f92672">=</span> ( shm_id <span style="color:#f92672">=</span> shmget( (key_t)KEY_NUM, MEM_SIZE, IPC_CREAT<span style="color:#f92672">|</span><span style="color:#ae81ff">0666</span>))){
+        printf(<span style="color:#e6db74"></span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">공유메모리 생성 실패</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>);
+        <span style="color:#66d9ef">return</span> <span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>;
+     }
+
+    <span style="color:#66d9ef">if</span> ( ( <span style="color:#66d9ef">void</span> <span style="color:#f92672">*</span>)<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span> <span style="color:#f92672">=</span><span style="color:#f92672">=</span> ( shm_addr <span style="color:#f92672">=</span> shmat( shm_id, ( <span style="color:#66d9ef">void</span> <span style="color:#f92672">*</span>)<span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">0</span>)))
+    {
+       printf( <span style="color:#e6db74"></span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">공유 메모리 첨부 실패</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>);
+       <span style="color:#66d9ef">return</span> <span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>;
+    }
+
+    count <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;
+   <span style="color:#66d9ef">while</span>( <span style="color:#ae81ff">1</span> )
+   {
+      sprintf( (<span style="color:#66d9ef">char</span> <span style="color:#f92672">*</span>)shm_addr, <span style="color:#e6db74"></span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">%d</span><span style="color:#e6db74">&#34;</span>, count<span style="color:#f92672">+</span><span style="color:#f92672">+</span>);       <span style="color:#75715e">// 공유 메모리에 카운터 출력
+</span><span style="color:#75715e"></span>      sleep( <span style="color:#ae81ff">1</span>);
+   }
+
+    <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
+}
+</code></pre></div><p>show_counter.c :</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c" data-lang="c"><span style="color:#75715e">#</span><span style="color:#75715e">include</span> <span style="color:#75715e">&lt;stdio.h&gt;      // printf()</span><span style="color:#75715e">
+</span><span style="color:#75715e"></span><span style="color:#75715e">#</span><span style="color:#75715e">include</span> <span style="color:#75715e">&lt;unistd.h&gt;     // sleep()</span><span style="color:#75715e">
+</span><span style="color:#75715e"></span><span style="color:#75715e">#</span><span style="color:#75715e">include</span> <span style="color:#75715e">&lt;sys/ipc.h&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e"></span><span style="color:#75715e">#</span><span style="color:#75715e">include</span> <span style="color:#75715e">&lt;sys/shm.h&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e"></span>
+<span style="color:#75715e">#</span><span style="color:#75715e">define  KEY_NUM     9527</span><span style="color:#75715e">
+</span><span style="color:#75715e"></span><span style="color:#75715e">#</span><span style="color:#75715e">define  MEM_SIZE    1024</span><span style="color:#75715e">
+</span><span style="color:#75715e"></span>
+<span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>( <span style="color:#66d9ef">void</span>)
+{
+   <span style="color:#66d9ef">int</span>   shm_id;
+   <span style="color:#66d9ef">void</span> <span style="color:#f92672">*</span>shm_addr;
+
+   <span style="color:#66d9ef">if</span> ( <span style="color:#f92672">-</span><span style="color:#ae81ff">1</span> <span style="color:#f92672">=</span><span style="color:#f92672">=</span> ( shm_id <span style="color:#f92672">=</span> shmget( (key_t)KEY_NUM, MEM_SIZE, IPC_CREAT<span style="color:#f92672">|</span><span style="color:#ae81ff">0666</span>)))
+   {
+      printf( <span style="color:#e6db74"></span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">공유 메모리 생성 실패</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>);
+      <span style="color:#66d9ef">return</span> <span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>;
+   }
+
+   <span style="color:#66d9ef">if</span> ( ( <span style="color:#66d9ef">void</span> <span style="color:#f92672">*</span>)<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span> <span style="color:#f92672">=</span><span style="color:#f92672">=</span> ( shm_addr <span style="color:#f92672">=</span> shmat( shm_id, ( <span style="color:#66d9ef">void</span> <span style="color:#f92672">*</span>)<span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">0</span>)))
+   {
+      printf( <span style="color:#e6db74"></span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">공유 메모리 첨부 실패</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>);
+      <span style="color:#66d9ef">return</span> <span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>;
+   }
+
+   <span style="color:#66d9ef">while</span>( <span style="color:#ae81ff">1</span> )
+   {
+      printf( <span style="color:#e6db74"></span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">%s</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>, (<span style="color:#66d9ef">char</span> <span style="color:#f92672">*</span>)shm_addr);    <span style="color:#75715e">// 공유 메모리를 화면에 출력
+</span><span style="color:#75715e"></span>      sleep( <span style="color:#ae81ff">1</span>);
+   }
+   <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
+}
+</code></pre></div><p>Compile</p>
+<pre><code class="language-cassandraql" data-lang="cassandraql">$ gcc counter.c -o counter
+$ gcc show_counter.c -o show_counter
+</code></pre><p>이렇게 되면 counter, show_counter라는 두 개의 바이너리 실행파일이 떨어지구요
+순차 실행해보겠습니다.</p>
+<pre><code>ui-MacBookPro:cproject-aidan a.$ ./counter &amp;
+[1] 90724
+ui-MacBookPro:cproject-aidan a.$ ./show_counter
+16
+17
+18
+19
+20
+21
+22
+23
+24
+//...
+</code></pre><p>프로세스가 정상으로 뜬것을 grep으로 확인합니다.
+앞서 프로세스 실행과정에서 반환되었던 프로세스 넘버 90724가 확인됩니다.</p>
+<pre><code>ui-MacBookPro:fe a.$ ps -ef | grep counter
+  501 91702 56053   0  7:07PM ttys002    0:00.00 grep counter
+  501 90724 46581   0 목07PM ttys003    0:00.02 ./counter
+  501 91637 46581   0  7:07PM ttys003    0:00.01 ./show_counter
+</code></pre><p>더 나아가 ipcs명령어로 우리 컴퓨터에 실행되는 공유메모리 정보:</p>
+<pre><code>ui-MacBookPro:fe a.$ ipcs -ma
+IPC status from &lt;running system&gt; as of Thu Aug 15 19:47:37 KST 2019
+T     ID     KEY        MODE       OWNER    GROUP  CREATOR   CGROUP NATTCH  SEGSZ  CPID  LPID   ATIME    DTIME    CTIME
+Shared Memory:
+m  65536 0x00002537 --rw-rw-rw-       a.    staff       a.    staff      2   1024  86993  90746 19:42:48 19:13:18 18:54:54
+</code></pre>
     
 </div>
 
@@ -669,6 +781,10 @@ https://github.com/golang/go/wiki/SliceTricks
                 <ul>
                 
                     <li>
+                        <a href="https://aidanbae.github.io/audio/2020/">2019-2020시즌</a>
+                    </li>
+                
+                    <li>
                         <a href="https://aidanbae.github.io/code/devops/k8s/header/">envoy와 x-forwarded-proto 헤더 이슈</a>
                     </li>
                 
@@ -692,10 +808,6 @@ https://github.com/golang/go/wiki/SliceTricks
                         <a href="https://aidanbae.github.io/quote/donki/">꿈</a>
                     </li>
                 
-                    <li>
-                        <a href="https://aidanbae.github.io/article/book/siliteamman/">실리콘밸리의 팀장들 - 지독한 솔직함</a>
-                    </li>
-                
                 </ul>
         </div>
         
@@ -714,6 +826,10 @@ https://github.com/golang/go/wiki/SliceTricks
                     </li>
                 
                     <li>
+                        <a href="https://aidanbae.github.io/categories/smalltalk">Smalltalk (13)</a>
+                    </li>
+                
+                    <li>
                         <a href="https://aidanbae.github.io/categories/wisdom">Wisdom (13)</a>
                     </li>
                 
@@ -723,10 +839,6 @@ https://github.com/golang/go/wiki/SliceTricks
                 
                     <li>
                         <a href="https://aidanbae.github.io/categories/server">Server (12)</a>
-                    </li>
-                
-                    <li>
-                        <a href="https://aidanbae.github.io/categories/smalltalk">Smalltalk (12)</a>
                     </li>
                 
                     <li>
