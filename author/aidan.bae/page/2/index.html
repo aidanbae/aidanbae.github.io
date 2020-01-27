@@ -89,78 +89,6 @@
     
         <div class="article-wrapper u-cf">
             
-                <a class="bubble" href="https://aidanbae.github.io/code/core/shm/">
-    <i class="fa fa-fw fa-code"></i>
-</a>
-
-<article class="default article">
-    
-
-    <div class="content">
-    <h3><a href="https://aidanbae.github.io/code/core/shm/">공유 메모리를 활용한 프로세스간 통신 with C</a></h3>
-    <div class="meta">
-        
-            
-                <span class="date moment">2019-08-14</span>
-            
-        
-
-        
-
-        
-            <span class="categories">
-                
-                    <a href="https://aidanbae.github.io/categories/code">Code</a>
-                
-                    <a href="https://aidanbae.github.io/categories/devops">DevOps</a>
-                
-            </span>
-        
-
-        
-            <span class="author"><a href="https://aidanbae.github.io/author/aidan.bae">Aidan.bae</a></span>
-        
-    </div>
-
-    
-        어쩌다보니 c 프로그래밍을 깊게 해야될 일이 생겼습니다. 대학교때 너무 재미없어서 이쪽은 절대 안한다고 했었는데&hellip; 컴퓨터를 알아갈수록 로우한 프로그래밍 지식이 필요해지는 순간들이 자주 찾아오네요.
-쓰레드간 통신이 아닌 멀티 프로세스 프로그래밍에서 프로세스간 통신을 위해 OS단에서 제공하는 ipc라는 녀석이 있습니다. 리눅스에서 제공하는 ipc(inter process communication)는 아래 3가지입니다.
- 공유 메모리 (Shared Memory) 세마포어 (Semaphore) 메세지 큐 (Message Queue)  그 중 첫번째 공유메모리는 아직도 자주 활용되는 녀석입니다.
-공유메모리는 단어 뜻에서 알 수 있듯이 하나의 프로세스에서가 아니라 여러 프로세스가 함께 사용하는 메모리를 말합니다.
-
-        
-            <a href="https://aidanbae.github.io/code/core/shm/" class="more">Continue reading</a>
-        
-    
-</div>
-
-    
-<div class="footer">
-
-
-    
-        <div class="tags">
-            <i class="fa fa-tags"></i>
-            <div class="links">
-                
-                    <a href="https://aidanbae.github.io/tags/%EA%B3%B5%EC%9C%A0%EB%A9%94%EB%AA%A8%EB%A6%AC">공유메모리</a>
-                
-                    <a href="https://aidanbae.github.io/tags/%EC%BD%94%EC%96%B4">코어</a>
-                
-            </div>
-        </div>
-    
-
-    
-</div>
-
-</article>
-
-            
-        </div>
-    
-        <div class="article-wrapper u-cf">
-            
                 
 <a class="bubble" href="https://aidanbae.github.io/video/study/msa/">
     <i class="fa fa-fw fa-video-camera"></i>
@@ -629,6 +557,86 @@ $ head -n1 &lt; linux.txt &gt; one.txt 추가 - input에 대한 이야기   종�
             
         </div>
     
+        <div class="article-wrapper u-cf">
+            
+                <a class="bubble" href="https://aidanbae.github.io/code/devops/computer/cpucache/">
+    <i class="fa fa-fw fa-code"></i>
+</a>
+
+<article class="default article">
+    
+    <div class="featured-image">
+        <a href="https://aidanbae.github.io/code/devops/computer/cpucache/">
+            
+                <img src="https://aidanbae.github.io/code/devops/computer/cpucache/featuredImage_hu040e699061db3073052773bfe1b14c9d_33766_700x350_fill_q95_box_smart1.jpg" alt="">
+            
+        </a>
+    </div>
+
+
+    <div class="content">
+    <h3><a href="https://aidanbae.github.io/code/devops/computer/cpucache/">CPU 캐시 이해하기</a></h3>
+    <div class="meta">
+        
+            
+                <span class="date moment">2019-04-22</span>
+            
+        
+
+        
+
+        
+            <span class="categories">
+                
+                    <a href="https://aidanbae.github.io/categories/server">Server</a>
+                
+                    <a href="https://aidanbae.github.io/categories/devops">DevOps</a>
+                
+            </span>
+        
+
+        
+            <span class="author"><a href="https://aidanbae.github.io/author/aidan.bae">Aidan.bae</a></span>
+        
+    </div>
+
+    
+        CPU 캐시란? 컴퓨터 시스템의 성능을 향상 시키기 위해 주로 CPU칩 안에 포함되는 빠르고 작은 매우 비싼 메모리입니다. 프로그램에서 직접적으로 읽거나 쓸 수 없고 하드웨어의 메모리 관리 시스템이 내부적으로 제어합니다. 대부분의 프로그램은 한번 사용할 데이터를 다시 사용할 가능성이 높고, 그 주변의 데이터도 곧 사용할 가능성이 높은 데이터 지역성을 가지고 있다. 데이터 지역성을 활용하여 메인 메모리에 있는 데이터를 캐시 메모리에 불러와 두고, cpu가 필요한 데이터를 캐시에서 먼저 찾도록 하면 향상시킬수 있다.
+여기서 포인트는 데이터의 지역성을 활용한다!
+
+        
+            <a href="https://aidanbae.github.io/code/devops/computer/cpucache/" class="more">Continue reading</a>
+        
+    
+</div>
+
+    
+<div class="footer">
+
+
+    
+        <div class="tags">
+            <i class="fa fa-tags"></i>
+            <div class="links">
+                
+                    <a href="https://aidanbae.github.io/tags/cpu-cache">cpu cache</a>
+                
+                    <a href="https://aidanbae.github.io/tags/cpu-%EC%BA%90%EC%8B%9C">cpu 캐시</a>
+                
+                    <a href="https://aidanbae.github.io/tags/%EC%BA%90%EC%8B%9C%EB%9D%BC%EC%9D%B8">캐시라인</a>
+                
+            </div>
+        </div>
+    
+
+    
+</div>
+
+</article>
+
+            
+        </div>
+    
 
     
     <div class="paginator">
@@ -655,10 +663,6 @@ $ head -n1 &lt; linux.txt &gt; one.txt 추가 - input에 대한 이야기   종�
                 <ul>
                 
                     <li>
-                        <a href="https://aidanbae.github.io/audio/2020/">2019-2020시즌</a>
-                    </li>
-                
-                    <li>
                         <a href="https://aidanbae.github.io/code/devops/k8s/header/">envoy와 x-forwarded-proto 헤더 이슈</a>
                     </li>
                 
@@ -682,6 +686,10 @@ $ head -n1 &lt; linux.txt &gt; one.txt 추가 - input에 대한 이야기   종�
                         <a href="https://aidanbae.github.io/quote/donki/">꿈</a>
                     </li>
                 
+                    <li>
+                        <a href="https://aidanbae.github.io/article/book/siliteamman/">실리콘밸리의 팀장들 - 지독한 솔직함</a>
+                    </li>
+                
                 </ul>
         </div>
         
@@ -700,10 +708,6 @@ $ head -n1 &lt; linux.txt &gt; one.txt 추가 - input에 대한 이야기   종�
                     </li>
                 
                     <li>
-                        <a href="https://aidanbae.github.io/categories/smalltalk">Smalltalk (13)</a>
-                    </li>
-                
-                    <li>
                         <a href="https://aidanbae.github.io/categories/wisdom">Wisdom (13)</a>
                     </li>
                 
@@ -713,6 +717,10 @@ $ head -n1 &lt; linux.txt &gt; one.txt 추가 - input에 대한 이야기   종�
                 
                     <li>
                         <a href="https://aidanbae.github.io/categories/server">Server (12)</a>
+                    </li>
+                
+                    <li>
+                        <a href="https://aidanbae.github.io/categories/smalltalk">Smalltalk (12)</a>
                     </li>
                 
                     <li>

@@ -4,19 +4,10 @@
     <link>https://aidanbae.github.io/</link>
     <description>Recent content on 아이단은 어디갔을까</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Fri, 10 Jan 2020 13:01:14 +0100</lastBuildDate>
+    <lastBuildDate>Thu, 05 Dec 2019 19:01:14 +0900</lastBuildDate>
     
         <atom:link href="https://aidanbae.github.io/index.xml" rel="self" type="application/rss+xml" />
     
-    
-    <item>
-      <title>Audios</title>
-      <link>https://aidanbae.github.io/audio/</link>
-      <pubDate>Fri, 10 Jan 2020 13:01:14 +0100</pubDate>
-      
-      <guid>https://aidanbae.github.io/audio/</guid>
-      <description></description>
-    </item>
     
     <item>
       <title>Codes</title>
@@ -60,6 +51,15 @@
       <pubDate>Fri, 30 Nov 2018 09:31:27 +0900</pubDate>
       
       <guid>https://aidanbae.github.io/gallery/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Audios</title>
+      <link>https://aidanbae.github.io/audio/</link>
+      <pubDate>Sun, 15 Jul 2018 16:12:47 +0100</pubDate>
+      
+      <guid>https://aidanbae.github.io/audio/</guid>
       <description></description>
     </item>
     

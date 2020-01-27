@@ -5,7 +5,7 @@
     <link>https://aidanbae.github.io/tags/</link>
     <description>Recent content in Tags on 아이단은 어디갔을까</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Fri, 10 Jan 2020 13:01:14 +0100</lastBuildDate>
+    <lastBuildDate>Thu, 05 Dec 2019 19:01:14 +0900</lastBuildDate>
     
 	<atom:link href="https://aidanbae.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     
@@ -686,7 +686,7 @@
     </item>
     
     <item>
-      <title>docker client</title>
+      <title>docker-client</title>
       <link>https://aidanbae.github.io/tags/docker-client/</link>
       <pubDate>Mon, 03 Sep 2018 12:31:27 +0100</pubDate>
       

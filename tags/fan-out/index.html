@@ -131,13 +131,209 @@
     </div>
 
     
-        회사일을 바쁘다보니 이것저것 신경쓸게 많아 정리해야지정리해야지 하고 너무 늦게 글을 쓰는 감이 없지 않네요. 이어서 해보도록 하겠습니다. 이전 시간에 Pipeline 패턴을 알아봤는데 이를 좀더 활용해 Fan out Fan in 패턴을 알아보고자합니다.
-golang 멀티플렉싱 디자인패턴 중 하나인 Fan out Fan In은 큰 건물의 회전문을 생각하면서 이해하면 편합니다.
-prerequisites  chan에 대한 이해를 토대로 pipe함수를 작성할 수 있다. Pipeline 디자인패턴을 숙지했다.   Basic Fan의 사전적 의미는 선풍기, 환풍기, 회전문 같은 것입니다. 회전문처럼 생각했습니다.
+        <p>회사일을 바쁘다보니 이것저것 신경쓸게 많아 정리해야지정리해야지 하고 너무 늦게 글을 쓰는 감이 없지 않네요. 이어서 해보도록 하겠습니다. 이전 시간에 Pipeline 패턴을 알아봤는데 이를 좀더 활용해 <code>Fan out Fan in</code> 패턴을 알아보고자합니다.</p>
+<p>golang 멀티플렉싱 디자인패턴 중 하나인 Fan out Fan In은 <code>큰 건물의 회전문</code>을 생각하면서 이해하면 편합니다.</p>
+<h4 id="prerequisites">prerequisites</h4>
+<ul>
+<li>chan에 대한 이해를 토대로 pipe함수를 작성할 수 있다.</li>
+<li>Pipeline 디자인패턴을 숙지했다.</li>
+</ul>
+<hr>
+<h3 id="basic">Basic</h3>
+<p>Fan의 사전적 의미는 선풍기, 환풍기, 회전문 같은 것입니다. <code>회전문</code>처럼 생각했습니다.</p>
+<ul>
+<li><code>Fan-out</code>은 특정 채널을 통해 Input이 들어왔을 때 여러 개의 goroutine을 생성해 task를 분산 처리합니다.</li>
+<li><code>Fan-In</code>은 처리된 결과들을 내뱉는 채널들을 하나로 취합하는 <strong>merge</strong>과정을 거쳐 생성된  하나의 채널에서 output을 뽑아냅니다.</li>
+</ul>
+<p><img src="ink-image.png" alt="ink-image"></p>
+<hr>
+<p>이전 pipeline 디자인패턴 시간에 배운 코드를 간단히 보겠습니다:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-golang" data-lang="golang"><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">main</span>() {
+	<span style="color:#75715e">// 작업시작시간 기록
+</span><span style="color:#75715e"></span>	<span style="color:#a6e22e">start</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">time</span>.<span style="color:#a6e22e">Now</span>()
 
-        
-            <a href="https://aidanbae.github.io/code/golang-design/fan/" class="more">Continue reading</a>
-        
+	<span style="color:#a6e22e">c0</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">factoryRand</span>(<span style="color:#ae81ff">100000</span>)
+	<span style="color:#a6e22e">c1</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">printNumber</span>(<span style="color:#a6e22e">c0</span>)
+	<span style="color:#a6e22e">c2</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">squareNumber</span>(<span style="color:#a6e22e">c1</span>)
+
+	<span style="color:#75715e">// 최종적으로 더하는 작업을 메인 프로세스에서 진행합니다
+</span><span style="color:#75715e"></span>	<span style="color:#a6e22e">sum</span> <span style="color:#f92672">:=</span> <span style="color:#ae81ff">0</span>
+	<span style="color:#66d9ef">for</span> <span style="color:#a6e22e">n</span> <span style="color:#f92672">:=</span> <span style="color:#66d9ef">range</span> <span style="color:#a6e22e">c2</span> {
+		<span style="color:#a6e22e">sum</span> <span style="color:#f92672">+=</span> <span style="color:#a6e22e">n</span>
+	}
+	<span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Printf</span>(<span style="color:#e6db74">&#34;Total Sum of Squares: %d\n&#34;</span>, <span style="color:#a6e22e">sum</span>)
+
+	<span style="color:#75715e">// 작업 종료 후 시간기록
+</span><span style="color:#75715e"></span>	<span style="color:#a6e22e">elapsed</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">time</span>.<span style="color:#a6e22e">Since</span>(<span style="color:#a6e22e">start</span>)
+	<span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#e6db74">&#34;작업소요시간: &#34;</span>, <span style="color:#a6e22e">elapsed</span>)
+}
+</code></pre></div><p>각각 작업별로 task goroutine을 효율적으로 나누고 있습니다.</p>
+<ul>
+<li>factoryRand: 0에서 100까지의 정수들 중 랜덤 값을 뿜어내는 채널을 반환합니다. 예제의 파라미터는 10만이므로 10만 개의 랜덤 값을 생성해 c0채널로 값을 전달합니다.</li>
+<li>printNumber: 전달 받은 랜덤 값을 출력하는 Task를 수행합니다.</li>
+<li>squareNumber: input 값을 제곱하는 Task를 수행합니다.</li>
+<li>최종적으로 더하는 작업을 메인함수에서 진행합니다.</li>
+</ul>
+<hr>
+<h4 id="fanout">Fan-Out</h4>
+<p>squareNumber라는 task에 가중치를 더 두고싶다면 어떻게 해야할까요.  좀더 제곱하는 작업을 빠르게 처리하고 싶다면!</p>
+<p>c1채널을 여러 squareNumber가 공유하면 됩니다:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-golang" data-lang="golang">	<span style="color:#a6e22e">inputStreamChan</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">factoryRand</span>(<span style="color:#ae81ff">100000</span>)
+	<span style="color:#a6e22e">inputChan</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">printNumber</span>(<span style="color:#a6e22e">inputStreamChan</span>)
+
+	<span style="color:#75715e">// Fan-out to 3 Go-routine
+</span><span style="color:#75715e"></span>	<span style="color:#a6e22e">c1</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">squareNumber</span>(<span style="color:#a6e22e">inputChan</span>)
+	<span style="color:#a6e22e">c2</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">squareNumber</span>(<span style="color:#a6e22e">inputChan</span>)
+	<span style="color:#a6e22e">c3</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">squareNumber</span>(<span style="color:#a6e22e">inputChan</span>)
+</code></pre></div><p>3번의 squareNumber pipe함수 호출을 통해  printNumber Task를 거친 <strong>inputChan</strong>을 공유합니다. 즉, squareNumber를 처리하는 goroutine 3개가 생성되고 <code>각각의 고루틴들은 inputChan을 통해 들어오는 데이터를 처리하고자 경합</code>합니다. 즉, InputChan은 Fan 역할을 하게 됩니다.</p>
+<p><img src="ink-image-2.png" alt="ink-image"></p>
+<p>그림처럼 squareNumber작업에 좀 더 가중치를 둡니다. 이렇게 Fan-out 부분을 완성했습니다. 여러 고루틴들도 작업을 처리했으니 이제 작업들을 합쳐 하나의 output에서 확인하도록 Fan-In 부분을 설계해봅시다.</p>
+<h4 id="fanin">Fan-In</h4>
+<p>모든 작업들을 거쳐 분산처리가 되었기때문에 c1, c2, c3 등의 채널이 생성되었습니다. 모든 output이 나오는 출구를 합쳐야하는 작업이 필요합니다. 즉, 여러개의 채널을 하나의 채널로  합치는 <code>merge</code>함수를 작성해야합니다. (건물로 생각하면 여러개의 엘리베이터를 타고 1층에 도착한 사람이 건물 밖으로 나가기 위해 하나의 회전문을 이용하도록 한다고 생각하면 됩니다.)</p>
+<p>select로 여러개의 channel을 한개의 고루틴에서 수신하도록 하는 방법도 있겠지만 select문 내부 케이스를 동적으로 여러개를 만들 수 없다는 한계점이 있기때문에 저는 동적으로 하나의 채널을 수신할 수 있는 함수를 늘리는 방법을 선호합니다.</p>
+<p>merge코드입니다:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-golang" data-lang="golang"><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">merge</span>(<span style="color:#a6e22e">cs</span> <span style="color:#f92672">...</span><span style="color:#f92672">&lt;-</span><span style="color:#66d9ef">chan</span> <span style="color:#66d9ef">int</span>)  <span style="color:#f92672">&lt;-</span><span style="color:#66d9ef">chan</span> <span style="color:#66d9ef">int</span> {
+	<span style="color:#66d9ef">var</span> <span style="color:#a6e22e">wg</span> <span style="color:#a6e22e">sync</span>.<span style="color:#a6e22e">WaitGroup</span>
+	<span style="color:#a6e22e">out</span> <span style="color:#f92672">:=</span> make(<span style="color:#66d9ef">chan</span> <span style="color:#66d9ef">int</span>)
+
+	<span style="color:#a6e22e">multiplex</span> <span style="color:#f92672">:=</span> <span style="color:#66d9ef">func</span>(<span style="color:#a6e22e">c</span> <span style="color:#f92672">&lt;-</span><span style="color:#66d9ef">chan</span> <span style="color:#66d9ef">int</span>) {
+		<span style="color:#66d9ef">for</span> <span style="color:#a6e22e">n</span> <span style="color:#f92672">:=</span> <span style="color:#66d9ef">range</span> <span style="color:#a6e22e">c</span> {
+			<span style="color:#a6e22e">out</span> <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">n</span>
+		}
+		<span style="color:#a6e22e">wg</span>.<span style="color:#a6e22e">Done</span>()
+	}
+	<span style="color:#a6e22e">wg</span>.<span style="color:#a6e22e">Add</span>(len(<span style="color:#a6e22e">cs</span>))
+	<span style="color:#66d9ef">for</span> <span style="color:#a6e22e">_</span>, <span style="color:#a6e22e">c</span> <span style="color:#f92672">:=</span> <span style="color:#66d9ef">range</span> <span style="color:#a6e22e">cs</span> {
+		<span style="color:#66d9ef">go</span> <span style="color:#a6e22e">multiplex</span>(<span style="color:#a6e22e">c</span>)
+	}
+
+
+	<span style="color:#66d9ef">go</span> <span style="color:#66d9ef">func</span>() {
+		<span style="color:#a6e22e">wg</span>.<span style="color:#a6e22e">Wait</span>()
+		close(<span style="color:#a6e22e">out</span>)
+	}()
+	<span style="color:#66d9ef">return</span> <span style="color:#a6e22e">out</span>
+}
+</code></pre></div><p>WaitGroup을 활용해서 multiplex함수를 인자로 들어온 채널의 갯수만큼 생성합니다. multiplex함수는 인자로 받은 채널에서 값을 꺼내 out이라는 하나의 회전문으로 결과값을 보낸후 역할을 다했다는 의미로 waitgroup의 Done()을 호출합니다.</p>
+<p>c1, c2, c3을 인자로 넘겨주면 merge함수는 <strong>out채널</strong>을 반환합니다.</p>
+<p>우리가 메인함수에서 해야 할 일은 merge함수에서 반환한 out채널에서 output 데이터를 꺼내기만 하면 됩니다.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-golang" data-lang="golang"><span style="color:#66d9ef">for</span> <span style="color:#a6e22e">output</span> <span style="color:#f92672">:=</span> <span style="color:#66d9ef">range</span> <span style="color:#a6e22e">merge</span>(<span style="color:#a6e22e">c1</span>, <span style="color:#a6e22e">c2</span>, <span style="color:#a6e22e">c3</span>) {
+	<span style="color:#75715e">//fmt.Println(output)
+</span><span style="color:#75715e"></span>	<span style="color:#a6e22e">sum</span> <span style="color:#f92672">+=</span> <span style="color:#a6e22e">output</span>
+}
+</code></pre></div><p>이렇게 Fan-In 작업까지 완료가 되었습니다.</p>
+<p>잘 동작하는 지, 고루틴이 잘 회수되었는지 확인 후 성능테스트를 진행합니다.</p>
+<p>최종 코드:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-golang" data-lang="golang"><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">main</span>() {
+
+	<span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#e6db74">&#34;시작 고루틴 갯수:&#34;</span>, <span style="color:#a6e22e">runtime</span>.<span style="color:#a6e22e">NumGoroutine</span>())
+	<span style="color:#a6e22e">start</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">time</span>.<span style="color:#a6e22e">Now</span>()
+
+	<span style="color:#a6e22e">inputStreamChan</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">factoryRand</span>(<span style="color:#ae81ff">100000</span>)
+	<span style="color:#a6e22e">inputChan</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">printNumber</span>(<span style="color:#a6e22e">inputStreamChan</span>)
+
+	<span style="color:#a6e22e">c1</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">squareNumber</span>(<span style="color:#a6e22e">inputChan</span>)
+	<span style="color:#a6e22e">c2</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">squareNumber</span>(<span style="color:#a6e22e">inputChan</span>)
+	<span style="color:#a6e22e">c3</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">squareNumber</span>(<span style="color:#a6e22e">inputChan</span>)
+
+	<span style="color:#a6e22e">sum</span> <span style="color:#f92672">:=</span> <span style="color:#ae81ff">0</span>
+	<span style="color:#66d9ef">for</span> <span style="color:#a6e22e">output</span> <span style="color:#f92672">:=</span> <span style="color:#66d9ef">range</span> <span style="color:#a6e22e">merge</span>(<span style="color:#a6e22e">c1</span>, <span style="color:#a6e22e">c2</span>, <span style="color:#a6e22e">c3</span>) {
+		<span style="color:#75715e">//fmt.Println(output)
+</span><span style="color:#75715e"></span>		<span style="color:#a6e22e">sum</span> <span style="color:#f92672">+=</span> <span style="color:#a6e22e">output</span>
+	}
+
+
+	<span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Printf</span>(<span style="color:#e6db74">&#34;Total Sum of Squares: %d\n&#34;</span>, <span style="color:#a6e22e">sum</span>)
+	<span style="color:#a6e22e">elapsed</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">time</span>.<span style="color:#a6e22e">Since</span>(<span style="color:#a6e22e">start</span>)
+	<span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#e6db74">&#34;초과시간: &#34;</span>, <span style="color:#a6e22e">elapsed</span>)
+
+	<span style="color:#a6e22e">time</span>.<span style="color:#a6e22e">Sleep</span>(<span style="color:#ae81ff">1</span> <span style="color:#f92672">*</span> <span style="color:#a6e22e">time</span>.<span style="color:#a6e22e">Second</span>)
+	<span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#e6db74">&#34;남은 고루틴 갯수:&#34;</span>, <span style="color:#a6e22e">runtime</span>.<span style="color:#a6e22e">NumGoroutine</span>())
+}
+</code></pre></div><p>실행결과:</p>
+<pre><code class="language-golan" data-lang="golan">print:  56
+print:  40
+print:  64
+print:  87
+print:  52
+print:  39
+Total Sum of Squares: 329490313
+초과시간:  501.302042ms
+남은 고루틴 갯수: 1
+</code></pre><hr>
+<h3 id="benchmark-test">Benchmark Test</h3>
+<p><strong>테스트 환경</strong></p>
+<ul>
+<li>Go 1.11버전</li>
+<li>MacOs (Darwin/ amd64)</li>
+<li>8Core, 16G mem</li>
+</ul>
+<p>FanOut FanIn 패턴을 적용한것과 적용하지 않은것을 비교해보기위해 벤치마크 테스트 코드를 작성해보았습니다.</p>
+<p>우선 Test를 돌릴 파이프라인 함수입니다:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-golang" data-lang="golang"><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">pipeSingleLine</span>() (<span style="color:#a6e22e">sum</span> <span style="color:#66d9ef">int</span>) {
+	<span style="color:#a6e22e">c0</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">factoryRand</span>(<span style="color:#ae81ff">100000</span>)
+	<span style="color:#a6e22e">c1</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">printNumber</span>(<span style="color:#a6e22e">c0</span>)
+	<span style="color:#a6e22e">c2</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">squareNumber</span>(<span style="color:#a6e22e">c1</span>)
+
+	<span style="color:#75715e">// 최종적으로 더하는 작업을 메인 프로세스에서 진행합니다
+</span><span style="color:#75715e"></span>	<span style="color:#a6e22e">sum</span> = <span style="color:#ae81ff">0</span>
+	<span style="color:#66d9ef">for</span> <span style="color:#a6e22e">n</span> <span style="color:#f92672">:=</span> <span style="color:#66d9ef">range</span> <span style="color:#a6e22e">c2</span> {
+		<span style="color:#a6e22e">sum</span> <span style="color:#f92672">+=</span> <span style="color:#a6e22e">n</span>
+	}
+	<span style="color:#66d9ef">return</span>
+}
+
+<span style="color:#66d9ef">func</span> <span style="color:#a6e22e">pipeMultiflexing</span>() (<span style="color:#a6e22e">sum</span> <span style="color:#66d9ef">int</span>){
+	<span style="color:#a6e22e">inputStreamChan</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">factoryRand</span>(<span style="color:#ae81ff">100000</span>)
+	<span style="color:#a6e22e">inputChan</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">printNumber</span>(<span style="color:#a6e22e">inputStreamChan</span>)
+
+	<span style="color:#75715e">// Fan-out to 3 Go-routine
+</span><span style="color:#75715e"></span>	<span style="color:#a6e22e">c1</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">squareNumber</span>(<span style="color:#a6e22e">inputChan</span>)
+	<span style="color:#a6e22e">c2</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">squareNumber</span>(<span style="color:#a6e22e">inputChan</span>)
+	<span style="color:#a6e22e">c3</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">squareNumber</span>(<span style="color:#a6e22e">inputChan</span>)
+
+	<span style="color:#75715e">// Fan-in
+</span><span style="color:#75715e"></span>	<span style="color:#a6e22e">sum</span> = <span style="color:#ae81ff">0</span>
+	<span style="color:#66d9ef">for</span> <span style="color:#a6e22e">output</span> <span style="color:#f92672">:=</span> <span style="color:#66d9ef">range</span> <span style="color:#a6e22e">merge</span>(<span style="color:#a6e22e">c1</span>, <span style="color:#a6e22e">c2</span>, <span style="color:#a6e22e">c3</span>) {
+		<span style="color:#75715e">//fmt.Println(output)
+</span><span style="color:#75715e"></span>		<span style="color:#a6e22e">sum</span> <span style="color:#f92672">+=</span> <span style="color:#a6e22e">output</span>
+	}
+	<span style="color:#66d9ef">return</span>
+}
+</code></pre></div><p>Benchmark Test코드입니다:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-golang" data-lang="golang"><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">BenchmarkSingleLine</span> (<span style="color:#a6e22e">b</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">testing</span>.<span style="color:#a6e22e">B</span>) {
+	<span style="color:#66d9ef">for</span> <span style="color:#a6e22e">i</span><span style="color:#f92672">:=</span> <span style="color:#ae81ff">0</span>; <span style="color:#a6e22e">i</span>&lt; <span style="color:#a6e22e">b</span>.<span style="color:#a6e22e">N</span>; <span style="color:#a6e22e">i</span><span style="color:#f92672">++</span> {
+		<span style="color:#a6e22e">pipeSingleLine</span>()
+	}
+}
+
+<span style="color:#66d9ef">func</span> <span style="color:#a6e22e">BenchmarkMultiplexing</span>(<span style="color:#a6e22e">b</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">testing</span>.<span style="color:#a6e22e">B</span>) {
+	<span style="color:#66d9ef">for</span> <span style="color:#a6e22e">i</span><span style="color:#f92672">:=</span> <span style="color:#ae81ff">0</span>; <span style="color:#a6e22e">i</span>&lt; <span style="color:#a6e22e">b</span>.<span style="color:#a6e22e">N</span>; <span style="color:#a6e22e">i</span><span style="color:#f92672">++</span> {
+		<span style="color:#a6e22e">pipeMultiflexing</span>()
+	}
+}
+</code></pre></div><p>결과입니다:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">KAKAOui-MacBook-Pro-5:multiflexing aidan$ go test -bench<span style="color:#f92672">=</span>. -benchmem
+goos: darwin
+goarch: amd64
+BenchmarkSingleLine-8                 <span style="color:#ae81ff">10</span>         <span style="color:#ae81ff">168099834</span> ns/op             <span style="color:#ae81ff">561</span> B/op          <span style="color:#ae81ff">5</span> allocs/op
+BenchmarkMultiplexing-8               <span style="color:#ae81ff">10</span>         <span style="color:#ae81ff">133645758</span> ns/op            <span style="color:#ae81ff">1652</span> B/op         <span style="color:#ae81ff">13</span> allocs/op
+PASS
+ok      _/Users/aidan/go/src/reborn/multiflexing        3.328s
+
+</code></pre></div><p>예상한 바와 같이 SquareNumber 작업을 한개의 고루틴에서 처리하는 Singleline 보다 Fan-In Fan-Out을 활용한 멀티플렉싱 파이프라인이 좀더 좋은 성능을 보였습니다.</p>
+<ul>
+<li>SingleLine: 작업당 약 1억 6천만 나노초</li>
+<li>Multiplexing: 작업당 약 1억 3천만 나노초</li>
+</ul>
+<p>1억 나노초는 0.1초와 같습니다.  0.16초와 0.13초이니 <strong>0.03초</strong> 차이입니다. 인간에겐 눈깜빡할 시간보다 짧은 시간이지만 컴퓨터에겐 긴 시간입니다. (아쉽긴 하네요.) 나노초 단위의 차이에 따라 승패가 좌지우지되는 초단타 프로그래밍처럼 엄청 퍼포먼스가 필요한 작업이라면 성능 증진을 위해 멀티플렉싱을 사용할 수 있습니다.</p>
+<h3 id="heading">마무리</h3>
+<p>재미있었지만 사실 기대한 바와 다르게 엄청 큰 차이가 아니어서 아쉬웠습니다. 뭔가 squareNumber가 아닌 복잡한 Task라면 좀 더 유의미한 차이를 확인할 수 있지않을까 싶네요. 부족한 글을 따라와주셔서 감사합니다. 다음엔 고루틴 스케쥴러의 경합상태에서 양보와 관련된 Gosched와 관련해 글을 포스팅하도록 하겠습니다.</p>
+<p>참고자료</p>
+<ul>
+<li><a href="https://blog.golang.org/pipelines">https://blog.golang.org/pipelines</a></li>
+</ul>
+
     
 </div>
 
@@ -192,10 +388,6 @@ prerequisites  chan에 대한 이해를 토대로 pipe함수를 작성할 수 �
                 <ul>
                 
                     <li>
-                        <a href="https://aidanbae.github.io/audio/2020/">2019-2020시즌</a>
-                    </li>
-                
-                    <li>
                         <a href="https://aidanbae.github.io/code/devops/k8s/header/">envoy와 x-forwarded-proto 헤더 이슈</a>
                     </li>
                 
@@ -219,6 +411,10 @@ prerequisites  chan에 대한 이해를 토대로 pipe함수를 작성할 수 �
                         <a href="https://aidanbae.github.io/quote/donki/">꿈</a>
                     </li>
                 
+                    <li>
+                        <a href="https://aidanbae.github.io/article/book/siliteamman/">실리콘밸리의 팀장들 - 지독한 솔직함</a>
+                    </li>
+                
                 </ul>
         </div>
         
@@ -237,10 +433,6 @@ prerequisites  chan에 대한 이해를 토대로 pipe함수를 작성할 수 �
                     </li>
                 
                     <li>
-                        <a href="https://aidanbae.github.io/categories/smalltalk">Smalltalk (13)</a>
-                    </li>
-                
-                    <li>
                         <a href="https://aidanbae.github.io/categories/wisdom">Wisdom (13)</a>
                     </li>
                 
@@ -250,6 +442,10 @@ prerequisites  chan에 대한 이해를 토대로 pipe함수를 작성할 수 �
                 
                     <li>
                         <a href="https://aidanbae.github.io/categories/server">Server (12)</a>
+                    </li>
+                
+                    <li>
+                        <a href="https://aidanbae.github.io/categories/smalltalk">Smalltalk (12)</a>
                     </li>
                 
                     <li>
