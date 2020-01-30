@@ -89,6 +89,94 @@
     
         <div class="article-wrapper u-cf">
             
+                <a class="bubble" href="https://aidanbae.github.io/code/javascript/console/">
+    <i class="fa fa-fw fa-code"></i>
+</a>
+
+<article class="default article">
+    
+    <div class="featured-image">
+        <a href="https://aidanbae.github.io/code/javascript/console/">
+            
+                <img src="https://aidanbae.github.io/code/javascript/console/featuredImage_hu145402ae12c7c122e75bcd53a1bc82b7_18004_700x350_fill_q95_box_smart1.jpg" alt="">
+            
+        </a>
+    </div>
+
+
+    <div class="content">
+    <h3><a href="https://aidanbae.github.io/code/javascript/console/">Javascript Console 활용</a></h3>
+    <div class="meta">
+        
+            
+                <span class="date moment">2018-01-24</span>
+            
+        
+
+        
+
+        
+            <span class="categories">
+                
+                    <a href="https://aidanbae.github.io/categories/code">Code</a>
+                
+                    <a href="https://aidanbae.github.io/categories/javascript">Javascript</a>
+                
+            </span>
+        
+
+        
+            <span class="author"><a href="https://aidanbae.github.io/author/aidan.bae">Aidan.bae</a></span>
+        
+    </div>
+
+    
+        Intro 자바스크립트를 쓰면서 웹어플리케이션을 만들다보면 Debug를 위해 console객체를 자주 사용하게됩니다. 간혹 잘못 사용해서 잘못된 정보를 본다면&hellip; 삽질의 시작이죠
+Why Console 객체의 주의해야할 점과 좋은 활용법을 터득해 즐거운 디버깅을 해봅시다.
+ console.log 자바스크립트 개발자라면 너무 친숙한녀석이죠.
+console.log(obj1 [, obj2, ..., objN]); console.log(msg [, subst1, ..., substN]);  보시는 것처럼 객체와 메세지 등 다양한 인자값을 출력하는데 사용합니다.
+주의할점은 객체를 로깅할때입니다. 우선 string 변수를 로깅해봅시다.
+var sangik = &#34;상익아 뭐하니&#34; console.log(sangik); // 상익아 뭐하니 sangik = &#34;what are you doing?
+
+        
+            <a href="https://aidanbae.github.io/code/javascript/console/" class="more">Continue reading</a>
+        
+    
+</div>
+
+    
+<div class="footer">
+
+
+    
+        <div class="tags">
+            <i class="fa fa-tags"></i>
+            <div class="links">
+                
+                    <a href="https://aidanbae.github.io/tags/javascript">javascript</a>
+                
+                    <a href="https://aidanbae.github.io/tags/console.log">console.log</a>
+                
+                    <a href="https://aidanbae.github.io/tags/console.time">console.time</a>
+                
+                    <a href="https://aidanbae.github.io/tags/console.timeend">console.timeEnd</a>
+                
+                    <a href="https://aidanbae.github.io/tags/console">console</a>
+                
+            </div>
+        </div>
+    
+
+    
+</div>
+
+</article>
+
+            
+        </div>
+    
+        <div class="article-wrapper u-cf">
+            
                 <a class="bubble" href="https://aidanbae.github.io/code/python/pythonspecialmethod/">
     <i class="fa fa-fw fa-code"></i>
 </a>
@@ -528,94 +616,6 @@ echo $0 // 결과: -bash 터미널에 위 명령어를 실행시키면 해당 �
             
         </div>
     
-        <div class="article-wrapper u-cf">
-            
-                <a class="bubble" href="https://aidanbae.github.io/code/javascript/array2/">
-    <i class="fa fa-fw fa-code"></i>
-</a>
-
-<article class="default article">
-    
-    <div class="featured-image">
-        <a href="https://aidanbae.github.io/code/javascript/array2/">
-            
-                <img src="https://aidanbae.github.io/code/javascript/array2/featuredImage_hu145402ae12c7c122e75bcd53a1bc82b7_18004_700x350_fill_q95_box_smart1.jpg" alt="">
-            
-        </a>
-    </div>
-
-
-    <div class="content">
-    <h3><a href="https://aidanbae.github.io/code/javascript/array2/">Javascript Array - reduce, findIndex, find</a></h3>
-    <div class="meta">
-        
-            
-                <span class="date moment">2017-07-12</span>
-            
-        
-
-        
-
-        
-            <span class="categories">
-                
-                    <a href="https://aidanbae.github.io/categories/code">Code</a>
-                
-                    <a href="https://aidanbae.github.io/categories/javascript">Javascript</a>
-                
-            </span>
-        
-
-        
-            <span class="author"><a href="https://aidanbae.github.io/author/aidan.bae">Aidan.bae</a></span>
-        
-    </div>
-
-    
-        저번시간에는 Array에 내장되어있는 함수 map, filter, forEach를 살펴보았습니다.
-이번엔 find, findIndex, reduce, sort를 살펴보겠습니다.
-reduce 이 녀석은 기존의 것들과 달리 꽤나 까탈스러운 녀석입니다. 집중해서 내껄로 만들어보죠.
-reduce 메서드는 왼쪽에서 오른쪽으로 이동하면서 배열의 각 요소마다 누적 계산값과 함께 함수를 적용해 하나의 값으로 줄입니다. 누적 계산값이라는 단어가 포인트!
-arr.reduce(callback[, initialValue]) 우선 파라미터부터 알아볼까요
- 첫번째 인자 callback(accumulator, currentValue, currentIndex, array) 두번째 인자 initialValue // optional  콜백함수의 인자가 독특하네요. accumulator는 축적자 라는 뜻을 가지고있습니다.
-
-        
-            <a href="https://aidanbae.github.io/code/javascript/array2/" class="more">Continue reading</a>
-        
-    
-</div>
-
-    
-<div class="footer">
-
-
-    
-        <div class="tags">
-            <i class="fa fa-tags"></i>
-            <div class="links">
-                
-                    <a href="https://aidanbae.github.io/tags/javascript">javascript</a>
-                
-                    <a href="https://aidanbae.github.io/tags/array">array</a>
-                
-                    <a href="https://aidanbae.github.io/tags/reduce">reduce</a>
-                
-                    <a href="https://aidanbae.github.io/tags/findindex">findIndex</a>
-                
-                    <a href="https://aidanbae.github.io/tags/find">find</a>
-                
-            </div>
-        </div>
-    
-
-    
-</div>
-
-</article>
-
-            
-        </div>
-    
 
     
     <div class="paginator">
@@ -642,6 +642,10 @@ arr.reduce(callback[, initialValue]) 우선 파라미터부터 알아볼까요
                 <ul>
                 
                     <li>
+                        <a href="https://aidanbae.github.io/audio/2020/">2019-2020시즌</a>
+                    </li>
+                
+                    <li>
                         <a href="https://aidanbae.github.io/code/devops/k8s/header/">envoy와 x-forwarded-proto 헤더 이슈</a>
                     </li>
                 
@@ -665,10 +669,6 @@ arr.reduce(callback[, initialValue]) 우선 파라미터부터 알아볼까요
                         <a href="https://aidanbae.github.io/quote/donki/">꿈</a>
                     </li>
                 
-                    <li>
-                        <a href="https://aidanbae.github.io/article/book/siliteamman/">실리콘밸리의 팀장들 - 지독한 솔직함</a>
-                    </li>
-                
                 </ul>
         </div>
         
@@ -687,6 +687,10 @@ arr.reduce(callback[, initialValue]) 우선 파라미터부터 알아볼까요
                     </li>
                 
                     <li>
+                        <a href="https://aidanbae.github.io/categories/smalltalk">Smalltalk (13)</a>
+                    </li>
+                
+                    <li>
                         <a href="https://aidanbae.github.io/categories/wisdom">Wisdom (13)</a>
                     </li>
                 
@@ -696,10 +700,6 @@ arr.reduce(callback[, initialValue]) 우선 파라미터부터 알아볼까요
                 
                     <li>
                         <a href="https://aidanbae.github.io/categories/server">Server (12)</a>
-                    </li>
-                
-                    <li>
-                        <a href="https://aidanbae.github.io/categories/smalltalk">Smalltalk (12)</a>
                     </li>
                 
                     <li>

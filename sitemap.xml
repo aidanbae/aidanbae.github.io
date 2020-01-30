@@ -3,18 +3,43 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://aidanbae.github.io/audio/2020/</loc>
+    <lastmod>2020-01-10T13:01:14+01:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://aidanbae.github.io/author/aidan.bae/</loc>
-    <lastmod>2019-12-05T19:01:14+09:00</lastmod>
+    <lastmod>2020-01-10T13:01:14+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://aidanbae.github.io/audio/</loc>
+    <lastmod>2020-01-10T13:01:14+01:00</lastmod>
   </url>
   
   <url>
     <loc>https://aidanbae.github.io/author/</loc>
-    <lastmod>2019-12-05T19:01:14+09:00</lastmod>
+    <lastmod>2020-01-10T13:01:14+01:00</lastmod>
   </url>
   
   <url>
     <loc>https://aidanbae.github.io/categories/</loc>
-    <lastmod>2019-12-05T19:01:14+09:00</lastmod>
+    <lastmod>2020-01-10T13:01:14+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://aidanbae.github.io/categories/smalltalk/</loc>
+    <lastmod>2020-01-10T13:01:14+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://aidanbae.github.io/tags/</loc>
+    <lastmod>2020-01-10T13:01:14+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://aidanbae.github.io/</loc>
+    <lastmod>2020-01-10T13:01:14+01:00</lastmod>
   </url>
   
   <url>
@@ -48,17 +73,7 @@
   </url>
   
   <url>
-    <loc>https://aidanbae.github.io/tags/</loc>
-    <lastmod>2019-12-05T19:01:14+09:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://aidanbae.github.io/tags/x-forwarded/</loc>
-    <lastmod>2019-12-05T19:01:14+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://aidanbae.github.io/</loc>
     <lastmod>2019-12-05T19:01:14+09:00</lastmod>
   </url>
   
@@ -95,11 +110,6 @@
   <url>
     <loc>https://aidanbae.github.io/tags/%ED%81%AC%ED%9D%A0/</loc>
     <lastmod>2019-10-10T13:01:14+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://aidanbae.github.io/categories/smalltalk/</loc>
-    <lastmod>2019-09-29T13:01:14+01:00</lastmod>
   </url>
   
   <url>
@@ -835,11 +845,6 @@
   <url>
     <loc>https://aidanbae.github.io/article/meeting/</loc>
     <lastmod>2018-07-29T09:31:27+01:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://aidanbae.github.io/audio/</loc>
-    <lastmod>2018-07-15T16:12:47+01:00</lastmod>
   </url>
   
   <url>

@@ -133,15 +133,118 @@
     </div>
 
     
-        Intro 결제 와 관련된 정보는 고객 입장에서도 회사 입장에서도 매우 중요한 정보이다.
-타사(구글, 페이스북, 샘성)의 결제모듈을 활용한다면 그 절차 사이사이의 검증과 기록은 결제검증서버가 해야할 필수적인 부분- 이번에 페이스북으로 글로벌 게임서버 런칭을 진행하면서 페이스북 결제를 활용해 돈방석에 앉아보기로 팀방향이 결정되었고(제발~)
-우리 서버팀은 그 돈방석의 영수증 역할을 할 결제검증서버를 구현하게되었다.
-이전에 불확실성을 줄이기위해 방명록을 간단하게 만들어보면서 orm프레임워크, mariadb 등을 확인했었고 그 연장선에서 이번 검증서버 프로젝트는 xorm과 web framework는 gin을 활용하기로 했다.
- Point 결제 쪽에 자신감이 넘치는 팀장님이 명확한 로직을 제시해주었기때문에 코딩은 어렵지 않았다.
+        <h4 id="intro">Intro</h4>
+<p><strong>결제</strong> 와 관련된 정보는 고객 입장에서도 회사 입장에서도 <strong>매우 중요한 정보</strong>이다.<br>
+타사(구글, 페이스북, 샘성)의 결제모듈을 활용한다면 그 절차 사이사이의 검증과 기록은 결제검증서버가 해야할 필수적인 부분-
+이번에 페이스북으로 글로벌 게임서버 런칭을 진행하면서 페이스북 결제를 활용해 돈방석에 앉아보기로 팀방향이 결정되었고(제발~)<br>
+우리 서버팀은 그 돈방석의 영수증 역할을 할 결제검증서버를 구현하게되었다.</p>
+<p>이전에 불확실성을 줄이기위해 방명록을 간단하게 만들어보면서 orm프레임워크, mariadb 등을 확인했었고
+그 연장선에서 이번 검증서버 프로젝트는 <code>xorm</code>과 web framework는 <code>gin</code>을 활용하기로 했다.</p>
+<hr>
+<h4 id="point">Point</h4>
+<p>결제 쪽에 자신감이 넘치는 팀장님이 명확한 로직을 제시해주었기때문에 코딩은 어렵지 않았다.<br>
+서버가 커질수 있는 <strong>확장성과 인수인계, 가독성등을 고려했을 때 어떤 식으로 설계하는 것이 올바를지에 대해 고민</strong> 을 하는 시간에 좀더 비중을 두었다.</p>
+<h5 id="-">고려해야할 상황</h5>
+<ul>
+<li>요청별 구조체가 다양하다.</li>
+<li>여러 구조체에서 검증요소가 중복된다.</li>
+<li>로그를 남기기 편하도록 검증에러값을 가장 중요하게 실어나른다.</li>
+<li>DB 접근을 최소화해야한다.</li>
+</ul>
+<hr>
+<h5 id="heading">접근법</h5>
+<ul>
+<li>책임연쇄 패턴처럼 검증되는 요소들을 명시적으로 모아두고 쭉 돌려서 검증통과여부를 확인한다.</li>
+<li>각각의 필드는 자신을 검증하고 pass여부와 에러를 반환한다.</li>
+<li>context를 활용해 DB에 한번 접근했을때 중요정보를 context에 저장해둔다.</li>
+</ul>
+<p>이 접근법을 활용하면 코드의 재사용성을 확보하면서 중복되는 부분을 철저하게 제거할 수 있다.<br>
+확장성과 가독성은 덤이다.</p>
+<h5 id="validator">Validator</h5>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-golang" data-lang="golang"><span style="color:#66d9ef">type</span> <span style="color:#a6e22e">Validator</span> <span style="color:#66d9ef">interface</span> {
+	<span style="color:#a6e22e">Check</span>(<span style="color:#a6e22e">c</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">gin</span>.<span style="color:#a6e22e">Context</span>) (<span style="color:#66d9ef">bool</span>, <span style="color:#66d9ef">error</span>)
+}
 
-        
-            <a href="https://aidanbae.github.io/code/golang/validator/" class="more">Continue reading</a>
-        
+<span style="color:#66d9ef">func</span> <span style="color:#a6e22e">Validate</span>(<span style="color:#a6e22e">c</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">gin</span>.<span style="color:#a6e22e">Context</span>, <span style="color:#a6e22e">val</span> <span style="color:#f92672">...</span><span style="color:#a6e22e">Validator</span>) (<span style="color:#66d9ef">bool</span>, <span style="color:#66d9ef">error</span>) {
+	<span style="color:#75715e">//ctx, cancel := context.WithCancel(c)
+</span><span style="color:#75715e"></span>	<span style="color:#66d9ef">var</span> <span style="color:#a6e22e">isPass</span> <span style="color:#66d9ef">bool</span>
+	<span style="color:#66d9ef">var</span> <span style="color:#a6e22e">err</span> <span style="color:#66d9ef">error</span>
+	<span style="color:#66d9ef">for</span> <span style="color:#a6e22e">_</span>, <span style="color:#a6e22e">vali</span> <span style="color:#f92672">:=</span> <span style="color:#66d9ef">range</span> <span style="color:#a6e22e">val</span> {
+		<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">isPass</span>, <span style="color:#a6e22e">err</span> = <span style="color:#a6e22e">vali</span>.<span style="color:#a6e22e">Check</span>(<span style="color:#a6e22e">c</span>); !<span style="color:#a6e22e">isPass</span> {
+			<span style="color:#66d9ef">return</span> <span style="color:#a6e22e">isPass</span>, <span style="color:#a6e22e">err</span>
+		}
+	}
+	<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">err</span> <span style="color:#f92672">!=</span> <span style="color:#66d9ef">nil</span> {
+		<span style="color:#66d9ef">return</span> <span style="color:#66d9ef">true</span>, <span style="color:#a6e22e">err</span>
+	}
+	<span style="color:#66d9ef">return</span> <span style="color:#66d9ef">true</span>, <span style="color:#66d9ef">nil</span>
+}
+</code></pre></div><ul>
+<li><code>Validator</code>는 검증과 관련된 interface이다.
+<ul>
+<li>정의해둔 Check메소드만 가지고 있다면 Validator에 만족한다.</li>
+</ul>
+</li>
+<li>여기서 나오는 첫번째 인자 <code>gin.Context</code>는 <code>context.Context</code>와 비슷한 역할을 한다.
+<ul>
+<li>나는 gin을 사용하기때문에 gin.Context를 활용하는 쪽으로 가닥을 잡았다. context.Context인터페이스를 만족하기 때문에 주석처럼 커스터마이징해서 사용할 수도 있다.</li>
+</ul>
+</li>
+<li>Validate 함수는 검증 통과여부와 에러값을 반환한다.
+<ul>
+<li>컨텍스트를 첫번째 인자로하고 그다음부터는 검증할 녀석들을 spread operater 인자로 쭉 받는다.</li>
+</ul>
+</li>
+</ul>
+<h5 id="validator--playerid">Validator 예시: player_id</h5>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-golang" data-lang="golang"><span style="color:#66d9ef">type</span> <span style="color:#a6e22e">PlayerId</span> <span style="color:#66d9ef">string</span>
+<span style="color:#66d9ef">func</span> (<span style="color:#a6e22e">p</span> <span style="color:#a6e22e">PlayerId</span>) <span style="color:#a6e22e">Check</span>(<span style="color:#a6e22e">c</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">gin</span>.<span style="color:#a6e22e">Context</span>) (<span style="color:#66d9ef">bool</span>, <span style="color:#66d9ef">error</span>) {
+	<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">v</span>, <span style="color:#a6e22e">exists</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">c</span>.<span style="color:#a6e22e">Get</span>(<span style="color:#e6db74">&#34;player_id&#34;</span>); <span style="color:#a6e22e">exists</span> {
+		<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">userId</span>, <span style="color:#a6e22e">ok</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">v</span>.(<span style="color:#66d9ef">string</span>); <span style="color:#a6e22e">ok</span> {
+			<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">userId</span> <span style="color:#f92672">==</span> string(<span style="color:#a6e22e">p</span>) {
+				<span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#e6db74">&#34;아이디체크통과: &#34;</span>, <span style="color:#a6e22e">userId</span>, <span style="color:#a6e22e">p</span>)
+				<span style="color:#66d9ef">return</span> <span style="color:#66d9ef">true</span>, <span style="color:#66d9ef">nil</span>
+			}
+			<span style="color:#66d9ef">return</span> <span style="color:#66d9ef">false</span>, <span style="color:#a6e22e">errors</span>.<span style="color:#a6e22e">New</span>(<span style="color:#e6db74">&#34;userId가 다릅니다. 해킹이 의심됩니다&#34;</span>)
+		}
+		<span style="color:#66d9ef">return</span> <span style="color:#66d9ef">false</span>, <span style="color:#a6e22e">errors</span>.<span style="color:#a6e22e">New</span>(<span style="color:#e6db74">&#34;저장된 player_id가 string이 아닙니다.&#34;</span>)
+	}
+	<span style="color:#66d9ef">return</span> <span style="color:#66d9ef">false</span>, <span style="color:#a6e22e">errors</span>.<span style="color:#a6e22e">New</span>(<span style="color:#e6db74">&#34;저장된 player_id가 없습니다&#34;</span>)
+}
+</code></pre></div><p>player_id 필드값은 string이다. 해당 값을 PlayerId라는 타입으로 한번 감싸기만하면 Check함수를 사용할 수 있다.<br>
+검증 이전에 context에 저장한 player_id값과 비교하는 내용이다.
+만약 gin을 사용하지 않고 context패키지를 사용한다면 c.Get이 아닌 c.Value(&ldquo;player_id&rdquo;) 메소드를 통해 값을 가져올 수 있겠다.</p>
+<p>이제 우리는 검증할 요소가 생긴다면 위처럼 Check 메소드가 구현된 필드 타입을 만들면된다.</p>
+<h5 id="-1">검증하는 부분</h5>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-golang" data-lang="golang"><span style="color:#a6e22e">pass</span>, <span style="color:#a6e22e">err</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">Validate</span>(<span style="color:#a6e22e">ctx</span>,
+      <span style="color:#a6e22e">PlayerId</span>(<span style="color:#a6e22e">decodedData</span>.<span style="color:#a6e22e">PlayerId</span>), <span style="color:#75715e">// 플레이어 아이디 검증
+</span><span style="color:#75715e"></span>      <span style="color:#a6e22e">ExpiredTime</span>(<span style="color:#a6e22e">requestStruct</span>.<span style="color:#a6e22e">IssuedAt</span>), <span style="color:#75715e">// 시간 만료 검증
+</span><span style="color:#75715e"></span>	  <span style="color:#75715e">//...
+</span><span style="color:#75715e"></span>      )
+<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">err</span> <span style="color:#f92672">!=</span> <span style="color:#66d9ef">nil</span> {
+	<span style="color:#a6e22e">c</span>.<span style="color:#a6e22e">Error</span>(<span style="color:#a6e22e">err</span>)
+	<span style="color:#a6e22e">c</span>.<span style="color:#a6e22e">JSON</span>(<span style="color:#a6e22e">http</span>.<span style="color:#a6e22e">StatusBadRequest</span>, <span style="color:#a6e22e">gin</span>.<span style="color:#a6e22e">H</span>{<span style="color:#e6db74">&#34;error&#34;</span>: <span style="color:#a6e22e">err</span>.<span style="color:#a6e22e">Error</span>()})
+	<span style="color:#66d9ef">return</span>
+}
+</code></pre></div><p>마치 컴포넌트처럼 재사용할 수 있는 검증 로직이 완성되었다.<br>
+검증해야될 필드가 추가된다면 그에 따른 Validator를 추가하고
+Validate에 인자값으로 추가해나가기만하면 된다.</p>
+<blockquote>
+<p><strong>context를 왜 첫번째 인자로??</strong> 
+Golang에서 가장 큰 github 프로젝트라고 한다면 <strong>Docker</strong>를 꼽을 수 있다.
+도커 레파지토리를 잘 관찰해보면 그들의 인터페이스 활용은 google이 제시하는 가이드라인에 철저히 맞추어 표현하고있다. 그들의 인터페이스의 공통점은 context를 모든 인터페이스들의 첫번째 인자로 받는다는 것이다.
+이는 각각의 자식 context들이 만들어내는 복잡한 고루틴 로직들을 확실하게 제어하도록 도와주면서 사이드 이펙트를 최소화한다. 설계 가이드라인은 go blog: context를 자세히 보면 알 수 있다.</p>
+</blockquote>
+<blockquote>
+<p>At Google, we require that Go programmers pass a Context parameter as the first argument to every function on the call path between incoming and outgoing requests. This allows Go code developed by many different teams to interoperate well. It provides simple control over timeouts and cancelation and ensures that critical values like security credentials transit Go programs properly.</p>
+</blockquote>
+<blockquote>
+<p>Server frameworks that want to build on Context should provide implementations of Context to bridge between their packages and those that expect a Context parameter. Their client libraries would then accept a Context from the calling code. By establishing a common interface for request-scoped data and cancelation, Context makes it easier for package developers to share code for creating scalable services.</p>
+</blockquote>
+<blockquote>
+<p>By Sameer Ajmani(Google)</p>
+</blockquote>
+
     
 </div>
 
@@ -194,6 +297,10 @@
                 <ul>
                 
                     <li>
+                        <a href="https://aidanbae.github.io/audio/2020/">2019-2020시즌</a>
+                    </li>
+                
+                    <li>
                         <a href="https://aidanbae.github.io/code/devops/k8s/header/">envoy와 x-forwarded-proto 헤더 이슈</a>
                     </li>
                 
@@ -217,10 +324,6 @@
                         <a href="https://aidanbae.github.io/quote/donki/">꿈</a>
                     </li>
                 
-                    <li>
-                        <a href="https://aidanbae.github.io/article/book/siliteamman/">실리콘밸리의 팀장들 - 지독한 솔직함</a>
-                    </li>
-                
                 </ul>
         </div>
         
@@ -239,6 +342,10 @@
                     </li>
                 
                     <li>
+                        <a href="https://aidanbae.github.io/categories/smalltalk">Smalltalk (13)</a>
+                    </li>
+                
+                    <li>
                         <a href="https://aidanbae.github.io/categories/wisdom">Wisdom (13)</a>
                     </li>
                 
@@ -248,10 +355,6 @@
                 
                     <li>
                         <a href="https://aidanbae.github.io/categories/server">Server (12)</a>
-                    </li>
-                
-                    <li>
-                        <a href="https://aidanbae.github.io/categories/smalltalk">Smalltalk (12)</a>
                     </li>
                 
                     <li>
