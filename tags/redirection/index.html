@@ -130,15 +130,45 @@
     </div>
 
     
-        Linux에서 로그파일을 다루거나 민감한 정보를 다루다보면 IO Redirection을 사용할 일이 종종 생긴다. 이번 기회에 개념을 확실히 정리하자.
-학습목표 이 명령어의 의미를 해석할 수 있으면 된다.
-$ head -n1 &lt; linux.txt &gt; one.txt 추가 - input에 대한 이야기   종합 핵심 정리 &gt;&gt; 꺽쇄 두개는 추가가 된다. 덮어쓰기가 아니라 뒤에 추가하는것
-&lt;&lt; 꺽쇄 두개는 input에 대한 제한 명령어.
-// mail이라는 프로그램에게 인자를 보내는데 // eot라는 input이 나올때까지 standard input을 받음 $ mail egoing@gmail.
+        <p>Linux에서 로그파일을 다루거나 민감한 정보를 다루다보면
+IO Redirection을 사용할 일이 종종 생긴다. 이번 기회에 개념을 확실히 정리하자.</p>
+<h4 id="heading">학습목표</h4>
+<p>이 명령어의 의미를 해석할 수 있으면 된다.</p>
+<pre><code>$ head -n1 &lt; linux.txt &gt; one.txt
+</code></pre><h4 id="--input--">추가 - input에 대한 이야기</h4>
 
-        
-            <a href="https://aidanbae.github.io/video/linux/io-redirection/" class="more">Continue reading</a>
-        
+<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+  <iframe src="https://www.youtube.com/embed/pagAkhHpzQk" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" allowfullscreen title="YouTube Video"></iframe>
+</div>
+
+<!-- raw HTML omitted -->
+<h4 id="--">종합 핵심 정리</h4>
+<p><code>&gt;&gt;</code> 꺽쇄 두개는 추가가 된다. 덮어쓰기가 아니라 뒤에 추가하는것</p>
+<p><code>&lt;&lt;</code> 꺽쇄 두개는 input에 대한 제한 명령어.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">// mail이라는 프로그램에게 인자를 보내는데 
+// eot라는 input이 나올때까지 standard input을 받음
+ $ mail egoing@gmail.com <span style="color:#e6db74">&lt;&lt;eot
+</span><span style="color:#e6db74"> &gt; hi
+</span><span style="color:#e6db74"> &gt; my
+</span><span style="color:#e6db74"> &gt; name
+</span><span style="color:#e6db74"> &gt; is
+</span><span style="color:#e6db74"> &gt; egoing
+</span><span style="color:#e6db74"> &gt; eot</span>
+</code></pre></div><p><code>/dev/null</code>은 리눅스에서 쓰레기통으로 쓰인다.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">// 쓰레기통으로 보내기
+$ ls -al &gt; /dev/null
+</code></pre></div><p><img src="screenshot.png" alt="fd"></p>
+<ul>
+<li>standard output 처리 <code>1&gt;</code> (1생략 <code>&gt;</code>)</li>
+<li>standard error 처리 <code>2&gt;</code></li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">// rename2.txt를 remove하는 명령어를 실행하는데 
+// stdout이 있으면 result.txt에 
+// stderr가 있으면 error.log에 쓴다.
+$ rm rename2.txt 1&gt; result.txt 2&gt; error.log 
+</code></pre></div><h4 id="heading1">마무리</h4>
+<p>좋은 강의 내용에 나의 불친절한 정리!</p>
+
     
 </div>
 
