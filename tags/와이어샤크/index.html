@@ -1,0 +1,332 @@
+<!doctype html>
+<html class="no-js" lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="author" content="Aidan.bae">
+        <meta name="description" content="아이단의 블로그">
+        <meta name="keywords" content="golang,aidan,kakaogames,kakao,gocd,gocd-agent,infra,javascript,python">
+        <meta name="generator" content="Hugo 0.60.0" />
+        <title> 와이어샤크 | 아이단은 어디갔을까</title>
+        <meta name="description" content="와이어샤크 - 아이단의 블로그">
+        <meta itemprop="name" content="와이어샤크">
+        <meta itemprop="description" content="와이어샤크 - 아이단의 블로그">
+        <meta property="og:title" content="와이어샤크">
+        <meta property="og:description" content="와이어샤크 - 아이단의 블로그">
+        <meta property="og:image" content="https://www.gravatar.com/avatar/d41d8cd98f00b204e9800998ecf8427e?size=200">
+        <meta property="og:url" content="https://aidanbae.github.io/tags/%EC%99%80%EC%9D%B4%EC%96%B4%EC%83%A4%ED%81%AC/">
+        <meta property="og:site_name" content="아이단은 어디갔을까"><meta property="og:type" content="website">
+        <link rel="icon" type="image/png" href="https://aidanbae.github.io/favicon-32x32.png" sizes="32x32">
+        <link rel="icon" type="image/png" href="https://aidanbae.github.io/favicon-16x16.png" sizes="16x16">
+
+	
+	  <link href="https://aidanbae.github.io/tags/%EC%99%80%EC%9D%B4%EC%96%B4%EC%83%A4%ED%81%AC/" rel="alternate" type="application/rss+xml" title="아이단은 어디갔을까" />
+	  <link href="https://aidanbae.github.io/tags/%EC%99%80%EC%9D%B4%EC%96%B4%EC%83%A4%ED%81%AC/" rel="feed" type="application/rss+xml" title="아이단은 어디갔을까" />
+	
+
+        
+        
+        
+        
+        <link rel="stylesheet" href="https://aidanbae.github.io/sass/combined.min.e5af985042854cb05807bed3365180e76bf9b8e0f41a2c81f098583599a6fb05.css">
+
+        
+
+        
+            
+        
+    </head>
+    <body class="bilberry-hugo-theme">
+        
+<nav>
+
+    <div class="container">
+        <ul class="topnav">
+            
+                
+                    <li><a href="https://aidanbae.github.io/page/about-aidan/">Aidan</a></li>
+                
+            
+        </ul>
+
+        
+    </div>
+</nav>
+
+
+        <header>
+    <div class="container">
+        <div class="logo">
+            <a href="https://aidanbae.github.io/" class="logo">
+                
+                    <img src="https://aidanbae.github.io/do.png" alt="">
+                
+
+                <span class="overlay"><i class="fa fa-home"></i></span>
+            </a>
+        </div>
+        <div class="titles">
+            <h3 class="title"><a href="https://aidanbae.github.io/">아이단은 어디갔을까</a></h3>
+            
+                <span class="subtitle">순간 순간이 소중한 목적지</span>
+            
+        </div>
+
+    
+
+        
+        <div class="toggler">
+        
+            <i class="fa fa-bars" aria-hidden="true"></i>
+        </div>
+    </div>
+</header>
+
+
+        <div class="main container">
+            
+    
+    
+        <div class="article-wrapper u-cf">
+            
+                <a class="bubble" href="https://aidanbae.github.io/code/golang/tcp-server/">
+    <i class="fa fa-fw fa-code"></i>
+</a>
+
+<article class="default article">
+    
+
+    <div class="content">
+    <h3><a href="https://aidanbae.github.io/code/golang/tcp-server/">TCP 서버 구현과 패킷분석</a></h3>
+    <div class="meta">
+        
+            
+                <span class="date moment">2020-01-19</span>
+            
+        
+
+        
+
+        
+            <span class="categories">
+                
+                    <a href="https://aidanbae.github.io/categories/code">Code</a>
+                
+                    <a href="https://aidanbae.github.io/categories/golang">Golang</a>
+                
+            </span>
+        
+
+        
+            <span class="author"><a href="https://aidanbae.github.io/author/aidan.bae">Aidan.bae</a></span>
+        
+    </div>
+
+    
+        신기술이 많이 쏟아지는 시대이다. 빠르게 배우는 것도 좋지만 협업을 위해서는 서로의 sync를 맞추기위한 agreement가 존재해야하고 많은 기술들이 tcp를 근간으로 발전했기 때문에 tcp에 대한 지식은 agreement로 중요한 역할을 할 수 있다.
+요즘은 quic이라고해서 udp기반의 서비스도 새로운 활로를 트는듯하지만 여러분이 사용하는 대부분의 서비스는 신뢰성 프로토콜인 tcp위에서 동작한다. 가장 흔한 http도 대부분이 tcp위에서 사용된다.
+tcp를 로우 머신기준으로 엄청깊게 연구하는&hellip; sk_buff, 운영체제 이벤트큐 단위까지 까서 보는 이런글 (https://d2.naver.com/helloworld/47667) 보다 자세하진 않겠지만 내 나름의 방법으로 눈으로 확인해보는 시간을 가지고자한다.
+
+        
+            <a href="https://aidanbae.github.io/code/golang/tcp-server/" class="more">Continue reading</a>
+        
+    
+</div>
+
+    
+<div class="footer">
+
+
+    
+        <div class="tags">
+            <i class="fa fa-tags"></i>
+            <div class="links">
+                
+                    <a href="https://aidanbae.github.io/tags/golang">golang</a>
+                
+                    <a href="https://aidanbae.github.io/tags/tcp">tcp</a>
+                
+                    <a href="https://aidanbae.github.io/tags/%EC%99%80%EC%9D%B4%EC%96%B4%EC%83%A4%ED%81%AC">와이어샤크</a>
+                
+            </div>
+        </div>
+    
+
+    
+</div>
+
+</article>
+
+            
+        </div>
+    
+
+    
+    <div class="paginator">
+        
+
+        
+    </div>
+
+
+
+        </div>
+
+        
+<footer>
+    <div class="container">
+
+        
+        <div class="recent-posts">
+            <strong>Latest posts</strong>
+                <ul>
+                
+                    <li>
+                        <a href="https://aidanbae.github.io/code/golang/tcp-server/">TCP 서버 구현과 패킷분석</a>
+                    </li>
+                
+                    <li>
+                        <a href="https://aidanbae.github.io/audio/2020/">2019-2020시즌</a>
+                    </li>
+                
+                    <li>
+                        <a href="https://aidanbae.github.io/code/devops/k8s/header/">envoy와 x-forwarded-proto 헤더 이슈</a>
+                    </li>
+                
+                    <li>
+                        <a href="https://aidanbae.github.io/code/devops/k8s/istio-mixer-debug/">istio debug를 위한 controlZ 활용</a>
+                    </li>
+                
+                    <li>
+                        <a href="https://aidanbae.github.io/article/book/time/">시간은 흐르지 않는다.</a>
+                    </li>
+                
+                    <li>
+                        <a href="https://aidanbae.github.io/article/gori/">생각의 선순환고리</a>
+                    </li>
+                
+                    <li>
+                        <a href="https://aidanbae.github.io/video/shining/">밀고 나가면 어느순간 반드시 빛이 난다.</a>
+                    </li>
+                
+                </ul>
+        </div>
+        
+
+        
+        <div class="categories">
+            <a href="https://aidanbae.github.io/categories/"><strong>Categories</strong></a>
+                <ul>
+                
+                    <li>
+                        <a href="https://aidanbae.github.io/categories/code">Code (20)</a>
+                    </li>
+                
+                    <li>
+                        <a href="https://aidanbae.github.io/categories/golang">Golang (17)</a>
+                    </li>
+                
+                    <li>
+                        <a href="https://aidanbae.github.io/categories/smalltalk">Smalltalk (13)</a>
+                    </li>
+                
+                    <li>
+                        <a href="https://aidanbae.github.io/categories/wisdom">Wisdom (13)</a>
+                    </li>
+                
+                    <li>
+                        <a href="https://aidanbae.github.io/categories/book">Book (12)</a>
+                    </li>
+                
+                    <li>
+                        <a href="https://aidanbae.github.io/categories/server">Server (12)</a>
+                    </li>
+                
+                    <li>
+                        <a href="https://aidanbae.github.io/categories/devops">Devops (11)</a>
+                    </li>
+                
+            </ul>
+        </div>
+        
+
+        <div class="right">
+            
+            <div class="external-profiles">
+                <strong>Social media</strong>
+
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                    <a href="https://github.com/aidanbae" target="_blank"><i class="fa fa-github"></i></a>
+                
+                
+            </div>
+            
+
+            
+        </div>
+    </div>
+</footer>
+
+
+<div class="credits">
+    <div class="container">
+        <div class="copyright">
+            <a href="https://github.com/Lednerb" target="_blank">
+                &copy;
+                
+                    2017
+                
+                by Lednerb
+            </a>
+	    -
+		<a href="https://aidanbae.github.io/tags/%EC%99%80%EC%9D%B4%EC%96%B4%EC%83%A4%ED%81%AC/index.xml">RSS</a>
+        </div>
+        <div class="author">
+            <a href="https://github.com/Lednerb/bilberry-hugo-theme" target="_blank">Bilberry Hugo Theme</a>
+        </div>
+    </div>
+</div>
+
+
+        
+
+        
+
+        
+        
+        <script type="text/javascript" src="https://aidanbae.github.io/js/externalDependencies.39c47e10e241eae2947b3fe21809c572.js" integrity="md5-OcR&#43;EOJB6uKUez/iGAnFcg=="></script>
+
+        
+        
+        <script type="text/javascript" src="https://aidanbae.github.io/js/theme.ff50ae6dc1bfc220b23bf69dbb41b54e.js" integrity="md5-/1CubcG/wiCyO/adu0G1Tg=="></script>
+
+        <script>
+            $(".moment").each(function() {
+                $(this).text(
+                    moment( $(this).text() )
+                        .locale( "en" )
+                        .format('LL')
+                );
+            });
+
+            $(".footnote-return sup").html("");
+        </script>
+
+        
+            
+        
+
+        
+
+
+    </body>
+</html>

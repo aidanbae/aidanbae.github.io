@@ -5,10 +5,28 @@
     <link>https://aidanbae.github.io/categories/</link>
     <description>Recent content in Categories on 아이단은 어디갔을까</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Fri, 10 Jan 2020 13:01:14 +0100</lastBuildDate>
+    <lastBuildDate>Sun, 19 Jan 2020 09:31:27 +0100</lastBuildDate>
     
 	<atom:link href="https://aidanbae.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Code</title>
+      <link>https://aidanbae.github.io/categories/code/</link>
+      <pubDate>Sun, 19 Jan 2020 09:31:27 +0100</pubDate>
+      
+      <guid>https://aidanbae.github.io/categories/code/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Golang</title>
+      <link>https://aidanbae.github.io/categories/golang/</link>
+      <pubDate>Sun, 19 Jan 2020 09:31:27 +0100</pubDate>
+      
+      <guid>https://aidanbae.github.io/categories/golang/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>SmallTalk</title>
@@ -56,15 +74,6 @@
     </item>
     
     <item>
-      <title>Code</title>
-      <link>https://aidanbae.github.io/categories/code/</link>
-      <pubDate>Wed, 14 Aug 2019 19:01:14 +0900</pubDate>
-      
-      <guid>https://aidanbae.github.io/categories/code/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>Linux</title>
       <link>https://aidanbae.github.io/categories/linux/</link>
       <pubDate>Tue, 07 May 2019 09:31:27 +0900</pubDate>
@@ -79,15 +88,6 @@
       <pubDate>Tue, 30 Apr 2019 12:31:27 +0100</pubDate>
       
       <guid>https://aidanbae.github.io/categories/docker/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Golang</title>
-      <link>https://aidanbae.github.io/categories/golang/</link>
-      <pubDate>Mon, 15 Apr 2019 09:31:27 +0900</pubDate>
-      
-      <guid>https://aidanbae.github.io/categories/golang/</guid>
       <description></description>
     </item>
     

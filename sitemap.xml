@@ -3,12 +3,67 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>https://aidanbae.github.io/audio/2020/</loc>
-    <lastmod>2020-01-10T13:01:14+01:00</lastmod>
+    <loc>https://aidanbae.github.io/author/aidan.bae/</loc>
+    <lastmod>2020-01-19T09:31:27+01:00</lastmod>
   </url>
   
   <url>
-    <loc>https://aidanbae.github.io/author/aidan.bae/</loc>
+    <loc>https://aidanbae.github.io/author/</loc>
+    <lastmod>2020-01-19T09:31:27+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://aidanbae.github.io/categories/</loc>
+    <lastmod>2020-01-19T09:31:27+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://aidanbae.github.io/categories/code/</loc>
+    <lastmod>2020-01-19T09:31:27+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://aidanbae.github.io/code/</loc>
+    <lastmod>2020-01-19T09:31:27+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://aidanbae.github.io/categories/golang/</loc>
+    <lastmod>2020-01-19T09:31:27+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://aidanbae.github.io/tags/golang/</loc>
+    <lastmod>2020-01-19T09:31:27+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://aidanbae.github.io/tags/</loc>
+    <lastmod>2020-01-19T09:31:27+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://aidanbae.github.io/tags/tcp/</loc>
+    <lastmod>2020-01-19T09:31:27+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://aidanbae.github.io/code/golang/tcp-server/</loc>
+    <lastmod>2020-01-19T09:31:27+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://aidanbae.github.io/</loc>
+    <lastmod>2020-01-19T09:31:27+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://aidanbae.github.io/tags/%EC%99%80%EC%9D%B4%EC%96%B4%EC%83%A4%ED%81%AC/</loc>
+    <lastmod>2020-01-19T09:31:27+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://aidanbae.github.io/audio/2020/</loc>
     <lastmod>2020-01-10T13:01:14+01:00</lastmod>
   </url>
   
@@ -18,33 +73,8 @@
   </url>
   
   <url>
-    <loc>https://aidanbae.github.io/author/</loc>
-    <lastmod>2020-01-10T13:01:14+01:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://aidanbae.github.io/categories/</loc>
-    <lastmod>2020-01-10T13:01:14+01:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://aidanbae.github.io/categories/smalltalk/</loc>
     <lastmod>2020-01-10T13:01:14+01:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://aidanbae.github.io/tags/</loc>
-    <lastmod>2020-01-10T13:01:14+01:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://aidanbae.github.io/</loc>
-    <lastmod>2020-01-10T13:01:14+01:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://aidanbae.github.io/code/</loc>
-    <lastmod>2019-12-05T19:01:14+09:00</lastmod>
   </url>
   
   <url>
@@ -180,11 +210,6 @@
   <url>
     <loc>https://aidanbae.github.io/page/</loc>
     <lastmod>2019-08-28T13:18:45+01:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://aidanbae.github.io/categories/code/</loc>
-    <lastmod>2019-08-14T19:01:14+09:00</lastmod>
   </url>
   
   <url>
@@ -369,16 +394,6 @@
   
   <url>
     <loc>https://aidanbae.github.io/tags/gogc/</loc>
-    <lastmod>2019-04-15T09:31:27+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://aidanbae.github.io/categories/golang/</loc>
-    <lastmod>2019-04-15T09:31:27+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://aidanbae.github.io/tags/golang/</loc>
     <lastmod>2019-04-15T09:31:27+09:00</lastmod>
   </url>
   
@@ -1113,12 +1128,12 @@
   </url>
   
   <url>
-    <loc>https://aidanbae.github.io/categories/python/</loc>
+    <loc>https://aidanbae.github.io/tags/python/</loc>
     <lastmod>2018-01-24T09:31:27+01:00</lastmod>
   </url>
   
   <url>
-    <loc>https://aidanbae.github.io/tags/python/</loc>
+    <loc>https://aidanbae.github.io/categories/python/</loc>
     <lastmod>2018-01-24T09:31:27+01:00</lastmod>
   </url>
   

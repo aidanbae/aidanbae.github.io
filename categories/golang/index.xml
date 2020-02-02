@@ -5,10 +5,21 @@
     <link>https://aidanbae.github.io/categories/golang/</link>
     <description>Recent content in Golang on 아이단은 어디갔을까</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Mon, 15 Apr 2019 09:31:27 +0900</lastBuildDate>
+    <lastBuildDate>Sun, 19 Jan 2020 09:31:27 +0100</lastBuildDate>
     
 	<atom:link href="https://aidanbae.github.io/categories/golang/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>TCP 서버 구현과 패킷분석</title>
+      <link>https://aidanbae.github.io/code/golang/tcp-server/</link>
+      <pubDate>Sun, 19 Jan 2020 09:31:27 +0100</pubDate>
+      
+      <guid>https://aidanbae.github.io/code/golang/tcp-server/</guid>
+      <description>신기술이 많이 쏟아지는 시대이다. 빠르게 배우는 것도 좋지만 협업을 위해서는 서로의 sync를 맞추기위한 agreement가 존재해야하고 많은 기술들이 tcp를 근간으로 발전했기 때문에 tcp에 대한 지식은 agreement로 중요한 역할을 할 수 있다.
+요즘은 quic이라고해서 udp기반의 서비스도 새로운 활로를 트는듯하지만 여러분이 사용하는 대부분의 서비스는 신뢰성 프로토콜인 tcp위에서 동작한다. 가장 흔한 http도 대부분이 tcp위에서 사용된다.
+tcp를 로우 머신기준으로 엄청깊게 연구하는&amp;hellip; sk_buff, 운영체제 이벤트큐 단위까지 까서 보는 이런글 (https://d2.naver.com/helloworld/47667) 보다 자세하진 않겠지만 내 나름의 방법으로 눈으로 확인해보는 시간을 가지고자한다.</description>
+    </item>
     
     <item>
       <title>[dotGo 2019] golang gc 튜닝</title>

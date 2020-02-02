@@ -5,10 +5,37 @@
     <link>https://aidanbae.github.io/tags/</link>
     <description>Recent content in Tags on 아이단은 어디갔을까</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Fri, 10 Jan 2020 13:01:14 +0100</lastBuildDate>
+    <lastBuildDate>Sun, 19 Jan 2020 09:31:27 +0100</lastBuildDate>
     
 	<atom:link href="https://aidanbae.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>golang</title>
+      <link>https://aidanbae.github.io/tags/golang/</link>
+      <pubDate>Sun, 19 Jan 2020 09:31:27 +0100</pubDate>
+      
+      <guid>https://aidanbae.github.io/tags/golang/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>tcp</title>
+      <link>https://aidanbae.github.io/tags/tcp/</link>
+      <pubDate>Sun, 19 Jan 2020 09:31:27 +0100</pubDate>
+      
+      <guid>https://aidanbae.github.io/tags/tcp/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>와이어샤크</title>
+      <link>https://aidanbae.github.io/tags/%EC%99%80%EC%9D%B4%EC%96%B4%EC%83%A4%ED%81%AC/</link>
+      <pubDate>Sun, 19 Jan 2020 09:31:27 +0100</pubDate>
+      
+      <guid>https://aidanbae.github.io/tags/%EC%99%80%EC%9D%B4%EC%96%B4%EC%83%A4%ED%81%AC/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>header</title>
@@ -304,15 +331,6 @@
       <pubDate>Mon, 15 Apr 2019 09:31:27 +0900</pubDate>
       
       <guid>https://aidanbae.github.io/tags/gogc/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>golang</title>
-      <link>https://aidanbae.github.io/tags/golang/</link>
-      <pubDate>Mon, 15 Apr 2019 09:31:27 +0900</pubDate>
-      
-      <guid>https://aidanbae.github.io/tags/golang/</guid>
       <description></description>
     </item>
     
@@ -686,7 +704,7 @@
     </item>
     
     <item>
-      <title>docker client</title>
+      <title>docker-client</title>
       <link>https://aidanbae.github.io/tags/docker-client/</link>
       <pubDate>Mon, 03 Sep 2018 12:31:27 +0100</pubDate>
       
