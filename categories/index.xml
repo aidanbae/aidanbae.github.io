@@ -5,10 +5,19 @@
     <link>https://aidanbae.github.io/categories/</link>
     <description>Recent content in Categories on 아이단은 어디갔을까</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Sun, 19 Jan 2020 09:31:27 +0100</lastBuildDate>
+    <lastBuildDate>Sat, 15 Feb 2020 13:01:14 +0900</lastBuildDate>
     
 	<atom:link href="https://aidanbae.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Book</title>
+      <link>https://aidanbae.github.io/categories/book/</link>
+      <pubDate>Sat, 15 Feb 2020 13:01:14 +0900</pubDate>
+      
+      <guid>https://aidanbae.github.io/categories/book/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>Code</title>
@@ -52,15 +61,6 @@
       <pubDate>Thu, 05 Dec 2019 19:01:14 +0900</pubDate>
       
       <guid>https://aidanbae.github.io/categories/server/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Book</title>
-      <link>https://aidanbae.github.io/categories/book/</link>
-      <pubDate>Thu, 10 Oct 2019 13:01:14 +0900</pubDate>
-      
-      <guid>https://aidanbae.github.io/categories/book/</guid>
       <description></description>
     </item>
     

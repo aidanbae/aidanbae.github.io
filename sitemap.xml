@@ -4,17 +4,47 @@
   
   <url>
     <loc>https://aidanbae.github.io/author/aidan.bae/</loc>
-    <lastmod>2020-01-19T09:31:27+01:00</lastmod>
+    <lastmod>2020-02-15T13:01:14+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://aidanbae.github.io/article/</loc>
+    <lastmod>2020-02-15T13:01:14+09:00</lastmod>
   </url>
   
   <url>
     <loc>https://aidanbae.github.io/author/</loc>
-    <lastmod>2020-01-19T09:31:27+01:00</lastmod>
+    <lastmod>2020-02-15T13:01:14+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://aidanbae.github.io/categories/book/</loc>
+    <lastmod>2020-02-15T13:01:14+09:00</lastmod>
   </url>
   
   <url>
     <loc>https://aidanbae.github.io/categories/</loc>
-    <lastmod>2020-01-19T09:31:27+01:00</lastmod>
+    <lastmod>2020-02-15T13:01:14+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://aidanbae.github.io/tags/</loc>
+    <lastmod>2020-02-15T13:01:14+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://aidanbae.github.io/article/book/niche/</loc>
+    <lastmod>2020-02-15T13:01:14+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://aidanbae.github.io/</loc>
+    <lastmod>2020-02-15T13:01:14+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://aidanbae.github.io/tags/%ED%81%AC%ED%9D%A0/</loc>
+    <lastmod>2020-02-15T13:01:14+09:00</lastmod>
   </url>
   
   <url>
@@ -38,22 +68,12 @@
   </url>
   
   <url>
-    <loc>https://aidanbae.github.io/tags/</loc>
-    <lastmod>2020-01-19T09:31:27+01:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://aidanbae.github.io/tags/tcp/</loc>
     <lastmod>2020-01-19T09:31:27+01:00</lastmod>
   </url>
   
   <url>
     <loc>https://aidanbae.github.io/code/golang/tcp-server/</loc>
-    <lastmod>2020-01-19T09:31:27+01:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://aidanbae.github.io/</loc>
     <lastmod>2020-01-19T09:31:27+01:00</lastmod>
   </url>
   
@@ -123,22 +143,7 @@
   </url>
   
   <url>
-    <loc>https://aidanbae.github.io/article/</loc>
-    <lastmod>2019-10-10T13:01:14+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://aidanbae.github.io/categories/book/</loc>
-    <lastmod>2019-10-10T13:01:14+09:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://aidanbae.github.io/article/book/time/</loc>
-    <lastmod>2019-10-10T13:01:14+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://aidanbae.github.io/tags/%ED%81%AC%ED%9D%A0/</loc>
     <lastmod>2019-10-10T13:01:14+09:00</lastmod>
   </url>
   

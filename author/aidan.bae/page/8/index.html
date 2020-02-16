@@ -89,6 +89,96 @@
     
         <div class="article-wrapper u-cf">
             
+                <a class="bubble" href="https://aidanbae.github.io/code/docker/docker-debug/">
+    <i class="fa fa-fw fa-code"></i>
+</a>
+
+<article class="default article">
+    
+    <div class="featured-image">
+        <a href="https://aidanbae.github.io/code/docker/docker-debug/">
+            
+                <img src="https://aidanbae.github.io/code/docker/docker-debug/featuredImage_hu8fbdd1b26661cf794b0f17932fa1ae38_170191_700x350_fill_q95_box_smart1_2.png" alt="">
+            
+        </a>
+    </div>
+
+
+    <div class="content">
+    <h3><a href="https://aidanbae.github.io/code/docker/docker-debug/">Docker Debug 모드</a></h3>
+    <div class="meta">
+        
+            
+                <span class="date moment">2018-08-09</span>
+            
+        
+
+        
+
+        
+            <span class="categories">
+                
+                    <a href="https://aidanbae.github.io/categories/server">Server</a>
+                
+                    <a href="https://aidanbae.github.io/categories/docker">Docker</a>
+                
+            </span>
+        
+
+        
+            <span class="author"><a href="https://aidanbae.github.io/author/aidan.bae">Aidan.bae</a></span>
+        
+    </div>
+
+    
+        Why Docker의 디버그모드를 활용해서 트러블슈팅을 빠르게 진행할 수 있다.
+ Docker Debug Mode를 켜보자. 1. 데몬이 사용할 Configuration파일을 편집해야한다.
+/etc/docker에 위치한 daemon.json파일 없다면 직접 만들어봅시다.
+ /etc/docker/daemon.json on Linux C:\ProgramData\docker\config\daemon.json on Window  2. 아래 컨텐츠를 추가합니다
+{ &#34;debug&#34;: true } ps. 만약 파일이 이미 존재했다면 debug 프로퍼티를 추가하고 true값을 적어줍니다.
+3. HUP signal을 데몬에게 보내서 configuration을 다시 reload하도록 합니다.
+리눅스에서는 다음 명령어를 사용합니다:
+$ sudo kill -SIGHUP $(pidof dockerd)  윈도우에서는 도커를 재시작하세요.
+
+        
+            <a href="https://aidanbae.github.io/code/docker/docker-debug/" class="more">Continue reading</a>
+        
+    
+</div>
+
+    
+<div class="footer">
+
+
+    
+        <div class="tags">
+            <i class="fa fa-tags"></i>
+            <div class="links">
+                
+                    <a href="https://aidanbae.github.io/tags/docker">docker</a>
+                
+                    <a href="https://aidanbae.github.io/tags/infra">infra</a>
+                
+                    <a href="https://aidanbae.github.io/tags/gocd">gocd</a>
+                
+                    <a href="https://aidanbae.github.io/tags/docker-client">docker client</a>
+                
+                    <a href="https://aidanbae.github.io/tags/docker-daemon">docker daemon</a>
+                
+            </div>
+        </div>
+    
+
+    
+</div>
+
+</article>
+
+            
+        </div>
+    
+        <div class="article-wrapper u-cf">
+            
                 <a class="bubble" href="https://aidanbae.github.io/code/docker/docker-overview/">
     <i class="fa fa-fw fa-code"></i>
 </a>
@@ -587,94 +677,6 @@ PostScript 코딩할 때 랜덤리스트로 듣게되었는데 그땐 왜 그랬
             
         </div>
     
-        <div class="article-wrapper u-cf">
-            
-                <a class="bubble" href="https://aidanbae.github.io/article/emotion/">
-    <i class="fa fa-fw fa-pencil"></i>
-</a>
-
-<article class="default article">
-    
-    <div class="featured-image">
-        <a href="https://aidanbae.github.io/article/emotion/">
-            
-                <img src="https://aidanbae.github.io/article/emotion/featuredImage_hu14b6a3197ba90b2eccfe51abe3f76c37_25640_700x350_fill_q95_box_smart1.jpeg" alt="">
-            
-        </a>
-    </div>
-
-
-    <div class="content">
-    <h3><a href="https://aidanbae.github.io/article/emotion/">감정제어</a></h3>
-    <div class="meta">
-        
-            
-                <span class="date moment">2018-05-20</span>
-            
-        
-
-        
-
-        
-            <span class="categories">
-                
-                    <a href="https://aidanbae.github.io/categories/wisdom">Wisdom</a>
-                
-            </span>
-        
-
-        
-            <span class="author"><a href="https://aidanbae.github.io/author/aidan.bae">Aidan.bae</a></span>
-        
-    </div>
-
-    
-        &ldquo;아, 일 더럽게 못하네!!&rdquo; 군생활 때 만났던 한 간부는
-자신을 따르는 장병들에게
-열같이 화를 냈다.
-작은 실수를 할 때면
-얼탄다며 꾸지람을 쏟았고
-나중에 그 장병이 소심해질 때면
-간식을 주며 자신이 화낸 이유를 정당화하는
-군인의 자세와 관련된 과외를 했다.
-장병들과 함께 근무 설 때
-난 넌지시 그들의 마음을 물었고
-보급지원관에 대한 불만을 나에게 털어놓곤 했다.
-부하 군인들이 전역 전까지는 그의 남성성에 끌려 못 이기듯 따르긴 했으나
-대부분은 정을 끊었다.
-그는 공허함을 자주 만난다.
-
-        
-            <a href="https://aidanbae.github.io/article/emotion/" class="more">Continue reading</a>
-        
-    
-</div>
-
-    
-<div class="footer">
-
-
-    
-        <div class="tags">
-            <i class="fa fa-tags"></i>
-            <div class="links">
-                
-                    <a href="https://aidanbae.github.io/tags/%EA%B0%90%EC%A0%95%EC%A0%9C%EC%96%B4">감정제어</a>
-                
-                    <a href="https://aidanbae.github.io/tags/%ED%9D%94%EB%93%A4%EB%A6%BC">흔들림</a>
-                
-            </div>
-        </div>
-    
-
-    
-</div>
-
-</article>
-
-            
-        </div>
-    
 
     
     <div class="paginator">
@@ -701,6 +703,10 @@ PostScript 코딩할 때 랜덤리스트로 듣게되었는데 그땐 왜 그랬
                 <ul>
                 
                     <li>
+                        <a href="https://aidanbae.github.io/article/book/niche/">니체의말</a>
+                    </li>
+                
+                    <li>
                         <a href="https://aidanbae.github.io/code/golang/tcp-server/">TCP 서버 구현과 패킷분석</a>
                     </li>
                 
@@ -724,10 +730,6 @@ PostScript 코딩할 때 랜덤리스트로 듣게되었는데 그땐 왜 그랬
                         <a href="https://aidanbae.github.io/article/gori/">생각의 선순환고리</a>
                     </li>
                 
-                    <li>
-                        <a href="https://aidanbae.github.io/video/shining/">밀고 나가면 어느순간 반드시 빛이 난다.</a>
-                    </li>
-                
                 </ul>
         </div>
         
@@ -746,15 +748,15 @@ PostScript 코딩할 때 랜덤리스트로 듣게되었는데 그땐 왜 그랬
                     </li>
                 
                     <li>
+                        <a href="https://aidanbae.github.io/categories/book">Book (13)</a>
+                    </li>
+                
+                    <li>
                         <a href="https://aidanbae.github.io/categories/smalltalk">Smalltalk (13)</a>
                     </li>
                 
                     <li>
                         <a href="https://aidanbae.github.io/categories/wisdom">Wisdom (13)</a>
-                    </li>
-                
-                    <li>
-                        <a href="https://aidanbae.github.io/categories/book">Book (12)</a>
                     </li>
                 
                     <li>

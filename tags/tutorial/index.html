@@ -131,17 +131,41 @@
     </div>
 
     
-        Why? Hugo 공식사이트를 보다보면 뭔가 친절한듯 하지만 영어다.
-테마 설정때문에 에러를 겪으시는 분들이 많아
-쉽게 디렉팅해서 여러분들의 시간을 아껴주고싶다.
-hugo 설치하기 Install hugo
-hugo quickstart QuickStart 이거 따라하시면된다.
-여기 Step3를 보면 git clone 대신 git submodule을 사용중이다. 님은 둘중 하나를 선택할 수 있는데 submodule을 쓰는 편이 암에서 해방되는 길이긴하다. 하지만 나처럼 이미 clone을 선택해서 테마를 받았다면 themes 디렉토리를 .gitignore에 추가해야한다.
-echo &#39;themes/&#39; &gt;&gt; .gitignore config.toml파일을 수정하자 config.toml 파일에서 baseURL을 수정하자:
+        <h4 id="why">Why?</h4>
+<p>Hugo 공식사이트를 보다보면 뭔가 친절한듯 하지만 영어다.<br>
+테마 설정때문에 에러를 겪으시는 분들이 많아<br>
+쉽게 디렉팅해서 여러분들의 시간을 아껴주고싶다.</p>
+<h5 id="hugo-">hugo 설치하기</h5>
+<p><a href="https://gohugo.io/getting-started/installing/">Install hugo</a></p>
+<h5 id="hugo-quickstart">hugo quickstart</h5>
+<p><a href="http://gohugo.io/getting-started/quick-start/">QuickStart</a>
+이거 따라하시면된다.</p>
+<p>여기 Step3를 보면 <code>git clone</code> 대신 <code>git submodule</code>을 사용중이다.
+님은 둘중 하나를 선택할 수 있는데 submodule을 쓰는 편이 암에서 해방되는 길이긴하다.
+하지만 나처럼 이미 clone을 선택해서 테마를 받았다면 <code>themes</code> 디렉토리를 <code>.gitignore</code>에 추가해야한다.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">echo <span style="color:#e6db74">&#39;themes/&#39;</span> &gt;&gt; .gitignore
+</code></pre></div><h5 id="configtoml-">config.toml파일을 수정하자</h5>
+<p>config.toml 파일에서 baseURL을 수정하자:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-toml" data-lang="toml"><span style="color:#a6e22e">baseURL</span> = <span style="color:#e6db74">&#34;https://&lt;USER-NAME&gt;.github.io/&#34;</span>
+</code></pre></div><p>USER-NAME은 여러분의 ``깃허브 username`이다.</p>
+<h5 id="-">로컬에서 실행해보기</h5>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">hugo server
+</code></pre></div><p><code>localhost:1313</code> 에 접속해서 이쁜 당신의 블로그를 확인한다.</p>
+<h5 id="build-">Build 해보자.</h5>
+<p>다음 명령어를 쳐보자:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">hugo
+</code></pre></div><p>Hugo가 당신의 웹사이트를 public 디렉토리에 빌드해준다.</p>
+<h5 id="upload-">Upload 해보자</h5>
+<p>우선 public폴더를 .gitignore에 추가해야한다.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">echo <span style="color:#e6db74">&#39;public/&#39;</span> &gt;&gt; .gitignore
+</code></pre></div><p>그리고 public 디렉토리로 가서 git세팅을 한다.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">cd public
+git init
+git remote add origin https://github.com/&lt;USER-NAME&gt;/&lt;USER-NAME&gt;.github.io
+</code></pre></div><p>git push를 하게되면 당신의 정적 사이트는 업로드된다.<br>
+https:<!-- raw HTML omitted -->.github.io로 가서 확인한다.</p>
+<p>조금이라도 도움이 되었다면 좋겠당.</p>
 
-        
-            <a href="https://aidanbae.github.io/code/hugo/deploytutorial/" class="more">Continue reading</a>
-        
     
 </div>
 
@@ -196,6 +220,10 @@ echo &#39;themes/&#39; &gt;&gt; .gitignore config.toml파일을 수정하자 con
                 <ul>
                 
                     <li>
+                        <a href="https://aidanbae.github.io/article/book/niche/">니체의말</a>
+                    </li>
+                
+                    <li>
                         <a href="https://aidanbae.github.io/code/golang/tcp-server/">TCP 서버 구현과 패킷분석</a>
                     </li>
                 
@@ -219,10 +247,6 @@ echo &#39;themes/&#39; &gt;&gt; .gitignore config.toml파일을 수정하자 con
                         <a href="https://aidanbae.github.io/article/gori/">생각의 선순환고리</a>
                     </li>
                 
-                    <li>
-                        <a href="https://aidanbae.github.io/video/shining/">밀고 나가면 어느순간 반드시 빛이 난다.</a>
-                    </li>
-                
                 </ul>
         </div>
         
@@ -241,15 +265,15 @@ echo &#39;themes/&#39; &gt;&gt; .gitignore config.toml파일을 수정하자 con
                     </li>
                 
                     <li>
+                        <a href="https://aidanbae.github.io/categories/book">Book (13)</a>
+                    </li>
+                
+                    <li>
                         <a href="https://aidanbae.github.io/categories/smalltalk">Smalltalk (13)</a>
                     </li>
                 
                     <li>
                         <a href="https://aidanbae.github.io/categories/wisdom">Wisdom (13)</a>
-                    </li>
-                
-                    <li>
-                        <a href="https://aidanbae.github.io/categories/book">Book (12)</a>
                     </li>
                 
                     <li>
