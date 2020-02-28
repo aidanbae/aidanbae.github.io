@@ -3,6 +3,41 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://aidanbae.github.io/categories/</loc>
+    <lastmod>2020-02-20T16:23:40+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://aidanbae.github.io/tags/</loc>
+    <lastmod>2020-02-20T16:23:40+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://aidanbae.github.io/video/</loc>
+    <lastmod>2020-02-20T16:23:40+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://aidanbae.github.io/categories/wisdom/</loc>
+    <lastmod>2020-02-20T16:23:40+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://aidanbae.github.io/</loc>
+    <lastmod>2020-02-20T16:23:40+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://aidanbae.github.io/video/toss/</loc>
+    <lastmod>2020-02-20T16:23:40+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://aidanbae.github.io/tags/%ED%86%A0%EC%8A%A4/</loc>
+    <lastmod>2020-02-20T16:23:40+01:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://aidanbae.github.io/author/aidan.bae/</loc>
     <lastmod>2020-02-15T13:01:14+09:00</lastmod>
   </url>
@@ -23,22 +58,7 @@
   </url>
   
   <url>
-    <loc>https://aidanbae.github.io/categories/</loc>
-    <lastmod>2020-02-15T13:01:14+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://aidanbae.github.io/tags/</loc>
-    <lastmod>2020-02-15T13:01:14+09:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://aidanbae.github.io/article/book/niche/</loc>
-    <lastmod>2020-02-15T13:01:14+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://aidanbae.github.io/</loc>
     <lastmod>2020-02-15T13:01:14+09:00</lastmod>
   </url>
   
@@ -158,11 +178,6 @@
   </url>
   
   <url>
-    <loc>https://aidanbae.github.io/video/</loc>
-    <lastmod>2019-09-26T16:23:40+09:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://aidanbae.github.io/tags/%EA%B8%80%EC%93%B0%EA%B8%B0/</loc>
     <lastmod>2019-09-26T16:23:40+09:00</lastmod>
   </url>
@@ -179,11 +194,6 @@
   
   <url>
     <loc>https://aidanbae.github.io/quote/</loc>
-    <lastmod>2019-09-23T13:01:14+01:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://aidanbae.github.io/categories/wisdom/</loc>
     <lastmod>2019-09-23T13:01:14+01:00</lastmod>
   </url>
   
@@ -1133,12 +1143,12 @@
   </url>
   
   <url>
-    <loc>https://aidanbae.github.io/categories/python/</loc>
+    <loc>https://aidanbae.github.io/tags/python/</loc>
     <lastmod>2018-01-24T09:31:27+01:00</lastmod>
   </url>
   
   <url>
-    <loc>https://aidanbae.github.io/tags/python/</loc>
+    <loc>https://aidanbae.github.io/categories/python/</loc>
     <lastmod>2018-01-24T09:31:27+01:00</lastmod>
   </url>
   
