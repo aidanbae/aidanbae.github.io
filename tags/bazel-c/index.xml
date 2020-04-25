@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>bazel c on 아이단은 어디갔을까</title>
+    <link>https://aidanbae.github.io/tags/bazel-c/</link>
+    <description>Recent content in bazel c on 아이단은 어디갔을까</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Thu, 16 Apr 2020 09:31:27 +0900</lastBuildDate>
+    
+	<atom:link href="https://aidanbae.github.io/tags/bazel-c/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>bazel 빌드</title>
+      <link>https://aidanbae.github.io/code/devops/bazel/</link>
+      <pubDate>Thu, 16 Apr 2020 09:31:27 +0900</pubDate>
+      
+      <guid>https://aidanbae.github.io/code/devops/bazel/</guid>
+      <description>bazel은 구글에서 오픈소스로 내놓은 빌드툴이다.
+이전에 golang 밋업발표 때 카카오 모빌리티의 데이터랩장이었던 승일님이 bazel for go를 발표했었는데 그때 당시에는 뭐 저런 것도 있구나 정도로 이해하고 넘어갔었고 내가 쓸일은 없을 거라고 생각했다. (vendor를 쓰다가 골치아팟던 적이 있지 않았고 go는 빌드 자체가 원래 빠르기 때문에 나처럼 작은 프로젝트는 bazel까지 갈 일이 없었다.)
+근데 상황이 바뀌었다. 증권IT에 들어오게되면서 빌드구조가 복잡하고 디펜던시가 흉악한(?) 증권 C코드를 보면서 다시 한번 찾아보게되었다. c쪽에서 사용하는 makefile 문법은 그 태생 자체가 원래 지저분하고 공부하지 않으면 절대 유추할 수 없는 기호들 (@, , ?</description>
+    </item>
+    
+  </channel>
+</rss>

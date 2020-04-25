@@ -131,111 +131,15 @@
     </div>
 
     
-        <h4 id="---">유닉스 리눅스 쉘스크립트 공부</h4>
-<p>서버 프로그래머로 프로젝트를 진행하다보니 배포과정에서 쉘스크립트에 대한 공부를 좀 해야겠다는<br>
-생각이 들었습니다. 특히 bash에 대한 이해가 뒷받침 된다면 원격지에 있는 서버에 대한 컨트롤이 용이해<br>
-진다는 것은 팩트. 레츠 Do</p>
-<p><a href="https://opentutorials.org/course/2598/14204">https://opentutorials.org/course/2598/14204</a> 
-생활코딩 쉘스크립트 기본 강좌를 듣고 오시는 것도 큰도움</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">echo $0
-// 결과: -bash
-</code></pre></div><p>터미널에 위 명령어를 실행시키면 해당 터미널이 무슨 쉘인지 알수 있습니다.
-Bash도 일종의 프로그램입니다.
-우리는 이 bash를 통해 컴퓨터, 좀 더 자세히는 커널에 명령을 내릴 수 있습니다.
-다른 종류의 쉘프로그램인 zsh도 있습니다.</p>
-<hr>
-<h3 id="read-">read 명령어</h3>
-<p><code>read</code> 명령어는 사용자가 키보드를 사용해 입력하면
-해당 값을 읽어와서 변수에 저장합니다.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e"># vi read.sh</span>
-echo -n <span style="color:#e6db74">&#34;Enter your ID: &#34;</span>
-read id
+        유닉스 리눅스 쉘스크립트 공부 서버 프로그래머로 프로젝트를 진행하다보니 배포과정에서 쉘스크립트에 대한 공부를 좀 해야겠다는
+생각이 들었습니다. 특히 bash에 대한 이해가 뒷받침 된다면 원격지에 있는 서버에 대한 컨트롤이 용이해
+진다는 것은 팩트. 레츠 Do
+https://opentutorials.org/course/2598/14204 생활코딩 쉘스크립트 기본 강좌를 듣고 오시는 것도 큰도움
+echo $0 // 결과: -bash 터미널에 위 명령어를 실행시키면 해당 터미널이 무슨 쉘인지 알수 있습니다. Bash도 일종의 프로그램입니다. 우리는 이 bash를 통해 컴퓨터, 좀 더 자세히는 커널에 명령을 내릴 수 있습니다.
 
-echo <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">Now your ID is </span>$id<span style="color:#e6db74">&#34;</span>
-</code></pre></div><p><em>echo -n옵션을 사용한다면 줄바꿈 없이 메세지를 출력할 수 있습니다</em></p>
-<p><img src="screenshot.png" alt="ho"></p>
-<p>여러입력을 받고 싶다면 스페이스로 구분지어 입력받을 수 있습니다:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">read id name pswd
-echo <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">your name is </span>$name<span style="color:#e6db74">&#34;</span>
-</code></pre></div><hr>
-<h3 id="echoback-">echo_back 명령어</h3>
-<p>맥의 터미널을 처음 접했을 때<br>
-비밀번호가 타이핑되지않고 아무것도 보여주지않아서 혼란스러웠던적이 있었습니다<br>
-&lsquo;왜 안쳐지지&hellip;?&rsquo; 
-하지만 뒤에서 쳐지고있는거였죠. 안보일뿐!</p>
-<p><code>에코백</code>은 사용자가 암호를 입력하는 처리에서 화면에 표시하지 않고자할때 쓰입니다.
-누군가 화면을 훔쳐볼 가능성이 있기 때문에
-보안상 에코백을 끄는(off)게 보통입니다</p>
-<p>간단합니다:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e"># vi pass_wget.sh</span>
-username<span style="color:#f92672">=</span>guest
-hostname<span style="color:#f92672">=</span>localhost
-
-echo -n <span style="color:#e6db74">&#34;Password: &#34;</span>
-stty -echo <span style="color:#75715e"># 에코백을 끕니다</span>
-read password
-stty echo <span style="color:#75715e"># 에코백을 이제 킵니다. 설정이 남아있기때문이죠</span>
-
-echo
-
-<span style="color:#75715e"># wget이 설치되어 있는 경우</span>
-wget -q --password<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;</span>$password<span style="color:#e6db74">&#34;</span> <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">ftp://</span><span style="color:#e6db74">${</span>username<span style="color:#e6db74">}</span><span style="color:#e6db74">@{hostname}/filename.txt</span><span style="color:#e6db74">&#34;</span>
-<span style="color:#75715e"># 맥의 경우, wget이 설치되어있지 않습니다. 그럴경우 curl명령어를 활용합니다</span>
-curl -s -u <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">${</span>username<span style="color:#e6db74">}</span><span style="color:#e6db74">:</span><span style="color:#e6db74">${</span>password<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span> -0 <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">ftp://</span><span style="color:#e6db74">${</span>hostname<span style="color:#e6db74">}</span><span style="color:#e6db74">/filename.txt</span><span style="color:#e6db74">&#34;</span>
-</code></pre></div><ul>
-<li>입력한 암호를 통해 ftp서버에서 파일을 내려받습니다.</li>
-<li>wget의 -q옵션(quiet모드)을 통해 동작상태가 출력되지 않도록 파일 내려받기만 하도록 지정합니다.</li>
-</ul>
-<hr>
-<h3 id="---1">사용자 키입력을 한글자만 받아내기</h3>
-<p>터미널을 통해 파일들을 다운받는 행위를 할때면 사용자의 동의를 구하곤합니다.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">Type Your Answer <span style="color:#f92672">[</span>y/n<span style="color:#f92672">]</span>:
-</code></pre></div><p>이런화면을 자주만나죠
-한번 구현해보겠습니다</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e">#vi getchar.sh</span>
-
-echo -n <span style="color:#e6db74">&#34;Type your answer [y/n]: &#34;</span>
-<span style="color:#75715e"># 현재 터미널의 설정을 셀변수에 백업</span>
-<span style="color:#75715e"># 터미널을 raw설정합니다.</span>
-tty_state<span style="color:#f92672">=</span><span style="color:#66d9ef">$(</span>stty -g<span style="color:#66d9ef">)</span>
-stty raw
-<span style="color:#75715e"># 키보드에서 문자하나 읽기</span>
-char<span style="color:#f92672">=</span><span style="color:#66d9ef">$(</span>dd bs<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span> count<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span> 2&gt; /dev/null<span style="color:#66d9ef">)</span>
-<span style="color:#75715e"># 터미널 설정을 원래대로 돌림</span>
-stty <span style="color:#e6db74">&#34;</span>$tty_state<span style="color:#e6db74">&#34;</span>
-
-echo
-
-<span style="color:#66d9ef">case</span> <span style="color:#e6db74">&#34;</span>$char<span style="color:#e6db74">&#34;</span> in
-  <span style="color:#f92672">[</span>yY<span style="color:#f92672">]</span><span style="color:#f92672">)</span>
-  echo <span style="color:#e6db74">&#34;input: Yes&#34;</span>
-  ;;
-  <span style="color:#f92672">[</span>nN<span style="color:#f92672">]</span><span style="color:#f92672">)</span>
-  echo <span style="color:#e6db74">&#34;input: no&#34;</span>
-  ;;
-  *<span style="color:#f92672">)</span>
-  echo <span style="color:#e6db74">&#34;input WTF&#34;</span>
-  ;;
-<span style="color:#66d9ef">esac</span>
-
-</code></pre></div><p>에코백 예제와 비슷하게
-상태를 되돌리는 것이 중요합니다.
-현재 터미널의 상태를 쉘변수에 백업해둡니다. <code>(tty_state)</code>
-<code>stty</code> 명령어는 터미널(단말) 상태를 설정하는 명령어입니다.
-<code>stty raw</code>를 통해 터미널을 raw모드로 변경하면
-키 버퍼 처리를 하지 않아 문자마다 처리가 가능합니다.</p>
-<p><strong>현재 터미널 설정 표시</strong>
-<img src="hoho.png" alt="josu"></p>
-<p>raw모드로 할경우 현재 터미널 설정이 지워지므로 저장을 꼭해야합니다!</p>
-<p>이어서 실제 키입력값은 다음 <code>dd</code>명령어에 직접 전달됩니다.</p>
-<blockquote>
-<p>dd 명령어에서는 입출력의 블록크기를 1 (bs=1)
-입력에서 출력으로 복사하는 블록 수를 1(count=1)로 해서
-입력된 문자를 셸 변수 char에 설정합니다</p>
-</blockquote>
-<p>또한 dd 명령어 실행메세지는 필요없으므로 /dev/null로 리다이렉트해서 버립니다.
-이후 case문을 이용해 입력된 값에 따른 분기처리합니다.</p>
-
+        
+            <a href="https://aidanbae.github.io/code/shell/bash1/" class="more">Continue reading</a>
+        
     
 </div>
 
@@ -292,6 +196,10 @@ echo
                 <ul>
                 
                     <li>
+                        <a href="https://aidanbae.github.io/code/devops/bazel/">bazel 빌드</a>
+                    </li>
+                
+                    <li>
                         <a href="https://aidanbae.github.io/video/toss/">위대한 성취는 위대한 목표로부터</a>
                     </li>
                 
@@ -313,10 +221,6 @@ echo
                 
                     <li>
                         <a href="https://aidanbae.github.io/code/devops/k8s/istio-mixer-debug/">istio debug를 위한 controlZ 활용</a>
-                    </li>
-                
-                    <li>
-                        <a href="https://aidanbae.github.io/article/book/time/">시간은 흐르지 않는다.</a>
                     </li>
                 
                 </ul>
@@ -349,11 +253,11 @@ echo
                     </li>
                 
                     <li>
-                        <a href="https://aidanbae.github.io/categories/server">Server (12)</a>
+                        <a href="https://aidanbae.github.io/categories/devops">Devops (12)</a>
                     </li>
                 
                     <li>
-                        <a href="https://aidanbae.github.io/categories/devops">Devops (11)</a>
+                        <a href="https://aidanbae.github.io/categories/server">Server (12)</a>
                     </li>
                 
             </ul>

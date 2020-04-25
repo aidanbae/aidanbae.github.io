@@ -3,13 +3,58 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://aidanbae.github.io/author/aidan.bae/</loc>
+    <lastmod>2020-04-16T09:31:27+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://aidanbae.github.io/author/</loc>
+    <lastmod>2020-04-16T09:31:27+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://aidanbae.github.io/tags/bazel/</loc>
+    <lastmod>2020-04-16T09:31:27+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://aidanbae.github.io/tags/bazel-c/</loc>
+    <lastmod>2020-04-16T09:31:27+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://aidanbae.github.io/code/devops/bazel/</loc>
+    <lastmod>2020-04-16T09:31:27+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://aidanbae.github.io/tags/build/</loc>
+    <lastmod>2020-04-16T09:31:27+09:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://aidanbae.github.io/categories/</loc>
-    <lastmod>2020-02-20T16:23:40+01:00</lastmod>
+    <lastmod>2020-04-16T09:31:27+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://aidanbae.github.io/code/</loc>
+    <lastmod>2020-04-16T09:31:27+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://aidanbae.github.io/categories/devops/</loc>
+    <lastmod>2020-04-16T09:31:27+09:00</lastmod>
   </url>
   
   <url>
     <loc>https://aidanbae.github.io/tags/</loc>
-    <lastmod>2020-02-20T16:23:40+01:00</lastmod>
+    <lastmod>2020-04-16T09:31:27+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://aidanbae.github.io/</loc>
+    <lastmod>2020-04-16T09:31:27+09:00</lastmod>
   </url>
   
   <url>
@@ -19,11 +64,6 @@
   
   <url>
     <loc>https://aidanbae.github.io/categories/wisdom/</loc>
-    <lastmod>2020-02-20T16:23:40+01:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://aidanbae.github.io/</loc>
     <lastmod>2020-02-20T16:23:40+01:00</lastmod>
   </url>
   
@@ -38,17 +78,7 @@
   </url>
   
   <url>
-    <loc>https://aidanbae.github.io/author/aidan.bae/</loc>
-    <lastmod>2020-02-15T13:01:14+09:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://aidanbae.github.io/article/</loc>
-    <lastmod>2020-02-15T13:01:14+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://aidanbae.github.io/author/</loc>
     <lastmod>2020-02-15T13:01:14+09:00</lastmod>
   </url>
   
@@ -69,11 +99,6 @@
   
   <url>
     <loc>https://aidanbae.github.io/categories/code/</loc>
-    <lastmod>2020-01-19T09:31:27+01:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://aidanbae.github.io/code/</loc>
     <lastmod>2020-01-19T09:31:27+01:00</lastmod>
   </url>
   
@@ -115,11 +140,6 @@
   <url>
     <loc>https://aidanbae.github.io/categories/smalltalk/</loc>
     <lastmod>2020-01-10T13:01:14+01:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://aidanbae.github.io/categories/devops/</loc>
-    <lastmod>2019-12-05T19:01:14+09:00</lastmod>
   </url>
   
   <url>

@@ -5,10 +5,19 @@
     <link>https://aidanbae.github.io/categories/</link>
     <description>Recent content in Categories on 아이단은 어디갔을까</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Thu, 20 Feb 2020 16:23:40 +0100</lastBuildDate>
+    <lastBuildDate>Thu, 16 Apr 2020 09:31:27 +0900</lastBuildDate>
     
 	<atom:link href="https://aidanbae.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>DevOps</title>
+      <link>https://aidanbae.github.io/categories/devops/</link>
+      <pubDate>Thu, 16 Apr 2020 09:31:27 +0900</pubDate>
+      
+      <guid>https://aidanbae.github.io/categories/devops/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>Wisdom</title>
@@ -52,15 +61,6 @@
       <pubDate>Fri, 10 Jan 2020 13:01:14 +0100</pubDate>
       
       <guid>https://aidanbae.github.io/categories/smalltalk/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>DevOps</title>
-      <link>https://aidanbae.github.io/categories/devops/</link>
-      <pubDate>Thu, 05 Dec 2019 19:01:14 +0900</pubDate>
-      
-      <guid>https://aidanbae.github.io/categories/devops/</guid>
       <description></description>
     </item>
     
