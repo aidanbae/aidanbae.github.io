@@ -199,7 +199,12 @@ golang channel은 goroutine간의 통신을 위해 비동기, 동적으로 동�
 <p>kubelet은 파드스펙의 변경을 마스터로부터 전달 받을 수도 있고 머신으로부터 파드와 관련된 이벤트(ex. oom)를 전달받아 액션이 수행될 수 있다.
 그렇기 때문에 이런 다양한 상황을 통제하는 SyncLoop가 존재하고 각각의 이벤트 source에 따라 다른 처리를 하고있다.</p>
 <p><img src="kubelet_syncloop.png" alt="kubelet_syncloop.png"></p>
-<p>이 루프에서 사용되는 ple 구조체:</p>
+<p>kubelet은 이렇듯 multiple sources로 부터 일어나는 파드 스펙 변화를 감지해야하고, 또 한편으로 컨테이너 런타임을 주기적으로 polling해서 모든 컨테이너의 최신 상태를 점검해야한다.</p>
+<!-- raw HTML omitted -->
+<h5 id="relist-----">relist를 이용한 컨테이너 상태 변화 감시</h5>
+<p>pod lifecycle event를 생성하기 위해 PLEG는 모든 컨테이너의 상태 변화를 감지할수 있어야한다. PLEG는 주기적인 relist 작업을 통해 이것을 수행해낸다. (docker ps라고 생각하면 편하다.) 단일 스레드(PLEG)에 의해서만 수행되며. 모든 파드 작업자가 동시에 컨테이너 런타임에 도달하지 않아도 된다는 이점이 있음.
+relisting의 장점은 컨테이너 런타임에 구애받지 않고 외부 종속성이 필요없다는 것이다.</p>
+<p>ple 구조체:</p>
 <p><img src="pleg_package.png" alt="pleg_package.png"></p>
 <p>갑자기 golang</p>
 <p>golang은 <code>effective- go</code> 라는 책에서부터 인스턴스에 대한 Initializing 패턴이 조금 정형화된 느낌이 있다.</p>
