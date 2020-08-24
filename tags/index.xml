@@ -5,10 +5,28 @@
     <link>https://aidanbae.github.io/tags/</link>
     <description>Recent content in Tags on 아이단은 어디갔을까</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Thu, 16 Apr 2020 09:31:27 +0900</lastBuildDate>
+    <lastBuildDate>Sat, 01 Aug 2020 19:01:14 +0900</lastBuildDate>
     
 	<atom:link href="https://aidanbae.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>debug</title>
+      <link>https://aidanbae.github.io/tags/debug/</link>
+      <pubDate>Sat, 01 Aug 2020 19:01:14 +0900</pubDate>
+      
+      <guid>https://aidanbae.github.io/tags/debug/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>k8s</title>
+      <link>https://aidanbae.github.io/tags/k8s/</link>
+      <pubDate>Sat, 01 Aug 2020 19:01:14 +0900</pubDate>
+      
+      <guid>https://aidanbae.github.io/tags/k8s/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>bazel</title>
@@ -106,15 +124,6 @@
       <pubDate>Thu, 05 Dec 2019 19:01:14 +0900</pubDate>
       
       <guid>https://aidanbae.github.io/tags/x-forwarded/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>debug</title>
-      <link>https://aidanbae.github.io/tags/debug/</link>
-      <pubDate>Sat, 30 Nov 2019 19:01:14 +0900</pubDate>
-      
-      <guid>https://aidanbae.github.io/tags/debug/</guid>
       <description></description>
     </item>
     

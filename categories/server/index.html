@@ -89,6 +89,80 @@
     
         <div class="article-wrapper u-cf">
             
+                <a class="bubble" href="https://aidanbae.github.io/code/devops/k8s/pleg/">
+    <i class="fa fa-fw fa-code"></i>
+</a>
+
+<article class="default article">
+    
+
+    <div class="content">
+    <h3><a href="https://aidanbae.github.io/code/devops/k8s/pleg/">PLEG(Pod LifeCycle Event Generator)와 kubelet</a></h3>
+    <div class="meta">
+        
+            
+                <span class="date moment">2020-08-01</span>
+            
+        
+
+        
+
+        
+            <span class="categories">
+                
+                    <a href="https://aidanbae.github.io/categories/server">Server</a>
+                
+                    <a href="https://aidanbae.github.io/categories/devops">DevOps</a>
+                
+            </span>
+        
+
+        
+            <span class="author"><a href="https://aidanbae.github.io/author/aidan.bae">Aidan.bae</a></span>
+        
+    </div>
+
+    
+        kubelet architecture 출처: https://programmer.help/blogs/kubelet-source-code-analysis-startup.html
+그림처럼 kubelet에는 다양한 컴포넌트들이 하위 고루틴으로 돌아가고있다.
+ centos 기준 어떤 특정머신에 이슈가 있을때 가장 자주 쳐보는 명령어
+journalctl -xf unit 옵션을 주어서 kubelet 로그만 확인한다.
+journalctl -xfu kubelet k8s 머신장애 상황 or not ready 인 상태에서 kubelet 로그들이 가장 활발한 활동을 보여준다.
+당연한 이야기이지만 SRE나 인프라 책임이라면 장애시 필요한 로그를 빠르게 확인할 수 있어야한다. 오늘 포스팅에서는 쿠버네티스 클러스터에서 항상 중요 로그를 쏟아내는 kubelet과 그 로그에 종종볼수 있는 PLEG라는 것의 실체를 가볍게 확인해본다.
+
+        
+            <a href="https://aidanbae.github.io/code/devops/k8s/pleg/" class="more">Continue reading</a>
+        
+    
+</div>
+
+    
+<div class="footer">
+
+
+    
+        <div class="tags">
+            <i class="fa fa-tags"></i>
+            <div class="links">
+                
+                    <a href="https://aidanbae.github.io/tags/k8s">k8s</a>
+                
+                    <a href="https://aidanbae.github.io/tags/debug">debug</a>
+                
+            </div>
+        </div>
+    
+
+    
+</div>
+
+</article>
+
+            
+        </div>
+    
+        <div class="article-wrapper u-cf">
+            
                 <a class="bubble" href="https://aidanbae.github.io/code/devops/k8s/header/">
     <i class="fa fa-fw fa-code"></i>
 </a>
@@ -561,91 +635,6 @@ MSA에 대한 이해가 한번에 되는 발표영상이다.
             
         </div>
     
-        <div class="article-wrapper u-cf">
-            
-                <a class="bubble" href="https://aidanbae.github.io/code/golang/validator/">
-    <i class="fa fa-fw fa-code"></i>
-</a>
-
-<article class="default article">
-    
-    <div class="featured-image">
-        <a href="https://aidanbae.github.io/code/golang/validator/">
-            
-                <img src="https://aidanbae.github.io/code/golang/validator/featuredImage_hucf0550b6c4a4c11007738374e0fb9e2f_153219_700x350_fill_q95_box_smart1.jpg" alt="">
-            
-        </a>
-    </div>
-
-
-    <div class="content">
-    <h3><a href="https://aidanbae.github.io/code/golang/validator/">Golang 결제검증서버 구현 - Validator 디자인</a></h3>
-    <div class="meta">
-        
-            
-                <span class="date moment">2018-09-07</span>
-            
-        
-
-        
-
-        
-            <span class="categories">
-                
-                    <a href="https://aidanbae.github.io/categories/code">Code</a>
-                
-                    <a href="https://aidanbae.github.io/categories/golang">Golang</a>
-                
-                    <a href="https://aidanbae.github.io/categories/server">Server</a>
-                
-            </span>
-        
-
-        
-            <span class="author"><a href="https://aidanbae.github.io/author/aidan.bae">Aidan.bae</a></span>
-        
-    </div>
-
-    
-        Intro 결제 와 관련된 정보는 고객 입장에서도 회사 입장에서도 매우 중요한 정보이다.
-타사(구글, 페이스북, 샘성)의 결제모듈을 활용한다면 그 절차 사이사이의 검증과 기록은 결제검증서버가 해야할 필수적인 부분- 이번에 페이스북으로 글로벌 게임서버 런칭을 진행하면서 페이스북 결제를 활용해 돈방석에 앉아보기로 팀방향이 결정되었고(제발~)
-우리 서버팀은 그 돈방석의 영수증 역할을 할 결제검증서버를 구현하게되었다.
-이전에 불확실성을 줄이기위해 방명록을 간단하게 만들어보면서 orm프레임워크, mariadb 등을 확인했었고 그 연장선에서 이번 검증서버 프로젝트는 xorm과 web framework는 gin을 활용하기로 했다.
- Point 결제 쪽에 자신감이 넘치는 팀장님이 명확한 로직을 제시해주었기때문에 코딩은 어렵지 않았다.
-
-        
-            <a href="https://aidanbae.github.io/code/golang/validator/" class="more">Continue reading</a>
-        
-    
-</div>
-
-    
-<div class="footer">
-
-
-    
-        <div class="tags">
-            <i class="fa fa-tags"></i>
-            <div class="links">
-                
-                    <a href="https://aidanbae.github.io/tags/golang">golang</a>
-                
-                    <a href="https://aidanbae.github.io/tags/interface">interface</a>
-                
-                    <a href="https://aidanbae.github.io/tags/validate">validate</a>
-                
-            </div>
-        </div>
-    
-
-    
-</div>
-
-</article>
-
-            
-        </div>
-    
 
     
     <div class="paginator">
@@ -670,6 +659,10 @@ MSA에 대한 이해가 한번에 되는 발표영상이다.
                 <ul>
                 
                     <li>
+                        <a href="https://aidanbae.github.io/code/devops/k8s/pleg/">PLEG(Pod LifeCycle Event Generator)와 kubelet</a>
+                    </li>
+                
+                    <li>
                         <a href="https://aidanbae.github.io/code/devops/bazel/">bazel 빌드</a>
                     </li>
                 
@@ -687,10 +680,6 @@ MSA에 대한 이해가 한번에 되는 발표영상이다.
                 
                     <li>
                         <a href="https://aidanbae.github.io/audio/2020/">2019-2020시즌</a>
-                    </li>
-                
-                    <li>
-                        <a href="https://aidanbae.github.io/code/devops/k8s/header/">envoy와 x-forwarded-proto 헤더 이슈</a>
                     </li>
                 
                 </ul>
@@ -719,15 +708,15 @@ MSA에 대한 이해가 한번에 되는 발표영상이다.
                     </li>
                 
                     <li>
+                        <a href="https://aidanbae.github.io/categories/devops">Devops (13)</a>
+                    </li>
+                
+                    <li>
+                        <a href="https://aidanbae.github.io/categories/server">Server (13)</a>
+                    </li>
+                
+                    <li>
                         <a href="https://aidanbae.github.io/categories/smalltalk">Smalltalk (13)</a>
-                    </li>
-                
-                    <li>
-                        <a href="https://aidanbae.github.io/categories/devops">Devops (12)</a>
-                    </li>
-                
-                    <li>
-                        <a href="https://aidanbae.github.io/categories/server">Server (12)</a>
                     </li>
                 
             </ul>

@@ -89,6 +89,80 @@
     
         <div class="article-wrapper u-cf">
             
+                <a class="bubble" href="https://aidanbae.github.io/code/devops/k8s/pleg/">
+    <i class="fa fa-fw fa-code"></i>
+</a>
+
+<article class="default article">
+    
+
+    <div class="content">
+    <h3><a href="https://aidanbae.github.io/code/devops/k8s/pleg/">PLEG(Pod LifeCycle Event Generator)와 kubelet</a></h3>
+    <div class="meta">
+        
+            
+                <span class="date moment">2020-08-01</span>
+            
+        
+
+        
+
+        
+            <span class="categories">
+                
+                    <a href="https://aidanbae.github.io/categories/server">Server</a>
+                
+                    <a href="https://aidanbae.github.io/categories/devops">DevOps</a>
+                
+            </span>
+        
+
+        
+            <span class="author"><a href="https://aidanbae.github.io/author/aidan.bae">Aidan.bae</a></span>
+        
+    </div>
+
+    
+        kubelet architecture 출처: https://programmer.help/blogs/kubelet-source-code-analysis-startup.html
+그림처럼 kubelet에는 다양한 컴포넌트들이 하위 고루틴으로 돌아가고있다.
+ centos 기준 어떤 특정머신에 이슈가 있을때 가장 자주 쳐보는 명령어
+journalctl -xf unit 옵션을 주어서 kubelet 로그만 확인한다.
+journalctl -xfu kubelet k8s 머신장애 상황 or not ready 인 상태에서 kubelet 로그들이 가장 활발한 활동을 보여준다.
+당연한 이야기이지만 SRE나 인프라 책임이라면 장애시 필요한 로그를 빠르게 확인할 수 있어야한다. 오늘 포스팅에서는 쿠버네티스 클러스터에서 항상 중요 로그를 쏟아내는 kubelet과 그 로그에 종종볼수 있는 PLEG라는 것의 실체를 가볍게 확인해본다.
+
+        
+            <a href="https://aidanbae.github.io/code/devops/k8s/pleg/" class="more">Continue reading</a>
+        
+    
+</div>
+
+    
+<div class="footer">
+
+
+    
+        <div class="tags">
+            <i class="fa fa-tags"></i>
+            <div class="links">
+                
+                    <a href="https://aidanbae.github.io/tags/k8s">k8s</a>
+                
+                    <a href="https://aidanbae.github.io/tags/debug">debug</a>
+                
+            </div>
+        </div>
+    
+
+    
+</div>
+
+</article>
+
+            
+        </div>
+    
+        <div class="article-wrapper u-cf">
+            
                 <a class="bubble" href="https://aidanbae.github.io/code/devops/k8s/istio-mixer-debug/">
     <i class="fa fa-fw fa-code"></i>
 </a>
@@ -183,6 +257,10 @@ istio는 쿠버네티스 대시보드처럼 손쉽게 istio의 현재 상태와 
                 <ul>
                 
                     <li>
+                        <a href="https://aidanbae.github.io/code/devops/k8s/pleg/">PLEG(Pod LifeCycle Event Generator)와 kubelet</a>
+                    </li>
+                
+                    <li>
                         <a href="https://aidanbae.github.io/code/devops/bazel/">bazel 빌드</a>
                     </li>
                 
@@ -200,10 +278,6 @@ istio는 쿠버네티스 대시보드처럼 손쉽게 istio의 현재 상태와 
                 
                     <li>
                         <a href="https://aidanbae.github.io/audio/2020/">2019-2020시즌</a>
-                    </li>
-                
-                    <li>
-                        <a href="https://aidanbae.github.io/code/devops/k8s/header/">envoy와 x-forwarded-proto 헤더 이슈</a>
                     </li>
                 
                 </ul>
@@ -232,15 +306,15 @@ istio는 쿠버네티스 대시보드처럼 손쉽게 istio의 현재 상태와 
                     </li>
                 
                     <li>
+                        <a href="https://aidanbae.github.io/categories/devops">Devops (13)</a>
+                    </li>
+                
+                    <li>
+                        <a href="https://aidanbae.github.io/categories/server">Server (13)</a>
+                    </li>
+                
+                    <li>
                         <a href="https://aidanbae.github.io/categories/smalltalk">Smalltalk (13)</a>
-                    </li>
-                
-                    <li>
-                        <a href="https://aidanbae.github.io/categories/devops">Devops (12)</a>
-                    </li>
-                
-                    <li>
-                        <a href="https://aidanbae.github.io/categories/server">Server (12)</a>
                     </li>
                 
             </ul>

@@ -131,241 +131,13 @@
     </div>
 
     
-        <p>오늘은 컴퓨터과학의 꽃, 알고리즘의 인트로에 늘 나오는 <strong>빅오표기법</strong>에 대해서 이야기해보고자한다!
-+_ +</p>
-<p>대학생 때, 삼성SCSS 덕분에 컴퓨터과학을 늦게 접하면서 시립대에서 김진석 교수님 알고리즘 수업을 야간에 들었었는데 <code>컴퓨터과학 전공자와 비전공자를 나누는 기준이 알고리즘</code>이며 <code>알고리즘의 효율성을 판별하는 빅오표기법은 매우 중요해요</code>라고 콕 찦어 말하신게 기억에 남는다.</p>
-<p>스타트업에 있을 때는 되게하는데 바빠 빅오표기법을 고민한 적이 없었고,
-현업에 들어와서 게임프로그래밍을 하며 알고리즘의 효율성, 뎁스를 줄이기 위한 고민을 했을 뿐 정확하게 빅오표기법으로 얼마다하며 팀장님을 설득한 적이 없다.</p>
-<p>백엔드 프로젝트를 몇개씩 진행하면서 느낌으로 이런 가변적인 input이라면 최악의 상황을 고려했을 때 map으로 하는게 낫겟다. stack으로 하는게 났겠다 등의 센스는 늘었지만 정확한 정리가 필요할 거 같아서 이번 기회에 정리를 해보았다.</p>
-<hr>
-<h4 id="big-o">빅오(Big O)표기법</h4>
-<p>빅오표기법은 알고리즘이 걸리는데 필요한 시간의 수학적인 표현이라고 할 수 있습니다.<br>
-일반적으로 <strong>최악의 시나리오를 상정했을 때의 복잡도</strong>를 의미합니다.</p>
-<h4 id="-">왜 자바스크립트?</h4>
-<p>물론 알고리즘 쪽에서는 c++이나 java가 가장 대중적이다.<br>
-친한 동생이 카카오 블라인드 테스트에서 나에게 질문한게 자바스크립트, 지금도 사용하고있는 나의 주력 언어이기 때문에 이기회에 같이 정리해보고자한다.</p>
-<h4 id="-1">내장함수와 알고리즘</h4>
-<p>서비스 쪽에 익숙해지다보면 편한 내장 함수들이 많아<br>
-효율성보다 가독성으로 아름답게 문제를 해결하고자 하는 경우가 생긴다.
-아래의 경우를 살펴보자</p>
-<p>아래는 동아리 동생 섭이가 이번 2018 카카오 블라인드 문제를 풀면서<br>
-몇몇 케이스에서 시간초과가 난다며 나에게 문의한 코드이다.</p>
-<pre><code>record.map((txt) =&gt; {
-        const states = {
-            action: txt.split(' ')[0],
-            userId: txt.split(' ')[1],
-            userNick: txt.split(' ')[2],
-        };
+        오늘은 컴퓨터과학의 꽃, 알고리즘의 인트로에 늘 나오는 빅오표기법에 대해서 이야기해보고자한다! +_ +
+대학생 때, 삼성SCSS 덕분에 컴퓨터과학을 늦게 접하면서 시립대에서 김진석 교수님 알고리즘 수업을 야간에 들었었는데 컴퓨터과학 전공자와 비전공자를 나누는 기준이 알고리즘이며 알고리즘의 효율성을 판별하는 빅오표기법은 매우 중요해요라고 콕 찦어 말하신게 기억에 남는다.
+스타트업에 있을 때는 되게하는데 바빠 빅오표기법을 고민한 적이 없었고, 현업에 들어와서 게임프로그래밍을 하며 알고리즘의 효율성, 뎁스를 줄이기 위한 고민을 했을 뿐 정확하게 빅오표기법으로 얼마다하며 팀장님을 설득한 적이 없다.
 
-        if(states.action === 'Enter') {
-            addUser(states.userId, states.userNick);    
-        }
-        if(states.action === 'Change') {
-            changeUserNick(states.userId, states.userNick);
-        };
-
-        newRecord.push(states);
-    });
-</code></pre><p>일단 어떤문제인지 모르는 상태에서 보아도 불편한 부분이 조금 보인다.<br>
-하나씩 살펴보면서 간이 코드리뷰를 해보겠다. (코드공개를 허락해주신 섭섭이에게 감사의 말씀 전합니다)</p>
-<h5 id="1-arrayprototypemap-">1. Array.prototype.map 내장함수</h5>
-<p>record라는 array를 builtin method <code>map</code>으로 호출한다.</p>
-<pre><code>map은 es6에 추가된 array메소드
-내부를 순환하면서  
-콜백함수에서 리턴된 값으로  
-새로운 배열을 반환한다.  
-</code></pre>
-<p>게임 쪽에 있다보니 새로운 배열을 만드는 map을 메모리관리상 안 좋게 보아서 사용한 적이 거의없었고 이 기회에 확실히 보고간다.
-위 코드는 return값이 없는 콜백함수를 품고 있고 forEach문을 통해 충분히 할 수 있다.
-새로 만들어진 array를 활용하고 있지도 않다.
-만약 map을 활용한다면 아래처럼 새로운 배열을 사용하는 로직이어야한다:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">newRecord</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">record</span>.<span style="color:#a6e22e">map</span>((<span style="color:#a6e22e">txt</span>) =&gt; {
-  <span style="color:#75715e">//...
-</span><span style="color:#75715e"></span>  <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">states</span>
-  })
-</code></pre></div><h5 id="2-stringsplit">2. string.split()</h5>
-<p>string의 split은 builtin 메소드로 내부적으로 살펴보면 string을 순회하면서 공백으로 분리하는 작업을 하고 있을 것이다.
-전체적으로 보면 map이라는 반복문 안에 split이라는 반복문이다.
-심지어 변수 하나당 한번씩 3번 호출하고있다.</p>
-<pre><code>const states = {
-            action: txt.split(' ')[0],
-            userId: txt.split(' ')[1],
-            userNick: txt.split(' ')[2],
-        };
-// ...
-retunr states
-</code></pre><p>수정:</p>
-<pre><code>const splited = txt.split(' ')
-const states = {
-           action: splited[0],
-           userId: splited[1],
-           userNick: splited[2],
-       };
-// ...
-return states
-</code></pre><p>함수 호출(<code>()</code>)은 늘 신중하게!</p>
-<h5 id="3-adduser-changeusernick----">3. addUser, changeUserNick 함수가 무슨 일을 할까?</h5>
-<p>벌써 두렵다.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">addUser</span> <span style="color:#f92672">=</span> (<span style="color:#a6e22e">userId</span>, <span style="color:#a6e22e">userNick</span>) =&gt; {
-      <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">hasData</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">users</span>.<span style="color:#a6e22e">find</span>((<span style="color:#a6e22e">user</span>) =&gt; {
-          <span style="color:#66d9ef">if</span>(<span style="color:#a6e22e">userId</span> <span style="color:#f92672">===</span> <span style="color:#a6e22e">user</span>.<span style="color:#a6e22e">userId</span>) {
-              <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">true</span>;
-          } <span style="color:#66d9ef">else</span> {
-              <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">false</span>;
-          }
-      });
-
-      <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">isNickChanged</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">users</span>.<span style="color:#a6e22e">find</span>((<span style="color:#a6e22e">user</span>) =&gt; {
-          <span style="color:#66d9ef">if</span>(<span style="color:#a6e22e">userId</span> <span style="color:#f92672">===</span> <span style="color:#a6e22e">user</span>.<span style="color:#a6e22e">userId</span> <span style="color:#f92672">&amp;&amp;</span> <span style="color:#a6e22e">userNick</span> <span style="color:#f92672">!==</span> <span style="color:#a6e22e">user</span>.<span style="color:#a6e22e">userNick</span>) {
-              <span style="color:#75715e">// 바꼈으면 최종으로 바꾸기
-</span><span style="color:#75715e"></span>              <span style="color:#a6e22e">user</span>.<span style="color:#a6e22e">userNick</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">userNick</span>;
-          }
-      });
-
-      <span style="color:#66d9ef">if</span>(<span style="color:#f92672">!</span><span style="color:#a6e22e">hasData</span>) {
-          <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">newUser</span> <span style="color:#f92672">=</span> {
-              <span style="color:#a6e22e">userId</span>,
-              <span style="color:#a6e22e">userNick</span>
-          };
-          <span style="color:#a6e22e">users</span>.<span style="color:#a6e22e">push</span>(<span style="color:#a6e22e">newUser</span>);
-      }
-  }
-</code></pre></div><p>순회문에서 함수호출은 늘 주의해야한다.<br>
-우려한대로 내부순환 메소드가 있다.<br>
-find가 두 번 호출되었는데, 하나는 유저탐색, 하나는 닉네임이 바뀌었는가에 대한 내용.<br>
-find method는 주어진 콜백함수에서 true가 반환되는 케이스의 아이템을 반환한다.<br>
-여담으로 hasData라는 변수에는 user라는 객체가 들어있을 것이 분명하며 hasData라는 변수명은 어울리지않는다.
-결국 record.map 함수를 호출해 순환하면서
-record와 user라는 array data가 가변적이라고할때 최악의 상황에는 O(N^3)까지 치솟는 케이스이다.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">changeUserNick</span> <span style="color:#f92672">=</span> (<span style="color:#a6e22e">userId</span>, <span style="color:#a6e22e">userNick</span>) =&gt; {
-      <span style="color:#a6e22e">users</span>.<span style="color:#a6e22e">map</span>((<span style="color:#a6e22e">user</span>) =&gt; {
-          <span style="color:#66d9ef">if</span>(<span style="color:#a6e22e">user</span>.<span style="color:#a6e22e">userId</span> <span style="color:#f92672">===</span> <span style="color:#a6e22e">userId</span>) {
-              <span style="color:#a6e22e">user</span>.<span style="color:#a6e22e">userNick</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">userNick</span>;
-          }
-      });
-  }
-
-</code></pre></div><p>이부분은 위에서 말한 것과 비슷하다. 이중 반복문이며 불필요한 배열이 생성된다. 그만큼 GC가 처리해야할 쓰레기양도 늘어난다.</p>
-<p>시간초과가 난 것을 생각해보면 target array의 길이가 긴 테스트 케이스가 있는 것이 분명하고<br>
-해시 알고리즘이 정답에 가까운 풀이방법일 가능성이 높은 것 같다.</p>
-<p>이 코드를 보고 동생에게
-time-complexity-of-javascripts-built-in-methods 라는 블로그글을 소개해줬다.
-<a href="https://www.pdiniz.com/time-complexity-of-javascripts-built-in-methods/">https://www.pdiniz.com/time-complexity-of-javascripts-built-in-methods/</a></p>
-<p>내장 함수들을 알고리즘에서 사용할려면 각각의 메소드가 어떤 방식으로 동작하는지 정확히 알 필요가 있다.
-find, findIndex, map, forEach, indexOf 등의 array메소드들은 모두 해당 배열을 앞단부터 순회하는 케이스가 많다.
-이는 Target Array의 길이가 길어질수록 탐색의 빅오는 최악의 경우 O(N)이다.<br>
-알고리즘 대회는 보통 테스트통과뿐만아니라 시간초과라는 효율성 검사도 있기때문에
-이를 남용할 경우, 통과에 실패할 수 밖에 없다.</p>
-<hr>
-<h4 id="big-o-in-javascript">Big O in javascript</h4>
-<p>지금부터 쓸내용은 단순히 자바스크립트에만 해당되는 내용은 아니다.</p>
-<h4 id="o1--">O(1) 인 경우</h4>
-<p>Array.prototype.pop 같이 특정 배열의 위치의 녀석을 가져오는 경우.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">dummyArray</span> <span style="color:#f92672">=</span> [<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">3</span>, <span style="color:#ae81ff">4</span>];
-<span style="color:#a6e22e">dummyArray</span>.<span style="color:#a6e22e">pop</span>() <span style="color:#75715e">// 4
-</span></code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">dummyArray</span> <span style="color:#f92672">=</span> [<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">3</span>, <span style="color:#ae81ff">4</span>];
-<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">getLast</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">items</span> =&gt;
-  <span style="color:#a6e22e">items</span>[<span style="color:#a6e22e">items</span>.<span style="color:#a6e22e">length</span><span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>];
-
-<span style="color:#a6e22e">getLast</span>(<span style="color:#a6e22e">dummyArray</span>) <span style="color:#75715e">// 4
-</span></code></pre></div><h4 id="on--">O(N) 인 경우</h4>
-<p>Linear-Time Algorithm으로 불리는 케이스들이 그것이다. N개의 요소에 대해 선형적으로 순회하는 메소드들이 이에 해당한다. 최악의 경우 N개를 다 순회해야하는 것!</p>
-<p>대표적인 예로 Array.prototype.indexOf 메소드</p>
-<p>사실 내부에서 하는 일들이 복잡하겠지만 간단하게 풀면 아래와 같다:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript">Array.<span style="color:#a6e22e">prototype</span>.<span style="color:#a6e22e">indexOf</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">function</span> (<span style="color:#a6e22e">element</span>){
-  <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">var</span> <span style="color:#a6e22e">x</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>, <span style="color:#a6e22e">count</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">length</span>; <span style="color:#a6e22e">x</span> <span style="color:#f92672">&lt;</span> <span style="color:#a6e22e">count</span>; <span style="color:#a6e22e">x</span><span style="color:#f92672">++</span>){
-    <span style="color:#66d9ef">if</span>(<span style="color:#66d9ef">this</span>[<span style="color:#a6e22e">x</span>] <span style="color:#f92672">===</span> <span style="color:#a6e22e">element</span>){
-      <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">x</span>;
-    }
-  }
-  <span style="color:#66d9ef">return</span> <span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>;
-};
-</code></pre></div><p>대상 배열의 길이만 큼 순회하면서 인자로 들어온 element와 순회녀석을 비교한다. 만약 최악의 경우, 찾으려는 녀석이 배열의 마지막에 있다면 array의 길이만큼 탐색해야하는 불상사가 일어난다.</p>
-<p>indexOf 내부동작 빅오에 대한 참고자료<br>
-<a href="https://stackoverflow.com/questions/19287033/what-is-the-time-complexity-of-javascripts-array-indexof">https://stackoverflow.com/questions/19287033/what-is-the-time-complexity-of-javascripts-array-indexof</a></p>
-<p>Array.prototype.slice 처럼 배열을 복사를 하는 경우도 그렇다.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript">Array.<span style="color:#a6e22e">prototype</span>.<span style="color:#a6e22e">slice</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">function</span> (<span style="color:#a6e22e">begin</span>){
-  <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">newArray</span> <span style="color:#f92672">=</span> [];
-  <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">var</span> <span style="color:#a6e22e">x</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">begin</span>, <span style="color:#a6e22e">count</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">length</span>; <span style="color:#a6e22e">x</span> <span style="color:#f92672">&lt;</span> <span style="color:#a6e22e">count</span>; <span style="color:#a6e22e">x</span><span style="color:#f92672">++</span>){
-    <span style="color:#a6e22e">newArray</span>.<span style="color:#a6e22e">push</span>(<span style="color:#66d9ef">this</span>[<span style="color:#a6e22e">x</span>]);
-  }
-  <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">newArray</span>
-};
-</code></pre></div><p>내부를 다 돌면서 새로운 배열에 push작업을 하기때문</p>
-<h4 id="on2--">O(N^2) 인 경우</h4>
-<p>빅오가 N의 제곱인 경우는 대표적으로 2중 반복문을 탐색하는 경우를 들 수 잇따.</p>
-<p>이글의 앞부분에서 이야기한 map메소드에서 find를 호출한 케이스도 여기에 해당한다.<br>
-2중 반복문으로 매트릭스 만들기:</p>
-<pre><code>const buildMatrix = (n) =&gt; {
-  var matrix = new Array(n);
-  for (var i = 0; i &lt; n; i++) {
-      var cols = new Array(n);
-      matrix[i] = cols;
-      for (var j = 0; j &lt; n; j++) {
-        cols[j] = j
-      }
-  }
-  return matrix
-}
-</code></pre><h4 id="ologn--">O(logN) 인 경우</h4>
-<p>Logarithmic Complexity라고 불리는 이 복잡도는 데이터가 커지면 커질수록 효율이 극대화되는 케이스이다. 보통 이런 효율적인 복잡도를 가질려면 데이터가 정렬이 되어야되는 케이스가 많다.<br>
-이들은 검색/정렬 알고리즘의 꽃이며 보통 대규모 컬렉션을 처리할 때 가장 효율적인 방법이다.
-대표적인 예로 이진탐색(binary search), 퀵정렬, 병합정렬 등이 있다</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">FindItemBinarySearch</span>(<span style="color:#a6e22e">items</span>, <span style="color:#a6e22e">match</span>) {
-      <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">low</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>,
-          <span style="color:#a6e22e">high</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">items</span>.<span style="color:#a6e22e">length</span> <span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>;
-
-      <span style="color:#66d9ef">while</span> (<span style="color:#a6e22e">low</span> <span style="color:#f92672">&lt;=</span> <span style="color:#a6e22e">high</span>) {
-          <span style="color:#a6e22e">mid</span> <span style="color:#f92672">=</span> parseInt((<span style="color:#a6e22e">low</span> <span style="color:#f92672">+</span> <span style="color:#a6e22e">high</span>) <span style="color:#f92672">/</span> <span style="color:#ae81ff">2</span>);
-
-           <span style="color:#a6e22e">current</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">items</span>[<span style="color:#a6e22e">mid</span>];
-
-          <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">current</span> <span style="color:#f92672">&gt;</span> <span style="color:#a6e22e">match</span>) {
-             <span style="color:#a6e22e">high</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">mid</span> <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>;
-           } <span style="color:#66d9ef">else</span> <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">current</span> <span style="color:#f92672">&lt;</span> <span style="color:#a6e22e">match</span>) {
-              <span style="color:#a6e22e">low</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">mid</span> <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>;
-            } <span style="color:#66d9ef">else</span> {
-              <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">mid</span>;
-           }   
-      }       
-
-      <span style="color:#66d9ef">return</span> <span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>;
-  }
-
-</code></pre></div><p>퀵정렬:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">quickSort</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">list</span> =&gt; {
-  <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">list</span>.<span style="color:#a6e22e">length</span> <span style="color:#f92672">&lt;</span> <span style="color:#ae81ff">2</span>)
-    <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">list</span>;
-  <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">pivot</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">list</span>[<span style="color:#ae81ff">0</span>];
-  <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">left</span>  <span style="color:#f92672">=</span> [];
-  <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">right</span> <span style="color:#f92672">=</span> [];
-  <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">let</span> <span style="color:#a6e22e">i</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>, <span style="color:#a6e22e">total</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">list</span>.<span style="color:#a6e22e">length</span>; <span style="color:#a6e22e">i</span> <span style="color:#f92672">&lt;</span> <span style="color:#a6e22e">total</span>; <span style="color:#a6e22e">i</span><span style="color:#f92672">++</span>){
-    <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">list</span>[<span style="color:#a6e22e">i</span>] <span style="color:#f92672">&lt;</span> <span style="color:#a6e22e">pivot</span>)
-      <span style="color:#a6e22e">left</span>.<span style="color:#a6e22e">push</span>(<span style="color:#a6e22e">list</span>[<span style="color:#a6e22e">i</span>]);
-    <span style="color:#66d9ef">else</span>
-      <span style="color:#a6e22e">right</span>.<span style="color:#a6e22e">push</span>(<span style="color:#a6e22e">list</span>[<span style="color:#a6e22e">i</span>]);
-  }
-  <span style="color:#66d9ef">return</span> [
-    ...<span style="color:#a6e22e">quickSort</span>(<span style="color:#a6e22e">left</span>),
-    <span style="color:#a6e22e">pivot</span>,
-    ...<span style="color:#a6e22e">quickSort</span>(<span style="color:#a6e22e">right</span>)
-  ];
-};
-
-<span style="color:#a6e22e">quickSort</span>([<span style="color:#ae81ff">1</span>,<span style="color:#ae81ff">2</span>,<span style="color:#ae81ff">999</span>,<span style="color:#ae81ff">3</span>,<span style="color:#ae81ff">4</span>,<span style="color:#ae81ff">56</span>,<span style="color:#ae81ff">77</span>,<span style="color:#ae81ff">8</span>,<span style="color:#ae81ff">9</span>,<span style="color:#ae81ff">123</span>])
-<span style="color:#75715e">// [1,2,3,4,7,8,56,77,123,999]
-</span></code></pre></div><p><img src="screenshot.png" alt="빅오 복잡도 차트"></p>
-<h4 id="heading">마무리</h4>
-<p>어떤 언어든지 내가 어떤 내장함수를 사용한다면
-<strong>잘</strong> 사용하기 위해서 내부적으로 어떻게 동작하는지 어느정도 알아둬야겠다. 빅오 정도도 확실히 알아둔다면 더 좋다.</p>
-<p>해시 테이블 알고리즘의 경우, 탐색이 거의 O(1)이다. 충돌에 따른 리맵핑이 있을 수 있다. 메모리를 많이 먹지만 그만큼 효율적이다.</p>
-<p>알고리즘 대회를 준비하거나 대규모 컬렉션 데이터를 다루는 쪽에서 일하게 된다면 정렬 공부를 좀더 확실히 해야한다. 아직 부족한 부분이 정말 많다. 이 블로그를 하면서 차근차근 실력이 쌓였으면 좋겠다.</p>
-<p>참고자료<br>
-<a href="https://www.reddit.com/r/learnjavascript/comments/4p968g/what_is_the_time_complexity_of_foreach_of_slice/">https://www.reddit.com/r/learnjavascript/comments/4p968g/what_is_the_time_complexity_of_foreach_of_slice/</a> 
-<a href="https://www.pdiniz.com/time-complexity-of-javascripts-built-in-methods/">https://www.pdiniz.com/time-complexity-of-javascripts-built-in-methods/</a> 
-<a href="http://www.bradoncode.com/blog/2012/04/big-o-algorithm-examples-in-javascript.html">http://www.bradoncode.com/blog/2012/04/big-o-algorithm-examples-in-javascript.html</a> 
-<a href="https://www.coengoedegebure.com/understanding-big-o-notation/">https://www.coengoedegebure.com/understanding-big-o-notation/</a></p>
-
+        
+            <a href="https://aidanbae.github.io/code/algorithm/bigo/" class="more">Continue reading</a>
+        
     
 </div>
 
@@ -422,6 +194,10 @@ find, findIndex, map, forEach, indexOf 등의 array메소드들은 모두 해당
                 <ul>
                 
                     <li>
+                        <a href="https://aidanbae.github.io/code/devops/k8s/pleg/">PLEG(Pod LifeCycle Event Generator)와 kubelet</a>
+                    </li>
+                
+                    <li>
                         <a href="https://aidanbae.github.io/code/devops/bazel/">bazel 빌드</a>
                     </li>
                 
@@ -439,10 +215,6 @@ find, findIndex, map, forEach, indexOf 등의 array메소드들은 모두 해당
                 
                     <li>
                         <a href="https://aidanbae.github.io/audio/2020/">2019-2020시즌</a>
-                    </li>
-                
-                    <li>
-                        <a href="https://aidanbae.github.io/code/devops/k8s/header/">envoy와 x-forwarded-proto 헤더 이슈</a>
                     </li>
                 
                 </ul>
@@ -471,15 +243,15 @@ find, findIndex, map, forEach, indexOf 등의 array메소드들은 모두 해당
                     </li>
                 
                     <li>
+                        <a href="https://aidanbae.github.io/categories/devops">Devops (13)</a>
+                    </li>
+                
+                    <li>
+                        <a href="https://aidanbae.github.io/categories/server">Server (13)</a>
+                    </li>
+                
+                    <li>
                         <a href="https://aidanbae.github.io/categories/smalltalk">Smalltalk (13)</a>
-                    </li>
-                
-                    <li>
-                        <a href="https://aidanbae.github.io/categories/devops">Devops (12)</a>
-                    </li>
-                
-                    <li>
-                        <a href="https://aidanbae.github.io/categories/server">Server (12)</a>
                     </li>
                 
             </ul>

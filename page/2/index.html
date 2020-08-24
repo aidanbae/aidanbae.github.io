@@ -94,6 +94,82 @@
         
     <div class="article-wrapper u-cf">
         
+            <a class="bubble" href="https://aidanbae.github.io/code/devops/k8s/istio-mixer-debug/">
+    <i class="fa fa-fw fa-code"></i>
+</a>
+
+<article class="default article">
+    
+
+    <div class="content">
+    <h3><a href="https://aidanbae.github.io/code/devops/k8s/istio-mixer-debug/">istio debug를 위한 controlZ 활용</a></h3>
+    <div class="meta">
+        
+            
+                <span class="date moment">2019-11-30</span>
+            
+        
+
+        
+
+        
+            <span class="categories">
+                
+                    <a href="https://aidanbae.github.io/categories/server">Server</a>
+                
+                    <a href="https://aidanbae.github.io/categories/devops">DevOps</a>
+                
+            </span>
+        
+
+        
+            <span class="author"><a href="https://aidanbae.github.io/author/aidan.bae">Aidan.bae</a></span>
+        
+    </div>
+
+    
+        istio의 mixer는 서비스에 대한 원격 분석등의 수집을 도와주는 유연한 모델이다. 서비스 옆에 붙어 있는 istio-proxy들의 수집되는 정보들을 mixer를 통해 파이프라이닝 할 수 있다.
+그림처럼 adapter api를 사용하기 때문에 다양한 어댑터를 사용해 확장성과 유연성을 다 갖춘 모델이다.
+istio 믹서에 문제가 생긴다면 서비스에 대한 수집 정보들에 영향이 생길 수 있다. 그러므로 특정 서비스에 라우팅이 안되고 모니터링상 이슈가 없었다면 로그나 수집 데이터를 생성, 운반하는 믹서에 이슈가 있는지 확인해보아야한다.
+istio는 쿠버네티스 대시보드처럼 손쉽게 istio의 현재 상태와 스코프 기능을 제공하는 controlZ라는 서비스를 제공하고있다.
+
+        
+            <a href="https://aidanbae.github.io/code/devops/k8s/istio-mixer-debug/" class="more">Continue reading</a>
+        
+    
+</div>
+
+    
+<div class="footer">
+
+
+    
+        <div class="tags">
+            <i class="fa fa-tags"></i>
+            <div class="links">
+                
+                    <a href="https://aidanbae.github.io/tags/istio">istio</a>
+                
+                    <a href="https://aidanbae.github.io/tags/mixer">mixer</a>
+                
+                    <a href="https://aidanbae.github.io/tags/debug">debug</a>
+                
+            </div>
+        </div>
+    
+
+    
+</div>
+
+</article>
+
+        
+    </div>
+
+    
+        
+    <div class="article-wrapper u-cf">
+        
             <a class="bubble" href="https://aidanbae.github.io/article/book/time/">
     <i class="fa fa-fw fa-pencil"></i>
 </a>
@@ -498,96 +574,6 @@ creating이 되기 위해선 피드백을 통한 생각의 수정이 필요하�
     </div>
 
     
-        
-    <div class="article-wrapper u-cf">
-        
-            
-<a class="bubble" href="https://aidanbae.github.io/video/study/msa/">
-    <i class="fa fa-fw fa-video-camera"></i>
-</a>
-
-<article class="video">
-    
-
-
-    
-        <div class="responsive-video youtube">
-            <iframe src="https://www.youtube-nocookie.com/embed/xdqOxF2JqwU?rel=0" frameborder="0" allowfullscreen></iframe>
-        </div>
-    
-    
-
-    <div class="content">
-    <h3><a href="https://aidanbae.github.io/video/study/msa/">MSA &amp; kubernetes</a></h3>
-    <div class="meta">
-        
-            
-                <span class="date moment">2019-05-19</span>
-            
-        
-
-        
-
-        
-            <span class="categories">
-                
-                    <a href="https://aidanbae.github.io/categories/devops">DevOps</a>
-                
-                    <a href="https://aidanbae.github.io/categories/server">Server</a>
-                
-            </span>
-        
-
-        
-            <span class="author"><a href="https://aidanbae.github.io/author/aidan.bae">Aidan.bae</a></span>
-        
-    </div>
-
-    
-        2016년 12월 발표자료이긴한데
-MSA에 대한 이해가 한번에 되는 발표영상이다.
-요즘 MSA에 대해 물어보는 동생들이 있어서 바로 추천해주는 영상!
-인상적이었던 부분 인상적이었던 부분은 MSA와 팀모델에 대해 설명하는 부분이다.
- 컨웨이의 법칙
-“소프트웨어의 구조는 그 소프트웨어를 만드는 팀의 구조와 일치한다.”
- &lsquo;팀의 구조??&rsquo; 조대협님 왈: 개발 설계 백날 잘해봐야 소용없음 제대로된 팀 구조를 만드는 것이 설계 그다음은 알아서 됨
-정말 크게 와닿는다. 게임즈에서는 서버팀이 혼자였기때문에 설계를 모노리틱하게 설계한 것도 있음.
-하지만 서버팀이 인원이 늘었을 때도 모노리틱한 구조로 1인1프로젝트가 굉장히 불편했던 것은 맞다.
-
-        
-            <a href="https://aidanbae.github.io/video/study/msa/" class="more">Continue reading</a>
-        
-    
-</div>
-
-    
-<div class="footer">
-
-
-    
-        <div class="tags">
-            <i class="fa fa-tags"></i>
-            <div class="links">
-                
-                    <a href="https://aidanbae.github.io/tags/kubernetes">Kubernetes</a>
-                
-                    <a href="https://aidanbae.github.io/tags/docker">docker</a>
-                
-                    <a href="https://aidanbae.github.io/tags/msa">MSA</a>
-                
-            </div>
-        </div>
-    
-
-    
-</div>
-
-</article>
-
-        
-    </div>
-
-    
 
     
     <div class="paginator">
@@ -614,6 +600,10 @@ MSA에 대한 이해가 한번에 되는 발표영상이다.
                 <ul>
                 
                     <li>
+                        <a href="https://aidanbae.github.io/code/devops/k8s/pleg/">PLEG(Pod LifeCycle Event Generator)와 kubelet</a>
+                    </li>
+                
+                    <li>
                         <a href="https://aidanbae.github.io/code/devops/bazel/">bazel 빌드</a>
                     </li>
                 
@@ -631,10 +621,6 @@ MSA에 대한 이해가 한번에 되는 발표영상이다.
                 
                     <li>
                         <a href="https://aidanbae.github.io/audio/2020/">2019-2020시즌</a>
-                    </li>
-                
-                    <li>
-                        <a href="https://aidanbae.github.io/code/devops/k8s/header/">envoy와 x-forwarded-proto 헤더 이슈</a>
                     </li>
                 
                 </ul>
@@ -663,15 +649,15 @@ MSA에 대한 이해가 한번에 되는 발표영상이다.
                     </li>
                 
                     <li>
+                        <a href="https://aidanbae.github.io/categories/devops">Devops (13)</a>
+                    </li>
+                
+                    <li>
+                        <a href="https://aidanbae.github.io/categories/server">Server (13)</a>
+                    </li>
+                
+                    <li>
                         <a href="https://aidanbae.github.io/categories/smalltalk">Smalltalk (13)</a>
-                    </li>
-                
-                    <li>
-                        <a href="https://aidanbae.github.io/categories/devops">Devops (12)</a>
-                    </li>
-                
-                    <li>
-                        <a href="https://aidanbae.github.io/categories/server">Server (12)</a>
                     </li>
                 
             </ul>
