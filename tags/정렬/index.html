@@ -131,14 +131,62 @@
     </div>
 
     
-        golang에서는 정렬 (sort) 라이브러리를 제공하고 있습니다.
-다음은 내장 함수들을 활용한 예제코드입니다:
-func main() { str := []string{&#34;c&#34;, &#34;a&#34;, &#34;b&#34;} sort.Strings(str) fmt.Println(&#34;Strings: &#34;, str) ints := []int{70, 2, 4} sort.Ints(ints) fmt.Println(&#34;Ints: &#34;, ints) s := sort.IntsAreSorted(ints) fmt.Println(&#34;Sorted: &#34;, s) } 결과:
-Strings: [a b c] Ints: [2 4 70] Sorted: true Process finished with exit code 0 sort.Sort() 정렬을 꼭 이런식으로 하고싶은게 아닐 수 있습니다. 커스터마이징을 할 수 있도록 sort는 Sort라는 메소드를 가지고있습니다.
+        <p>golang에서는 정렬 (sort) 라이브러리를 제공하고 있습니다.</p>
+<p>다음은 내장 함수들을 활용한 예제코드입니다:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-golang" data-lang="golang"><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">main</span>() {
+	<span style="color:#a6e22e">str</span> <span style="color:#f92672">:=</span> []<span style="color:#66d9ef">string</span>{<span style="color:#e6db74">&#34;c&#34;</span>, <span style="color:#e6db74">&#34;a&#34;</span>, <span style="color:#e6db74">&#34;b&#34;</span>}
+	<span style="color:#a6e22e">sort</span>.<span style="color:#a6e22e">Strings</span>(<span style="color:#a6e22e">str</span>)
+	<span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#e6db74">&#34;Strings: &#34;</span>, <span style="color:#a6e22e">str</span>)
 
-        
-            <a href="https://aidanbae.github.io/code/golang/sort/" class="more">Continue reading</a>
-        
+	<span style="color:#a6e22e">ints</span> <span style="color:#f92672">:=</span> []<span style="color:#66d9ef">int</span>{<span style="color:#ae81ff">70</span>, <span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">4</span>}
+	<span style="color:#a6e22e">sort</span>.<span style="color:#a6e22e">Ints</span>(<span style="color:#a6e22e">ints</span>)
+	<span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#e6db74">&#34;Ints:   &#34;</span>, <span style="color:#a6e22e">ints</span>)
+
+	<span style="color:#a6e22e">s</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">sort</span>.<span style="color:#a6e22e">IntsAreSorted</span>(<span style="color:#a6e22e">ints</span>)
+	<span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#e6db74">&#34;Sorted: &#34;</span>, <span style="color:#a6e22e">s</span>)
+}
+</code></pre></div><p>결과:</p>
+<pre><code>Strings:  [a b c]
+Ints:    [2 4 70]
+Sorted:  true
+
+Process finished with exit code 0
+</code></pre><h5 id="sortsort">sort.Sort()</h5>
+<p>정렬을 꼭 이런식으로 하고싶은게 아닐 수 있습니다.
+<strong>커스터마이징</strong>을 할 수 있도록 sort는 Sort라는 메소드를 가지고있습니다. Sort에 인자로 들어가는 struct가 sort의 Interface에 정의된 메소드들만 들고있으면 됩니다.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-golang" data-lang="golang"><span style="color:#66d9ef">type</span> <span style="color:#a6e22e">ByAge</span> []<span style="color:#a6e22e">Person</span>
+
+<span style="color:#66d9ef">func</span> (<span style="color:#a6e22e">a</span> <span style="color:#a6e22e">ByAge</span>) <span style="color:#a6e22e">Len</span>() <span style="color:#66d9ef">int</span>           { <span style="color:#66d9ef">return</span> len(<span style="color:#a6e22e">a</span>) }
+<span style="color:#66d9ef">func</span> (<span style="color:#a6e22e">a</span> <span style="color:#a6e22e">ByAge</span>) <span style="color:#a6e22e">Swap</span>(<span style="color:#a6e22e">i</span>, <span style="color:#a6e22e">j</span> <span style="color:#66d9ef">int</span>)      { <span style="color:#a6e22e">a</span>[<span style="color:#a6e22e">i</span>], <span style="color:#a6e22e">a</span>[<span style="color:#a6e22e">j</span>] = <span style="color:#a6e22e">a</span>[<span style="color:#a6e22e">j</span>], <span style="color:#a6e22e">a</span>[<span style="color:#a6e22e">i</span>] }
+<span style="color:#66d9ef">func</span> (<span style="color:#a6e22e">a</span> <span style="color:#a6e22e">ByAge</span>) <span style="color:#a6e22e">Less</span>(<span style="color:#a6e22e">i</span>, <span style="color:#a6e22e">j</span> <span style="color:#66d9ef">int</span>) <span style="color:#66d9ef">bool</span> { <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">a</span>[<span style="color:#a6e22e">i</span>].<span style="color:#a6e22e">Age</span> &lt; <span style="color:#a6e22e">a</span>[<span style="color:#a6e22e">j</span>].<span style="color:#a6e22e">Age</span> }
+
+<span style="color:#66d9ef">func</span> <span style="color:#a6e22e">main</span>() {
+	<span style="color:#a6e22e">people</span> <span style="color:#f92672">:=</span> []<span style="color:#a6e22e">Person</span>{
+		{<span style="color:#e6db74">&#34;Bob&#34;</span>, <span style="color:#ae81ff">31</span>},
+		{<span style="color:#e6db74">&#34;John&#34;</span>, <span style="color:#ae81ff">42</span>},
+		{<span style="color:#e6db74">&#34;Michael&#34;</span>, <span style="color:#ae81ff">17</span>},
+		{<span style="color:#e6db74">&#34;Jenny&#34;</span>, <span style="color:#ae81ff">26</span>},
+	}
+
+	<span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#a6e22e">people</span>)
+	<span style="color:#75715e">// There are two ways to sort a slice. First, one can define
+</span><span style="color:#75715e"></span>	<span style="color:#75715e">// a set of methods for the slice type, as with ByAge, and
+</span><span style="color:#75715e"></span>	<span style="color:#75715e">// call sort.Sort. In this first example we use that technique.
+</span><span style="color:#75715e"></span>	<span style="color:#a6e22e">sort</span>.<span style="color:#a6e22e">Sort</span>(<span style="color:#a6e22e">ByAge</span>(<span style="color:#a6e22e">people</span>))
+	<span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#a6e22e">people</span>)
+
+	<span style="color:#75715e">// The other way is to use sort.Slice with a custom Less
+</span><span style="color:#75715e"></span>	<span style="color:#75715e">// function, which can be provided as a closure. In this
+</span><span style="color:#75715e"></span>	<span style="color:#75715e">// case no methods are needed. (And if they exist, they
+</span><span style="color:#75715e"></span>	<span style="color:#75715e">// are ignored.) Here we re-sort in reverse order: compare
+</span><span style="color:#75715e"></span>	<span style="color:#75715e">// the closure with ByAge.Less.
+</span><span style="color:#75715e"></span>	<span style="color:#a6e22e">sort</span>.<span style="color:#a6e22e">Slice</span>(<span style="color:#a6e22e">people</span>, <span style="color:#66d9ef">func</span>(<span style="color:#a6e22e">i</span>, <span style="color:#a6e22e">j</span> <span style="color:#66d9ef">int</span>) <span style="color:#66d9ef">bool</span> {
+		<span style="color:#66d9ef">return</span> <span style="color:#a6e22e">people</span>[<span style="color:#a6e22e">i</span>].<span style="color:#a6e22e">Age</span> &gt; <span style="color:#a6e22e">people</span>[<span style="color:#a6e22e">j</span>].<span style="color:#a6e22e">Age</span>
+	})
+	<span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#a6e22e">people</span>)
+
+}
+</code></pre></div>
     
 </div>
 
@@ -212,10 +260,6 @@ Strings: [a b c] Ints: [2 4 70] Sorted: true Process finished with exit code 0 s
                 
                     <li>
                         <a href="https://aidanbae.github.io/code/devops/k8s/header/">envoy와 x-forwarded-proto 헤더 이슈</a>
-                    </li>
-                
-                    <li>
-                        <a href="https://aidanbae.github.io/code/devops/k8s/istio-mixer-debug/">istio debug를 위한 controlZ 활용</a>
                     </li>
                 
                 </ul>
