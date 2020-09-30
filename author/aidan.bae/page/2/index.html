@@ -89,6 +89,80 @@
     
         <div class="article-wrapper u-cf">
             
+                <a class="bubble" href="https://aidanbae.github.io/code/devops/k8s/istio-mixer-debug/">
+    <i class="fa fa-fw fa-code"></i>
+</a>
+
+<article class="default article">
+    
+
+    <div class="content">
+    <h3><a href="https://aidanbae.github.io/code/devops/k8s/istio-mixer-debug/">istio debug를 위한 controlZ 활용</a></h3>
+    <div class="meta">
+        
+            
+                <span class="date moment">2019-11-30</span>
+            
+        
+
+        
+
+        
+            <span class="categories">
+                
+                    <a href="https://aidanbae.github.io/categories/server">Server</a>
+                
+                    <a href="https://aidanbae.github.io/categories/devops">DevOps</a>
+                
+            </span>
+        
+
+        
+            <span class="author"><a href="https://aidanbae.github.io/author/aidan.bae">Aidan.bae</a></span>
+        
+    </div>
+
+    
+        istio의 mixer는 서비스에 대한 원격 분석등의 수집을 도와주는 유연한 모델이다. 서비스 옆에 붙어 있는 istio-proxy들의 수집되는 정보들을 mixer를 통해 파이프라이닝 할 수 있다.
+그림처럼 adapter api를 사용하기 때문에 다양한 어댑터를 사용해 확장성과 유연성을 다 갖춘 모델이다.
+istio 믹서에 문제가 생긴다면 서비스에 대한 수집 정보들에 영향이 생길 수 있다. 그러므로 특정 서비스에 라우팅이 안되고 모니터링상 이슈가 없었다면 로그나 수집 데이터를 생성, 운반하는 믹서에 이슈가 있는지 확인해보아야한다.
+istio는 쿠버네티스 대시보드처럼 손쉽게 istio의 현재 상태와 스코프 기능을 제공하는 controlZ라는 서비스를 제공하고있다.
+
+        
+            <a href="https://aidanbae.github.io/code/devops/k8s/istio-mixer-debug/" class="more">Continue reading</a>
+        
+    
+</div>
+
+    
+<div class="footer">
+
+
+    
+        <div class="tags">
+            <i class="fa fa-tags"></i>
+            <div class="links">
+                
+                    <a href="https://aidanbae.github.io/tags/istio">istio</a>
+                
+                    <a href="https://aidanbae.github.io/tags/mixer">mixer</a>
+                
+                    <a href="https://aidanbae.github.io/tags/debug">debug</a>
+                
+            </div>
+        </div>
+    
+
+    
+</div>
+
+</article>
+
+            
+        </div>
+    
+        <div class="article-wrapper u-cf">
+            
                 <a class="bubble" href="https://aidanbae.github.io/article/book/time/">
     <i class="fa fa-fw fa-pencil"></i>
 </a>
@@ -549,86 +623,6 @@ MSA에 대한 이해가 한번에 되는 발표영상이다.
             
         </div>
     
-        <div class="article-wrapper u-cf">
-            
-                
-<a class="bubble" href="https://aidanbae.github.io/video/linux/io-redirection/">
-    <i class="fa fa-fw fa-video-camera"></i>
-</a>
-
-<article class="video">
-    
-
-
-    
-        <div class="responsive-video youtube">
-            <iframe src="https://www.youtube-nocookie.com/embed/kpcEoSiMgnU?rel=0" frameborder="0" allowfullscreen></iframe>
-        </div>
-    
-    
-
-    <div class="content">
-    <h3><a href="https://aidanbae.github.io/video/linux/io-redirection/">리눅스 이해하기 - IO redirection</a></h3>
-    <div class="meta">
-        
-            
-                <span class="date moment">2019-05-07</span>
-            
-        
-
-        
-
-        
-            <span class="categories">
-                
-                    <a href="https://aidanbae.github.io/categories/linux">Linux</a>
-                
-            </span>
-        
-
-        
-            <span class="author"><a href="https://aidanbae.github.io/author/aidan.bae">Aidan.bae</a></span>
-        
-    </div>
-
-    
-        Linux에서 로그파일을 다루거나 민감한 정보를 다루다보면 IO Redirection을 사용할 일이 종종 생긴다. 이번 기회에 개념을 확실히 정리하자.
-학습목표 이 명령어의 의미를 해석할 수 있으면 된다.
-$ head -n1 &lt; linux.txt &gt; one.txt 추가 - input에 대한 이야기   종합 핵심 정리 &gt;&gt; 꺽쇄 두개는 추가가 된다. 덮어쓰기가 아니라 뒤에 추가하는것
-&lt;&lt; 꺽쇄 두개는 input에 대한 제한 명령어.
-// mail이라는 프로그램에게 인자를 보내는데 // eot라는 input이 나올때까지 standard input을 받음 $ mail egoing@gmail.
-
-        
-            <a href="https://aidanbae.github.io/video/linux/io-redirection/" class="more">Continue reading</a>
-        
-    
-</div>
-
-    
-<div class="footer">
-
-
-    
-        <div class="tags">
-            <i class="fa fa-tags"></i>
-            <div class="links">
-                
-                    <a href="https://aidanbae.github.io/tags/linux">linux</a>
-                
-                    <a href="https://aidanbae.github.io/tags/redirection">redirection</a>
-                
-            </div>
-        </div>
-    
-
-    
-</div>
-
-</article>
-
-            
-        </div>
-    
 
     
     <div class="paginator">
@@ -655,6 +649,10 @@ $ head -n1 &lt; linux.txt &gt; one.txt 추가 - input에 대한 이야기   종�
                 <ul>
                 
                     <li>
+                        <a href="https://aidanbae.github.io/audio/chaos/">너의 혼돈을 사랑하라</a>
+                    </li>
+                
+                    <li>
                         <a href="https://aidanbae.github.io/code/devops/k8s/pleg/">PLEG(Pod LifeCycle Event Generator)와 kubelet</a>
                     </li>
                 
@@ -672,10 +670,6 @@ $ head -n1 &lt; linux.txt &gt; one.txt 추가 - input에 대한 이야기   종�
                 
                     <li>
                         <a href="https://aidanbae.github.io/code/golang/tcp-server/">TCP 서버 구현과 패킷분석</a>
-                    </li>
-                
-                    <li>
-                        <a href="https://aidanbae.github.io/audio/2020/">2019-2020시즌</a>
                     </li>
                 
                 </ul>
@@ -696,11 +690,11 @@ $ head -n1 &lt; linux.txt &gt; one.txt 추가 - input에 대한 이야기   종�
                     </li>
                 
                     <li>
-                        <a href="https://aidanbae.github.io/categories/wisdom">Wisdom (14)</a>
+                        <a href="https://aidanbae.github.io/categories/wisdom">Wisdom (15)</a>
                     </li>
                 
                     <li>
-                        <a href="https://aidanbae.github.io/categories/book">Book (13)</a>
+                        <a href="https://aidanbae.github.io/categories/book">Book (14)</a>
                     </li>
                 
                     <li>

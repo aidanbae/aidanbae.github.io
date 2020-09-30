@@ -131,92 +131,14 @@
     </div>
 
     
-        <h4 id="intro">Intro</h4>
-<p>Top of Tower GameServer(이하 tot)를 Python + Django 스택으로 구현하면서<br>
-가을과 겨울 사이에 Mason과 같이 공부한 Fluent Python을 프로젝트에 녹여볼려고 했다.</p>
-<p><img src="screenshot.png" alt="ho">
-<em>파이썬을 파볼 생각이라면 강력 추천</em></p>
-<p>Mason과 Fluent Python(전문가를 위한 파이썬) 스터디를 진행하면서 Chapter13에서 <code>연산자 오버로딩</code>을 만났다.
-사실 우리는 연산자를 숫자연산에만 사용하는 경향이 있다. 연산자는 논리표현 중 하나고 우리는 논리 표현으로서
-더 새롭게 정의할 수 있다.
-행렬의 곱이 숫자의 곱과 방식이 조금 다르듯, <strong>게임 캐릭터에 써보는게 좋겠다는 이야기가 나왔다.</strong></p>
-<p>tot라는 게임은 캐릭터를 조합하고 더 강하게 키워서 타워의 몬스터들을 때려 눕히는 게임이다. (아직 런칭되지 않아 보안상 말을 줄이겠다.) 두개의 캐릭터를 합쳐서 도박(?)성으로 더 강한 캐릭터를 만들 수 있다. 이와 관련해서 <code>캐릭터 + 캐릭터</code>라는 연산자오버로딩을 활용해보는 쪽으로 설계해보았다.</p>
-<hr>
-<h5 id="-">캐릭터 설계</h5>
-<p>간단하게 블로그 포스트용으로 축약해보았다.</p>
-<h5 id="assume">assume</h5>
-<pre><code>캐릭터 데이터는 4가지 속성을 가진다. (물, 불, 바람, 흙)
-캐릭터 데이터는 성을 가진다. (1성에서 5성까지)
-캐릭터 데이터는 레벨을 가진다.
-</code></pre><p>Django 클래스 코드를 보자:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Character</span>(models<span style="color:#f92672">.</span>Model):
-    id <span style="color:#f92672">=</span> models<span style="color:#f92672">.</span>AutoField(primary_key<span style="color:#f92672">=</span>True)
-    water <span style="color:#f92672">=</span> models<span style="color:#f92672">.</span>IntegerField(default<span style="color:#f92672">=</span><span style="color:#ae81ff">10</span>, verbose_name<span style="color:#f92672">=</span><span style="color:#e6db74"></span><span style="color:#e6db74">&#39;</span><span style="color:#e6db74">물 속성 공격력</span><span style="color:#e6db74">&#39;</span>)
-    fire <span style="color:#f92672">=</span> models<span style="color:#f92672">.</span>IntegerField(default<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>, verbose_name<span style="color:#f92672">=</span><span style="color:#e6db74"></span><span style="color:#e6db74">&#39;</span><span style="color:#e6db74">불 속성 공격력</span><span style="color:#e6db74">&#39;</span>)
-    wind <span style="color:#f92672">=</span> models<span style="color:#f92672">.</span>IntegerField(default<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>, verbose_name<span style="color:#f92672">=</span><span style="color:#e6db74"></span><span style="color:#e6db74">&#39;</span><span style="color:#e6db74">바람 속성 공격력 </span><span style="color:#e6db74">&#39;</span>)
-    earth <span style="color:#f92672">=</span> models<span style="color:#f92672">.</span>IntegerField(default<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>, verbose_name<span style="color:#f92672">=</span><span style="color:#e6db74"></span><span style="color:#e6db74">&#39;</span><span style="color:#e6db74">흙 속성 공격력</span><span style="color:#e6db74">&#39;</span>)
-    star <span style="color:#f92672">=</span> models<span style="color:#f92672">.</span>IntegerField(default<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>, verbose_name<span style="color:#f92672">=</span><span style="color:#e6db74"></span><span style="color:#e6db74">&#39;</span><span style="color:#e6db74">성</span><span style="color:#e6db74">&#39;</span>)
-    level <span style="color:#f92672">=</span> models<span style="color:#f92672">.</span>IntegerField(default<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>, verbose_name<span style="color:#f92672">=</span><span style="color:#e6db74"></span><span style="color:#e6db74">&#39;</span><span style="color:#e6db74">캐릭터 레벨</span><span style="color:#e6db74">&#39;</span>)
+        Intro Top of Tower GameServer(이하 tot)를 Python + Django 스택으로 구현하면서
+가을과 겨울 사이에 Mason과 같이 공부한 Fluent Python을 프로젝트에 녹여볼려고 했다.
+파이썬을 파볼 생각이라면 강력 추천
+Mason과 Fluent Python(전문가를 위한 파이썬) 스터디를 진행하면서 Chapter13에서 연산자 오버로딩을 만났다. 사실 우리는 연산자를 숫자연산에만 사용하는 경향이 있다. 연산자는 논리표현 중 하나고 우리는 논리 표현으로서 더 새롭게 정의할 수 있다. 행렬의 곱이 숫자의 곱과 방식이 조금 다르듯, 게임 캐릭터에 써보는게 좋겠다는 이야기가 나왔다.
 
-    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">get_property_dict</span>(self):
-        <span style="color:#66d9ef">return</span> {
-            WATER: self<span style="color:#f92672">.</span>water,
-            FIRE: self<span style="color:#f92672">.</span>fire,
-            WIND: self<span style="color:#f92672">.</span>wind,
-            EARTH: self<span style="color:#f92672">.</span>earth
-        }
-
-</code></pre></div><p>두가지 캐릭터를 조합, 합성하는 기능을 구현하려고한다.
-character + character는 논리적으로도 이해하기 쉬운 코드이다.
-우린 특별메서드 <code>__add__()</code>를 이용해 이를 간단하고도 멋지게 구현할 수 있다.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">  <span style="color:#f92672">.</span><span style="color:#f92672">.</span><span style="color:#f92672">.</span>
-  <span style="color:#66d9ef">def</span> __add__(self, other):
-         properties_1 <span style="color:#f92672">=</span> self<span style="color:#f92672">.</span>get_property_dict()
-         properties_2 <span style="color:#f92672">=</span> other<span style="color:#f92672">.</span>get_property_dict()
-
-         result_prop <span style="color:#f92672">=</span> get_dominant_properties(properties_1, properties_2)
-         max_item <span style="color:#f92672">=</span> max(result_prop<span style="color:#f92672">.</span>items(), key<span style="color:#f92672">=</span>operator<span style="color:#f92672">.</span>itemgetter(<span style="color:#ae81ff">1</span>))
-
-         percent <span style="color:#f92672">=</span> self<span style="color:#f92672">.</span>level <span style="color:#f92672">*</span> <span style="color:#ae81ff">0.5</span> <span style="color:#f92672">+</span> other<span style="color:#f92672">.</span>level <span style="color:#f92672">*</span> <span style="color:#ae81ff">0.5</span>
-         rand_int <span style="color:#f92672">=</span> randint(<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">100</span>)
-         next_star <span style="color:#f92672">=</span> self<span style="color:#f92672">.</span>star
-
-         <span style="color:#66d9ef">if</span> rand_int <span style="color:#f92672">&lt;</span> percent:
-             next_star <span style="color:#f92672">=</span> next_star <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>
-             new_character <span style="color:#f92672">=</span> Character<span style="color:#f92672">.</span>objects<span style="color:#f92672">.</span>create(cls<span style="color:#f92672">=</span>max_item[<span style="color:#ae81ff">0</span>], star<span style="color:#f92672">=</span>next_star, state<span style="color:#f92672">=</span>READY)
-             set_character_properties(new_character, result_prop)
-             <span style="color:#66d9ef">return</span> new_character
-         <span style="color:#66d9ef">else</span>:
-             new_character <span style="color:#f92672">=</span> Character<span style="color:#f92672">.</span>objects<span style="color:#f92672">.</span>create(cls<span style="color:#f92672">=</span>max_item[<span style="color:#ae81ff">0</span>], star<span style="color:#f92672">=</span>next_star, state<span style="color:#f92672">=</span>READY)
-             set_character_properties(new_character, result_prop)
-             <span style="color:#66d9ef">return</span> new_character
-</code></pre></div><p>어려워 보이지만 사실 천천히보면 간단한 코드이다. 살펴보자.</p>
-<ul>
-<li><code>__add__()</code>라는 연산자 특별 메서드를 오버로딩했다.
-<ul>
-<li>a + b라는 연산을 할때 self 는 a, other는 b가 된다.</li>
-</ul>
-</li>
-<li>각각의 프로퍼티(속성)객체를 가져온다. get_property_dict()</li>
-<li>좀더 높은 속성들을 추려주는 get_dominant_properties()를 통해 result_prop을 반환받는다.</li>
-<li>기타 레벨등의 수치와 랜덤 수치를 통해 합성결과가 될 레벨, 성을 정해 새로운 캐릭터 데이터를 반환해준다.</li>
-</ul>
-<p>주의사항:<br>
-<strong>결코 피연산자를 변경하면 안되며 새로운 객체를 생성해서 결과를 반환해야한다.</strong></p>
-<p>이젠 합성 요청이 들어오는 메서드에서 사용해보자:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">synthesize</span>(request, player_id):
-       <span style="color:#f92672">.</span><span style="color:#f92672">.</span><span style="color:#f92672">.</span>
-       new_character <span style="color:#f92672">=</span> char1 <span style="color:#f92672">+</span> char2 <span style="color:#f92672">/</span><span style="color:#f92672">/</span> <span style="color:#960050;background-color:#1e0010">두</span> <span style="color:#960050;background-color:#1e0010">캐</span><span style="color:#960050;background-color:#1e0010">릭</span><span style="color:#960050;background-color:#1e0010">터</span><span style="color:#960050;background-color:#1e0010">를</span> <span style="color:#960050;background-color:#1e0010">합</span><span style="color:#960050;background-color:#1e0010">성</span><span style="color:#960050;background-color:#1e0010">하</span><span style="color:#960050;background-color:#1e0010">고</span> <span style="color:#960050;background-color:#1e0010">새</span><span style="color:#960050;background-color:#1e0010">로</span><span style="color:#960050;background-color:#1e0010">운</span> <span style="color:#960050;background-color:#1e0010">캐</span><span style="color:#960050;background-color:#1e0010">릭</span><span style="color:#960050;background-color:#1e0010">터</span><span style="color:#960050;background-color:#1e0010">를</span> <span style="color:#960050;background-color:#1e0010">받</span><span style="color:#960050;background-color:#1e0010">아</span><span style="color:#960050;background-color:#1e0010">옵</span><span style="color:#960050;background-color:#1e0010">니</span><span style="color:#960050;background-color:#1e0010">다</span><span style="color:#f92672">.</span>
-       player<span style="color:#f92672">.</span>characters<span style="color:#f92672">.</span>add(new_character) <span style="color:#f92672">/</span><span style="color:#f92672">/</span> <span style="color:#960050;background-color:#1e0010">플</span><span style="color:#960050;background-color:#1e0010">레</span><span style="color:#960050;background-color:#1e0010">이</span><span style="color:#960050;background-color:#1e0010">어</span><span style="color:#960050;background-color:#1e0010">에</span><span style="color:#960050;background-color:#1e0010">게</span> <span style="color:#960050;background-color:#1e0010">새</span><span style="color:#960050;background-color:#1e0010">로</span><span style="color:#960050;background-color:#1e0010">운</span> <span style="color:#960050;background-color:#1e0010">캐</span><span style="color:#960050;background-color:#1e0010">릭</span><span style="color:#960050;background-color:#1e0010">터</span> <span style="color:#960050;background-color:#1e0010">데</span><span style="color:#960050;background-color:#1e0010">이</span><span style="color:#960050;background-color:#1e0010">터</span><span style="color:#960050;background-color:#1e0010">를</span> <span style="color:#960050;background-color:#1e0010">추</span><span style="color:#960050;background-color:#1e0010">가</span><span style="color:#960050;background-color:#1e0010">합</span><span style="color:#960050;background-color:#1e0010">니</span><span style="color:#960050;background-color:#1e0010">다</span><span style="color:#f92672">.</span>
-       player<span style="color:#f92672">.</span>characters<span style="color:#f92672">.</span>remove(char1) <span style="color:#f92672">/</span><span style="color:#f92672">/</span> <span style="color:#960050;background-color:#1e0010">합</span><span style="color:#960050;background-color:#1e0010">성</span><span style="color:#960050;background-color:#1e0010">에</span> <span style="color:#960050;background-color:#1e0010">사</span><span style="color:#960050;background-color:#1e0010">용</span><span style="color:#960050;background-color:#1e0010">된</span> <span style="color:#960050;background-color:#1e0010">캐</span><span style="color:#960050;background-color:#1e0010">릭</span><span style="color:#960050;background-color:#1e0010">터</span> <span style="color:#960050;background-color:#1e0010">제</span><span style="color:#960050;background-color:#1e0010">거</span>
-       player<span style="color:#f92672">.</span>characters<span style="color:#f92672">.</span>remove(char2) <span style="color:#f92672">/</span><span style="color:#f92672">/</span> <span style="color:#960050;background-color:#1e0010">합</span><span style="color:#960050;background-color:#1e0010">성</span><span style="color:#960050;background-color:#1e0010">에</span> <span style="color:#960050;background-color:#1e0010">사</span><span style="color:#960050;background-color:#1e0010">용</span><span style="color:#960050;background-color:#1e0010">된</span> <span style="color:#960050;background-color:#1e0010">캐</span><span style="color:#960050;background-color:#1e0010">릭</span><span style="color:#960050;background-color:#1e0010">터</span> <span style="color:#960050;background-color:#1e0010">제</span><span style="color:#960050;background-color:#1e0010">거</span><span style="color:#960050;background-color:#1e0010">!</span>
-</code></pre></div><h4 id="heading">마무리</h4>
-<p><code>__add__()</code> 메서드를 객체에 오버로딩해서 중위연산자를 커스터마이징해보았다.</p>
-<p>예제코드는 좀더 이해하기 쉬운 설명을 위해 심플 코딩으로 구현한 것이고 단단하게 코딩하고자한다면 피연산자들의 타입검증과 같은 TypeError부분이 이 추가되어야한다.
-isinstace()를 활용하는 것도 좋은 방법이다.</p>
-<p>너무 남용할 경우, 프로젝트의 확장성을 헤칠수 있으니 조심히 주의하여 사용하기 바란다</p>
-<hr>
-
+        
+            <a href="https://aidanbae.github.io/code/python/pythonspecialmethod/" class="more">Continue reading</a>
+        
     
 </div>
 
@@ -269,6 +191,10 @@ isinstace()를 활용하는 것도 좋은 방법이다.</p>
                 <ul>
                 
                     <li>
+                        <a href="https://aidanbae.github.io/audio/chaos/">너의 혼돈을 사랑하라</a>
+                    </li>
+                
+                    <li>
                         <a href="https://aidanbae.github.io/code/devops/k8s/pleg/">PLEG(Pod LifeCycle Event Generator)와 kubelet</a>
                     </li>
                 
@@ -286,10 +212,6 @@ isinstace()를 활용하는 것도 좋은 방법이다.</p>
                 
                     <li>
                         <a href="https://aidanbae.github.io/code/golang/tcp-server/">TCP 서버 구현과 패킷분석</a>
-                    </li>
-                
-                    <li>
-                        <a href="https://aidanbae.github.io/audio/2020/">2019-2020시즌</a>
                     </li>
                 
                 </ul>
@@ -310,11 +232,11 @@ isinstace()를 활용하는 것도 좋은 방법이다.</p>
                     </li>
                 
                     <li>
-                        <a href="https://aidanbae.github.io/categories/wisdom">Wisdom (14)</a>
+                        <a href="https://aidanbae.github.io/categories/wisdom">Wisdom (15)</a>
                     </li>
                 
                     <li>
-                        <a href="https://aidanbae.github.io/categories/book">Book (13)</a>
+                        <a href="https://aidanbae.github.io/categories/book">Book (14)</a>
                     </li>
                 
                     <li>

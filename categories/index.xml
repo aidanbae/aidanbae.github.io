@@ -5,10 +5,28 @@
     <link>https://aidanbae.github.io/categories/</link>
     <description>Recent content in Categories on 아이단은 어디갔을까</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Sat, 01 Aug 2020 19:01:14 +0900</lastBuildDate>
+    <lastBuildDate>Mon, 28 Sep 2020 16:12:47 +0100</lastBuildDate>
     
 	<atom:link href="https://aidanbae.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Book</title>
+      <link>https://aidanbae.github.io/categories/book/</link>
+      <pubDate>Mon, 28 Sep 2020 16:12:47 +0100</pubDate>
+      
+      <guid>https://aidanbae.github.io/categories/book/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Wisdom</title>
+      <link>https://aidanbae.github.io/categories/wisdom/</link>
+      <pubDate>Mon, 28 Sep 2020 16:12:47 +0100</pubDate>
+      
+      <guid>https://aidanbae.github.io/categories/wisdom/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>DevOps</title>
@@ -25,24 +43,6 @@
       <pubDate>Sat, 01 Aug 2020 19:01:14 +0900</pubDate>
       
       <guid>https://aidanbae.github.io/categories/server/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Wisdom</title>
-      <link>https://aidanbae.github.io/categories/wisdom/</link>
-      <pubDate>Thu, 20 Feb 2020 16:23:40 +0100</pubDate>
-      
-      <guid>https://aidanbae.github.io/categories/wisdom/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Book</title>
-      <link>https://aidanbae.github.io/categories/book/</link>
-      <pubDate>Sat, 15 Feb 2020 13:01:14 +0900</pubDate>
-      
-      <guid>https://aidanbae.github.io/categories/book/</guid>
       <description></description>
     </item>
     
